@@ -1030,6 +1030,56 @@ YOLO是一个目标检测算法，YOLO网络将目标检测问题转换为回归
       </tags>
   </entry>
   <entry>
+    <title>ResNet论文笔记</title>
+    <url>/2021/07/11/ResNet-Note/</url>
+    <content><![CDATA[<p>ResNet是解决了深度学习网络中随着网络深化，网络能力反而退化的问题。<br />
+封面《恋×シンアイ彼女》</p>
+<span id="more"></span>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>卷积神经网络中网络的深度是非常关键的，许多非凡的视觉识别任务都收益于非常深的模型。因此便有一个问题“学习更好的网络是否就像堆叠更多的层一样简单？”回答这个问题的其中一个臭名昭著的障碍就是“梯度消失/爆炸”，其阻碍了网络收敛。然而这个问题被通过初始归一化和中间层归一化解决了。<br />
+当更深的网络能够收敛的时候，网络退化的问题出现了。随着网络深度的增加，准确率达到饱和然后迅速下降。让人意外的是这种退化并不是由过拟合导致的，随着层数的不断增加，模型反而有了更高的训练误差。</p>
+<p><img src="/images/ResNet-Note/fig1.png" alt="" /></p>
+<h1 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h1>
+<p>为了解决退化问题，何凯明团队提出了一种新型网络结构——残差结构。其结构如下图所示，新增加的层为恒等映射层，另一个为从浅层学习结果的复制。原本底层的输出变成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>，增加的非线性连接去拟合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>:</mo><mo>=</mo><mi>H</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">F(x):=H(x)-x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>，原始的映射重构成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">F(x)+x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>。何凯明团队假定残差部分比原本映射更容易优化。如果恒等映射是最优的，那么只需要讲残差部分置0即可，这比拟合非线性层更容易。<br />
+<img src="/images/ResNet-Note/res_block.png" alt="" /><br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">F(x)+x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>可以通过前向神经网络加上“短路“（shortcut）来实现，无需额外参数和计算复杂度，依然可以用SGD来优化。</p>
+<h1 id="网络结构"><a class="markdownIt-Anchor" href="#网络结构"></a> 网络结构</h1>
+<h2 id="plain-network"><a class="markdownIt-Anchor" href="#plain-network"></a> plain network</h2>
+<p>受到VGG启发，何凯明团队基于以下原则设计了一种新的结构plain-network作为测试的基准线</p>
+<ul>
+<li>输出大小一样的层拥有一样的卷积核数</li>
+<li>特征图变成原来一半的时候输出的卷积核翻倍<br />
+同时使用步长为2的卷积替代下采样，使用全局平均池化和带有softmax的1000输出全连接作为输出。该结构比VGG花费更少的卷积核，复杂度更低。计算量为3.6 BFLOPs（乘加），只有原本VGG的18%。<br />
+<img src="/images/ResNet-Note/architectures.png" alt="" /></li>
+</ul>
+<h2 id="residual-network"><a class="markdownIt-Anchor" href="#residual-network"></a> residual network</h2>
+<p>plain network的残差版，对于输入输出维度相等时直接”短路“即可，即上图中的实线。对于维度上升的，图中虚线部分，则有两种方案：</p>
+<ol>
+<li>短路部分依然使用恒等映射，维度增加的部分补0填充，这样不会引入新的参数</li>
+<li>使用公式<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><msub><mi>W</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>W</mi><mi>s</mi></msub><mi>x</mi></mrow><annotation encoding="application/x-tex">y=F(x,{W_i})+W_sx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">x</span></span></span></span>匹配维度，使用1×1卷积实现。<br />
+对于两种实现方案，连接不同大小的特征图时，都需要步长为2。</li>
+</ol>
+<p><img src="/images/ResNet-Note/table1.png" alt="" /><br />
+表一为其结构的各种变种。</p>
+<h1 id="实验"><a class="markdownIt-Anchor" href="#实验"></a> 实验</h1>
+<p><img src="/images/ResNet-Note/fig4.png" alt="" /><br />
+<img src="/images/ResNet-Note/top1-error.png" alt="top1-error" /></p>
+<h1 id="更深的瓶颈结构"><a class="markdownIt-Anchor" href="#更深的瓶颈结构"></a> 更深的瓶颈结构</h1>
+<p>为了减少深层网络的训练时间，作者重新设计了一种瓶颈结构，如下图所示。使用1×1，3×3，1×1卷积替换原来的2层卷积。其中1×1的卷积用于升降维，使得3×3卷积的输入维度和输出维度减小，这降低了网络复杂度和计算量。（在后续一些网络如YOLO中都能看到bottleneck结构）<br />
+<img src="/images/ResNet-Note/bottleneck.png" alt="" /></p>
+<h1 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h1>
+<p>ResNet中的残差结构解决了网络退化问题，且结构简单，现实方便也没有增加太多的计算量。在后续的网络中几乎全都有残差结构，而且网络深度也开始到了上百层,训练时也更容易OOM了（哭）。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p>[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE conference on computer vision and pattern recognition. 2016: 770-778.</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毕业设计（二）darknet编译</title>
     <url>/2021/03/04/builddarknet/</url>
     <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
