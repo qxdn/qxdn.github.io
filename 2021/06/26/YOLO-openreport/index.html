@@ -1,0 +1,426 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>毕业设计（四）基于深度学习算法YOLO的行人车辆检测——开题报告 | qxdn Blog</title><meta name="keywords" content="机器学习,毕业设计,yolo"><meta name="author" content="qxdn"><meta name="copyright" content="qxdn"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="毕设开题报告">
+<meta property="og:type" content="article">
+<meta property="og:title" content="毕业设计（四）基于深度学习算法YOLO的行人车辆检测——开题报告">
+<meta property="og:url" content="https://qianxu.run/2021/06/26/YOLO-openreport/index.html">
+<meta property="og:site_name" content="qxdn Blog">
+<meta property="og:description" content="毕设开题报告">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pixiv.re/89937761.jpg">
+<meta property="article:published_time" content="2021-06-26T05:06:06.000Z">
+<meta property="article:modified_time" content="2021-11-11T02:50:00.583Z">
+<meta property="article:author" content="qxdn">
+<meta property="article:tag" content="机器学习">
+<meta property="article:tag" content="毕业设计">
+<meta property="article:tag" content="yolo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pixiv.re/89937761.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://qianxu.run/2021/06/26/YOLO-openreport/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google_site_verification" content="google6acbabd7b6120978.html"/><meta name="baidu_site_verification" content="zVQg9ZxktH8sFIiV"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0f5e7bc19ca6915a2f88baf2abe1f71e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-180828196-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-180828196-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '毕业设计（四）基于深度学习算法YOLO的行人车辆检测——开题报告',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-11 10:50:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><script src="https://cdn.jsdelivr.net/gh/qxdn/live2d-widget@latest/autoload.js"></script><link rel="stylesheet" href="/css/shake-it.css"/><script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@4.1.6/dist/css/swiper.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiperstyle.css"><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="qxdn Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "/images/loading.gif" data-lazy-src="/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">41</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">36</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pixiv.re/89937761.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">qxdn Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">毕业设计（四）基于深度学习算法YOLO的行人车辆检测——开题报告<a class="post-edit-link" href="https://github.com/qxdn/qxdn.github.io/edit/master/source/_posts/2021-06-26-YOLO-openreport.md" title="编辑" target="_blank"><i class="fas fa-pencil-alt"></i></a></h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-06-26T05:06:06.000Z" title="发表于 2021-06-26 13:06:06">2021-06-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-11T02:50:00.583Z" title="更新于 2021-11-11 10:50:00">2021-11-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="毕业设计（四）基于深度学习算法YOLO的行人车辆检测——开题报告"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><span class="disqus-comment-count"><a href="https://qianxu.run/2021/06/26/YOLO-openreport/#disqus_thread"></a></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="目的及意义含国内外的研究现状分析"><a class="markdownIt-Anchor" href="#目的及意义含国内外的研究现状分析"></a> 目的及意义（含国内外的研究现状分析）</h1>
+<h2 id="研究目的"><a class="markdownIt-Anchor" href="#研究目的"></a> 研究目的</h2>
+<p>  本次毕业设计拟对COCO数据集进行提取，并结合其他自制数据集补充，得到行人车辆的图片和标签，搭建You Only Look Once(YOLO)网络模型，训练得到针对车辆和行人的目标检测模型。</p>
+<h2 id="研究意义"><a class="markdownIt-Anchor" href="#研究意义"></a> 研究意义</h2>
+<p>  目标检测是计算机视觉中的一个重要分支，常用的方法有R-CNN<sup><sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></sup>、Fast R-CNN<sup><sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></sup>、Faster R-CNN<sup><sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></sup>、YOLO<sup><sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup></sup>、SSD<sup><sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup></sup>等。在这些算法之中，YOLO以其较高的准确率、实时性和较小的模型而较为出名。YOLOv4 tiny<sup><sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup></sup>的模型大小可以到达到23 MB，而且Intersection over Union（IoU）在50%以上的average precision（AP）可以达到40.2%，基于YOLO模型训练出来的车辆与行人检测模型，可以部署在一些嵌入式设备中，从而运用在自动驾驶领域。</p>
+<h2 id="国内外研究现状"><a class="markdownIt-Anchor" href="#国内外研究现状"></a> 国内外研究现状</h2>
+<p>  自2012年Hinton设计的AlexNet获得ImageNet竞赛冠军以来，人们便开始更多的关注卷积神经网络CNN，之后也启发了VGG、GoogLeNet等知名的卷积神经网络，而YOLOv1就是基于GoogLeNet的backbone进行改进。在YOLOv1提出以前，常用的基于深度学习的目标检测算法为R-CNN系列，其方法可以认为先使用Region Proposal Network（RPN）网络生成一系列样本的候选框，然后使用CNN网络对候选框进行识别并分类。这种方法的精确度取决于其候选框的提取，而且耗时大，Faster R-CNN网络在GPU上检测PASCAL VOC的速度达到5 frame per second(FPS)，而mean average precision(mAP)达到73.2%<sup><sup class="footnote-ref"><a href="#fn3" id="fnref3:1">[3:1]</a></sup></sup>。这种方法因为需要两步进行检测，所以被称为two-stage方法。<br />
+  Joseph Redmon提出的YOLOv1模型基于GoogLeNet进行改善，开创性的将候选框和各个类的识别结果合在一起输出，并针对loss函数进行了重新设计。这种将two-stage方法中的两步合为一步的方法也被称为one-stage方法。这种开创性的设计使得YOLOv1在GPU上检测PASCAL VOC的速度达到45 FPS，加速版本YOLO还可以达到150 FPS，并且mAP达到63.4。相较于Faster R-CNN，虽然mAP变小了，但是模型的fps得了极大的提升，可以运用于实时系统<sup><sup class="footnote-ref"><a href="#fn4" id="fnref4:1">[4:1]</a></sup></sup>。<br />
+  为了提升模型的精确度，YOLOv2在所有卷积层中使用了Batch Normalization（BN）层，减少了训练时模型对初始化权重的敏感程度，避免模型过拟合。为了减少网络对不同分辨率输入的敏感程度，YOLOv2对网络进行了多个分辨率尺度的训练。受到了Faster R-CNN的启发，YOLOv2使用预制的Anchor Box去预测Bounding Box并去掉了全连接层，加快了计算，预制的Anchor Box通过对数据集中的物体框使用K-mean聚类算法获得。为了提高小目标的检测效果，作者提出了passthrough层，获取更细的特征<sup><sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup></sup>。<br />
+  YOLOv1和YOLOv2对小目标的检测效果一直不好，为了提升YOLO网络对小目标的检测性能，YOLOv3借鉴特征金字塔<sup><sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup></sup>，一共有三个尺寸的特征图用于检测目标，小尺寸的特征图检测大物体，大尺寸的特征图检测小物体。为了提升网络性能，参考了ResNet结构,引入了残差块<sup><sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup></sup>。<br />
+  YOLOv4使用了近年来深度学习方面的许多技巧，包含了mish激活函数、CIoU loss函数、mosaic数据增强等。通过使用这些技巧，YOLOv4在COCO数据集上的mAP达到了65.7%,而速度达到了62 FPS<sup><sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup></sup>。</p>
+<h1 id="研究设计的基本内容-目标-拟采用的技术方案及措施"><a class="markdownIt-Anchor" href="#研究设计的基本内容-目标-拟采用的技术方案及措施"></a> 研究（设计）的基本内容、目标、拟采用的技术方案及措施</h1>
+<h2 id="研究的基本内容"><a class="markdownIt-Anchor" href="#研究的基本内容"></a> 研究的基本内容</h2>
+<p>（1）深入了解学习深度学习的理论基础知识<br />
+（2）学习YOLO网络的评价指标和网络中的backbone、neck、head、bounding box、anchor、mosaic数据增强、loss函数设计等技术方面的细节<br />
+（3）针对现有数据集的检测结果对YOLO网络进行调整优化，目前在这方面已经有研究参考<sup><sup class="footnote-ref"><a href="#fn11" id="fnref11">[11]</a></sup></sup><sup><sup class="footnote-ref"><a href="#fn12" id="fnref12">[12]</a></sup></sup><sup><sup class="footnote-ref"><a href="#fn13" id="fnref13">[13]</a></sup></sup><sup><sup class="footnote-ref"><a href="#fn14" id="fnref14">[14]</a></sup></sup>。</p>
+<h2 id="研究目标"><a class="markdownIt-Anchor" href="#研究目标"></a> 研究目标</h2>
+<p>（1）收集车辆和行人相关数据集<br />
+（2）复现YOLO网络<br />
+（3）根据现有数据集的特点，使用K-means聚类方法获得合适的anchor以提升网络检测性能<br />
+（4）搭建YOLO网络并进行训练，实现对行人和车辆的检测</p>
+<h2 id="本文拟采用的技术方案及措施"><a class="markdownIt-Anchor" href="#本文拟采用的技术方案及措施"></a> 本文拟采用的技术方案及措施</h2>
+<p>（1）文献研究法<br />
+利用图书馆、网络等途径，广泛收集相关的文献资料，加以阅读和分析，以了解目标检测的发展历史，了解目标检测算法的各类技巧的原理，以便深刻了解YOLO网络使用和改进的技巧。<br />
+（2）数据集收集<br />
+对于深度学习来说，数据集中样本的数量对模型的性能有较大影响。因此数据集的选择就比较重要。COCO数据集是微软团队推出的一个数据集，相较于以前常用的PASCAL VOC,COCO的类别以及每张图的实例和标签都要多<sup><sup class="footnote-ref"><a href="#fn15" id="fnref15">[15]</a></sup></sup>。因此现在许多研究使用COCO来训练模型<sup><sup class="footnote-ref"><a href="#fn9" id="fnref9:1">[9:1]</a></sup></sup><sup><sup class="footnote-ref"><a href="#fn10" id="fnref10:1">[10:1]</a></sup></sup>。因此本次设计将从COCO数据集中提取行人以及各个车辆的图片、标注，同时从其他数据集和网络图片标注等方式填充更多数据作为本次设计的数据集。<br />
+（3）YOLO网络<br />
+YOLO是一个目标检测算法，YOLO网络将目标检测问题转换为回归问题，直接利用卷积神经网络预测目标的Bounding Box和各个类别的置信概率，使得算法的计算速度非常快，且YOLO结构简单、模型小可以部署在一些嵌入设备上面。本次毕业设计拟使用收集到的行人车辆数据对YOLO模型进行训练，并根据检测效果调整网络的超参数以做到更好的检测效果。</p>
+<h2 id="技术路线图"><a class="markdownIt-Anchor" href="#技术路线图"></a> 技术路线图</h2>
+<p><img src= "/images/loading.gif" data-lazy-src="/images/GraduationProject/roadmap.png" alt="图1 技术路线图" /></p>
+<h1 id="进度安排"><a class="markdownIt-Anchor" href="#进度安排"></a> 进度安排</h1>
+<p>2021.3.1-2021.3.31 学习深度学习相关知识，设计并开发算法雏形<br />
+2021.4.1-2021.4.30 针对现有算法进行测试，并且尝试对网络参数进行修改和微调<br />
+2021.5.1-2021.5.20 撰写并修改毕业论文<br />
+2021.5.21-2021.5.31 准备答辩</p>
+<h1 id="阅读的参考文献不少于15篇其中近五年外文文献不少于3篇"><a class="markdownIt-Anchor" href="#阅读的参考文献不少于15篇其中近五年外文文献不少于3篇"></a> 阅读的参考文献不少于15篇（其中近五年外文文献不少于3篇）</h1>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Girshick R, Donahue J, Darrell T, et al. Rich feature hierarchies for accurate object detection and semantic segmentation[C] CVPR. 2014: 580-587. <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Girshick R. Fast r-cnn[C] IEEE international conference on computer vision. 2015: 1440-1448. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Ren S , He K , Girshick R , et al. Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks[J]. IEEE Transactions on Pattern Analysis &amp; Machine Intelligence, 2017, 39(6):1137-1149. <a href="#fnref3" class="footnote-backref">↩︎</a> <a href="#fnref3:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>Redmon J , Divvala S , Girshick R , et al. You Only Look Once: Unified, Real-Time Object Detection[C]CVPR. IEEE, 2015:779-788. <a href="#fnref4" class="footnote-backref">↩︎</a> <a href="#fnref4:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>Liu W, Anguelov D, Erhan D, et al. Ssd: Single shot multibox detector[C] Springer, Cham, 2016: 21-37. <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>Wang C Y, Bochkovskiy A, Liao H Y M. Scaled-YOLOv4: Scaling Cross Stage Partial Network[J]. arXiv preprint arXiv:2011.08036, 2020. <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>Redmon J , Farhadi A . YOLO9000: Better, Faster, Stronger[J]. 2017:6517-6525. <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>Lin T Y , Dollár, Piotr, Girshick R , et al. Feature Pyramid Networks for Object Detection[C]CVPR.2017:2117-2125. <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>Redmon J , Farhadi A . YOLOv3: An Incremental Improvement[J]. arXiv preprint arXiv:1804.02767, 2018. <a href="#fnref9" class="footnote-backref">↩︎</a> <a href="#fnref9:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p>Bochkovskiy A , Wang C Y , Liao H Y M . YOLOv4: Optimal Speed and Accuracy of Object Detection [J]. arXiv preprint arXiv:2004.10934, 2020. <a href="#fnref10" class="footnote-backref">↩︎</a> <a href="#fnref10:1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn11" class="footnote-item"><p>胡臣辰,陈贤富.基于YOLO改进残差网络结构的车辆检测方法[J].信息技术与网络安全,2020,39(09):56-60. <a href="#fnref11" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn12" class="footnote-item"><p>鞠默然,罗海波,王仲博,何淼,常铮,惠斌.改进的YOLO V3算法及其在小目标检测中的应用[J].光学学报,2019,39(07):253-260. <a href="#fnref12" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn13" class="footnote-item"><p>付云霞.基于YOLO算法的行人检测[J].科学技术创新,2020(29):110-111. <a href="#fnref13" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn14" class="footnote-item"><p>顾恭,徐旭东.改进YOLOv3的车辆实时检测与信息识别技术[J].计算机工程与应用,2020,56(22):173-184. <a href="#fnref14" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn15" class="footnote-item"><p>Lin T Y , Maire M , Belongie S , et al. Microsoft COCO: Common Objects in Context[C] European Conference on Computer Vision. Springer International Publishing, 2014: 740-755. <a href="#fnref15" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">qxdn</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://qianxu.run/2021/06/26/YOLO-openreport/">https://qianxu.run/2021/06/26/YOLO-openreport/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://qianxu.run" target="_blank">qxdn Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a><a class="post-meta__tags" href="/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">毕业设计</a><a class="post-meta__tags" href="/tags/yolo/">yolo</a></div><div class="post_share"><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-604eef74c3e2e9d1" async="async"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/06/28/YOLO9000-translate/"><img class="prev-cover" src= "/images/loading.gif" data-lazy-src="https://pixiv.re/88129567-1.jpg" onerror="onerror=null;src='/images/404.svg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">毕业设计（五）YOLO9000翻译</div></div></a></div><div class="next-post pull-right"><a href="/2021/06/15/HK416-GK/"><img class="next-cover" src= "/images/loading.gif" data-lazy-src="/images/HK416-GK/shop.jpg" onerror="onerror=null;src='/images/404.svg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">HK416手办开箱</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/01/19/installpytorch/" title="毕业设计（一）环境搭建"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://pixiv.re/85633671-5.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-01-19</div><div class="title">毕业设计（一）环境搭建</div></div></a></div><div><a href="/2021/04/09/bdd100k2yolo/" title="毕业设计（三）BDD100K数据集转yolo格式"><img class="cover" src= "/images/loading.gif" data-lazy-src="/images/GraduationProject/top_img.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-09</div><div class="title">毕业设计（三）BDD100K数据集转yolo格式</div></div></a></div><div><a href="/2021/07/03/YOLO-oral-defense/" title="毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://pixiv.re/92541207-2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-03</div><div class="title">毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</div></div></a></div><div><a href="/2021/03/05/builddarknet/" title="毕业设计（二）darknet编译"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://pixiv.re/89937713.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-03-05</div><div class="title">毕业设计（二）darknet编译</div></div></a></div><div><a href="/2021/06/28/YOLO9000-translate/" title="毕业设计（五）YOLO9000翻译"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://pixiv.re/88129567-1.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-06-28</div><div class="title">毕业设计（五）YOLO9000翻译</div></div></a></div><div><a href="/2021/07/02/YOLO-paper/" title="毕业设计（六）基于深度学习算法YOLO的行人车辆检测——论文"><img class="cover" src= "/images/loading.gif" data-lazy-src="https://pixiv.re/87036407.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-07-02</div><div class="title">毕业设计（六）基于深度学习算法YOLO的行人车辆检测——论文</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E7%9A%84%E5%8F%8A%E6%84%8F%E4%B9%89%E5%90%AB%E5%9B%BD%E5%86%85%E5%A4%96%E7%9A%84%E7%A0%94%E7%A9%B6%E7%8E%B0%E7%8A%B6%E5%88%86%E6%9E%90"><span class="toc-number">1.</span> <span class="toc-text"> 目的及意义（含国内外的研究现状分析）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E7%9B%AE%E7%9A%84"><span class="toc-number">1.1.</span> <span class="toc-text"> 研究目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E6%84%8F%E4%B9%89"><span class="toc-number">1.2.</span> <span class="toc-text"> 研究意义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BD%E5%86%85%E5%A4%96%E7%A0%94%E7%A9%B6%E7%8E%B0%E7%8A%B6"><span class="toc-number">1.3.</span> <span class="toc-text"> 国内外研究现状</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9-%E7%9B%AE%E6%A0%87-%E6%8B%9F%E9%87%87%E7%94%A8%E7%9A%84%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E5%8F%8A%E6%8E%AA%E6%96%BD"><span class="toc-number">2.</span> <span class="toc-text"> 研究（设计）的基本内容、目标、拟采用的技术方案及措施</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9"><span class="toc-number">2.1.</span> <span class="toc-text"> 研究的基本内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A0%94%E7%A9%B6%E7%9B%AE%E6%A0%87"><span class="toc-number">2.2.</span> <span class="toc-text"> 研究目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%96%87%E6%8B%9F%E9%87%87%E7%94%A8%E7%9A%84%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E5%8F%8A%E6%8E%AA%E6%96%BD"><span class="toc-number">2.3.</span> <span class="toc-text"> 本文拟采用的技术方案及措施</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%80%E6%9C%AF%E8%B7%AF%E7%BA%BF%E5%9B%BE"><span class="toc-number">2.4.</span> <span class="toc-text"> 技术路线图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E5%BA%A6%E5%AE%89%E6%8E%92"><span class="toc-number">3.</span> <span class="toc-text"> 进度安排</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%85%E8%AF%BB%E7%9A%84%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE%E4%B8%8D%E5%B0%91%E4%BA%8E15%E7%AF%87%E5%85%B6%E4%B8%AD%E8%BF%91%E4%BA%94%E5%B9%B4%E5%A4%96%E6%96%87%E6%96%87%E7%8C%AE%E4%B8%8D%E5%B0%91%E4%BA%8E3%E7%AF%87"><span class="toc-number">4.</span> <span class="toc-text"> 阅读的参考文献不少于15篇（其中近五年外文文献不少于3篇）</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://pixiv.re/89937761.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By qxdn</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><p id="hitokoto"><a href="#" id="hitokoto_text">:D 获取中...</a></p> <object data="https://img.shields.io/badge/Frame-Hexo-blue?link=https://hexo.io"></object> <object data="https://img.shields.io/badge/Theme-butterfly-lightgreen?link=https://butterfly.js.org/"></object> <object data="https://img.shields.io/badge/CDN-jsDelivr-red?link=https://www.jsdelivr.com/"></object> <object data="https://img.shields.io/badge/默认封面-QuAn_-brightgreen?link=https://www.pixiv.net/users/6657532"></object></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'https://qianxu.run/2021/06/26/YOLO-openreport/'
+    this.page.identifier = '2021/06/26/YOLO-openreport/'
+    this.page.title = '毕业设计（四）基于深度学习算法YOLO的行人车辆检测——开题报告'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://qxdn-blog.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+}
+
+if ('Disqus' === 'Disqus' || !false) {
+  if (false) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script><script>if (window.DISQUSWIDGETS === undefined) {
+  var d = document, s = d.createElement('script');
+  s.src = 'https://qxdn-blog.disqus.com/count.js';
+  s.id = 'dsq-count-scr';
+  (d.head || d.body).appendChild(s);
+} else {
+  DISQUSWIDGETS.getCount({reset: true});
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'UA-180828196-1', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/08/11/source-mirror/" alt=""><img width="48" height="48" src= "/images/loading.gif" data-lazy-src="/images/source-mirror/cover.png" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-08-11</span><a class="blog-slider__title" href="2021/08/11/source-mirror/" alt="">常用软件镜像源</a><div class="blog-slider__text">为了制作魔镜，重装了树莓派系统。因为要将各种软件源设置镜像源，因此写这样一条博客方便自己查询</div><a class="blog-slider__button" href="2021/08/11/source-mirror/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/03/28/tmux-vs-screen/" alt=""><img width="48" height="48" src= "/images/loading.gif" data-lazy-src="/images/tmux-vs-screen/top-img.png" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-03-28</span><a class="blog-slider__title" href="2021/03/28/tmux-vs-screen/" alt="">tmux vs screen</a><div class="blog-slider__text">本文将对tmux与screen命令的使用进行比较，并简单的进行对比</div><a class="blog-slider__button" href="2021/03/28/tmux-vs-screen/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/07/27/bcy-spider/" alt=""><img width="48" height="48" src= "/images/loading.gif" data-lazy-src="/images/bcy-spider/cover.png" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-07-27</span><a class="blog-slider__title" href="2021/07/27/bcy-spider/" alt="">半次元爬虫</a><div class="blog-slider__text">看着半次元的图不错，因此写了个小爬虫</div><a class="blog-slider__button" href="2021/07/27/bcy-spider/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/03/29/NIN-Note/" alt=""><img width="48" height="48" src= "/images/loading.gif" data-lazy-src="/images/NIN-Note/top-img.png" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-03-29</span><a class="blog-slider__title" href="2021/03/29/NIN-Note/" alt="">Network in Network 学习笔记</a><div class="blog-slider__text">因为在YOLO里面看到了使用Global Average Pooling替换全连接层，同时也在其他网络里面发现也都使用了Global Average Pooling替换全连接层。因此，打算来读一下这篇提出了Global Average Pooling的Network in Network。</div><a class="blog-slider__button" href="2021/03/29/NIN-Note/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/05/20/mobilenets-note/" alt=""><img width="48" height="48" src= "/images/loading.gif" data-lazy-src="/images/mobilenets-note/top_img.jpg" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-05-20</span><a class="blog-slider__title" href="2021/05/20/mobilenets-note/" alt="">MobileNets论文笔记</a><div class="blog-slider__text">因为听说了MobileNets中的深度可分离卷积的大名，因此拜读了一下论文</div><a class="blog-slider__button" href="2021/05/20/mobilenets-note/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/08/17/beautify-terminal/" alt=""><img width="48" height="48" src= "/images/loading.gif" data-lazy-src="/images/beautify-terminal/cover.png" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-08-17</span><a class="blog-slider__title" href="2021/08/17/beautify-terminal/" alt="">美化终端</a><div class="blog-slider__text">不小心将oh-my-posh从V2升级到了V3，许多东西有了较大变化。此篇博客记录一下主题的修改记录。</div><a class="blog-slider__button" href="2021/08/17/beautify-terminal/" alt="">详情   </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" href="2021/06/14/live2d-api/" alt=""><img width="48" height="48" src= "/images/loading.gif" data-lazy-src="/images/live2d-api/cover.png" alt="" onerror="this.src=https://cdn.jsdelivr.net/npm/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2021-06-14</span><a class="blog-slider__title" href="2021/06/14/live2d-api/" alt="">搭建部署live2d api</a><div class="blog-slider__text">搭建部署live2d api</div><a class="blog-slider__button" href="2021/06/14/live2d-api/" alt="">详情   </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://cdn.jsdelivr.net/npm/swiper@4.1.6/dist/js/swiper.min.js"></script><script defer data-pjax src="https://cdn.jsdelivr.net/npm/hexo-butterfly-swiper/lib/swiper_init.js"></script>
+  <script data-pjax src="https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://python-github-calendar-api.vercel.app/api?qxdn";
+            var git_color =['#ebedf0', '#fdcdec', '#fc9bd9', '#fa6ac5', '#f838b2', '#f5089f', '#c4067e', '#92055e', '#540336', '#48022f', '#30021f'];
+            var git_user ="qxdn";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<div class="recent-post-item" style="width:100%;height:auto;padding:10px;"><div id="github_loading" style="width:10%;height:100%;margin:0 auto;display: block"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 50 50" style="enable-background:new 0 0 50 50" xml:space="preserve"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log('已挂载github calendar')
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --></body></html>

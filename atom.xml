@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>qxdn Blog</title>
+  <icon>https://qianxu.run/icon.png</icon>
+  
+  <link href="https://qianxu.run/atom.xml" rel="self"/>
+  
+  <link href="https://qianxu.run/"/>
+  <updated>2021-11-11T02:50:00.583Z</updated>
+  <id>https://qianxu.run/</id>
+  
+  <author>
+    <name>qxdn</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>neo4j简单入门和前端可视化</title>
+    <link href="https://qianxu.run/2021/11/10/neo4j-simple-tutorial/"/>
+    <id>https://qianxu.run/2021/11/10/neo4j-simple-tutorial/</id>
+    <published>2021-11-10T13:28:35.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">因为学长需要使用知识图谱，并在前端进行可视化。因此在此简单的介绍一下neo4j的操作和可视化</summary>
+    
+    
+    
+    <category term="javascript" scheme="https://qianxu.run/categories/javascript/"/>
+    
+    
+    <category term="javascript" scheme="https://qianxu.run/tags/javascript/"/>
+    
+    <category term="nosql" scheme="https://qianxu.run/tags/nosql/"/>
+    
+    <category term="neo4j" scheme="https://qianxu.run/tags/neo4j/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>matplotlib崩溃问题记录</title>
+    <link href="https://qianxu.run/2021/11/04/matplotlib-crash/"/>
+    <id>https://qianxu.run/2021/11/04/matplotlib-crash/</id>
+    <published>2021-11-04T15:28:44.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">记录一下matplotlib的崩溃问题，因为这个东西忙了我一个多小时，最后发现原来是conda的问题。</summary>
+    
+    
+    
+    <category term="python" scheme="https://qianxu.run/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://qianxu.run/tags/python/"/>
+    
+    <category term="bug" scheme="https://qianxu.run/tags/bug/"/>
+    
+    <category term="matplotlib" scheme="https://qianxu.run/tags/matplotlib/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>远程文件拷贝</title>
+    <link href="https://qianxu.run/2021/11/02/remote-copy/"/>
+    <id>https://qianxu.run/2021/11/02/remote-copy/</id>
+    <published>2021-11-02T10:45:48.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">实验室分配了服务器，有必要了解以下远程数据的拷贝</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://qianxu.run/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://qianxu.run/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker中运行nodejs项目</title>
+    <link href="https://qianxu.run/2021/10/24/node-docker/"/>
+    <id>https://qianxu.run/2021/10/24/node-docker/</id>
+    <published>2021-10-23T16:39:14.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">被实验室前端项目整裂开的我想起来还有docker这一方法</summary>
+    
+    
+    
+    <category term="javascript" scheme="https://qianxu.run/categories/javascript/"/>
+    
+    
+    <category term="docker" scheme="https://qianxu.run/tags/docker/"/>
+    
+    <category term="javascript" scheme="https://qianxu.run/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java实现pbkdf2&amp;sha256加密验证算法</title>
+    <link href="https://qianxu.run/2021/10/16/java-pbkdf2sha256/"/>
+    <id>https://qianxu.run/2021/10/16/java-pbkdf2sha256/</id>
+    <published>2021-10-16T14:36:01.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">最近移植一个flask项目，里面使用了werkzeug进行加密。为了达到无缝转换，所以需要用java实现。</summary>
+    
+    
+    
+    <category term="java" scheme="https://qianxu.run/categories/java/"/>
+    
+    
+    <category term="java" scheme="https://qianxu.run/tags/java/"/>
+    
+    <category term="python" scheme="https://qianxu.run/tags/python/"/>
+    
+    <category term="flask" scheme="https://qianxu.run/tags/flask/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>junit5测试</title>
+    <link href="https://qianxu.run/2021/09/18/junit5/"/>
+    <id>https://qianxu.run/2021/09/18/junit5/</id>
+    <published>2021-09-18T07:00:13.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">刷了多道leetcode后发觉每次写main测试很麻烦，因此稍微对项目进行了调整，转为使用junit进行测试。</summary>
+    
+    
+    
+    <category term="java" scheme="https://qianxu.run/categories/java/"/>
+    
+    
+    <category term="java" scheme="https://qianxu.run/tags/java/"/>
+    
+    <category term="junit" scheme="https://qianxu.run/tags/junit/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用命令--grep sed awk</title>
+    <link href="https://qianxu.run/2021/09/10/common-command/"/>
+    <id>https://qianxu.run/2021/09/10/common-command/</id>
+    <published>2021-09-09T16:54:41.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">讲一下grep、sed和awk命令</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://qianxu.run/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://qianxu.run/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cs231n-2021作业</title>
+    <link href="https://qianxu.run/2021/09/05/cs231n-assignment/"/>
+    <id>https://qianxu.run/2021/09/05/cs231n-assignment/</id>
+    <published>2021-09-05T06:21:13.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">乘着假期的最后几天刷了一下cs231n</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为powershell添加sudo</title>
+    <link href="https://qianxu.run/2021/08/23/powershell-sudo/"/>
+    <id>https://qianxu.run/2021/08/23/powershell-sudo/</id>
+    <published>2021-08-23T07:39:08.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">为powershell加一个sudo</summary>
+    
+    
+    
+    <category term="Windows" scheme="https://qianxu.run/categories/Windows/"/>
+    
+    
+    <category term="Windows" scheme="https://qianxu.run/tags/Windows/"/>
+    
+    <category term="powershell" scheme="https://qianxu.run/tags/powershell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>powershell设置代理</title>
+    <link href="https://qianxu.run/2021/08/18/powershell-proxy/"/>
+    <id>https://qianxu.run/2021/08/18/powershell-proxy/</id>
+    <published>2021-08-18T05:11:57.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">本文主要是为powershell、cmd等windows终端设置代理</summary>
+    
+    
+    
+    <category term="杂项" scheme="https://qianxu.run/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="Windows" scheme="https://qianxu.run/tags/Windows/"/>
+    
+    <category term="Terminal" scheme="https://qianxu.run/tags/Terminal/"/>
+    
+    <category term="powershell" scheme="https://qianxu.run/tags/powershell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>美化终端</title>
+    <link href="https://qianxu.run/2021/08/17/beautify-terminal/"/>
+    <id>https://qianxu.run/2021/08/17/beautify-terminal/</id>
+    <published>2021-08-17T10:04:45.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">不小心将oh-my-posh从V2升级到了V3，许多东西有了较大变化。此篇博客记录一下主题的修改记录。</summary>
+    
+    
+    
+    <category term="杂项" scheme="https://qianxu.run/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="Windows" scheme="https://qianxu.run/tags/Windows/"/>
+    
+    <category term="Terminal" scheme="https://qianxu.run/tags/Terminal/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文件哈希值</title>
+    <link href="https://qianxu.run/2021/08/13/file-hash/"/>
+    <id>https://qianxu.run/2021/08/13/file-hash/</id>
+    <published>2021-08-13T09:38:41.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">最近上传百度云的时候发现有极速秒传，从而了解到了文件哈希值。特此记录。</summary>
+    
+    
+    
+    <category term="杂项" scheme="https://qianxu.run/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="hash" scheme="https://qianxu.run/tags/hash/"/>
+    
+    <category term="百度云" scheme="https://qianxu.run/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用软件镜像源</title>
+    <link href="https://qianxu.run/2021/08/11/source-mirror/"/>
+    <id>https://qianxu.run/2021/08/11/source-mirror/</id>
+    <published>2021-08-11T13:27:23.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">为了制作魔镜，重装了树莓派系统。因为要将各种软件源设置镜像源，因此写这样一条博客方便自己查询</summary>
+    
+    
+    
+    <category term="杂项" scheme="https://qianxu.run/categories/%E6%9D%82%E9%A1%B9/"/>
+    
+    
+    <category term="java" scheme="https://qianxu.run/tags/java/"/>
+    
+    <category term="python" scheme="https://qianxu.run/tags/python/"/>
+    
+    <category term="Linux" scheme="https://qianxu.run/tags/Linux/"/>
+    
+    <category term="javascript" scheme="https://qianxu.run/tags/javascript/"/>
+    
+    <category term="树莓派" scheme="https://qianxu.run/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>DCGAN生成手写数字</title>
+    <link href="https://qianxu.run/2021/08/05/DCGAN/"/>
+    <id>https://qianxu.run/2021/08/05/DCGAN/</id>
+    <published>2021-08-05T13:01:05.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">想试试用GAN生成动漫头像，于是先用简单GAN试一试。不过有一说一，GAN真的难训练。</summary>
+    
+    
+    
+    <category term="python" scheme="https://qianxu.run/categories/python/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="GAN" scheme="https://qianxu.run/tags/GAN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>半次元爬虫</title>
+    <link href="https://qianxu.run/2021/07/27/bcy-spider/"/>
+    <id>https://qianxu.run/2021/07/27/bcy-spider/</id>
+    <published>2021-07-27T14:22:20.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">看着半次元的图不错，因此写了个小爬虫</summary>
+    
+    
+    
+    <category term="python" scheme="https://qianxu.run/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://qianxu.run/tags/python/"/>
+    
+    <category term="爬虫" scheme="https://qianxu.run/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ResNet论文笔记</title>
+    <link href="https://qianxu.run/2021/07/11/ResNet-Note/"/>
+    <id>https://qianxu.run/2021/07/11/ResNet-Note/</id>
+    <published>2021-07-11T10:07:44.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">ResNet的论文笔记</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
+    <link href="https://qianxu.run/2021/07/03/YOLO-oral-defense/"/>
+    <id>https://qianxu.run/2021/07/03/YOLO-oral-defense/</id>
+    <published>2021-07-03T14:05:57.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">毕设答辩记录</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="毕业设计" scheme="https://qianxu.run/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="yolo" scheme="https://qianxu.run/tags/yolo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毕业设计（六）基于深度学习算法YOLO的行人车辆检测——论文</title>
+    <link href="https://qianxu.run/2021/07/02/YOLO-paper/"/>
+    <id>https://qianxu.run/2021/07/02/YOLO-paper/</id>
+    <published>2021-07-02T11:05:22.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">比较水的毕业论文</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="毕业设计" scheme="https://qianxu.run/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="yolo" scheme="https://qianxu.run/tags/yolo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毕业设计（五）YOLO9000翻译</title>
+    <link href="https://qianxu.run/2021/06/28/YOLO9000-translate/"/>
+    <id>https://qianxu.run/2021/06/28/YOLO9000-translate/</id>
+    <published>2021-06-28T12:10:41.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">毕设论文翻译</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="毕业设计" scheme="https://qianxu.run/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="yolo" scheme="https://qianxu.run/tags/yolo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毕业设计（四）基于深度学习算法YOLO的行人车辆检测——开题报告</title>
+    <link href="https://qianxu.run/2021/06/26/YOLO-openreport/"/>
+    <id>https://qianxu.run/2021/06/26/YOLO-openreport/</id>
+    <published>2021-06-26T05:06:06.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">毕设开题报告</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="毕业设计" scheme="https://qianxu.run/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="yolo" scheme="https://qianxu.run/tags/yolo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HK416手办开箱</title>
+    <link href="https://qianxu.run/2021/06/15/HK416-GK/"/>
+    <id>https://qianxu.run/2021/06/15/HK416-GK/</id>
+    <published>2021-06-15T15:19:24.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">毕业时买的HK416 星之茧手办做为自己礼物的开箱记录</summary>
+    
+    
+    
+    <category term="生活" scheme="https://qianxu.run/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="生活" scheme="https://qianxu.run/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>搭建部署live2d api</title>
+    <link href="https://qianxu.run/2021/06/14/live2d-api/"/>
+    <id>https://qianxu.run/2021/06/14/live2d-api/</id>
+    <published>2021-06-13T16:04:23.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">搭建部署live2d api</summary>
+    
+    
+    
+    <category term="docker" scheme="https://qianxu.run/categories/docker/"/>
+    
+    
+    <category term="docker" scheme="https://qianxu.run/tags/docker/"/>
+    
+    <category term="nginx" scheme="https://qianxu.run/tags/nginx/"/>
+    
+    <category term="php" scheme="https://qianxu.run/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx笔记</title>
+    <link href="https://qianxu.run/2021/06/10/nginx-starter/"/>
+    <id>https://qianxu.run/2021/06/10/nginx-starter/</id>
+    <published>2021-06-10T15:57:46.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">早就听说了nginx的大名，同时最近的好多处问题都说最好用nginx反向代理解决，因此学习一下。</summary>
+    
+    
+    
+    <category term="web" scheme="https://qianxu.run/categories/web/"/>
+    
+    
+    <category term="Windows" scheme="https://qianxu.run/tags/Windows/"/>
+    
+    <category term="Linux" scheme="https://qianxu.run/tags/Linux/"/>
+    
+    <category term="nginx" scheme="https://qianxu.run/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python装饰器</title>
+    <link href="https://qianxu.run/2021/05/26/python-decorator/"/>
+    <id>https://qianxu.run/2021/05/26/python-decorator/</id>
+    <published>2021-05-26T14:00:04.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">由于前几天了解到了python的装饰器，感觉有点点类似于AOP思想，因此记录一下学习笔记</summary>
+    
+    
+    
+    <category term="python" scheme="https://qianxu.run/categories/python/"/>
+    
+    
+    <category term="python" scheme="https://qianxu.run/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MobileNets论文笔记</title>
+    <link href="https://qianxu.run/2021/05/20/mobilenets-note/"/>
+    <id>https://qianxu.run/2021/05/20/mobilenets-note/</id>
+    <published>2021-05-20T08:45:44.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">因为听说了MobileNets中的深度可分离卷积的大名，因此拜读了一下论文</summary>
+    
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>win10锁屏页面获取</title>
+    <link href="https://qianxu.run/2021/05/03/win10-lock/"/>
+    <id>https://qianxu.run/2021/05/03/win10-lock/</id>
+    <published>2021-05-03T13:59:53.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">&lt;p&gt;因为觉得win10锁屏页面比较好看，有时候能够根据日期变换，因此写个脚本获取锁屏页面&lt;br /&gt;
+封面《冬天的谎言 -Snow World End-》&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="生活" scheme="https://qianxu.run/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="生活" scheme="https://qianxu.run/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+    <category term="Windows" scheme="https://qianxu.run/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毕业设计（三）BDD100K数据集转yolo格式</title>
+    <link href="https://qianxu.run/2021/04/09/bdd100k2yolo/"/>
+    <id>https://qianxu.run/2021/04/09/bdd100k2yolo/</id>
+    <published>2021-04-09T08:25:23.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">将bdd100k数据集转换为yolo格式</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="毕业设计" scheme="https://qianxu.run/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="yolo" scheme="https://qianxu.run/tags/yolo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>YOLOv4学习笔记</title>
+    <link href="https://qianxu.run/2021/04/07/YOLOv4-Note/"/>
+    <id>https://qianxu.run/2021/04/07/YOLOv4-Note/</id>
+    <published>2021-04-07T07:24:54.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">因为一直没有懂yolov4，因此这次重新阅读YOLOv4并且留下一点点笔记。其实基本是简要翻译(逃)，结果没简要到哪里去建议直接看总结</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Network in Network 学习笔记</title>
+    <link href="https://qianxu.run/2021/03/29/NIN-Note/"/>
+    <id>https://qianxu.run/2021/03/29/NIN-Note/</id>
+    <published>2021-03-29T15:16:42.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">因为在YOLO里面看到了使用Global Average Pooling替换全连接层，同时也在其他网络里面发现也都使用了Global Average Pooling替换全连接层。因此，打算来读一下这篇提出了Global Average Pooling的Network in Network。</summary>
+    
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>tmux vs screen</title>
+    <link href="https://qianxu.run/2021/03/28/tmux-vs-screen/"/>
+    <id>https://qianxu.run/2021/03/28/tmux-vs-screen/</id>
+    <published>2021-03-28T13:10:26.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">本文将对tmux与screen命令的使用进行比较，并简单的进行对比</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://qianxu.run/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://qianxu.run/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安装tensorflow-gpu版本</title>
+    <link href="https://qianxu.run/2021/03/26/install-tensorflow-gpu/"/>
+    <id>https://qianxu.run/2021/03/26/install-tensorflow-gpu/</id>
+    <published>2021-03-26T09:42:15.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">对于个人而言，还是比较习惯使用tensorflow的keras</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MinGW编译C++无法输出string</title>
+    <link href="https://qianxu.run/2021/03/19/mingw64problem/"/>
+    <id>https://qianxu.run/2021/03/19/mingw64problem/</id>
+    <published>2021-03-19T06:26:06.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">记录MinGW的一个问题</summary>
+    
+    
+    
+    <category term="C++" scheme="https://qianxu.run/categories/C/"/>
+    
+    
+    <category term="C++" scheme="https://qianxu.run/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>win10家庭版下安装docker</title>
+    <link href="https://qianxu.run/2021/03/18/installDocker/"/>
+    <id>https://qianxu.run/2021/03/18/installDocker/</id>
+    <published>2021-03-18T08:20:13.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">docker的安装记录</summary>
+    
+    
+    
+    <category term="docker" scheme="https://qianxu.run/categories/docker/"/>
+    
+    
+    <category term="Windows" scheme="https://qianxu.run/tags/Windows/"/>
+    
+    <category term="docker" scheme="https://qianxu.run/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毕业设计（二）darknet编译</title>
+    <link href="https://qianxu.run/2021/03/05/builddarknet/"/>
+    <id>https://qianxu.run/2021/03/05/builddarknet/</id>
+    <published>2021-03-04T16:00:00.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">使用vcpkg编译darknet</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="毕业设计" scheme="https://qianxu.run/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="yolo" scheme="https://qianxu.run/tags/yolo/"/>
+    
+    <category term="darknet" scheme="https://qianxu.run/tags/darknet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>毕业设计（一）环境搭建</title>
+    <link href="https://qianxu.run/2021/01/19/installpytorch/"/>
+    <id>https://qianxu.run/2021/01/19/installpytorch/</id>
+    <published>2021-01-18T16:00:00.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">安装CUDA cuDNN pytorch</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="毕业设计" scheme="https://qianxu.run/tags/%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    
+    <category term="yolo" scheme="https://qianxu.run/tags/yolo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>升级到WSL2</title>
+    <link href="https://qianxu.run/2020/10/24/upgradeWSL2/"/>
+    <id>https://qianxu.run/2020/10/24/upgradeWSL2/</id>
+    <published>2020-10-23T16:00:00.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">将WSL1升级到WSL2的踩坑记录</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://qianxu.run/categories/Linux/"/>
+    
+    
+    <category term="Windows" scheme="https://qianxu.run/tags/Windows/"/>
+    
+    <category term="Linux" scheme="https://qianxu.run/tags/Linux/"/>
+    
+    <category term="WSL" scheme="https://qianxu.run/tags/WSL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用AlexNet实现DogsVsCats</title>
+    <link href="https://qianxu.run/2020/10/23/DogsVsCatsAlexNet/"/>
+    <id>https://qianxu.run/2020/10/23/DogsVsCatsAlexNet/</id>
+    <published>2020-10-22T16:00:00.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">复现AlexNet，第一次炼丹</summary>
+    
+    
+    
+    <category term="机器学习" scheme="https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="python" scheme="https://qianxu.run/tags/python/"/>
+    
+    <category term="tensorflow" scheme="https://qianxu.run/tags/tensorflow/"/>
+    
+    <category term="机器学习" scheme="https://qianxu.run/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="AlexNet" scheme="https://qianxu.run/tags/AlexNet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>节能减排</title>
+    <link href="https://qianxu.run/2020/10/19/energySaving/"/>
+    <id>https://qianxu.run/2020/10/19/energySaving/</id>
+    <published>2020-10-19T15:00:00.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">节能减排大赛的准备</summary>
+    
+    
+    
+    <category term="web" scheme="https://qianxu.run/categories/web/"/>
+    
+    
+    <category term="C" scheme="https://qianxu.run/tags/C/"/>
+    
+    <category term="C++" scheme="https://qianxu.run/tags/C/"/>
+    
+    <category term="软件" scheme="https://qianxu.run/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="硬件" scheme="https://qianxu.run/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+    <category term="节能减排" scheme="https://qianxu.run/tags/%E8%8A%82%E8%83%BD%E5%87%8F%E6%8E%92/"/>
+    
+    <category term="java" scheme="https://qianxu.run/tags/java/"/>
+    
+    <category term="Spring" scheme="https://qianxu.run/tags/Spring/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电赛</title>
+    <link href="https://qianxu.run/2020/10/19/electronicDesignContest/"/>
+    <id>https://qianxu.run/2020/10/19/electronicDesignContest/</id>
+    <published>2020-10-19T06:00:00.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">正式电赛记录</summary>
+    
+    
+    
+    <category term="C" scheme="https://qianxu.run/categories/C/"/>
+    
+    
+    <category term="电赛" scheme="https://qianxu.run/tags/%E7%94%B5%E8%B5%9B/"/>
+    
+    <category term="C" scheme="https://qianxu.run/tags/C/"/>
+    
+    <category term="C++" scheme="https://qianxu.run/tags/C/"/>
+    
+    <category term="软件" scheme="https://qianxu.run/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="硬件" scheme="https://qianxu.run/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电赛准备</title>
+    <link href="https://qianxu.run/2020/10/19/electronicDesignContestPerpare/"/>
+    <id>https://qianxu.run/2020/10/19/electronicDesignContestPerpare/</id>
+    <published>2020-10-19T04:00:00.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">电赛前的准备</summary>
+    
+    
+    
+    <category term="C" scheme="https://qianxu.run/categories/C/"/>
+    
+    
+    <category term="电赛" scheme="https://qianxu.run/tags/%E7%94%B5%E8%B5%9B/"/>
+    
+    <category term="C" scheme="https://qianxu.run/tags/C/"/>
+    
+    <category term="C++" scheme="https://qianxu.run/tags/C/"/>
+    
+    <category term="软件" scheme="https://qianxu.run/tags/%E8%BD%AF%E4%BB%B6/"/>
+    
+    <category term="硬件" scheme="https://qianxu.run/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Welcome to qxdn Blog</title>
+    <link href="https://qianxu.run/2020/10/18/helloworld/"/>
+    <id>https://qianxu.run/2020/10/18/helloworld/</id>
+    <published>2020-10-17T16:00:00.000Z</published>
+    <updated>2021-11-11T02:50:00.583Z</updated>
+    
+    
+    <summary type="html">这是第一篇博客</summary>
+    
+    
+    
+    <category term="生活" scheme="https://qianxu.run/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="生活" scheme="https://qianxu.run/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+</feed>
