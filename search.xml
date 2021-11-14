@@ -1830,6 +1830,40 @@ Cypher中的节点表示如下</p>
       </tags>
   </entry>
   <entry>
+    <title>CMD错误 此时不应有&amp;</title>
+    <url>/2021/11/14/cmd-error-was-unexpected/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《ノラと皇女と野良猫ハート》</p>
+</blockquote>
+<h1 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h1>
+<p>打开cmd的时候直接出错，提示“此时不应有&amp;”，英文版应该是“&amp; was unexpected at this time”。问题的实际情况见下图。</p>
+<p><img src="/images/cmd-error-was-unexpected/error.png" alt="" /></p>
+<h1 id="问题解决"><a class="markdownIt-Anchor" href="#问题解决"></a> 问题解决</h1>
+<p>幸运的是在stack overflow上能够找到解决方案。首先经过测试<code>cmd.exe /d</code>能够正常运行。<code>cmd.exe /d</code>命令可以阻止注册表中的<code>AutoRun</code>运行。这一点可以在<code>cmd.exe /?</code>中查看有哪些注册表需要检查。</p>
+<p>需要查阅的注册表一共有两处</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor</span><br><span class="line">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</span><br></pre></td></tr></table></figure>
+<p>使用<code>Win+R</code>并输入<code>regedit</code>打开注册表。查询结果如下</p>
+<p><img src="/images/cmd-error-was-unexpected/regedit1.png" alt="" /></p>
+<p><img src="/images/cmd-error-was-unexpected/regedit2.png" alt="" /></p>
+<p>可以看到<code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</code>的<code>AutoRun</code>中有一个奇怪的值。这里直接删除即可，或者运行下面的指令。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查询所有定义了AutoRun的位置</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun </span><br><span class="line"><span class="comment"># 查看如果执行了命令会发生什么</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun <span class="literal">-WhatIf</span></span><br><span class="line"><span class="comment"># 删除 -WhatIf即可执行命令</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun</span><br></pre></td></tr></table></figure>
+<p><img src="/images/cmd-error-was-unexpected/solution.png" alt="运行结果" /></p>
+<p><img src="/images/cmd-error-was-unexpected/result1.png" alt="运行后的注册表" /></p>
+<p><img src="/images/cmd-error-was-unexpected/result2.png" alt="运行后正常的CMD" /></p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>这个奇葩的小问题有点难受，不知道是哪个软件干的。所幸stack overflow上有问题的定位方法和解决过程。</p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p><a href="https://stackoverflow.com/questions/59480657/cmd-exe-throws-error-was-unexpected-at-this-time">cmd.exe throws error “&amp; was unexpected at this time.”</a></p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>cmd</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毕业设计（二）darknet编译</title>
     <url>/2021/03/05/builddarknet/</url>
     <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
