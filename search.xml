@@ -1864,6 +1864,56 @@ Cypher中的节点表示如下</p>
       </tags>
   </entry>
   <entry>
+    <title>haas100烧录失败问题解决</title>
+    <url>/2021/11/16/haas-burn-error/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《Eスクールライフ》</p>
+</blockquote>
+<h1 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h1>
+<p>haas100无法进行烧录，报错<code>Please connect the serial port of th board to the PC,then reset the board.</code>。</p>
+<p><img src="/images/haas-burn-error/error-in-burn.png" alt="烧录错误" /></p>
+<h1 id="问题解决方案"><a class="markdownIt-Anchor" href="#问题解决方案"></a> 问题解决方案</h1>
+<p><code>Please connect the serial port of th board to the PC,then reset the board.</code>这个问题找不到啥解决资料，官方群里问了也没有没人回应。只能自己翻阅一下haas百事通查查有没有类似资源。找到了其中一条信息如下：</p>
+<blockquote>
+<p>【情形5】: 提示“Please reboot board now”<br />
+解决办法：目前发现部分HaaS100/ EDU K1 由于出厂固件中没有二级boot，现象就是一直提名用户please reboot board now；遇到该问题的同学请先参考这个文档请用下面链接中的“Windows GUI”工具烧录即可解决。之后再用vscode + haas studio烧录也不会出现问题。</p>
+</blockquote>
+<p>由此我们初步猜测可能是二级boot出了问题，导致haas studio无法对haas100进行软重启。因此我们打开<code>&#123;Your Project&#125;\hardware\chip\haas1000\release\write_flash_gui</code>运行其中的<code>haas1000_write_flash_main.exe</code>。结果发现闪退。无法发现明显原因，那么我们从命令行打开，很明显的就能看到错误原因。比较明显是阿里的人员在编译烧录工具出了问题。</p>
+<p><img src="/images/haas-burn-error/error-in-gui.png" alt="gui错误" /></p>
+<p>考虑到之前有人使用该工具烧录成功过，且该工具是使用git clone下来的。那么可以去github找找看有哪个版本的是烧录的。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/alibaba/AliOS-Things.git -b dev_3.1.0_haas</span><br></pre></td></tr></table></figure>
+<p>执行上面的git命令，打开<code>&#123;your path&#125;/AliOS-Things/platform/mcu/haas1000/release/write_flash_gui</code>目录中的<code>haas1000_write_flash_main.exe</code>。这次可以看到gui工具打开成功了。</p>
+<p><img src="/images/haas-burn-error/gui.png" alt="" /></p>
+<p>后续的工作就和官方的操作一样了，官方教程链接放在了底下的参考资料中，但是需要注意的是我们不是只升级二级boot，而是全部重新烧写。</p>
+<p><img src="/images/haas-burn-error/gui-burn.png" alt="成功全部烧写" /></p>
+<p>最后测试能否烧写我们的工程，烧写结果如下所示。我的代码成功的烧录进了板子中。</p>
+<p><img src="/images/haas-burn-error/burn-success.png" alt="烧录结果" /></p>
+<p><img src="/images/haas-burn-error/result.png" alt="运行结果" /></p>
+<h1 id="外谈"><a class="markdownIt-Anchor" href="#外谈"></a> 外谈</h1>
+<p>运行<code>aos make clean</code>发现出错，错误原因见下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/usr/bin/bash: -c: line 1: syntax error: unexpected end of file</span><br></pre></td></tr></table></figure>
+<p><img src="/images/haas-burn-error/clean-error.png" alt="" /></p>
+<p>这个问题倒是比较常见，因为Windows的EOL(End of Line)是由回车CR和换行LF组成，这也是为什么我们需要在串口输出中加上\r\b，而Linux中的EOL是LF。因此在Linux中运行Windows中写的文件会有这个问题。<br />
+从错误开头的<code>/usr/bin/bash</code>可以发现是Linux的bash，个人推测这个应该是因为我的电脑里面装有wsl2。从makefile看一下需要删除的文件。</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ifeq</span> (<span class="variable">$(OS)</span>, Windows_NT)</span><br><span class="line">	<span class="variable">$(CPRE)</span> if exist aos_sdk rmdir /s /q aos_sdk</span><br><span class="line">	<span class="variable">$(CPRE)</span> if exist binary rmdir /s /q binary</span><br><span class="line">	<span class="variable">$(CPRE)</span> if exist out rmdir /s /q out</span><br><span class="line">	<span class="variable">$(CPRE)</span> if exist aos.elf del /f /q aos.elf</span><br><span class="line">	<span class="variable">$(CPRE)</span> if exist aos.map del /f /q aos.map</span><br></pre></td></tr></table></figure>
+<p>观察发现aos_sdk文件夹为*.a应该是到时候要链接的类库，EOL是LF。out文件夹里面是*.d，*.o还有bin文件，基本上为编译中间产物和最终文件，EOL为CRLF。aos.elf和aos.map都是CRLF，因此发现执行<code>aos make clean</code>后就删除了aos_sdk中的内容。</p>
+<p>明白了原因就很容易解决该问题了，看makefile中的命令，应该是用cmd运行。因此只需要在makefile的第一行加上一句<code>SHELL := C:\Windows\System32\cmd.exe</code>。指定运行的shell为cmd即可。修改后的运行结果如下。<br />
+<img src="/images/haas-burn-error/clean-success.png" alt="" /></p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>在成功烧写后，我玩了一下haas100这块板子，感觉板子还是不错，做的还行。但是这个开发工具实在不行，问题有点多。希望阿里能够完善一下，不然这个工具就会劝退好多人了。</p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p><a href="https://blog.csdn.net/HaaSTech/article/details/119028477">如何升级HaaS100 / HaaS EDU K1的二级boot</a></p>
+<p><a href="https://help.aliyun.com/document_detail/302383.html">烧录固件</a></p>
+]]></content>
+      <categories>
+        <category>c</category>
+      </categories>
+      <tags>
+        <tag>c</tag>
+        <tag>haas</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毕业设计（二）darknet编译</title>
     <url>/2021/03/05/builddarknet/</url>
     <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
