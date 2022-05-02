@@ -1465,6 +1465,50 @@ YOLO9000是一个通过联合优化检测、分类数据集检测超过9000个�
       </tags>
   </entry>
   <entry>
+    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
+    <url>/2021/07/03/YOLO-oral-defense/</url>
+    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
+<span id="more"></span>
+<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
+<blockquote>
+<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
+</blockquote>
+<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
+<ul>
+<li>Q1： 几类目标？<br />
+6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
+<li>Q2：实测框架？<br />
+本次系统使用pytorch框架实现</li>
+<li>Q3：不平衡怎么去确定<br />
+根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
+<li>Q4：数据集如何自建？收集？<br />
+本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
+<li>Q5：损失函数的选择理由？<br />
+损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
+<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
+由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
+本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
+(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
+<li>Q7：改进结果突出哪些类？<br />
+所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
+<li>Q8：为什么car类提升效果最高？<br />
+调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
+(因为当时PPT打错了，老师原本问的是motor)</li>
+</ul>
+<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
+<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>毕业设计</tag>
+        <tag>yolo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毕业设计（六）基于深度学习算法YOLO的行人车辆检测——论文</title>
     <url>/2021/07/02/YOLO-paper/</url>
     <content><![CDATA[<p>特别特别水的论文，数据集和权重晚点放到仓库里面</p>
@@ -1778,50 +1822,6 @@ ms。可以估算得到改进后模型的速度约为159 FPS，可以满足实�
 </li>
 </ol>
 </section>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>毕业设计</tag>
-        <tag>yolo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
-    <url>/2021/07/03/YOLO-oral-defense/</url>
-    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
-<span id="more"></span>
-<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
-<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
-<blockquote>
-<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
-</blockquote>
-<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
-<ul>
-<li>Q1： 几类目标？<br />
-6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
-<li>Q2：实测框架？<br />
-本次系统使用pytorch框架实现</li>
-<li>Q3：不平衡怎么去确定<br />
-根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
-<li>Q4：数据集如何自建？收集？<br />
-本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
-<li>Q5：损失函数的选择理由？<br />
-损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
-<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
-由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
-本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
-(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
-<li>Q7：改进结果突出哪些类？<br />
-所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
-<li>Q8：为什么car类提升效果最高？<br />
-调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
-(因为当时PPT打错了，老师原本问的是motor)</li>
-</ul>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -3364,6 +3364,33 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       <tags>
         <tag>python</tag>
         <tag>微信小程序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>conda deactivate报错UnicodeEncodeError</title>
+    <url>/2022/05/02/conda-deactivate-error/</url>
+    <content><![CDATA[<blockquote>
+<p>封面: 《俺の恋天使がポンコツすぎてコワ～い》</p>
+</blockquote>
+<h1 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h1>
+<p>在运行conda deactivate的时候碰到了一个bug</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">UnicodeEncodeError: &#x27;gbk&#x27; codec can&#x27;t encode character &#x27;\u03a2&#x27; in position 945: illegal multibyte sequence</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.2/error.png" alt="error" /></p>
+<h1 id="错误原因"><a class="markdownIt-Anchor" href="#错误原因"></a> 错误原因</h1>
+<p>这是很明显是编码问题，遇到了中文字符。而问题在于哪里出现了中文，因为我在安装编程相关软件时都不会使用中文路径，因此很奇怪这个中文在哪里。然后仔细查看整个记录找到了一处中文，然后发现这个东西在环境变量里面，根据位置查找是<code>微信web开发者工具</code></p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.2/find.png" alt="" /></p>
+<h1 id="解决方法"><a class="markdownIt-Anchor" href="#解决方法"></a> 解决方法</h1>
+<p>因为我不怎么需要使用微信web开发助手，因此直接从环境遍历里面删除这个环境变量即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.2/fix.png" alt="问题解决" /></p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>现在除了安装路径要注意中文外，还得注意环境变量里有没有中文了555</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>conda</tag>
       </tags>
   </entry>
 </search>
