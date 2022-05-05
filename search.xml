@@ -1465,50 +1465,6 @@ YOLO9000是一个通过联合优化检测、分类数据集检测超过9000个�
       </tags>
   </entry>
   <entry>
-    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
-    <url>/2021/07/03/YOLO-oral-defense/</url>
-    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
-<span id="more"></span>
-<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
-<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
-<blockquote>
-<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
-</blockquote>
-<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
-<ul>
-<li>Q1： 几类目标？<br />
-6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
-<li>Q2：实测框架？<br />
-本次系统使用pytorch框架实现</li>
-<li>Q3：不平衡怎么去确定<br />
-根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
-<li>Q4：数据集如何自建？收集？<br />
-本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
-<li>Q5：损失函数的选择理由？<br />
-损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
-<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
-由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
-本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
-(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
-<li>Q7：改进结果突出哪些类？<br />
-所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
-<li>Q8：为什么car类提升效果最高？<br />
-调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
-(因为当时PPT打错了，老师原本问的是motor)</li>
-</ul>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>毕业设计</tag>
-        <tag>yolo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>毕业设计（六）基于深度学习算法YOLO的行人车辆检测——论文</title>
     <url>/2021/07/02/YOLO-paper/</url>
     <content><![CDATA[<p>特别特别水的论文，数据集和权重晚点放到仓库里面</p>
@@ -1822,6 +1778,50 @@ ms。可以估算得到改进后模型的速度约为159 FPS，可以满足实�
 </li>
 </ol>
 </section>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>毕业设计</tag>
+        <tag>yolo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
+    <url>/2021/07/03/YOLO-oral-defense/</url>
+    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
+<span id="more"></span>
+<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
+<blockquote>
+<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
+</blockquote>
+<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
+<ul>
+<li>Q1： 几类目标？<br />
+6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
+<li>Q2：实测框架？<br />
+本次系统使用pytorch框架实现</li>
+<li>Q3：不平衡怎么去确定<br />
+根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
+<li>Q4：数据集如何自建？收集？<br />
+本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
+<li>Q5：损失函数的选择理由？<br />
+损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
+<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
+由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
+本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
+(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
+<li>Q7：改进结果突出哪些类？<br />
+所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
+<li>Q8：为什么car类提升效果最高？<br />
+调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
+(因为当时PPT打错了，老师原本问的是motor)</li>
+</ul>
+<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
+<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -3391,6 +3391,88 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       <tags>
         <tag>python</tag>
         <tag>conda</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mmdetection自定义数据增强</title>
+    <url>/2022/05/05/mmdetection-custom-pipelines/</url>
+    <content><![CDATA[<blockquote>
+<p>封面 《花の野に咲くうたかたの》</p>
+</blockquote>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>目前的数据集内基本是检测小目标，但是因为小物体检测比较困难，需要想办法提升小目标的检测结果。最近读了一篇《Augmentation for small object detection》的论文，里面讲了一些数据增强的方法来提高小目标的检测效果。</p>
+<p>mmdetection是一个基于pytorch的目标检测工具箱，简单易用。本篇博客的主要目的基于mmdetection实现一个数据增强方法。</p>
+<h1 id="smallobjectaugmentation"><a class="markdownIt-Anchor" href="#smallobjectaugmentation"></a> SmallObjectAugmentation</h1>
+<p><a href="https://arxiv.org/abs/1902.07296">Augmentation for small object detection</a>的论文里面讲述几种小目标增强方法</p>
+<h2 id="过采样"><a class="markdownIt-Anchor" href="#过采样"></a> 过采样</h2>
+<blockquote>
+<p>In the first set of experiments, we investigate the effect of oversampling images containing small objects. We vary the oversampling ratio between two, three and four. Instead of actual stochastic oversampling, we create multiple copies of images with small objects offline for efficiency</p>
+</blockquote>
+<p>这是一个花费精力比较少且简单的方法，简单来说就是如果图片中有小目标，就在训练集中将这个图片多复制几次。</p>
+<h2 id="增强"><a class="markdownIt-Anchor" href="#增强"></a> 增强</h2>
+<blockquote>
+<p>In the second set of experiments, we investigate the effects of using augmentation on small object detection and segmentation. We copy and paste all small objects in each image once. We also oversample images with small objects to study the interaction between the oversampling and augmentation strategies.</p>
+</blockquote>
+<p>另一种方法就是在每张图片中，将图片的包含小目标复制粘贴多次。在文中一共提出了三种复制粘贴策略</p>
+<ol>
+<li>选择一张图中的一个小目标，在随机位置中复制粘贴多次</li>
+<li>选择许多小物体，复制粘贴在随机地方</li>
+<li>选择每张图片的全部小物体，复制粘贴一次在随机地方</li>
+</ol>
+<p>后文还提到复制粘贴时需要注意复制粘贴的时候不能和之前的标签重叠</p>
+<h1 id="实现"><a class="markdownIt-Anchor" href="#实现"></a> 实现</h1>
+<p>arXiv上的论文并没有给出官方实现，只有社区实现。因此这里直接参考社区的实现方法。</p>
+<p>mmdetection的<a href="https://mmdetection.readthedocs.io/en/v2.21.0/">文档</a>中给出了自定义pipelines数据增强的方法，我们只需要实现自己的<code>__init__</code>函数和<code>__call__</code>函数，然后通过<code>@PIPELINES.register_module()</code>注册即可。<code>__call__</code>函数的输入参数和输出参数都是<code>results</code>，这是一个包含了图像、边界框和标签等信息的字典。</p>
+<p>官方提供的pipelines如下图所示<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.3/data_pipeline.png" alt="pipeline figure" /></p>
+<p>通过阅读源码和观看这张图我们可以得知模型中最后使用的是<code>results['img']</code>、<code>results['gt_bboxes']</code>、<code>results['gt_labels']</code>等，其中<code>gt_bboxes</code>的格式是<code>(list[Tensor])</code>其中每个bbox的格式是<code>[tl_x, tl_y, br_x, br_y]</code>即左上角的点坐标和右下角的点坐标。</p>
+<p>知道格式后实现起来就比较简单，源码就放在文末。</p>
+<p>在<code>mmdet/datasets/pipelines</code>文件夹内新建<code>SmallObjectAugmentation.py</code>,并写入文末的源码。</p>
+<p>导入模块时<code>mmdetection</code>有两种方法</p>
+<h2 id="方法一-重新编译"><a class="markdownIt-Anchor" href="#方法一-重新编译"></a> 方法一 重新编译</h2>
+<p><a href="https://mmdetection.readthedocs.io/en/v2.21.0/get_started.html#install-mmdetection">参考</a></p>
+<p><code>mmdet/datasets/pipelines</code>里的<code>__init__.py</code>文件中添加<code>from .SmallObjectAugmentation import SmallObjectAugmentation</code>,<code>__all__</code>添加<code>'SmallObjectAugmentation'</code>，完整修改见下<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.3/custom_init.png" alt="" /></p>
+<p>然后执行下面的命令</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install -r requirements/build.txt</span><br><span class="line">pip install -v -e .  <span class="comment"># or &quot;python setup.py develop&quot;</span></span><br></pre></td></tr></table></figure>
+<p>这样就完成了，实际上执行速度很快。这样就可以直接在你的config文件中使用</p>
+<h2 id="方法二-修改config"><a class="markdownIt-Anchor" href="#方法二-修改config"></a> 方法二 修改config</h2>
+<p><a href="https://mmdetection.readthedocs.io/en/v2.21.0/tutorials/data_pipeline.html#extend-and-use-custom-pipelines">参考</a></p>
+<p>这种方法我没有成功，读者可以自己尝试一下</p>
+<p>修改config文件，在里面加一条，保证路径是训练脚本的相似路径</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">custom_imports = <span class="built_in">dict</span>(imports=[<span class="string">&#x27;path.to.my_pipeline&#x27;</span>], allow_failed_imports=<span class="literal">False</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="查看数据增强效果"><a class="markdownIt-Anchor" href="#查看数据增强效果"></a> 查看数据增强效果</h1>
+<p>mmdetection有提供工具让我们看数据增强的效果。<br />
+首先先准备一份config文件，我这里直接继承<code>yolox_tiny_8x8_300e_coco.py</code>修改其中的<code>train_pipeline</code>，去除其他的数据增强，只留下我们自己的增强方法。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">train_pipeline = [</span><br><span class="line">    <span class="built_in">dict</span>(<span class="built_in">type</span>=<span class="string">&#x27;SmallObjectAugmentation&#x27;</span>,all_objects=<span class="literal">True</span>,thresh=<span class="number">400</span>*<span class="number">400</span>,prob=<span class="number">0.7</span>),</span><br><span class="line">    <span class="built_in">dict</span>(<span class="built_in">type</span>=<span class="string">&#x27;DefaultFormatBundle&#x27;</span>),</span><br><span class="line">    <span class="built_in">dict</span>(<span class="built_in">type</span>=<span class="string">&#x27;Collect&#x27;</span>, keys=[<span class="string">&#x27;img&#x27;</span>, <span class="string">&#x27;gt_bboxes&#x27;</span>, <span class="string">&#x27;gt_labels&#x27;</span>])</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>然后我们可以使用mmdetection提供的工具来查看我们的效果</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 运行下面这句话 需要把config的路径改成你的config路径</span></span><br><span class="line">python .\tools\misc\browse_dataset.py your_config_path</span><br></pre></td></tr></table></figure>
+<h2 id="效果"><a class="markdownIt-Anchor" href="#效果"></a> 效果</h2>
+<p>为了展示效果，我这里把参数都调的夸张了点</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.3/augmentation1.png" alt="sample1" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.3/augmentation2.png" alt="sample2" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.3/augmentation3.png" alt="sample3" /></p>
+<h1 id="训练效果"><a class="markdownIt-Anchor" href="#训练效果"></a> 训练效果</h1>
+<p>使用了数据增强前后的对比如下图所示，可以看到实际的训练效果有提高1%，可见效果还是可以的</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.3/old.png" alt="增强前" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.3/new.png" alt="增强后" /></p>
+<h1 id="增强源码"><a class="markdownIt-Anchor" href="#增强源码"></a> 增强源码</h1>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> ..builder <span class="keyword">import</span> PIPELINES</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@PIPELINES.register_module(<span class="params"><span class="string">&#x27;SmallObjectAugmentation&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SmallObjectAugmentation</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, thresh=<span class="number">64</span>*<span class="number">64</span>, prob=<span class="number">0.5</span>, copy_times=<span class="number">3</span>, epochs=<span class="number">30</span>, all_objects=<span class="literal">False</span>, one_object=<span class="literal">False</span></span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        SmallObjectAugmentation: https://arxiv.org/abs/1902.07296</span></span><br><span class="line"><span class="string">        https://github.com/zzl-pointcloud/Data_Augmentation_Zoo_for_Object_Detection/blob/master/augmentation_zoo/SmallObjectAugmentation.py</span></span><br><span class="line"><span class="string">        args:</span></span><br><span class="line"><span class="string">            thresh: small object thresh</span></span><br><span class="line"><span class="string">            prob: the probability of whether to augmentation</span></span><br><span class="line"><span class="string">            copy_times: how many times to copy anno</span></span><br><span class="line"><span class="string">            epochs: how many times try to create anno</span></span><br><span class="line"><span class="string">            all_object: copy all object once</span></span><br><span class="line"><span class="string">            one_object: copy one object</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        self.thresh = thresh</span><br><span class="line">        self.prob = prob</span><br><span class="line">        self.copy_times = copy_times</span><br><span class="line">        self.epochs = epochs</span><br><span class="line">        self.all_objects = all_objects</span><br><span class="line">        self.one_object = one_object</span><br><span class="line">        <span class="keyword">if</span> self.all_objects <span class="keyword">or</span> self.one_object:</span><br><span class="line">            self.copy_times = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_is_small_object</span>(<span class="params">self, height, width</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        判断是否为小目标</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> height*width &lt;= self.thresh:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_compute_overlap</span>(<span class="params">self, bbox_a, bbox_b</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        计算重叠</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> bbox_a <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        left_max = <span class="built_in">max</span>(bbox_a[<span class="number">0</span>], bbox_b[<span class="number">0</span>])</span><br><span class="line">        top_max = <span class="built_in">max</span>(bbox_a[<span class="number">1</span>], bbox_b[<span class="number">1</span>])</span><br><span class="line">        right_min = <span class="built_in">min</span>(bbox_a[<span class="number">2</span>], bbox_b[<span class="number">2</span>])</span><br><span class="line">        bottom_min = <span class="built_in">min</span>(bbox_a[<span class="number">3</span>], bbox_b[<span class="number">3</span>])</span><br><span class="line">        inter = <span class="built_in">max</span>(<span class="number">0</span>, (right_min-left_max)) * <span class="built_in">max</span>(<span class="number">0</span>, (bottom_min-top_max))</span><br><span class="line">        <span class="keyword">if</span> inter != <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_donot_overlap</span>(<span class="params">self, new_bbox, bboxes</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        是否有重叠</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">for</span> bbox <span class="keyword">in</span> bboxes:</span><br><span class="line">            <span class="keyword">if</span> self._compute_overlap(new_bbox, bbox):</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_create_copy_annot</span>(<span class="params">self, height, width, bbox, bboxes</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        创建新的标签</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        bbox_h, bbox_w = bbox[<span class="number">3</span>] - bbox[<span class="number">1</span>], bbox[<span class="number">2</span>] - bbox[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(self.epochs):</span><br><span class="line">            random_x, random_y = np.random.randint(<span class="built_in">int</span>(bbox_w / <span class="number">2</span>), <span class="built_in">int</span>(width - bbox_w / <span class="number">2</span>)), \</span><br><span class="line">                np.random.randint(<span class="built_in">int</span>(bbox_h / <span class="number">2</span>), <span class="built_in">int</span>(height - bbox_h / <span class="number">2</span>))</span><br><span class="line">            tl_x, tl_y = random_x - bbox_w/<span class="number">2</span>, random_y-bbox_h/<span class="number">2</span></span><br><span class="line">            br_x, br_y = tl_x + bbox_w, tl_y + bbox_h</span><br><span class="line">            <span class="keyword">if</span> tl_x &lt; <span class="number">0</span> <span class="keyword">or</span> br_x &gt; width <span class="keyword">or</span> tl_y &lt; <span class="number">0</span> <span class="keyword">or</span> tl_y &gt; height:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            new_bbox = np.array([tl_x, tl_y, br_x, br_y], dtype=np.int32)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self._donot_overlap(new_bbox, bboxes):</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> new_bbox</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_add_patch_in_img</span>(<span class="params">self, new_bbox, copy_bbox, image</span>):</span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">        复制图像区域</span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span></span><br><span class="line">        copy_bbox = copy_bbox.astype(np.int32)</span><br><span class="line">        image[new_bbox[<span class="number">1</span>]:new_bbox[<span class="number">3</span>], new_bbox[<span class="number">0</span>]:new_bbox[<span class="number">2</span>],</span><br><span class="line">              :] = image[copy_bbox[<span class="number">1</span>]:copy_bbox[<span class="number">3</span>], copy_bbox[<span class="number">0</span>]:copy_bbox[<span class="number">2</span>], :]</span><br><span class="line">        <span class="keyword">return</span> image</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__call__</span>(<span class="params">self, results</span>):</span><br><span class="line">        <span class="keyword">if</span> self.all_objects <span class="keyword">and</span> self.one_object:</span><br><span class="line">            <span class="keyword">return</span> results</span><br><span class="line">        <span class="keyword">if</span> np.random.rand() &gt; self.prob:</span><br><span class="line">            <span class="keyword">return</span> results</span><br><span class="line"></span><br><span class="line">        img = results[<span class="string">&#x27;img&#x27;</span>]</span><br><span class="line">        bboxes = results[<span class="string">&#x27;gt_bboxes&#x27;</span>]</span><br><span class="line">        labels = results[<span class="string">&#x27;gt_labels&#x27;</span>]</span><br><span class="line"></span><br><span class="line">        height, width = img.shape[<span class="number">0</span>], img.shape[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        small_object_list = []</span><br><span class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(bboxes)):</span><br><span class="line">            bbox = bboxes[idx]</span><br><span class="line">            bbox_h, bbox_w = bbox[<span class="number">3</span>] - bbox[<span class="number">1</span>], bbox[<span class="number">2</span>] - bbox[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">if</span> self._is_small_object(bbox_h, bbox_w):</span><br><span class="line">                small_object_list.append(idx)</span><br><span class="line"></span><br><span class="line">        length = <span class="built_in">len</span>(small_object_list)</span><br><span class="line">        <span class="comment"># 无小物体</span></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> == length:</span><br><span class="line">            <span class="keyword">return</span> results</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 随机选择不同的物体复制</span></span><br><span class="line">        copy_object_num = np.random.randint(<span class="number">0</span>, length)</span><br><span class="line">        <span class="keyword">if</span> self.all_objects:</span><br><span class="line">            <span class="comment"># 复制全部物体</span></span><br><span class="line">            copy_object_num = length</span><br><span class="line">        <span class="keyword">if</span> self.one_object:</span><br><span class="line">            <span class="comment"># 只选择一个物体复制</span></span><br><span class="line">            copy_object_num = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        random_list = random.sample(<span class="built_in">range</span>(length), copy_object_num)</span><br><span class="line">        idx_of_small_objects = [small_object_list[idx] <span class="keyword">for</span> idx <span class="keyword">in</span> random_list]</span><br><span class="line">        select_bboxes = bboxes[idx_of_small_objects, :]</span><br><span class="line">        select_labels = labels[idx_of_small_objects]</span><br><span class="line"></span><br><span class="line">        bboxes = bboxes.tolist()</span><br><span class="line">        labels = labels.tolist()</span><br><span class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(copy_object_num):</span><br><span class="line">            bbox = select_bboxes[idx]</span><br><span class="line">            label = select_labels[idx]</span><br><span class="line"></span><br><span class="line">            bbox_h, bbox_w = bbox[<span class="number">3</span>] - bbox[<span class="number">1</span>], bbox[<span class="number">2</span>] - bbox[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> self._is_small_object(bbox_h, bbox_w):</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(self.copy_times):</span><br><span class="line">                new_bbox = self._create_copy_annot(height, width, bbox, bboxes)</span><br><span class="line">                <span class="keyword">if</span> new_bbox <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                    img = self._add_patch_in_img(new_bbox, bbox, img)</span><br><span class="line">                    bboxes.append(new_bbox)</span><br><span class="line">                    labels.append(label)</span><br><span class="line">                </span><br><span class="line">        </span><br><span class="line">        results[<span class="string">&#x27;img&#x27;</span>] = img</span><br><span class="line">        results[<span class="string">&#x27;gt_bboxes&#x27;</span>] = np.array(bboxes)</span><br><span class="line">        results[<span class="string">&#x27;gt_labels&#x27;</span>] = np.array(labels)</span><br><span class="line">        <span class="keyword">return</span> results</span><br></pre></td></tr></table></figure>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>最后感谢<a href="https://infinite-zh.com/">InfiniteZh</a>帮我跑了一下训练。换了电脑还是跑不动大模型5555。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="https://arxiv.org/abs/1902.07296">Augmentation for small object detection</a></p>
+<p><a href="https://github.com/zzl-pointcloud/Data_Augmentation_Zoo_for_Object_Detection">Data_Augmentation_Zoo_for_Object_Detection</a></p>
+<p><a href="https://mmdetection.readthedocs.io/en/v2.21.0/">mmdetection doc</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>机器学习</tag>
+        <tag>mmdetection</tag>
+        <tag>数据增强</tag>
       </tags>
   </entry>
 </search>
