@@ -2862,40 +2862,6 @@ Cypher中的节点表示如下</p>
       </tags>
   </entry>
   <entry>
-    <title>CMD错误 此时不应有&amp;</title>
-    <url>/2021/11/14/cmd-error-was-unexpected/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《ノラと皇女と野良猫ハート》</p>
-</blockquote>
-<h1 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h1>
-<p>打开cmd的时候直接出错，提示“此时不应有&amp;”，英文版应该是“&amp; was unexpected at this time”。问题的实际情况见下图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/error.png" alt="" /></p>
-<h1 id="问题解决"><a class="markdownIt-Anchor" href="#问题解决"></a> 问题解决</h1>
-<p>幸运的是在stack overflow上能够找到解决方案。首先经过测试<code>cmd.exe /d</code>能够正常运行。<code>cmd.exe /d</code>命令可以阻止注册表中的<code>AutoRun</code>运行。这一点可以在<code>cmd.exe /?</code>中查看有哪些注册表需要检查。</p>
-<p>需要查阅的注册表一共有两处</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor</span><br><span class="line">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</span><br></pre></td></tr></table></figure>
-<p>使用<code>Win+R</code>并输入<code>regedit</code>打开注册表。查询结果如下</p>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/regedit1.png" alt="" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/regedit2.png" alt="" /></p>
-<p>可以看到<code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</code>的<code>AutoRun</code>中有一个奇怪的值。这里直接删除即可，或者运行下面的指令。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查询所有定义了AutoRun的位置</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun </span><br><span class="line"><span class="comment"># 查看如果执行了命令会发生什么</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun <span class="literal">-WhatIf</span></span><br><span class="line"><span class="comment"># 删除 -WhatIf即可执行命令</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/solution.png" alt="运行结果" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/result1.png" alt="运行后的注册表" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/result2.png" alt="运行后正常的CMD" /></p>
-<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>这个奇葩的小问题有点难受，不知道是哪个软件干的。所幸stack overflow上有问题的定位方法和解决过程。</p>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p><a href="https://stackoverflow.com/questions/59480657/cmd-exe-throws-error-was-unexpected-at-this-time">cmd.exe throws error “&amp; was unexpected at this time.”</a></p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>cmd</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>米游社爬虫</title>
     <url>/2021/11/12/mihoyo-bbs-crawler/</url>
     <content><![CDATA[<blockquote>
@@ -3046,6 +3012,40 @@ Cypher中的节点表示如下</p>
       <tags>
         <tag>python</tag>
         <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CMD错误 此时不应有&amp;</title>
+    <url>/2021/11/14/cmd-error-was-unexpected/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《ノラと皇女と野良猫ハート》</p>
+</blockquote>
+<h1 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h1>
+<p>打开cmd的时候直接出错，提示“此时不应有&amp;”，英文版应该是“&amp; was unexpected at this time”。问题的实际情况见下图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/error.png" alt="" /></p>
+<h1 id="问题解决"><a class="markdownIt-Anchor" href="#问题解决"></a> 问题解决</h1>
+<p>幸运的是在stack overflow上能够找到解决方案。首先经过测试<code>cmd.exe /d</code>能够正常运行。<code>cmd.exe /d</code>命令可以阻止注册表中的<code>AutoRun</code>运行。这一点可以在<code>cmd.exe /?</code>中查看有哪些注册表需要检查。</p>
+<p>需要查阅的注册表一共有两处</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor</span><br><span class="line">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</span><br></pre></td></tr></table></figure>
+<p>使用<code>Win+R</code>并输入<code>regedit</code>打开注册表。查询结果如下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/regedit1.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/regedit2.png" alt="" /></p>
+<p>可以看到<code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</code>的<code>AutoRun</code>中有一个奇怪的值。这里直接删除即可，或者运行下面的指令。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查询所有定义了AutoRun的位置</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun </span><br><span class="line"><span class="comment"># 查看如果执行了命令会发生什么</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun <span class="literal">-WhatIf</span></span><br><span class="line"><span class="comment"># 删除 -WhatIf即可执行命令</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/solution.png" alt="运行结果" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/result1.png" alt="运行后的注册表" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.6/result2.png" alt="运行后正常的CMD" /></p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>这个奇葩的小问题有点难受，不知道是哪个软件干的。所幸stack overflow上有问题的定位方法和解决过程。</p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p><a href="https://stackoverflow.com/questions/59480657/cmd-exe-throws-error-was-unexpected-at-this-time">cmd.exe throws error “&amp; was unexpected at this time.”</a></p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>cmd</tag>
       </tags>
   </entry>
   <entry>
@@ -3518,6 +3518,68 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       <tags>
         <tag>java</tag>
         <tag>反射</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ConvNeXt论文笔记</title>
+    <url>/2022/08/03/convnext-note/</url>
+    <content><![CDATA[<blockquote>
+<p>封面 《紅月ゆれる恋あかり》</p>
+</blockquote>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>年初的时候看到别人推荐了ConvNeXt论文，看到了下面这张图，了解到了ConvNeXt比Swin Transformer效果好，因此读了一下这篇论文，写一下笔记。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.5/compare.png" alt="效果" /></p>
+<h1 id="convnext的改进点"><a class="markdownIt-Anchor" href="#convnext的改进点"></a> ConvNeXt的改进点</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.5/Improve.png" alt="总体改进" /></p>
+<p>ConvNeXt的总体改进如上所示，各个改进和其效果都可以看的比较明白</p>
+<h2 id="macro-design"><a class="markdownIt-Anchor" href="#macro-design"></a> Macro Design</h2>
+<h3 id="changing-stage-compute-ratio"><a class="markdownIt-Anchor" href="#changing-stage-compute-ratio"></a> Changing stage compute ratio</h3>
+<p>在原先的ResNet中各个stage之间的比例是(3:4:6:4)，而在swin transformer中这个比例是(1:1:3:1)在large模型中这个比例是(1:1:9:1)，因此作者将ResNet各个阶段的比例设置为(3:3:9:3)，准确率从78.8%上升到了79.4%。此外作者还表示这个比例还有优化空间</p>
+<h3 id="changing-stem-to-patchify"><a class="markdownIt-Anchor" href="#changing-stem-to-patchify"></a> Changing stem to “Patchify”</h3>
+<p>什么是stem？stem简单来说就说第一个下采样，主要的功能是压缩输入，减少计算量<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.5/stem.png" alt="stem" /><br />
+在原本的ResNet中，stem层使用的是卷积核大小为7×7，stride=2的卷积核，其结果就是4倍的下采样。而在vit模型中，stem层用的是更加激进的卷积，卷积大小是14或者16，且移动没有重叠的。而在swin中stem使用的是相似的卷积，但是卷积大小是4×4。因此ConvNeXt中使用的是卷积大小4×4，stride=4的卷积。这使得准确率从79.4%上升到79.6%。</p>
+<h2 id="resnext-ify"><a class="markdownIt-Anchor" href="#resnext-ify"></a> ResNeXt-ify</h2>
+<p>ResNeXt在准确度和FLOPs之间有一个较好的权衡，ResNeXt的block结构如下所示，其结合了Inception的思想。<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.5/resnext.png" alt="ResNeXt" /><br />
+与原本的ResNeXt block不同的是，在ConvNeXt，ResNeXt的卷积部分使用的Group数和Channel的数量相同。同时，作者还认为depthwise卷积的操作和self-attention类似。这使得准确率下降到了78.3%,但是GFLOPs从4.4下降到了2.4。</p>
+<p>此外还将网络的channel改到了和swin一样的96，这使得准确率提高到了80.5%，但是GFLOPs上升到了5.3</p>
+<h2 id="inverted-bottleneck"><a class="markdownIt-Anchor" href="#inverted-bottleneck"></a> Inverted Bottleneck</h2>
+<p>Transformer block的MLP层与MobileNetV2的反转瓶颈层很像，因此ConvNeXt也设计了一个反转瓶颈层即中间粗两边细的结构。在Transformer中MLP的隐藏层的维度都是4倍于输入维度，因此反转瓶颈层的中间层也是四倍缩放。下图中(a)是ResNet的block，而(b)是ConvNeXt建立的反转瓶颈层，©是降空间depthwise的层上移。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.5/InvertedBottleneck.png" alt="Inverted Bottleneck" /></p>
+<p>使用反转瓶颈后，小模型中准确率从80.5%上升到80.6%，大模型的准确率从81.9%上升到82.6%，且FLOPs都减小。</p>
+<h2 id="large-kernel-sizes"><a class="markdownIt-Anchor" href="#large-kernel-sizes"></a> Large Kernel Sizes</h2>
+<h3 id="moving-up-depthwise-conv-layer"><a class="markdownIt-Anchor" href="#moving-up-depthwise-conv-layer"></a> Moving up depthwise conv layer</h3>
+<p>因为在transformer模型上，MSA(Multi head self-attetion)是在MLP前面的，因此在反转瓶颈的时候，将depthwise卷积放到前面，即Inverted Bottleneck中的(b)到©。此外中间的1×1的卷积在代码里面是使用全连接层来实现的，因为1×1卷积和全连接几乎等价。</p>
+<p>这使得FLOPs下降到4.1G，准确率到79.1%</p>
+<h3 id="increasing-the-kernel-size"><a class="markdownIt-Anchor" href="#increasing-the-kernel-size"></a> Increasing the kernel size</h3>
+<p>作者尝试增大卷积核的大小，可以看到卷积核加到7×7之后趋于饱和，因此选择在每个block中使用7×7的卷积核作为depthwise卷积。准确率上升到了80.6%。<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.5/filter.png" alt="kernel size" /></p>
+<h2 id="micro-design"><a class="markdownIt-Anchor" href="#micro-design"></a> Micro Design</h2>
+<h3 id="replacing-relu-with-gelu"><a class="markdownIt-Anchor" href="#replacing-relu-with-gelu"></a> Replacing ReLU with GELU</h3>
+<p>大多数卷积网络使用的是RELU激活，而transformer大多使用GELU激活，因此使用GELU激活，这对准确率没有什么影响</p>
+<h3 id="fewer-activation-functions"><a class="markdownIt-Anchor" href="#fewer-activation-functions"></a> Fewer activation functions</h3>
+<p>相较于ResNet，transformer拥有更少的激活函数。每一个transformer block中只有1个激活函数在MLP层之中，因此ConvNeXt也做类似，每个block在两个1×1之间加GELU激活。其结构如下图所示。这使得准确率从80.6%提升到了81.3%。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.5/block.png" alt="ConvNeXt Block" /></p>
+<h3 id="fewer-normalization-layers"><a class="markdownIt-Anchor" href="#fewer-normalization-layers"></a> Fewer normalization layers</h3>
+<p>transformer block中也是拥有较少的norm层，因此作者只保留了1×1卷积前面的BN层，这使得准确率到了81.4%，超过了Swin-T。需要注意的是作者尝试把BN加在Block前面，但是效果没有什么提升。</p>
+<h3 id="substituting-bn-with-ln"><a class="markdownIt-Anchor" href="#substituting-bn-with-ln"></a> Substituting BN with LN</h3>
+<p>在Transformer中经常使用LN，因此作者使用LN替换原来的BN，这使得准确率上升到了81.5%。</p>
+<h3 id="separate-downsampling-layers"><a class="markdownIt-Anchor" href="#separate-downsampling-layers"></a> Separate downsampling layers</h3>
+<p>在ResNet中空间下采样是在每个block stage的开头完成，通过使用3×3卷积stride=2，shortcut部分使用1×1卷积stride=2实现。而在swin transformer中在每个stage之间使用一个单独下采样层。因此作者使用2×2，stride=2的单独下采样层来实现。同时在下采样的卷积前使用layernorm可以帮助其收敛，而在stem层的layernorm加在卷积后面。这使得准确率提高到了82.0%，超过了Swin。</p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>以上就是一直拖着没更新的ConvNeXt了，这是一个纯卷积神经网络，实现起来比较容易，且效果要好于Swin-T。是个不错的网络。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="https://stackoverflow.com/questions/68258188/why-does-cnns-usually-have-a-stem">Why does CNNs usually have a stem?</a></p>
+<p><a href="https://arxiv.org/abs/1611.05431v2">Aggregated Residual Transformations for Deep Neural Networks</a></p>
+<p><a href="https://arxiv.org/abs/2201.03545">A ConvNet for the 2020s</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>机器学习</tag>
       </tags>
   </entry>
 </search>
