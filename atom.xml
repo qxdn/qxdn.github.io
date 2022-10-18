@@ -6,7 +6,7 @@
   <link href="https://qianxu.run/atom.xml" rel="self"/>
   
   <link href="https://qianxu.run/"/>
-  <updated>2022-10-05T18:16:00.559Z</updated>
+  <updated>2022-10-18T18:38:09.523Z</updated>
   <id>https://qianxu.run/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>死锁</title>
+    <link href="https://qianxu.run/2022/10/19/dead-lock/"/>
+    <id>https://qianxu.run/2022/10/19/dead-lock/</id>
+    <published>2022-10-18T18:31:36.000Z</published>
+    <updated>2022-10-18T18:38:09.523Z</updated>
+    
+    
+    <summary type="html">记录一下面经，死锁方面</summary>
+    
+    
+    
+    <category term="OS" scheme="https://qianxu.run/categories/OS/"/>
+    
+    
+    <category term="面经" scheme="https://qianxu.run/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+    <category term="OS" scheme="https://qianxu.run/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
     <title>进程与线程</title>
     <link href="https://qianxu.run/2022/10/06/process-and-thread/"/>
     <id>https://qianxu.run/2022/10/06/process-and-thread/</id>
     <published>2022-10-05T18:08:01.000Z</published>
-    <updated>2022-10-05T18:16:00.559Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">记录一下面经，进程与线程的区别和通信方式</summary>
@@ -42,7 +63,7 @@
     <link href="https://qianxu.run/2022/08/03/convnext-note/"/>
     <id>https://qianxu.run/2022/08/03/convnext-note/</id>
     <published>2022-08-02T19:23:18.000Z</published>
-    <updated>2022-10-05T18:16:00.559Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">年初的时候看来ConvNeXt的论文，一直想写一篇笔记，但是总是没有时间来写。现在有空可以写一下。</summary>
@@ -63,7 +84,7 @@
     <link href="https://qianxu.run/2022/07/26/java-reflect-check-null/"/>
     <id>https://qianxu.run/2022/07/26/java-reflect-check-null/</id>
     <published>2022-07-26T15:21:35.000Z</published>
-    <updated>2022-10-05T18:16:00.559Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">最近在java中有个需要对多个字段进行非空检查，同时还有涉及几个字段的类型转换。想了想还是使用反射来做比较好。之前也只是知道有反射这种做法，如今还是第一次用到</summary>
@@ -84,7 +105,7 @@
     <link href="https://qianxu.run/2022/05/05/mmdetection-custom-pipelines/"/>
     <id>https://qianxu.run/2022/05/05/mmdetection-custom-pipelines/</id>
     <published>2022-05-05T05:14:35.000Z</published>
-    <updated>2022-10-05T18:16:00.559Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">看了篇《Augmentation for small object detection》论文，想要把这个实现在目前的检测模型中，但是看了一下mmdetecttion的文档，没有特别详细的文档信息。因此写一篇记录一下</summary>
@@ -109,7 +130,7 @@
     <link href="https://qianxu.run/2022/05/02/conda-deactivate-error/"/>
     <id>https://qianxu.run/2022/05/02/conda-deactivate-error/</id>
     <published>2022-05-02T15:52:13.000Z</published>
-    <updated>2022-10-05T18:16:00.559Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">使用conda deactivate的时候报了个UnicodeEncodeError，因此简单记录一下解决过程</summary>
@@ -130,7 +151,7 @@
     <link href="https://qianxu.run/2022/05/01/wx-cloud-upload/"/>
     <id>https://qianxu.run/2022/05/01/wx-cloud-upload/</id>
     <published>2022-05-01T08:13:46.000Z</published>
-    <updated>2022-10-05T18:16:00.559Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">因为没有时间开发后台管理程序，因此临时写了一个python脚本上传图片</summary>
@@ -151,7 +172,7 @@
     <link href="https://qianxu.run/2022/04/09/nodesass2dartsass/"/>
     <id>https://qianxu.run/2022/04/09/nodesass2dartsass/</id>
     <published>2022-04-09T08:23:08.000Z</published>
-    <updated>2022-10-05T18:16:00.559Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">之前实验室流传下来的项目因为nodejs的版本不一致，导致node-sass这个模块一直装不上。之前一直用docker运行，但是现在需要大量改动，使用docker方便部署但是不方便开发。因此解决该问题很重要。</summary>
@@ -174,7 +195,7 @@
     <link href="https://qianxu.run/2022/02/24/sbc2dbc/"/>
     <id>https://qianxu.run/2022/02/24/sbc2dbc/</id>
     <published>2022-02-24T14:22:55.000Z</published>
-    <updated>2022-10-05T18:16:00.559Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">因为一次用户查询输入而发现的问题</summary>
@@ -193,7 +214,7 @@
     <link href="https://qianxu.run/2022/01/27/unet-note/"/>
     <id>https://qianxu.run/2022/01/27/unet-note/</id>
     <published>2022-01-27T15:35:00.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">U-Net的论文笔记</summary>
@@ -212,7 +233,7 @@
     <link href="https://qianxu.run/2021/11/22/do-while-0/"/>
     <id>https://qianxu.run/2021/11/22/do-while-0/</id>
     <published>2021-11-22T11:52:23.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">因为物联网课要讲AliOS-Things的内核源码，发现了宏定义处有一个do{...}while(0)，仔细研究发现很妙，因此分享一下。</summary>
@@ -231,7 +252,7 @@
     <link href="https://qianxu.run/2021/11/16/haas-burn-error/"/>
     <id>https://qianxu.run/2021/11/16/haas-burn-error/</id>
     <published>2021-11-16T14:41:09.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">物联网课发的haas100板子碰到了无法烧录问题，且该版本的haas1000_write_flash_main无法使用</summary>
@@ -252,7 +273,7 @@
     <link href="https://qianxu.run/2021/11/14/cmd-error-was-unexpected/"/>
     <id>https://qianxu.run/2021/11/14/cmd-error-was-unexpected/</id>
     <published>2021-11-14T14:39:27.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">vscode运行java插件的时候莫名其妙的碰到了cmd的错误，只提示“此时不应有&amp;”。已开始还以为是插件的问题，经过一番排查发现这是cmd的问题。不知道哪个软件改的注册表导致的。</summary>
@@ -273,7 +294,7 @@
     <link href="https://qianxu.run/2021/11/12/mihoyo-bbs-crawler/"/>
     <id>https://qianxu.run/2021/11/12/mihoyo-bbs-crawler/</id>
     <published>2021-11-12T02:21:43.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">我觉得米游社的COS图和同人图质量很高，我很喜欢。因此写了个小小的爬虫。</summary>
@@ -294,7 +315,7 @@
     <link href="https://qianxu.run/2021/11/10/neo4j-simple-tutorial/"/>
     <id>https://qianxu.run/2021/11/10/neo4j-simple-tutorial/</id>
     <published>2021-11-10T13:28:35.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">因为学长需要使用知识图谱，并在前端进行可视化。因此在此简单的介绍一下neo4j的操作和可视化</summary>
@@ -317,7 +338,7 @@
     <link href="https://qianxu.run/2021/11/04/matplotlib-crash/"/>
     <id>https://qianxu.run/2021/11/04/matplotlib-crash/</id>
     <published>2021-11-04T15:28:44.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">记录一下matplotlib的崩溃问题，因为这个东西忙了我一个多小时，最后发现原来是conda的问题。</summary>
@@ -340,7 +361,7 @@
     <link href="https://qianxu.run/2021/11/02/remote-copy/"/>
     <id>https://qianxu.run/2021/11/02/remote-copy/</id>
     <published>2021-11-02T10:45:48.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">实验室分配了服务器，有必要了解以下远程数据的拷贝</summary>
@@ -359,7 +380,7 @@
     <link href="https://qianxu.run/2021/10/24/node-docker/"/>
     <id>https://qianxu.run/2021/10/24/node-docker/</id>
     <published>2021-10-23T16:39:14.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">被实验室前端项目整裂开的我想起来还有docker这一方法</summary>
@@ -380,7 +401,7 @@
     <link href="https://qianxu.run/2021/10/16/java-pbkdf2sha256/"/>
     <id>https://qianxu.run/2021/10/16/java-pbkdf2sha256/</id>
     <published>2021-10-16T14:36:01.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">最近移植一个flask项目，里面使用了werkzeug进行加密。为了达到无缝转换，所以需要用java实现。</summary>
@@ -403,7 +424,7 @@
     <link href="https://qianxu.run/2021/09/18/junit5/"/>
     <id>https://qianxu.run/2021/09/18/junit5/</id>
     <published>2021-09-18T07:00:13.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">刷了多道leetcode后发觉每次写main测试很麻烦，因此稍微对项目进行了调整，转为使用junit进行测试。</summary>
@@ -424,7 +445,7 @@
     <link href="https://qianxu.run/2021/09/10/common-command/"/>
     <id>https://qianxu.run/2021/09/10/common-command/</id>
     <published>2021-09-09T16:54:41.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">讲一下grep、sed和awk命令</summary>
@@ -443,7 +464,7 @@
     <link href="https://qianxu.run/2021/09/05/cs231n-assignment/"/>
     <id>https://qianxu.run/2021/09/05/cs231n-assignment/</id>
     <published>2021-09-05T06:21:13.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">乘着假期的最后几天刷了一下cs231n</summary>
@@ -462,7 +483,7 @@
     <link href="https://qianxu.run/2021/08/23/powershell-sudo/"/>
     <id>https://qianxu.run/2021/08/23/powershell-sudo/</id>
     <published>2021-08-23T07:39:08.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">为powershell加一个sudo</summary>
@@ -483,7 +504,7 @@
     <link href="https://qianxu.run/2021/08/18/powershell-proxy/"/>
     <id>https://qianxu.run/2021/08/18/powershell-proxy/</id>
     <published>2021-08-18T05:11:57.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">本文主要是为powershell、cmd等windows终端设置代理</summary>
@@ -506,7 +527,7 @@
     <link href="https://qianxu.run/2021/08/17/beautify-terminal/"/>
     <id>https://qianxu.run/2021/08/17/beautify-terminal/</id>
     <published>2021-08-17T10:04:45.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">不小心将oh-my-posh从V2升级到了V3，许多东西有了较大变化。此篇博客记录一下主题的修改记录。</summary>
@@ -527,7 +548,7 @@
     <link href="https://qianxu.run/2021/08/13/file-hash/"/>
     <id>https://qianxu.run/2021/08/13/file-hash/</id>
     <published>2021-08-13T09:38:41.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">最近上传百度云的时候发现有极速秒传，从而了解到了文件哈希值。特此记录。</summary>
@@ -548,7 +569,7 @@
     <link href="https://qianxu.run/2021/08/11/source-mirror/"/>
     <id>https://qianxu.run/2021/08/11/source-mirror/</id>
     <published>2021-08-11T13:27:23.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">为了制作魔镜，重装了树莓派系统。因为要将各种软件源设置镜像源，因此写这样一条博客方便自己查询</summary>
@@ -575,7 +596,7 @@
     <link href="https://qianxu.run/2021/08/05/DCGAN/"/>
     <id>https://qianxu.run/2021/08/05/DCGAN/</id>
     <published>2021-08-05T13:01:05.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">想试试用GAN生成动漫头像，于是先用简单GAN试一试。不过有一说一，GAN真的难训练。</summary>
@@ -596,7 +617,7 @@
     <link href="https://qianxu.run/2021/07/27/bcy-spider/"/>
     <id>https://qianxu.run/2021/07/27/bcy-spider/</id>
     <published>2021-07-27T14:22:20.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">看着半次元的图不错，因此写了个小爬虫</summary>
@@ -617,7 +638,7 @@
     <link href="https://qianxu.run/2021/07/11/ResNet-Note/"/>
     <id>https://qianxu.run/2021/07/11/ResNet-Note/</id>
     <published>2021-07-11T10:07:44.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">ResNet的论文笔记</summary>
@@ -636,7 +657,7 @@
     <link href="https://qianxu.run/2021/07/03/YOLO-oral-defense/"/>
     <id>https://qianxu.run/2021/07/03/YOLO-oral-defense/</id>
     <published>2021-07-03T14:05:57.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">毕设答辩记录</summary>
@@ -659,7 +680,7 @@
     <link href="https://qianxu.run/2021/07/02/YOLO-paper/"/>
     <id>https://qianxu.run/2021/07/02/YOLO-paper/</id>
     <published>2021-07-02T11:05:22.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">比较水的毕业论文</summary>
@@ -682,7 +703,7 @@
     <link href="https://qianxu.run/2021/06/28/YOLO9000-translate/"/>
     <id>https://qianxu.run/2021/06/28/YOLO9000-translate/</id>
     <published>2021-06-28T12:10:41.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">毕设论文翻译</summary>
@@ -705,7 +726,7 @@
     <link href="https://qianxu.run/2021/06/26/YOLO-openreport/"/>
     <id>https://qianxu.run/2021/06/26/YOLO-openreport/</id>
     <published>2021-06-26T05:06:06.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">毕设开题报告</summary>
@@ -728,7 +749,7 @@
     <link href="https://qianxu.run/2021/06/15/HK416-GK/"/>
     <id>https://qianxu.run/2021/06/15/HK416-GK/</id>
     <published>2021-06-15T15:19:24.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">毕业时买的HK416 星之茧手办做为自己礼物的开箱记录</summary>
@@ -747,7 +768,7 @@
     <link href="https://qianxu.run/2021/06/14/live2d-api/"/>
     <id>https://qianxu.run/2021/06/14/live2d-api/</id>
     <published>2021-06-13T16:04:23.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">搭建部署live2d api</summary>
@@ -770,7 +791,7 @@
     <link href="https://qianxu.run/2021/06/10/nginx-starter/"/>
     <id>https://qianxu.run/2021/06/10/nginx-starter/</id>
     <published>2021-06-10T15:57:46.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">早就听说了nginx的大名，同时最近的好多处问题都说最好用nginx反向代理解决，因此学习一下。</summary>
@@ -793,7 +814,7 @@
     <link href="https://qianxu.run/2021/05/26/python-decorator/"/>
     <id>https://qianxu.run/2021/05/26/python-decorator/</id>
     <published>2021-05-26T14:00:04.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">由于前几天了解到了python的装饰器，感觉有点点类似于AOP思想，因此记录一下学习笔记</summary>
@@ -812,7 +833,7 @@
     <link href="https://qianxu.run/2021/05/20/mobilenets-note/"/>
     <id>https://qianxu.run/2021/05/20/mobilenets-note/</id>
     <published>2021-05-20T08:45:44.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">因为听说了MobileNets中的深度可分离卷积的大名，因此拜读了一下论文</summary>
@@ -829,7 +850,7 @@
     <link href="https://qianxu.run/2021/05/03/win10-lock/"/>
     <id>https://qianxu.run/2021/05/03/win10-lock/</id>
     <published>2021-05-03T13:59:53.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">&lt;p&gt;因为觉得win10锁屏页面比较好看，有时候能够根据日期变换，因此写个脚本获取锁屏页面&lt;br /&gt;
@@ -851,7 +872,7 @@
     <link href="https://qianxu.run/2021/04/09/bdd100k2yolo/"/>
     <id>https://qianxu.run/2021/04/09/bdd100k2yolo/</id>
     <published>2021-04-09T08:25:23.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">将bdd100k数据集转换为yolo格式</summary>
@@ -874,7 +895,7 @@
     <link href="https://qianxu.run/2021/04/07/YOLOv4-Note/"/>
     <id>https://qianxu.run/2021/04/07/YOLOv4-Note/</id>
     <published>2021-04-07T07:24:54.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.523Z</updated>
     
     
     <summary type="html">因为一直没有懂yolov4，因此这次重新阅读YOLOv4并且留下一点点笔记。其实基本是简要翻译(逃)，结果没简要到哪里去建议直接看总结</summary>
@@ -893,7 +914,7 @@
     <link href="https://qianxu.run/2021/03/29/NIN-Note/"/>
     <id>https://qianxu.run/2021/03/29/NIN-Note/</id>
     <published>2021-03-29T15:16:42.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">因为在YOLO里面看到了使用Global Average Pooling替换全连接层，同时也在其他网络里面发现也都使用了Global Average Pooling替换全连接层。因此，打算来读一下这篇提出了Global Average Pooling的Network in Network。</summary>
@@ -910,7 +931,7 @@
     <link href="https://qianxu.run/2021/03/28/tmux-vs-screen/"/>
     <id>https://qianxu.run/2021/03/28/tmux-vs-screen/</id>
     <published>2021-03-28T13:10:26.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">本文将对tmux与screen命令的使用进行比较，并简单的进行对比</summary>
@@ -929,7 +950,7 @@
     <link href="https://qianxu.run/2021/03/26/install-tensorflow-gpu/"/>
     <id>https://qianxu.run/2021/03/26/install-tensorflow-gpu/</id>
     <published>2021-03-26T09:42:15.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">对于个人而言，还是比较习惯使用tensorflow的keras</summary>
@@ -948,7 +969,7 @@
     <link href="https://qianxu.run/2021/03/19/mingw64problem/"/>
     <id>https://qianxu.run/2021/03/19/mingw64problem/</id>
     <published>2021-03-19T06:26:06.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">记录MinGW的一个问题</summary>
@@ -967,7 +988,7 @@
     <link href="https://qianxu.run/2021/03/18/installDocker/"/>
     <id>https://qianxu.run/2021/03/18/installDocker/</id>
     <published>2021-03-18T08:20:13.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">docker的安装记录</summary>
@@ -988,7 +1009,7 @@
     <link href="https://qianxu.run/2021/03/05/builddarknet/"/>
     <id>https://qianxu.run/2021/03/05/builddarknet/</id>
     <published>2021-03-04T16:00:00.000Z</published>
-    <updated>2022-10-05T18:16:00.555Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">使用vcpkg编译darknet</summary>
@@ -1013,7 +1034,7 @@
     <link href="https://qianxu.run/2021/01/19/installpytorch/"/>
     <id>https://qianxu.run/2021/01/19/installpytorch/</id>
     <published>2021-01-18T16:00:00.000Z</published>
-    <updated>2022-10-05T18:16:00.551Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">安装CUDA cuDNN pytorch</summary>
@@ -1036,7 +1057,7 @@
     <link href="https://qianxu.run/2020/10/24/upgradeWSL2/"/>
     <id>https://qianxu.run/2020/10/24/upgradeWSL2/</id>
     <published>2020-10-23T16:00:00.000Z</published>
-    <updated>2022-10-05T18:16:00.551Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">将WSL1升级到WSL2的踩坑记录</summary>
@@ -1059,7 +1080,7 @@
     <link href="https://qianxu.run/2020/10/23/DogsVsCatsAlexNet/"/>
     <id>https://qianxu.run/2020/10/23/DogsVsCatsAlexNet/</id>
     <published>2020-10-22T16:00:00.000Z</published>
-    <updated>2022-10-05T18:16:00.551Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">复现AlexNet，第一次炼丹</summary>
@@ -1084,7 +1105,7 @@
     <link href="https://qianxu.run/2020/10/19/energySaving/"/>
     <id>https://qianxu.run/2020/10/19/energySaving/</id>
     <published>2020-10-19T15:00:00.000Z</published>
-    <updated>2022-10-05T18:16:00.551Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">节能减排大赛的准备</summary>
@@ -1115,7 +1136,7 @@
     <link href="https://qianxu.run/2020/10/19/electronicDesignContest/"/>
     <id>https://qianxu.run/2020/10/19/electronicDesignContest/</id>
     <published>2020-10-19T06:00:00.000Z</published>
-    <updated>2022-10-05T18:16:00.551Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">正式电赛记录</summary>
@@ -1142,7 +1163,7 @@
     <link href="https://qianxu.run/2020/10/19/electronicDesignContestPerpare/"/>
     <id>https://qianxu.run/2020/10/19/electronicDesignContestPerpare/</id>
     <published>2020-10-19T04:00:00.000Z</published>
-    <updated>2022-10-05T18:16:00.551Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">电赛前的准备</summary>
@@ -1169,7 +1190,7 @@
     <link href="https://qianxu.run/2020/10/18/helloworld/"/>
     <id>https://qianxu.run/2020/10/18/helloworld/</id>
     <published>2020-10-17T16:00:00.000Z</published>
-    <updated>2022-10-05T18:16:00.551Z</updated>
+    <updated>2022-10-18T18:38:09.519Z</updated>
     
     
     <summary type="html">这是第一篇博客</summary>

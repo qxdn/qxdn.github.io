@@ -3753,4 +3753,105 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
         <tag>OS</tag>
       </tags>
   </entry>
+  <entry>
+    <title>死锁</title>
+    <url>/2022/10/19/dead-lock/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《絆きらめく恋いろは》</p>
+</blockquote>
+<h1 id="死锁的概念"><a class="markdownIt-Anchor" href="#死锁的概念"></a> 死锁的概念</h1>
+<blockquote>
+<p>死锁是指多个进程因竞争资源而造成的一种僵局（互相等待），若无外力作用，这些进程都将无法向前推进</p>
+</blockquote>
+<h1 id="死锁产生的原因"><a class="markdownIt-Anchor" href="#死锁产生的原因"></a> 死锁产生的原因</h1>
+<ul>
+<li>系统资源不足</li>
+<li>程序执行的顺序有问题</li>
+<li>资源分配不当等</li>
+</ul>
+<h1 id="死锁产生的必要条件"><a class="markdownIt-Anchor" href="#死锁产生的必要条件"></a> 死锁产生的必要条件</h1>
+<blockquote>
+<p>产生死锁必须满足四个必要条件，任意一个条件不成立，死锁就不会发生。</p>
+</blockquote>
+<h2 id="互斥条件"><a class="markdownIt-Anchor" href="#互斥条件"></a> 互斥条件</h2>
+<p>在某一段时间内，资源仅被一个进程占有。若有其他进程请求该资源，则请求进程只能等待。</p>
+<h2 id="不剥夺条件"><a class="markdownIt-Anchor" href="#不剥夺条件"></a> 不剥夺条件</h2>
+<p>进程所获得的资源在未使用完之前，不能被其他进程强行夺走，只能由获得该资源的进程自己来释放。</p>
+<h2 id="请求并保持条件"><a class="markdownIt-Anchor" href="#请求并保持条件"></a> 请求并保持条件</h2>
+<p>进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经被其他进程占有，此时请求进程被阻塞，但对自己获得的资源保持不放。</p>
+<h2 id="循环等待条件"><a class="markdownIt-Anchor" href="#循环等待条件"></a> 循环等待条件</h2>
+<p>存在一种进程资源的循环等待链，链中每个进程已获得的资源同时被链中下一个进程所请求。</p>
+<h1 id="处理死锁"><a class="markdownIt-Anchor" href="#处理死锁"></a> 处理死锁</h1>
+<h2 id="死锁预防"><a class="markdownIt-Anchor" href="#死锁预防"></a> 死锁预防</h2>
+<blockquote>
+<p>破坏死锁的4个必要条件</p>
+</blockquote>
+<h3 id="破坏互斥条件"><a class="markdownIt-Anchor" href="#破坏互斥条件"></a> 破坏互斥条件</h3>
+<p>有些资源必须互斥使用，因此无法破坏互斥条件。</p>
+<h3 id="破坏不剥夺条件"><a class="markdownIt-Anchor" href="#破坏不剥夺条件"></a> 破坏不剥夺条件</h3>
+<p>当进程请求新资源得不到满足时，必须释放已经持有的资源，重新申请。这个策略实现起来比较复杂，反复的申请和释放会导致系统开销增加，降低系统吞吐量。这种方式适用于容易保存和恢复的资源，例如CPU的寄存器和内存资源，一般不能用于打印机之类的资源。</p>
+<h3 id="破坏请求与保持条件"><a class="markdownIt-Anchor" href="#破坏请求与保持条件"></a> 破坏请求与保持条件</h3>
+<p>采用预先静态分配方法，进程在运行之前申请完它所需的所有资源，在使用过程中，这些资源一直归它所有。</p>
+<p>容易发生两个问题：1.导致部分进程饥饿现象，永远申请不满资源。2.导致资源浪费，有些资源只在运行初期或者结束时候使用。</p>
+<h3 id="破坏循环等待条件"><a class="markdownIt-Anchor" href="#破坏循环等待条件"></a> 破坏循环等待条件</h3>
+<p>为了破坏循环等待条件，可以采用顺序资源分配法。给资源编号，进程按照编号递增的顺序请求资源。</p>
+<p>容易造成资源使用的浪费和用户编程的麻烦。</p>
+<h2 id="死锁避免"><a class="markdownIt-Anchor" href="#死锁避免"></a> 死锁避免</h2>
+<blockquote>
+<p>在使用前进行判断，只允许不会产生死锁的进程申请资源<br />
+死锁避免是利用额外的检验信息，在分配资源时判断是否会出现死锁，只在不会出现死锁的情况下才分配资源<br />
+各种死锁防止方法能够防止发生死锁，但必然会降低系统并发性，导致低效的资源利用率</p>
+</blockquote>
+<h3 id="安全状态"><a class="markdownIt-Anchor" href="#安全状态"></a> 安全状态</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/safe-state.png" alt="安全状态" /></p>
+<p>图 a 的第二列 Has 表示已拥有的资源数，第三列 Max 表示总共需要的资源数，Free 表示还有可以使用的资源数。从图 a 开始出发，先让 B 拥有所需的所有资源（图 b），运行结束后释放 B，此时 Free 变为 5（图 c）；接着以同样的方式运行 C 和 A，使得所有进程都能成功运行，因此可以称图 a 所示的状态时安全的。</p>
+<p>定义：如果没有死锁发生，并且即使所有进程突然请求对资源的最大需求，也仍然存在某种调度次序能够使得每一个进程运行完毕，则称该状态是安全的。</p>
+<h3 id="银行家算法"><a class="markdownIt-Anchor" href="#银行家算法"></a> 银行家算法</h3>
+<p>银行家算法的主要思想是避免死锁进入不安全状态。每次进行资源分配时，它先检查系统是否有足够的资源满足要求，若有则先进行分配，并对分配后的新状态进行安全性检查。若新状态安全，则正是分配上述资源，否则拒绝分配上述资源。然后回收已分配的资源，进行下一轮分配。这样能保证资源始终处于安全状态，从而避免死锁发生。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/bank-unsafe.png" alt="" /><br />
+上图c为不安全状态，因此算法会拒绝进入图c请求</p>
+<h2 id="死锁检测与恢复"><a class="markdownIt-Anchor" href="#死锁检测与恢复"></a> 死锁检测与恢复</h2>
+<h3 id="死锁检测"><a class="markdownIt-Anchor" href="#死锁检测"></a> 死锁检测</h3>
+<h4 id="资源分配图"><a class="markdownIt-Anchor" href="#资源分配图"></a> 资源分配图</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/rag.jpg" alt="资源分配图" /></p>
+<ul>
+<li>圆圈代表进程</li>
+<li>方框代表一类资源</li>
+<li>进程到资源的有向边代表请求资源边</li>
+<li>资源到进程的有向边代表资源分配边<br />
+如图所示，P1进程分得两个R1资源，又请求一个R2资源；P2进程分得一个R1资源和R2资源，又请求了一个R1资源。</li>
+</ul>
+<h4 id="简化资源分配图"><a class="markdownIt-Anchor" href="#简化资源分配图"></a> 简化资源分配图</h4>
+<p>简化资源分配图步骤</p>
+<ol>
+<li>找一个非孤立、且只有分配边的进程节点，去掉分配边，将其变为孤立节点</li>
+<li>再把相应的资源分配给一个等待该资源的进程，即将该进程的申请边变为分配边</li>
+<li>重复1、2</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/rag2.jpg" alt="化简" /></p>
+<ul>
+<li>(1)到(2): R2剩余1个资源，分配给P1，释放P1</li>
+<li>(2)到(3): R1剩余2个资源，分配给P2，释放P2</li>
+</ul>
+<p>若能消去所有的边，则该图是可完全简化的，死锁的条件是当且仅当S状态的资源分配图是不可完全简化的</p>
+<h3 id="死锁恢复"><a class="markdownIt-Anchor" href="#死锁恢复"></a> 死锁恢复</h3>
+<ul>
+<li>资源剥夺法。挂起某些死锁进程并抢夺它的资源，直到死锁接触。但要防止被挂起的进程长时间得不到资源而饥饿。</li>
+<li>撤销进程法。强制撤销部分、甚至全部死锁进程并剥夺这些资源。</li>
+<li>进程回退法。让一个或多个进程回退到足以回避死锁的地步。要求保持进程的历史信息，设置还原点。</li>
+</ul>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<p><a href="https://www.nowcoder.com/questionTerminal/09b51b00891543d6b08ace80c0704b01">什么是死锁(deadlock)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/25677118">死锁产生的原因及四个必要条件</a></p>
+<p><a href="https://blog.csdn.net/zhangpower1993/article/details/89518780">死锁的四个必要条件、预防和避免办法</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/61221667">​死锁的产生、防止、避免、检测和解除</a></p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
 </search>
