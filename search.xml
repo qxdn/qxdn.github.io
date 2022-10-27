@@ -3898,7 +3898,7 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
 <li>一个白色对象被黑色对象引用</li>
 <li>白色对象又被某个灰色（或者上级有灰色对象）对象取消引用。</li>
 </ul>
-<p>![没有STW的三色标记法]</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.10/non-stw.jpg" alt="没有STW的三色标记法" /></p>
 <p>为了防止上面的现象发生，最简单的方式就是使用STW，直接禁止掉其他用户程序对对象引用关系的干扰，但是STW的过程有明显的资源浪费，对所有的用户程序都有很大影响。因此Go的方法是使用插入屏障和删除屏障</p>
 <h2 id="屏障机制"><a class="markdownIt-Anchor" href="#屏障机制"></a> 屏障机制</h2>
 <h3 id="强-弱三色不等式"><a class="markdownIt-Anchor" href="#强-弱三色不等式"></a> ”强-弱“三色不等式</h3>
