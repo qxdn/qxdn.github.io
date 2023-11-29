@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://qianxu.run/2023/10/05/unetr-note/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
     <loc>https://qianxu.run/2023/10/06/metaformer-note/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2023/11/25/live2d-widget-moc3/</loc>
+    <loc>https://qianxu.run/2023/11/14/dynamic-snake-convolution-note/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2023/11/14/dynamic-snake-convolution-note/</loc>
+    <loc>https://qianxu.run/2023/11/25/live2d-widget-moc3/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -18,6 +22,10 @@
   </url>
   <url>
     <loc>https://qianxu.run/2023/11/16/ducknet-note/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2021/03/28/tmux-vs-screen/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -49,11 +57,11 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/06/14/live2d-api/</loc>
+    <loc>https://qianxu.run/2021/06/15/HK416-GK/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/06/15/HK416-GK/</loc>
+    <loc>https://qianxu.run/2021/06/14/live2d-api/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -81,11 +89,11 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
+    <loc>https://qianxu.run/2021/08/05/DCGAN/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/08/05/DCGAN/</loc>
+    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -189,6 +197,10 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
+    <loc>https://qianxu.run/2022/10/19/dead-lock/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
     <loc>https://qianxu.run/2022/10/21/go-gc/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
@@ -197,7 +209,7 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2022/10/19/dead-lock/</loc>
+    <loc>https://qianxu.run/2022/12/05/java-volatile/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -205,15 +217,11 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2022/12/05/java-volatile/</loc>
+    <loc>https://qianxu.run/2022/12/15/python-dependency-injection/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
     <loc>https://qianxu.run/2022/12/22/mann-kendall-test/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2022/12/15/python-dependency-injection/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -225,19 +233,15 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2023/02/23/controlnet-note/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
     <loc>https://qianxu.run/2023/02/20/react-native-github-action/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2023/02/25/segresnet-note/</loc>
+    <loc>https://qianxu.run/2023/02/23/controlnet-note/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2023/10/05/unetr-note/</loc>
+    <loc>https://qianxu.run/2023/02/25/segresnet-note/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -269,11 +273,11 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/03/05/builddarknet/</loc>
+    <loc>https://qianxu.run/2021/03/18/installDocker/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/03/18/installDocker/</loc>
+    <loc>https://qianxu.run/2021/03/05/builddarknet/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -282,10 +286,6 @@
   </url>
   <url>
     <loc>https://qianxu.run/2021/03/26/install-tensorflow-gpu/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2021/03/28/tmux-vs-screen/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
 </urlset> 
