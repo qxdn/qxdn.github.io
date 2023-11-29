@@ -1,47 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://qianxu.run/2022/12/15/python-dependency-injection/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2022/12/22/mann-kendall-test/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2023/01/26/js-check-devtool/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2023/02/08/honkai-gift-box-2023/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2023/02/20/react-native-github-action/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2023/02/23/controlnet-note/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2023/02/25/segresnet-note/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2023/10/05/unetr-note/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
     <loc>https://qianxu.run/2023/10/06/metaformer-note/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2023/11/14/dynamic-snake-convolution-note/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2023/11/16/ducknet-note/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -49,47 +9,19 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
+    <loc>https://qianxu.run/2023/11/14/dynamic-snake-convolution-note/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
     <loc>https://qianxu.run/2023/11/29/tts-haruka/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2020/10/19/energySaving/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2020/10/23/DogsVsCatsAlexNet/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2020/10/24/upgradeWSL2/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2021/01/19/installpytorch/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2021/03/18/installDocker/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2021/03/05/builddarknet/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2021/03/19/mingw64problem/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2021/03/26/install-tensorflow-gpu/</loc>
+    <loc>https://qianxu.run/2023/11/16/ducknet-note/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
     <loc>https://qianxu.run/2021/03/29/NIN-Note/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2021/03/28/tmux-vs-screen/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -133,11 +65,11 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/07/03/YOLO-oral-defense/</loc>
+    <loc>https://qianxu.run/2021/07/02/YOLO-paper/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/07/02/YOLO-paper/</loc>
+    <loc>https://qianxu.run/2021/07/03/YOLO-oral-defense/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -149,11 +81,11 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/08/05/DCGAN/</loc>
+    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
+    <loc>https://qianxu.run/2021/08/05/DCGAN/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -213,11 +145,11 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/11/22/do-while-0/</loc>
+    <loc>https://qianxu.run/2021/11/16/haas-burn-error/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2021/11/16/haas-burn-error/</loc>
+    <loc>https://qianxu.run/2021/11/22/do-while-0/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -257,10 +189,6 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
-    <loc>https://qianxu.run/2022/10/19/dead-lock/</loc>
-    <lastmod>2023-11-29</lastmod>
-  </url>
-  <url>
     <loc>https://qianxu.run/2022/10/21/go-gc/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
@@ -269,11 +197,47 @@
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
+    <loc>https://qianxu.run/2022/10/19/dead-lock/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
     <loc>https://qianxu.run/2022/11/20/dubbo-starter/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
     <loc>https://qianxu.run/2022/12/05/java-volatile/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2022/12/22/mann-kendall-test/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2022/12/15/python-dependency-injection/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2023/01/26/js-check-devtool/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2023/02/08/honkai-gift-box-2023/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2023/02/23/controlnet-note/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2023/02/20/react-native-github-action/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2023/02/25/segresnet-note/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2023/10/05/unetr-note/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
   <url>
@@ -286,6 +250,42 @@
   </url>
   <url>
     <loc>https://qianxu.run/2020/10/19/electronicDesignContestPerpare/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2020/10/19/energySaving/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2020/10/23/DogsVsCatsAlexNet/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2020/10/24/upgradeWSL2/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2021/01/19/installpytorch/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2021/03/05/builddarknet/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2021/03/18/installDocker/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2021/03/19/mingw64problem/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2021/03/26/install-tensorflow-gpu/</loc>
+    <lastmod>2023-11-29</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2021/03/28/tmux-vs-screen/</loc>
     <lastmod>2023-11-29</lastmod>
   </url>
 </urlset> 
