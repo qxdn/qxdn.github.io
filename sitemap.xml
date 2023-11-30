@@ -2,42 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://qianxu.run/2022/10/06/process-and-thread/</loc>
-    
-    <lastmod>2023-11-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2022/10/19/dead-lock/</loc>
-    
-    <lastmod>2023-11-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2022/10/21/go-gc/</loc>
-    
-    <lastmod>2023-11-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2022/10/21/java-gc/</loc>
-    
-    <lastmod>2023-11-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://qianxu.run/2022/11/20/dubbo-starter/</loc>
     
     <lastmod>2023-11-30</lastmod>
@@ -687,6 +651,42 @@
   
   <url>
     <loc>https://qianxu.run/2022/08/03/convnext-note/</loc>
+    
+    <lastmod>2023-11-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2022/10/06/process-and-thread/</loc>
+    
+    <lastmod>2023-11-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2022/10/19/dead-lock/</loc>
+    
+    <lastmod>2023-11-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2022/10/21/go-gc/</loc>
+    
+    <lastmod>2023-11-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2022/10/21/java-gc/</loc>
     
     <lastmod>2023-11-30</lastmod>
     
