@@ -20,6 +20,24 @@
   </url>
   
   <url>
+    <loc>https://qianxu.run/2021/07/27/bcy-spider/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2021/07/11/ResNet-Note/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://qianxu.run/2021/08/05/DCGAN/</loc>
     
     <lastmod>2023-12-01</lastmod>
@@ -146,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2021/11/12/mihoyo-bbs-crawler/</loc>
+    <loc>https://qianxu.run/2021/11/14/cmd-error-was-unexpected/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -155,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2021/11/14/cmd-error-was-unexpected/</loc>
+    <loc>https://qianxu.run/2021/11/12/mihoyo-bbs-crawler/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -669,24 +687,6 @@
   
   <url>
     <loc>https://qianxu.run/2021/07/03/YOLO-oral-defense/</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2021/07/11/ResNet-Note/</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2021/07/27/bcy-spider/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
