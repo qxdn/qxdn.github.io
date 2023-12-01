@@ -475,34 +475,6 @@ export saved model.
       </tags>
   </entry>
   <entry>
-    <title>安装tensorflow-gpu版本</title>
-    <url>/2021/03/26/install-tensorflow-gpu/</url>
-    <content><![CDATA[<p>对于个人而言，还是比较习惯使用tensorflow的keras</p>
-<span id="more"></span>
-<h1 id="安装cuda和cudnn"><a class="markdownIt-Anchor" href="#安装cuda和cudnn"></a> 安装cuda和cudnn</h1>
-<p>安装方法可以见<a href="https://qianxu.run/2021/01/18/installpytorch/">pytorch的安装</a>，对于tensorflow已有的gpu支持可以见<a href="https://tensorflow.google.cn/install/source_windows#gpu">此</a>。不提前装cuda和cudnn的方法见<a href="#%E4%BD%BF%E7%94%A8conda%E5%AE%89%E8%A3%85cuda%E5%92%8Ccudnn">使用conda安装cuda和cudnn</a></p>
-<h1 id="安装tensorflow-gpu"><a class="markdownIt-Anchor" href="#安装tensorflow-gpu"></a> 安装tensorflow-gpu</h1>
-<p>由于我刚好符合<code>tensorflow-gpu 2.4.0</code>，而<code>conda</code>还没有这个包，因此使用<code>pip</code>进行安装</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install tensorflow-gpu==<span class="number">2.4</span><span class="number">.0</span> -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
-<p>镜像源可能下载速度还是不行，可以直接本地安装</p>
-<h1 id="验证gpu"><a class="markdownIt-Anchor" href="#验证gpu"></a> 验证gpu</h1>
-<p>运行代码</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(tf.__version__)</span><br><span class="line"><span class="built_in">print</span>(tf.config.list_physical_devices())</span><br></pre></td></tr></table></figure>
-<p>输出结果如下</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">35.277510</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cudart64_110.dll2.<span class="number">4.0</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.259583</span>: I tensorflow/compiler/jit/xla_cpu_device.cc:<span class="number">41</span>] Not creating XLA devices, tf_xla_enable_xla_devices not <span class="built_in">set</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.261539</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library nvcuda.dll      </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.307535</span>: I tensorflow/core/common_runtime/gpu/gpu_device.cc:<span class="number">1720</span>] Found device <span class="number">0</span> with properties: </span><br><span class="line">pciBusID: <span class="number">0000</span>:<span class="number">01</span>:<span class="number">00.0</span> name: GeForce GTX <span class="number">1050</span> computeCapability: <span class="number">6.1</span></span><br><span class="line">coreClock: <span class="number">1.493</span>GHz coreCount: <span class="number">5</span> deviceMemorySize: <span class="number">2.00</span>GiB deviceMemoryBandwidth: <span class="number">104.43</span>GiB/s</span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.308404</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cudart64_110.dll2021<span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.322068</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cublas64_11.dll </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.322414</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cublasLt64_11.dll</span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.329903</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cufft64_10.dll  </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.332538</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library curand64_10.dll </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.347776</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cusolver64_10.dll</span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.357722</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cusparse64_11.dll</span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.362238</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cudnn64_8.dll   </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.362701</span>: I tensorflow/core/common_runtime/gpu/gpu_device.cc:<span class="number">1862</span>] Adding visible gpu devices: <span class="number">0</span></span><br><span class="line">[<span class="type">PhysicalDevice</span>(<span class="type">name</span>=<span class="string">&#x27;/physical_device:CPU:0&#x27;</span>, <span class="type">device_type</span>=<span class="string">&#x27;CPU&#x27;</span>), <span class="type">PhysicalDevice</span>(<span class="type">name</span>=<span class="string">&#x27;/physical_device:GPU:0&#x27;</span>, <span class="type">device_type</span>=<span class="string">&#x27;GPU&#x27;</span>)]</span><br></pre></td></tr></table></figure>
-<h1 id="使用conda安装cuda和cudnn"><a class="markdownIt-Anchor" href="#使用conda安装cuda和cudnn"></a> 使用conda安装cuda和cudnn</h1>
-<p>事实上使用conda的时候不提前装cuda和cudnn也是可以的。<br />
-执行以下代码即可。注意对比tensorflow的gpu支持版本，见<a href="https://tensorflow.google.cn/install/source_windows#gpu">此</a></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">conda install cudatoolkit=<span class="number">10.1</span> cudnn=<span class="number">7.6</span><span class="number">.5</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MinGW编译C++无法输出string</title>
     <url>/2021/03/19/mingw64problem/</url>
     <content><![CDATA[<p>在调试程序的时候遇到了一个奇葩的问题，C++无法使用string。最后发现居然是MinGW64的问题</p>
@@ -536,6 +508,34 @@ export saved model.
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安装tensorflow-gpu版本</title>
+    <url>/2021/03/26/install-tensorflow-gpu/</url>
+    <content><![CDATA[<p>对于个人而言，还是比较习惯使用tensorflow的keras</p>
+<span id="more"></span>
+<h1 id="安装cuda和cudnn"><a class="markdownIt-Anchor" href="#安装cuda和cudnn"></a> 安装cuda和cudnn</h1>
+<p>安装方法可以见<a href="https://qianxu.run/2021/01/18/installpytorch/">pytorch的安装</a>，对于tensorflow已有的gpu支持可以见<a href="https://tensorflow.google.cn/install/source_windows#gpu">此</a>。不提前装cuda和cudnn的方法见<a href="#%E4%BD%BF%E7%94%A8conda%E5%AE%89%E8%A3%85cuda%E5%92%8Ccudnn">使用conda安装cuda和cudnn</a></p>
+<h1 id="安装tensorflow-gpu"><a class="markdownIt-Anchor" href="#安装tensorflow-gpu"></a> 安装tensorflow-gpu</h1>
+<p>由于我刚好符合<code>tensorflow-gpu 2.4.0</code>，而<code>conda</code>还没有这个包，因此使用<code>pip</code>进行安装</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install tensorflow-gpu==<span class="number">2.4</span><span class="number">.0</span> -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+<p>镜像源可能下载速度还是不行，可以直接本地安装</p>
+<h1 id="验证gpu"><a class="markdownIt-Anchor" href="#验证gpu"></a> 验证gpu</h1>
+<p>运行代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(tf.__version__)</span><br><span class="line"><span class="built_in">print</span>(tf.config.list_physical_devices())</span><br></pre></td></tr></table></figure>
+<p>输出结果如下</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">35.277510</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cudart64_110.dll2.<span class="number">4.0</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.259583</span>: I tensorflow/compiler/jit/xla_cpu_device.cc:<span class="number">41</span>] Not creating XLA devices, tf_xla_enable_xla_devices not <span class="built_in">set</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.261539</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library nvcuda.dll      </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.307535</span>: I tensorflow/core/common_runtime/gpu/gpu_device.cc:<span class="number">1720</span>] Found device <span class="number">0</span> with properties: </span><br><span class="line">pciBusID: <span class="number">0000</span>:<span class="number">01</span>:<span class="number">00.0</span> name: GeForce GTX <span class="number">1050</span> computeCapability: <span class="number">6.1</span></span><br><span class="line">coreClock: <span class="number">1.493</span>GHz coreCount: <span class="number">5</span> deviceMemorySize: <span class="number">2.00</span>GiB deviceMemoryBandwidth: <span class="number">104.43</span>GiB/s</span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.308404</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cudart64_110.dll2021<span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.322068</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cublas64_11.dll </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.322414</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cublasLt64_11.dll</span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.329903</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cufft64_10.dll  </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.332538</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library curand64_10.dll </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.347776</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cusolver64_10.dll</span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.357722</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cusparse64_11.dll</span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.362238</span>: I tensorflow/stream_executor/platform/default/dso_loader.cc:<span class="number">49</span>] Successfully opened dynamic library cudnn64_8.dll   </span><br><span class="line"><span class="number">2021</span><span class="literal">-03-26</span> <span class="number">17</span>:<span class="number">00</span>:<span class="number">39.362701</span>: I tensorflow/core/common_runtime/gpu/gpu_device.cc:<span class="number">1862</span>] Adding visible gpu devices: <span class="number">0</span></span><br><span class="line">[<span class="type">PhysicalDevice</span>(<span class="type">name</span>=<span class="string">&#x27;/physical_device:CPU:0&#x27;</span>, <span class="type">device_type</span>=<span class="string">&#x27;CPU&#x27;</span>), <span class="type">PhysicalDevice</span>(<span class="type">name</span>=<span class="string">&#x27;/physical_device:GPU:0&#x27;</span>, <span class="type">device_type</span>=<span class="string">&#x27;GPU&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+<h1 id="使用conda安装cuda和cudnn"><a class="markdownIt-Anchor" href="#使用conda安装cuda和cudnn"></a> 使用conda安装cuda和cudnn</h1>
+<p>事实上使用conda的时候不提前装cuda和cudnn也是可以的。<br />
+执行以下代码即可。注意对比tensorflow的gpu支持版本，见<a href="https://tensorflow.google.cn/install/source_windows#gpu">此</a></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">conda install cudatoolkit=<span class="number">10.1</span> cudnn=<span class="number">7.6</span><span class="number">.5</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -1465,6 +1465,50 @@ YOLO9000是一个通过联合优化检测、分类数据集检测超过9000个�
       </tags>
   </entry>
   <entry>
+    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
+    <url>/2021/07/03/YOLO-oral-defense/</url>
+    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
+<span id="more"></span>
+<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
+<blockquote>
+<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
+</blockquote>
+<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
+<ul>
+<li>Q1： 几类目标？<br />
+6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
+<li>Q2：实测框架？<br />
+本次系统使用pytorch框架实现</li>
+<li>Q3：不平衡怎么去确定<br />
+根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
+<li>Q4：数据集如何自建？收集？<br />
+本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
+<li>Q5：损失函数的选择理由？<br />
+损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
+<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
+由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
+本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
+(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
+<li>Q7：改进结果突出哪些类？<br />
+所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
+<li>Q8：为什么car类提升效果最高？<br />
+调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
+(因为当时PPT打错了，老师原本问的是motor)</li>
+</ul>
+<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
+<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>毕业设计</tag>
+        <tag>yolo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毕业设计（六）基于深度学习算法YOLO的行人车辆检测——论文</title>
     <url>/2021/07/02/YOLO-paper/</url>
     <content><![CDATA[<p>特别特别水的论文，数据集和权重晚点放到仓库里面</p>
@@ -1778,50 +1822,6 @@ ms。可以估算得到改进后模型的速度约为159 FPS，可以满足实�
 </li>
 </ol>
 </section>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>毕业设计</tag>
-        <tag>yolo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
-    <url>/2021/07/03/YOLO-oral-defense/</url>
-    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
-<span id="more"></span>
-<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
-<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
-<blockquote>
-<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
-</blockquote>
-<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
-<ul>
-<li>Q1： 几类目标？<br />
-6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
-<li>Q2：实测框架？<br />
-本次系统使用pytorch框架实现</li>
-<li>Q3：不平衡怎么去确定<br />
-根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
-<li>Q4：数据集如何自建？收集？<br />
-本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
-<li>Q5：损失函数的选择理由？<br />
-损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
-<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
-由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
-本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
-(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
-<li>Q7：改进结果突出哪些类？<br />
-所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
-<li>Q8：为什么car类提升效果最高？<br />
-调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
-(因为当时PPT打错了，老师原本问的是motor)</li>
-</ul>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -2663,6 +2663,35 @@ _________________________________________________________________
       </tags>
   </entry>
   <entry>
+    <title>matplotlib崩溃问题记录</title>
+    <url>/2021/11/04/matplotlib-crash/</url>
+    <content><![CDATA[<h1 id="前景提要"><a class="markdownIt-Anchor" href="#前景提要"></a> 前景提要</h1>
+<p>因为需要安装新的conda环境来进行新的项目，于是乎就新建了conda环境。装完seaborn后发现，图像没法显示。经过一系列的排查后发现问题出在了matplotlib上。</p>
+<h1 id="问题复现"><a class="markdownIt-Anchor" href="#问题复现"></a> 问题复现</h1>
+<h2 id="测试代码"><a class="markdownIt-Anchor" href="#测试代码"></a> 测试代码</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">1</span>,<span class="number">11</span>) </span><br><span class="line">y =  <span class="number">2</span>  * x +  <span class="number">5</span> </span><br><span class="line">plt.title(<span class="string">&quot;test&quot;</span>) </span><br><span class="line"> </span><br><span class="line">plt.xlabel(<span class="string">&quot;x &quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y &quot;</span>)</span><br><span class="line">plt.plot(x,y) </span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h2 id="问题截图"><a class="markdownIt-Anchor" href="#问题截图"></a> 问题截图</h2>
+<p>可以看到运行结果一篇空白，然后程序崩溃。<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.9/screenshot.png" alt="" /></p>
+<h1 id="解决"><a class="markdownIt-Anchor" href="#解决"></a> 解决</h1>
+<p>这个问题有点恶心的地方在于基本找不到错误信息，在尝试过降级、重启、重装后也没有解决。在我身边的人同样碰到这个问题的时候，我意识到这不是我个人的问题，于是乎在github的issue找到了解答。问题处在了matplotlib的依赖上。需要将<code>freestyle</code>包从<code>2.11.0</code>降到<code>2.10.4</code>。随后问题解决。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install freetype==2.10.4 --force-reinstall</span><br></pre></td></tr></table></figure>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>这个问题似乎是<code>conda-forge</code>的依赖配置不对，没试过<code>pip</code>能不能解决，希望后续能够修复。</p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p><a href="https://github.com/matplotlib/matplotlib/issues/21511">[Bug]: Matplotlib crashes Python</a></p>
+<p><a href="https://stackoverflow.com/questions/69786885/after-conda-update-python-kernel-crashes-when-matplotlib-is-used/69788527#69788527">After conda update, python kernel crashes when matplotlib is used</a></p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>bug</tag>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>远程文件拷贝</title>
     <url>/2021/11/02/remote-copy/</url>
     <content><![CDATA[<p>实验室分配了服务器，有必要了解以下远程数据的拷贝<br />
@@ -2737,32 +2766,99 @@ _________________________________________________________________
       </tags>
   </entry>
   <entry>
-    <title>matplotlib崩溃问题记录</title>
-    <url>/2021/11/04/matplotlib-crash/</url>
-    <content><![CDATA[<h1 id="前景提要"><a class="markdownIt-Anchor" href="#前景提要"></a> 前景提要</h1>
-<p>因为需要安装新的conda环境来进行新的项目，于是乎就新建了conda环境。装完seaborn后发现，图像没法显示。经过一系列的排查后发现问题出在了matplotlib上。</p>
-<h1 id="问题复现"><a class="markdownIt-Anchor" href="#问题复现"></a> 问题复现</h1>
-<h2 id="测试代码"><a class="markdownIt-Anchor" href="#测试代码"></a> 测试代码</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt </span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">1</span>,<span class="number">11</span>) </span><br><span class="line">y =  <span class="number">2</span>  * x +  <span class="number">5</span> </span><br><span class="line">plt.title(<span class="string">&quot;test&quot;</span>) </span><br><span class="line"> </span><br><span class="line">plt.xlabel(<span class="string">&quot;x &quot;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&quot;y &quot;</span>)</span><br><span class="line">plt.plot(x,y) </span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<h2 id="问题截图"><a class="markdownIt-Anchor" href="#问题截图"></a> 问题截图</h2>
-<p>可以看到运行结果一篇空白，然后程序崩溃。<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.9/screenshot.png" alt="" /></p>
-<h1 id="解决"><a class="markdownIt-Anchor" href="#解决"></a> 解决</h1>
-<p>这个问题有点恶心的地方在于基本找不到错误信息，在尝试过降级、重启、重装后也没有解决。在我身边的人同样碰到这个问题的时候，我意识到这不是我个人的问题，于是乎在github的issue找到了解答。问题处在了matplotlib的依赖上。需要将<code>freestyle</code>包从<code>2.11.0</code>降到<code>2.10.4</code>。随后问题解决。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">conda install freetype==2.10.4 --force-reinstall</span><br></pre></td></tr></table></figure>
+    <title>neo4j简单入门和前端可视化</title>
+    <url>/2021/11/10/neo4j-simple-tutorial/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《D.C.4 Plus Harmony》</p>
+</blockquote>
+<h1 id="neo4j和知识图谱简介"><a class="markdownIt-Anchor" href="#neo4j和知识图谱简介"></a> neo4j和知识图谱简介</h1>
+<blockquote>
+<p>Neo4j是由Neo4j,Inc开发的一个图数据库管理系统。其开发人员将其描述为一个具有本地图存储和处理的符合ACID事务的数据库，Neo4j在GPL3协议下开源社区版，还具有在商业闭源协议下的在线备份和高可用拓展。Neo还允许Neo4j在闭源商业中使用这些插件。<br />
+Neo4j是由Java实现，同时可以被其他语言写的软件使用事务性HTTP端点或者二进制“Bolt”协议通过Cypher查询语言来进行访问。</p>
+</blockquote>
+<p>以上翻译自Wikipedia。简单来说Neo4j是一个以图形式存储的一个NOSQL。</p>
+<blockquote>
+<p>知识图谱（Knowledge Graph），在图书情报界称为知识域可视化或知识领域映射地图，是显示知识发展进程与结构关系的一系列各种不同的图形，用可视化技术描述知识资源及其载体，挖掘、分析、构建、绘制和显示知识及它们之间的相互联系。<br />
+知识图谱，是通过将应用数学、图形学、信息可视化技术、信息科学等学科的理论与方法与计量学引文分析、共现分析等方法结合，并利用可视化的图谱形象地展示学科的核心结构、发展历史、前沿领域以及整体知识架构达到多学科融合目的的现代理论。</p>
+</blockquote>
+<p>对于这种知识图谱，最好是用neo4j这种图数据库存储。效果如下<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/introduce.png" alt="" /></p>
+<h1 id="neo4j安装"><a class="markdownIt-Anchor" href="#neo4j安装"></a> neo4j安装</h1>
+<p>可以直接到<a href="https://neo4j.com/">官网</a>进行不同版本的选择安装。我这里选择<a href="https://neo4j.com/download/?ref=get-started-dropdown-cta">desktop</a>安装。</p>
+<h1 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h1>
+<p>启动比较简单，开箱即用。可以点击下图的start启动数据库是，然后进行open打开内置浏览器。也可以浏览器中打开<code>http://localhost:7474/browser/</code>进行访问。<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/start.png" alt="" /></p>
+<h1 id="cypher-query"><a class="markdownIt-Anchor" href="#cypher-query"></a> Cypher query</h1>
+<p>新建一个project和database来开始我们的学习。</p>
+<h2 id="增"><a class="markdownIt-Anchor" href="#增"></a> 增</h2>
+<p>Cypher query增加节点非常简单<br />
+首先来增加一个人物节点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE (p:Person&#123;name:&quot;qxdn&quot;,age:21&#125;) return p</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/create-node.png" alt="" /><br />
+蓝色的就是创建的节点，其中<code>CREATE</code>就是创建一个节点或者关系。其中<code>p</code>表示的是变量名，后续引用这个节点的时候可以使用这个变量名。其中<code>&#123;&#125;</code>为该节点的属性，类似于json。<code>return</code>为返回输出（可选）。<br />
+Cypher中的节点表示如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">()                  //匿名节点，无标签</span><br><span class="line">(p:Person)          //使用变量p和标签Person</span><br><span class="line">(:Technology)       //无变量，标签为Technology</span><br><span class="line">(work:Company)      //使用变量work和标签Company</span><br></pre></td></tr></table></figure>
+<p>接下来创建更多的节点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE (p:Person&#123;name:&quot;a&quot;,age:21&#125;) return p</span><br><span class="line">CREATE (p:Person&#123;name:&quot;b&quot;,age:21&#125;) return p</span><br><span class="line">CREATE (p:Person&#123;name:&quot;c&quot;,age:21&#125;) return p</span><br></pre></td></tr></table></figure>
+<p>创建关系</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (p1:Person &#123;name: &#x27;qxdn&#x27;&#125;)</span><br><span class="line">MATCH (p2:Person &#123;name: &#x27;a&#x27;&#125;)</span><br><span class="line">CREATE (p1)-[rel:IS_FRIENDS_WITH&#123;from:2021&#125;]-&gt;(p2)</span><br><span class="line">// OR 使用MERGE可以避免重复定义</span><br><span class="line">MATCH (p1:Person &#123;name:&#x27;b&#x27;&#125;), (p2:Person &#123;name:&quot;qxdn&quot;&#125;) </span><br><span class="line">MERGE (p1)&lt;-[:IS_FRIENDS_WITH&#123;from:2021&#125;]-(p2)</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/rel1.png" alt="" /><br />
+添加关系的方法还是非常简单的。使用<code>[]</code>即可表示关系，<code>:</code>区分变量名和标签，同样可以使用<code>&#123;&#125;</code>描述关系的属性。需要注意的是这里的关系是有方向的，需要用<code>--&gt;</code>或<code>&lt;--</code>表示。上图可以很明显的看出来。如果不知道方向可以使用<code>--</code>表示，这对与查询来说会更简单。<br />
+此外在创建节点的时候就可以指明关系</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE (:Person&#123;name:&quot;d&quot;&#125;) -[:IS_FRIENDS_WITH&#123;from:2020&#125;]-&gt;(:Person&#123;name:&quot;e&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="删"><a class="markdownIt-Anchor" href="#删"></a> 删</h2>
+<p>删除命令也比较简单，但是需要注意的是，NEO4j中删除节点需要改节点没有关联的关系。<br />
+为了有更好的展示效果，先增条数据</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (p:Person&#123;name:&quot;qxdn&quot;&#125;)</span><br><span class="line">CREATE (p)-[:BORIN]-&gt;(:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">//</span><br><span class="line">CREATE (:Person&#123;name:&quot;f&quot;&#125;) -[:IS_FRIENDS_WITH&#123;from:2020&#125;]-&gt;(:Person&#123;name:&quot;g&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/before-delete.png" alt="" /></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 删除关系</span><br><span class="line">MATCH (:Person &#123;name: &#x27;f&#x27;&#125;)-[r:IS_FRIENDS_WITH]-&gt;(:Person &#123;name: &#x27;g&#x27;&#125;)</span><br><span class="line">DELETE r</span><br><span class="line">// 删除节点</span><br><span class="line">MATCH (p:Person &#123;name: &#x27;c&#x27;&#125;)</span><br><span class="line">DELETE p</span><br><span class="line">// 删除节点和关系</span><br><span class="line">MATCH (p1:Person &#123;name: &#x27;d&#x27;&#125;)-[r:IS_FRIENDS_WITH]-&gt;(p2:Person &#123;name: &#x27;e&#x27;&#125;)</span><br><span class="line">DELETE p1,p2,r</span><br><span class="line">// 断开一个节点的关系和其自身</span><br><span class="line">MATCH (c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">DETACH DELETE c</span><br><span class="line">// 删除一个节点的属性</span><br><span class="line">MATCH (n:Person &#123;name: &#x27;qxdn&#x27;&#125;)</span><br><span class="line">REMOVE n.age</span><br><span class="line">// OR</span><br><span class="line">MATCH (n:Person &#123;name: &#x27;a&#x27;&#125;)</span><br><span class="line">SET n.age = null</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/after-delete.png" alt="删除之后" /></p>
+<h2 id="查"><a class="markdownIt-Anchor" href="#查"></a> 查</h2>
+<p>先执行一下语句增加节点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//</span><br><span class="line">CREATE (:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">// </span><br><span class="line">CREATE (:Country&#123;name:&quot;USA&quot;&#125;)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;qxdn&quot;&#125;),(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;a&quot;&#125;),(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;b&quot;&#125;),(c:Country&#123;name:&quot;USA&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;g&quot;&#125;),(c:Country&#123;name:&quot;USA&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;f&quot;&#125;),(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match1.png" alt="" /></p>
+<p>查询语句主要靠<code>MATCH</code>关键词，其功能类似于sql中的<code>SELECT</code></p>
+<p>查询所有节点，只输出25个避免过多节点。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (n) </span><br><span class="line">RETURN n </span><br><span class="line">LIMIT 25</span><br></pre></td></tr></table></figure>
+<p>结果与上图一样<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match1.png" alt="" /></p>
+<p>查询qxdn出生的国家</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (:Person &#123;name: &#x27;qxdn&#x27;&#125;)-[:BORN_IN]-&gt;(c:Country)</span><br><span class="line">RETURN c</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match2.png" alt="" /></p>
+<p>查询qxdn和a做朋友的起始年</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (:Person &#123;name: &#x27;qxdn&#x27;&#125;)-[r:IS_FRIENDS_WITH]-&gt;(:Person &#123;name: &#x27;a&#x27;&#125;)</span><br><span class="line">RETURN r.from</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match3.png" alt="" /></p>
+<p>查询所有中国出生的人</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (p:Person)-[:BORN_IN]-&gt;(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">RETURN p,c</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match4.png" alt="" /></p>
+<h2 id="改"><a class="markdownIt-Anchor" href="#改"></a> 改</h2>
+<p>改主要是使用<code>SET</code>关键词<br />
+修改a的出生国</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (p:Person&#123;name:&quot;a&quot;&#125;)-[:BORN_IN]-(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">SET c.name = &quot;USA&quot;</span><br><span class="line">RETURN p,c</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/set.png" alt="" /></p>
+<h1 id="前端可视化"><a class="markdownIt-Anchor" href="#前端可视化"></a> 前端可视化</h1>
+<p>前端可视化可以使用<code>neovis.js</code>。这是使用vis.js对neo4j进行定制，可以在前端直接操作neo4j。由于实验室项目不需要管啥安全，因此也不管明文密码了。</p>
+<p>这里我们先clone一下官网的repo。并修改其中的<code>simple-example.html</code>。修改其中的<code>config</code>变量</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">				<span class="attr">container_id</span>: <span class="string">&quot;viz&quot;</span>, <span class="comment">//jquery的容器id</span></span><br><span class="line">				<span class="attr">server_url</span>: <span class="string">&quot;bolt://localhost:7687&quot;</span>, <span class="comment">//服务器url</span></span><br><span class="line">				<span class="attr">server_user</span>: <span class="string">&quot;qxdn&quot;</span>,</span><br><span class="line">				<span class="attr">server_password</span>: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line"></span><br><span class="line">				<span class="attr">labels</span>: &#123;</span><br><span class="line">					<span class="comment">//&quot;Character&quot;: &quot;name&quot;,</span></span><br><span class="line">					<span class="string">&quot;Person&quot;</span>: &#123;</span><br><span class="line">						<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;name&quot;</span>, <span class="comment">//节点显示的内容 </span></span><br><span class="line">						<span class="string">&quot;title_properties&quot;</span>: [ <span class="comment">//鼠标移到节点上显示的内容</span></span><br><span class="line">							<span class="string">&quot;name&quot;</span>,</span><br><span class="line">							<span class="string">&quot;age&quot;</span></span><br><span class="line">						]</span><br><span class="line">					&#125;,</span><br><span class="line">					<span class="string">&quot;Country&quot;</span>: &#123;</span><br><span class="line">						<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;name&quot;</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">				<span class="attr">relationships</span>: &#123;</span><br><span class="line">				&#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				<span class="attr">initial_cypher</span>: <span class="string">&quot;MATCH p=()--&gt;() RETURN p&quot;</span>    <span class="comment">// 初始化的cypher语句</span></span><br><span class="line">			&#125;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/front.png" alt="" /></p>
+<h2 id="完整代码"><a class="markdownIt-Anchor" href="#完整代码"></a> 完整代码</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Neovis.js Simple Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">		<span class="selector-tag">html</span>,</span></span><br><span class="line"><span class="language-css">		<span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">font</span>: <span class="number">16pt</span> arial;</span></span><br><span class="line"><span class="language-css">		&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">		<span class="selector-id">#viz</span> &#123;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">width</span>: <span class="number">900px</span>;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">height</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">border</span>: <span class="number">1px</span> solid lightgray;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">font</span>: <span class="number">22pt</span> arial;</span></span><br><span class="line"><span class="language-css">		&#125;</span></span><br><span class="line"><span class="language-css">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- <span class="doctag">FIXME:</span> load from dist --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;../dist/neovis.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://code.jquery.com/jquery-3.2.1.min.js&quot;</span></span></span><br><span class="line"><span class="tag">		<span class="attr">integrity</span>=<span class="string">&quot;sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// define config car</span></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// instantiate nodevis object</span></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// draw</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">var</span> viz;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">function</span> <span class="title function_">draw</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">			<span class="keyword">var</span> config = &#123;</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">container_id</span>: <span class="string">&quot;viz&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_url</span>: <span class="string">&quot;bolt://localhost:7687&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_user</span>: <span class="string">&quot;qxdn&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_password</span>: <span class="string">&quot;123456&quot;</span>,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">				<span class="attr">labels</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">					<span class="comment">//&quot;Character&quot;: &quot;name&quot;,</span></span></span><br><span class="line"><span class="language-javascript">					<span class="string">&quot;Person&quot;</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">						<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;name&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">						<span class="string">&quot;title_properties&quot;</span>: [</span></span><br><span class="line"><span class="language-javascript">							<span class="string">&quot;name&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">							<span class="string">&quot;age&quot;</span></span></span><br><span class="line"><span class="language-javascript">						]</span></span><br><span class="line"><span class="language-javascript">					&#125;,</span></span><br><span class="line"><span class="language-javascript">					<span class="string">&quot;Country&quot;</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">						<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;name&quot;</span></span></span><br><span class="line"><span class="language-javascript">					&#125;</span></span><br><span class="line"><span class="language-javascript">				&#125;,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">relationships</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">				&#125;,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">				<span class="attr">initial_cypher</span>: <span class="string">&quot;MATCH p=()--&gt;() RETURN p&quot;</span></span></span><br><span class="line"><span class="language-javascript">			&#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">			viz = <span class="keyword">new</span> <span class="title class_">NeoVis</span>.<span class="title function_">default</span>(config);</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">render</span>();</span></span><br><span class="line"><span class="language-javascript">			<span class="variable language_">console</span>.<span class="title function_">log</span>(viz);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		&#125;</span></span><br><span class="line"><span class="language-javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">&quot;draw()&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;viz&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	Cypher query: <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;4&quot;</span> <span class="attr">cols</span>=<span class="string">50</span> <span class="attr">id</span>=<span class="string">&quot;cypher&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span> <span class="attr">id</span>=<span class="string">&quot;reload&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Stabilize&quot;</span> <span class="attr">id</span>=<span class="string">&quot;stabilize&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	$(<span class="string">&quot;#reload&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">var</span> cypher = $(<span class="string">&quot;#cypher&quot;</span>).<span class="title function_">val</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">if</span> (cypher.<span class="property">length</span> &gt; <span class="number">3</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">renderWithCypher</span>(cypher);</span></span><br><span class="line"><span class="language-javascript">		&#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">			<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;reload&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">reload</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		&#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	&#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	$(<span class="string">&quot;#stabilize&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		viz.<span class="title function_">stabilize</span>();</span></span><br><span class="line"><span class="language-javascript">	&#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>这个问题似乎是<code>conda-forge</code>的依赖配置不对，没试过<code>pip</code>能不能解决，希望后续能够修复。</p>
+<p>本文简单的介绍了一下neo4j以及其的Cypher Query语句，还有前端可视化的方案。关于Cypher更详细的用法和前端更多参数化的定制可以看官方的教程，链接放在了下方的参考资料里面。</p>
 <h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p><a href="https://github.com/matplotlib/matplotlib/issues/21511">[Bug]: Matplotlib crashes Python</a></p>
-<p><a href="https://stackoverflow.com/questions/69786885/after-conda-update-python-kernel-crashes-when-matplotlib-is-used/69788527#69788527">After conda update, python kernel crashes when matplotlib is used</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Neo4j">Neo4j wikipedia</a></p>
+<p><a href="https://baike.baidu.com/item/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/8120012">知识图谱</a></p>
+<p><a href="https://neo4j.com/developer/cypher/querying/">Querying with Cypher</a></p>
+<p><a href="https://neo4j.com/developer/cypher/guide-cypher-basics/">guide-cypher-basics</a></p>
+<p><a href="https://github.com/neo4j-contrib/neovis.js">neovis.js</a></p>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>javascript</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>bug</tag>
-        <tag>matplotlib</tag>
+        <tag>javascript</tag>
+        <tag>nosql</tag>
+        <tag>neo4j</tag>
       </tags>
   </entry>
   <entry>
@@ -2916,102 +3012,6 @@ _________________________________________________________________
       <tags>
         <tag>python</tag>
         <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>neo4j简单入门和前端可视化</title>
-    <url>/2021/11/10/neo4j-simple-tutorial/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《D.C.4 Plus Harmony》</p>
-</blockquote>
-<h1 id="neo4j和知识图谱简介"><a class="markdownIt-Anchor" href="#neo4j和知识图谱简介"></a> neo4j和知识图谱简介</h1>
-<blockquote>
-<p>Neo4j是由Neo4j,Inc开发的一个图数据库管理系统。其开发人员将其描述为一个具有本地图存储和处理的符合ACID事务的数据库，Neo4j在GPL3协议下开源社区版，还具有在商业闭源协议下的在线备份和高可用拓展。Neo还允许Neo4j在闭源商业中使用这些插件。<br />
-Neo4j是由Java实现，同时可以被其他语言写的软件使用事务性HTTP端点或者二进制“Bolt”协议通过Cypher查询语言来进行访问。</p>
-</blockquote>
-<p>以上翻译自Wikipedia。简单来说Neo4j是一个以图形式存储的一个NOSQL。</p>
-<blockquote>
-<p>知识图谱（Knowledge Graph），在图书情报界称为知识域可视化或知识领域映射地图，是显示知识发展进程与结构关系的一系列各种不同的图形，用可视化技术描述知识资源及其载体，挖掘、分析、构建、绘制和显示知识及它们之间的相互联系。<br />
-知识图谱，是通过将应用数学、图形学、信息可视化技术、信息科学等学科的理论与方法与计量学引文分析、共现分析等方法结合，并利用可视化的图谱形象地展示学科的核心结构、发展历史、前沿领域以及整体知识架构达到多学科融合目的的现代理论。</p>
-</blockquote>
-<p>对于这种知识图谱，最好是用neo4j这种图数据库存储。效果如下<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/introduce.png" alt="" /></p>
-<h1 id="neo4j安装"><a class="markdownIt-Anchor" href="#neo4j安装"></a> neo4j安装</h1>
-<p>可以直接到<a href="https://neo4j.com/">官网</a>进行不同版本的选择安装。我这里选择<a href="https://neo4j.com/download/?ref=get-started-dropdown-cta">desktop</a>安装。</p>
-<h1 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h1>
-<p>启动比较简单，开箱即用。可以点击下图的start启动数据库是，然后进行open打开内置浏览器。也可以浏览器中打开<code>http://localhost:7474/browser/</code>进行访问。<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/start.png" alt="" /></p>
-<h1 id="cypher-query"><a class="markdownIt-Anchor" href="#cypher-query"></a> Cypher query</h1>
-<p>新建一个project和database来开始我们的学习。</p>
-<h2 id="增"><a class="markdownIt-Anchor" href="#增"></a> 增</h2>
-<p>Cypher query增加节点非常简单<br />
-首先来增加一个人物节点</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE (p:Person&#123;name:&quot;qxdn&quot;,age:21&#125;) return p</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/create-node.png" alt="" /><br />
-蓝色的就是创建的节点，其中<code>CREATE</code>就是创建一个节点或者关系。其中<code>p</code>表示的是变量名，后续引用这个节点的时候可以使用这个变量名。其中<code>&#123;&#125;</code>为该节点的属性，类似于json。<code>return</code>为返回输出（可选）。<br />
-Cypher中的节点表示如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">()                  //匿名节点，无标签</span><br><span class="line">(p:Person)          //使用变量p和标签Person</span><br><span class="line">(:Technology)       //无变量，标签为Technology</span><br><span class="line">(work:Company)      //使用变量work和标签Company</span><br></pre></td></tr></table></figure>
-<p>接下来创建更多的节点</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE (p:Person&#123;name:&quot;a&quot;,age:21&#125;) return p</span><br><span class="line">CREATE (p:Person&#123;name:&quot;b&quot;,age:21&#125;) return p</span><br><span class="line">CREATE (p:Person&#123;name:&quot;c&quot;,age:21&#125;) return p</span><br></pre></td></tr></table></figure>
-<p>创建关系</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (p1:Person &#123;name: &#x27;qxdn&#x27;&#125;)</span><br><span class="line">MATCH (p2:Person &#123;name: &#x27;a&#x27;&#125;)</span><br><span class="line">CREATE (p1)-[rel:IS_FRIENDS_WITH&#123;from:2021&#125;]-&gt;(p2)</span><br><span class="line">// OR 使用MERGE可以避免重复定义</span><br><span class="line">MATCH (p1:Person &#123;name:&#x27;b&#x27;&#125;), (p2:Person &#123;name:&quot;qxdn&quot;&#125;) </span><br><span class="line">MERGE (p1)&lt;-[:IS_FRIENDS_WITH&#123;from:2021&#125;]-(p2)</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/rel1.png" alt="" /><br />
-添加关系的方法还是非常简单的。使用<code>[]</code>即可表示关系，<code>:</code>区分变量名和标签，同样可以使用<code>&#123;&#125;</code>描述关系的属性。需要注意的是这里的关系是有方向的，需要用<code>--&gt;</code>或<code>&lt;--</code>表示。上图可以很明显的看出来。如果不知道方向可以使用<code>--</code>表示，这对与查询来说会更简单。<br />
-此外在创建节点的时候就可以指明关系</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE (:Person&#123;name:&quot;d&quot;&#125;) -[:IS_FRIENDS_WITH&#123;from:2020&#125;]-&gt;(:Person&#123;name:&quot;e&quot;&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="删"><a class="markdownIt-Anchor" href="#删"></a> 删</h2>
-<p>删除命令也比较简单，但是需要注意的是，NEO4j中删除节点需要改节点没有关联的关系。<br />
-为了有更好的展示效果，先增条数据</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (p:Person&#123;name:&quot;qxdn&quot;&#125;)</span><br><span class="line">CREATE (p)-[:BORIN]-&gt;(:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">//</span><br><span class="line">CREATE (:Person&#123;name:&quot;f&quot;&#125;) -[:IS_FRIENDS_WITH&#123;from:2020&#125;]-&gt;(:Person&#123;name:&quot;g&quot;&#125;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/before-delete.png" alt="" /></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 删除关系</span><br><span class="line">MATCH (:Person &#123;name: &#x27;f&#x27;&#125;)-[r:IS_FRIENDS_WITH]-&gt;(:Person &#123;name: &#x27;g&#x27;&#125;)</span><br><span class="line">DELETE r</span><br><span class="line">// 删除节点</span><br><span class="line">MATCH (p:Person &#123;name: &#x27;c&#x27;&#125;)</span><br><span class="line">DELETE p</span><br><span class="line">// 删除节点和关系</span><br><span class="line">MATCH (p1:Person &#123;name: &#x27;d&#x27;&#125;)-[r:IS_FRIENDS_WITH]-&gt;(p2:Person &#123;name: &#x27;e&#x27;&#125;)</span><br><span class="line">DELETE p1,p2,r</span><br><span class="line">// 断开一个节点的关系和其自身</span><br><span class="line">MATCH (c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">DETACH DELETE c</span><br><span class="line">// 删除一个节点的属性</span><br><span class="line">MATCH (n:Person &#123;name: &#x27;qxdn&#x27;&#125;)</span><br><span class="line">REMOVE n.age</span><br><span class="line">// OR</span><br><span class="line">MATCH (n:Person &#123;name: &#x27;a&#x27;&#125;)</span><br><span class="line">SET n.age = null</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/after-delete.png" alt="删除之后" /></p>
-<h2 id="查"><a class="markdownIt-Anchor" href="#查"></a> 查</h2>
-<p>先执行一下语句增加节点</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//</span><br><span class="line">CREATE (:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">// </span><br><span class="line">CREATE (:Country&#123;name:&quot;USA&quot;&#125;)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;qxdn&quot;&#125;),(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;a&quot;&#125;),(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;b&quot;&#125;),(c:Country&#123;name:&quot;USA&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;g&quot;&#125;),(c:Country&#123;name:&quot;USA&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person&#123;name:&quot;f&quot;&#125;),(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match1.png" alt="" /></p>
-<p>查询语句主要靠<code>MATCH</code>关键词，其功能类似于sql中的<code>SELECT</code></p>
-<p>查询所有节点，只输出25个避免过多节点。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (n) </span><br><span class="line">RETURN n </span><br><span class="line">LIMIT 25</span><br></pre></td></tr></table></figure>
-<p>结果与上图一样<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match1.png" alt="" /></p>
-<p>查询qxdn出生的国家</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (:Person &#123;name: &#x27;qxdn&#x27;&#125;)-[:BORN_IN]-&gt;(c:Country)</span><br><span class="line">RETURN c</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match2.png" alt="" /></p>
-<p>查询qxdn和a做朋友的起始年</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (:Person &#123;name: &#x27;qxdn&#x27;&#125;)-[r:IS_FRIENDS_WITH]-&gt;(:Person &#123;name: &#x27;a&#x27;&#125;)</span><br><span class="line">RETURN r.from</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match3.png" alt="" /></p>
-<p>查询所有中国出生的人</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (p:Person)-[:BORN_IN]-&gt;(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">RETURN p,c</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/match4.png" alt="" /></p>
-<h2 id="改"><a class="markdownIt-Anchor" href="#改"></a> 改</h2>
-<p>改主要是使用<code>SET</code>关键词<br />
-修改a的出生国</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MATCH (p:Person&#123;name:&quot;a&quot;&#125;)-[:BORN_IN]-(c:Country&#123;name:&quot;China&quot;&#125;)</span><br><span class="line">SET c.name = &quot;USA&quot;</span><br><span class="line">RETURN p,c</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/set.png" alt="" /></p>
-<h1 id="前端可视化"><a class="markdownIt-Anchor" href="#前端可视化"></a> 前端可视化</h1>
-<p>前端可视化可以使用<code>neovis.js</code>。这是使用vis.js对neo4j进行定制，可以在前端直接操作neo4j。由于实验室项目不需要管啥安全，因此也不管明文密码了。</p>
-<p>这里我们先clone一下官网的repo。并修改其中的<code>simple-example.html</code>。修改其中的<code>config</code>变量</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">				<span class="attr">container_id</span>: <span class="string">&quot;viz&quot;</span>, <span class="comment">//jquery的容器id</span></span><br><span class="line">				<span class="attr">server_url</span>: <span class="string">&quot;bolt://localhost:7687&quot;</span>, <span class="comment">//服务器url</span></span><br><span class="line">				<span class="attr">server_user</span>: <span class="string">&quot;qxdn&quot;</span>,</span><br><span class="line">				<span class="attr">server_password</span>: <span class="string">&quot;123456&quot;</span>,</span><br><span class="line"></span><br><span class="line">				<span class="attr">labels</span>: &#123;</span><br><span class="line">					<span class="comment">//&quot;Character&quot;: &quot;name&quot;,</span></span><br><span class="line">					<span class="string">&quot;Person&quot;</span>: &#123;</span><br><span class="line">						<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;name&quot;</span>, <span class="comment">//节点显示的内容 </span></span><br><span class="line">						<span class="string">&quot;title_properties&quot;</span>: [ <span class="comment">//鼠标移到节点上显示的内容</span></span><br><span class="line">							<span class="string">&quot;name&quot;</span>,</span><br><span class="line">							<span class="string">&quot;age&quot;</span></span><br><span class="line">						]</span><br><span class="line">					&#125;,</span><br><span class="line">					<span class="string">&quot;Country&quot;</span>: &#123;</span><br><span class="line">						<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;name&quot;</span></span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">				<span class="attr">relationships</span>: &#123;</span><br><span class="line">				&#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				<span class="attr">initial_cypher</span>: <span class="string">&quot;MATCH p=()--&gt;() RETURN p&quot;</span>    <span class="comment">// 初始化的cypher语句</span></span><br><span class="line">			&#125;;</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.0.8/front.png" alt="" /></p>
-<h2 id="完整代码"><a class="markdownIt-Anchor" href="#完整代码"></a> 完整代码</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Neovis.js Simple Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">		<span class="selector-tag">html</span>,</span></span><br><span class="line"><span class="language-css">		<span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">font</span>: <span class="number">16pt</span> arial;</span></span><br><span class="line"><span class="language-css">		&#125;</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">		<span class="selector-id">#viz</span> &#123;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">width</span>: <span class="number">900px</span>;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">height</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">border</span>: <span class="number">1px</span> solid lightgray;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">font</span>: <span class="number">22pt</span> arial;</span></span><br><span class="line"><span class="language-css">		&#125;</span></span><br><span class="line"><span class="language-css">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- <span class="doctag">FIXME:</span> load from dist --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;../dist/neovis.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://code.jquery.com/jquery-3.2.1.min.js&quot;</span></span></span><br><span class="line"><span class="tag">		<span class="attr">integrity</span>=<span class="string">&quot;sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// define config car</span></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// instantiate nodevis object</span></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// draw</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">var</span> viz;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">function</span> <span class="title function_">draw</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">			<span class="keyword">var</span> config = &#123;</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">container_id</span>: <span class="string">&quot;viz&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_url</span>: <span class="string">&quot;bolt://localhost:7687&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_user</span>: <span class="string">&quot;qxdn&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_password</span>: <span class="string">&quot;123456&quot;</span>,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">				<span class="attr">labels</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">					<span class="comment">//&quot;Character&quot;: &quot;name&quot;,</span></span></span><br><span class="line"><span class="language-javascript">					<span class="string">&quot;Person&quot;</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">						<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;name&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">						<span class="string">&quot;title_properties&quot;</span>: [</span></span><br><span class="line"><span class="language-javascript">							<span class="string">&quot;name&quot;</span>,</span></span><br><span class="line"><span class="language-javascript">							<span class="string">&quot;age&quot;</span></span></span><br><span class="line"><span class="language-javascript">						]</span></span><br><span class="line"><span class="language-javascript">					&#125;,</span></span><br><span class="line"><span class="language-javascript">					<span class="string">&quot;Country&quot;</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">						<span class="string">&quot;caption&quot;</span>: <span class="string">&quot;name&quot;</span></span></span><br><span class="line"><span class="language-javascript">					&#125;</span></span><br><span class="line"><span class="language-javascript">				&#125;,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">relationships</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">				&#125;,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">				<span class="attr">initial_cypher</span>: <span class="string">&quot;MATCH p=()--&gt;() RETURN p&quot;</span></span></span><br><span class="line"><span class="language-javascript">			&#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">			viz = <span class="keyword">new</span> <span class="title class_">NeoVis</span>.<span class="title function_">default</span>(config);</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">render</span>();</span></span><br><span class="line"><span class="language-javascript">			<span class="variable language_">console</span>.<span class="title function_">log</span>(viz);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		&#125;</span></span><br><span class="line"><span class="language-javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">&quot;draw()&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;viz&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	Cypher query: <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">&quot;4&quot;</span> <span class="attr">cols</span>=<span class="string">50</span> <span class="attr">id</span>=<span class="string">&quot;cypher&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span> <span class="attr">id</span>=<span class="string">&quot;reload&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Stabilize&quot;</span> <span class="attr">id</span>=<span class="string">&quot;stabilize&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	$(<span class="string">&quot;#reload&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">var</span> cypher = $(<span class="string">&quot;#cypher&quot;</span>).<span class="title function_">val</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">if</span> (cypher.<span class="property">length</span> &gt; <span class="number">3</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">renderWithCypher</span>(cypher);</span></span><br><span class="line"><span class="language-javascript">		&#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">			<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;reload&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">reload</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		&#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	&#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	$(<span class="string">&quot;#stabilize&quot;</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">		viz.<span class="title function_">stabilize</span>();</span></span><br><span class="line"><span class="language-javascript">	&#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>本文简单的介绍了一下neo4j以及其的Cypher Query语句，还有前端可视化的方案。关于Cypher更详细的用法和前端更多参数化的定制可以看官方的教程，链接放在了下方的参考资料里面。</p>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p><a href="https://en.wikipedia.org/wiki/Neo4j">Neo4j wikipedia</a></p>
-<p><a href="https://baike.baidu.com/item/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/8120012">知识图谱</a></p>
-<p><a href="https://neo4j.com/developer/cypher/querying/">Querying with Cypher</a></p>
-<p><a href="https://neo4j.com/developer/cypher/guide-cypher-basics/">guide-cypher-basics</a></p>
-<p><a href="https://github.com/neo4j-contrib/neovis.js">neovis.js</a></p>
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-        <tag>nosql</tag>
-        <tag>neo4j</tag>
       </tags>
   </entry>
   <entry>
@@ -3583,6 +3583,107 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       </tags>
   </entry>
   <entry>
+    <title>死锁</title>
+    <url>/2022/10/19/dead-lock/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《絆きらめく恋いろは》</p>
+</blockquote>
+<h1 id="死锁的概念"><a class="markdownIt-Anchor" href="#死锁的概念"></a> 死锁的概念</h1>
+<blockquote>
+<p>死锁是指多个进程因竞争资源而造成的一种僵局（互相等待），若无外力作用，这些进程都将无法向前推进</p>
+</blockquote>
+<h1 id="死锁产生的原因"><a class="markdownIt-Anchor" href="#死锁产生的原因"></a> 死锁产生的原因</h1>
+<ul>
+<li>系统资源不足</li>
+<li>程序执行的顺序有问题</li>
+<li>资源分配不当等</li>
+</ul>
+<h1 id="死锁产生的必要条件"><a class="markdownIt-Anchor" href="#死锁产生的必要条件"></a> 死锁产生的必要条件</h1>
+<blockquote>
+<p>产生死锁必须满足四个必要条件，任意一个条件不成立，死锁就不会发生。</p>
+</blockquote>
+<h2 id="互斥条件"><a class="markdownIt-Anchor" href="#互斥条件"></a> 互斥条件</h2>
+<p>在某一段时间内，资源仅被一个进程占有。若有其他进程请求该资源，则请求进程只能等待。</p>
+<h2 id="不剥夺条件"><a class="markdownIt-Anchor" href="#不剥夺条件"></a> 不剥夺条件</h2>
+<p>进程所获得的资源在未使用完之前，不能被其他进程强行夺走，只能由获得该资源的进程自己来释放。</p>
+<h2 id="请求并保持条件"><a class="markdownIt-Anchor" href="#请求并保持条件"></a> 请求并保持条件</h2>
+<p>进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经被其他进程占有，此时请求进程被阻塞，但对自己获得的资源保持不放。</p>
+<h2 id="循环等待条件"><a class="markdownIt-Anchor" href="#循环等待条件"></a> 循环等待条件</h2>
+<p>存在一种进程资源的循环等待链，链中每个进程已获得的资源同时被链中下一个进程所请求。</p>
+<h1 id="处理死锁"><a class="markdownIt-Anchor" href="#处理死锁"></a> 处理死锁</h1>
+<h2 id="死锁预防"><a class="markdownIt-Anchor" href="#死锁预防"></a> 死锁预防</h2>
+<blockquote>
+<p>破坏死锁的4个必要条件</p>
+</blockquote>
+<h3 id="破坏互斥条件"><a class="markdownIt-Anchor" href="#破坏互斥条件"></a> 破坏互斥条件</h3>
+<p>有些资源必须互斥使用，因此无法破坏互斥条件。</p>
+<h3 id="破坏不剥夺条件"><a class="markdownIt-Anchor" href="#破坏不剥夺条件"></a> 破坏不剥夺条件</h3>
+<p>当进程请求新资源得不到满足时，必须释放已经持有的资源，重新申请。这个策略实现起来比较复杂，反复的申请和释放会导致系统开销增加，降低系统吞吐量。这种方式适用于容易保存和恢复的资源，例如CPU的寄存器和内存资源，一般不能用于打印机之类的资源。</p>
+<h3 id="破坏请求与保持条件"><a class="markdownIt-Anchor" href="#破坏请求与保持条件"></a> 破坏请求与保持条件</h3>
+<p>采用预先静态分配方法，进程在运行之前申请完它所需的所有资源，在使用过程中，这些资源一直归它所有。</p>
+<p>容易发生两个问题：1.导致部分进程饥饿现象，永远申请不满资源。2.导致资源浪费，有些资源只在运行初期或者结束时候使用。</p>
+<h3 id="破坏循环等待条件"><a class="markdownIt-Anchor" href="#破坏循环等待条件"></a> 破坏循环等待条件</h3>
+<p>为了破坏循环等待条件，可以采用顺序资源分配法。给资源编号，进程按照编号递增的顺序请求资源。</p>
+<p>容易造成资源使用的浪费和用户编程的麻烦。</p>
+<h2 id="死锁避免"><a class="markdownIt-Anchor" href="#死锁避免"></a> 死锁避免</h2>
+<blockquote>
+<p>在使用前进行判断，只允许不会产生死锁的进程申请资源<br />
+死锁避免是利用额外的检验信息，在分配资源时判断是否会出现死锁，只在不会出现死锁的情况下才分配资源<br />
+各种死锁防止方法能够防止发生死锁，但必然会降低系统并发性，导致低效的资源利用率</p>
+</blockquote>
+<h3 id="安全状态"><a class="markdownIt-Anchor" href="#安全状态"></a> 安全状态</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/safe-state.png" alt="安全状态" /></p>
+<p>图 a 的第二列 Has 表示已拥有的资源数，第三列 Max 表示总共需要的资源数，Free 表示还有可以使用的资源数。从图 a 开始出发，先让 B 拥有所需的所有资源（图 b），运行结束后释放 B，此时 Free 变为 5（图 c）；接着以同样的方式运行 C 和 A，使得所有进程都能成功运行，因此可以称图 a 所示的状态时安全的。</p>
+<p>定义：如果没有死锁发生，并且即使所有进程突然请求对资源的最大需求，也仍然存在某种调度次序能够使得每一个进程运行完毕，则称该状态是安全的。</p>
+<h3 id="银行家算法"><a class="markdownIt-Anchor" href="#银行家算法"></a> 银行家算法</h3>
+<p>银行家算法的主要思想是避免死锁进入不安全状态。每次进行资源分配时，它先检查系统是否有足够的资源满足要求，若有则先进行分配，并对分配后的新状态进行安全性检查。若新状态安全，则正是分配上述资源，否则拒绝分配上述资源。然后回收已分配的资源，进行下一轮分配。这样能保证资源始终处于安全状态，从而避免死锁发生。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/bank-unsafe.png" alt="" /><br />
+上图c为不安全状态，因此算法会拒绝进入图c请求</p>
+<h2 id="死锁检测与恢复"><a class="markdownIt-Anchor" href="#死锁检测与恢复"></a> 死锁检测与恢复</h2>
+<h3 id="死锁检测"><a class="markdownIt-Anchor" href="#死锁检测"></a> 死锁检测</h3>
+<h4 id="资源分配图"><a class="markdownIt-Anchor" href="#资源分配图"></a> 资源分配图</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/rag.jpg" alt="资源分配图" /></p>
+<ul>
+<li>圆圈代表进程</li>
+<li>方框代表一类资源</li>
+<li>进程到资源的有向边代表请求资源边</li>
+<li>资源到进程的有向边代表资源分配边<br />
+如图所示，P1进程分得两个R1资源，又请求一个R2资源；P2进程分得一个R1资源和R2资源，又请求了一个R1资源。</li>
+</ul>
+<h4 id="简化资源分配图"><a class="markdownIt-Anchor" href="#简化资源分配图"></a> 简化资源分配图</h4>
+<p>简化资源分配图步骤</p>
+<ol>
+<li>找一个非孤立、且只有分配边的进程节点，去掉分配边，将其变为孤立节点</li>
+<li>再把相应的资源分配给一个等待该资源的进程，即将该进程的申请边变为分配边</li>
+<li>重复1、2</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/rag2.jpg" alt="化简" /></p>
+<ul>
+<li>(1)到(2): R2剩余1个资源，分配给P1，释放P1</li>
+<li>(2)到(3): R1剩余2个资源，分配给P2，释放P2</li>
+</ul>
+<p>若能消去所有的边，则该图是可完全简化的，死锁的条件是当且仅当S状态的资源分配图是不可完全简化的</p>
+<h3 id="死锁恢复"><a class="markdownIt-Anchor" href="#死锁恢复"></a> 死锁恢复</h3>
+<ul>
+<li>资源剥夺法。挂起某些死锁进程并抢夺它的资源，直到死锁接触。但要防止被挂起的进程长时间得不到资源而饥饿。</li>
+<li>撤销进程法。强制撤销部分、甚至全部死锁进程并剥夺这些资源。</li>
+<li>进程回退法。让一个或多个进程回退到足以回避死锁的地步。要求保持进程的历史信息，设置还原点。</li>
+</ul>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<p><a href="https://www.nowcoder.com/questionTerminal/09b51b00891543d6b08ace80c0704b01">什么是死锁(deadlock)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/25677118">死锁产生的原因及四个必要条件</a></p>
+<p><a href="https://blog.csdn.net/zhangpower1993/article/details/89518780">死锁的四个必要条件、预防和避免办法</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/61221667">​死锁的产生、防止、避免、检测和解除</a></p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>进程与线程</title>
     <url>/2022/10/06/process-and-thread/</url>
     <content><![CDATA[<blockquote>
@@ -3744,107 +3845,6 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
 <p><a href="https://mp.weixin.qq.com/s/jhOSjVyRA6rNKqVT2pKMIQ">进程、线程与协程傻傻分不清？一文带你吃透！</a></p>
 <p><a href="https://freecplus.net/d95f4eaf18eb46d19b82383519126dec.html">C语言技术网</a></p>
 <p><a href="https://mp.weixin.qq.com/s/iHQGe2J-4C405CYzBIqXNg">三分钟基础：用户级线程和内核级线程有什么区别？</a></p>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>死锁</title>
-    <url>/2022/10/19/dead-lock/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《絆きらめく恋いろは》</p>
-</blockquote>
-<h1 id="死锁的概念"><a class="markdownIt-Anchor" href="#死锁的概念"></a> 死锁的概念</h1>
-<blockquote>
-<p>死锁是指多个进程因竞争资源而造成的一种僵局（互相等待），若无外力作用，这些进程都将无法向前推进</p>
-</blockquote>
-<h1 id="死锁产生的原因"><a class="markdownIt-Anchor" href="#死锁产生的原因"></a> 死锁产生的原因</h1>
-<ul>
-<li>系统资源不足</li>
-<li>程序执行的顺序有问题</li>
-<li>资源分配不当等</li>
-</ul>
-<h1 id="死锁产生的必要条件"><a class="markdownIt-Anchor" href="#死锁产生的必要条件"></a> 死锁产生的必要条件</h1>
-<blockquote>
-<p>产生死锁必须满足四个必要条件，任意一个条件不成立，死锁就不会发生。</p>
-</blockquote>
-<h2 id="互斥条件"><a class="markdownIt-Anchor" href="#互斥条件"></a> 互斥条件</h2>
-<p>在某一段时间内，资源仅被一个进程占有。若有其他进程请求该资源，则请求进程只能等待。</p>
-<h2 id="不剥夺条件"><a class="markdownIt-Anchor" href="#不剥夺条件"></a> 不剥夺条件</h2>
-<p>进程所获得的资源在未使用完之前，不能被其他进程强行夺走，只能由获得该资源的进程自己来释放。</p>
-<h2 id="请求并保持条件"><a class="markdownIt-Anchor" href="#请求并保持条件"></a> 请求并保持条件</h2>
-<p>进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经被其他进程占有，此时请求进程被阻塞，但对自己获得的资源保持不放。</p>
-<h2 id="循环等待条件"><a class="markdownIt-Anchor" href="#循环等待条件"></a> 循环等待条件</h2>
-<p>存在一种进程资源的循环等待链，链中每个进程已获得的资源同时被链中下一个进程所请求。</p>
-<h1 id="处理死锁"><a class="markdownIt-Anchor" href="#处理死锁"></a> 处理死锁</h1>
-<h2 id="死锁预防"><a class="markdownIt-Anchor" href="#死锁预防"></a> 死锁预防</h2>
-<blockquote>
-<p>破坏死锁的4个必要条件</p>
-</blockquote>
-<h3 id="破坏互斥条件"><a class="markdownIt-Anchor" href="#破坏互斥条件"></a> 破坏互斥条件</h3>
-<p>有些资源必须互斥使用，因此无法破坏互斥条件。</p>
-<h3 id="破坏不剥夺条件"><a class="markdownIt-Anchor" href="#破坏不剥夺条件"></a> 破坏不剥夺条件</h3>
-<p>当进程请求新资源得不到满足时，必须释放已经持有的资源，重新申请。这个策略实现起来比较复杂，反复的申请和释放会导致系统开销增加，降低系统吞吐量。这种方式适用于容易保存和恢复的资源，例如CPU的寄存器和内存资源，一般不能用于打印机之类的资源。</p>
-<h3 id="破坏请求与保持条件"><a class="markdownIt-Anchor" href="#破坏请求与保持条件"></a> 破坏请求与保持条件</h3>
-<p>采用预先静态分配方法，进程在运行之前申请完它所需的所有资源，在使用过程中，这些资源一直归它所有。</p>
-<p>容易发生两个问题：1.导致部分进程饥饿现象，永远申请不满资源。2.导致资源浪费，有些资源只在运行初期或者结束时候使用。</p>
-<h3 id="破坏循环等待条件"><a class="markdownIt-Anchor" href="#破坏循环等待条件"></a> 破坏循环等待条件</h3>
-<p>为了破坏循环等待条件，可以采用顺序资源分配法。给资源编号，进程按照编号递增的顺序请求资源。</p>
-<p>容易造成资源使用的浪费和用户编程的麻烦。</p>
-<h2 id="死锁避免"><a class="markdownIt-Anchor" href="#死锁避免"></a> 死锁避免</h2>
-<blockquote>
-<p>在使用前进行判断，只允许不会产生死锁的进程申请资源<br />
-死锁避免是利用额外的检验信息，在分配资源时判断是否会出现死锁，只在不会出现死锁的情况下才分配资源<br />
-各种死锁防止方法能够防止发生死锁，但必然会降低系统并发性，导致低效的资源利用率</p>
-</blockquote>
-<h3 id="安全状态"><a class="markdownIt-Anchor" href="#安全状态"></a> 安全状态</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/safe-state.png" alt="安全状态" /></p>
-<p>图 a 的第二列 Has 表示已拥有的资源数，第三列 Max 表示总共需要的资源数，Free 表示还有可以使用的资源数。从图 a 开始出发，先让 B 拥有所需的所有资源（图 b），运行结束后释放 B，此时 Free 变为 5（图 c）；接着以同样的方式运行 C 和 A，使得所有进程都能成功运行，因此可以称图 a 所示的状态时安全的。</p>
-<p>定义：如果没有死锁发生，并且即使所有进程突然请求对资源的最大需求，也仍然存在某种调度次序能够使得每一个进程运行完毕，则称该状态是安全的。</p>
-<h3 id="银行家算法"><a class="markdownIt-Anchor" href="#银行家算法"></a> 银行家算法</h3>
-<p>银行家算法的主要思想是避免死锁进入不安全状态。每次进行资源分配时，它先检查系统是否有足够的资源满足要求，若有则先进行分配，并对分配后的新状态进行安全性检查。若新状态安全，则正是分配上述资源，否则拒绝分配上述资源。然后回收已分配的资源，进行下一轮分配。这样能保证资源始终处于安全状态，从而避免死锁发生。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/bank-unsafe.png" alt="" /><br />
-上图c为不安全状态，因此算法会拒绝进入图c请求</p>
-<h2 id="死锁检测与恢复"><a class="markdownIt-Anchor" href="#死锁检测与恢复"></a> 死锁检测与恢复</h2>
-<h3 id="死锁检测"><a class="markdownIt-Anchor" href="#死锁检测"></a> 死锁检测</h3>
-<h4 id="资源分配图"><a class="markdownIt-Anchor" href="#资源分配图"></a> 资源分配图</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/rag.jpg" alt="资源分配图" /></p>
-<ul>
-<li>圆圈代表进程</li>
-<li>方框代表一类资源</li>
-<li>进程到资源的有向边代表请求资源边</li>
-<li>资源到进程的有向边代表资源分配边<br />
-如图所示，P1进程分得两个R1资源，又请求一个R2资源；P2进程分得一个R1资源和R2资源，又请求了一个R1资源。</li>
-</ul>
-<h4 id="简化资源分配图"><a class="markdownIt-Anchor" href="#简化资源分配图"></a> 简化资源分配图</h4>
-<p>简化资源分配图步骤</p>
-<ol>
-<li>找一个非孤立、且只有分配边的进程节点，去掉分配边，将其变为孤立节点</li>
-<li>再把相应的资源分配给一个等待该资源的进程，即将该进程的申请边变为分配边</li>
-<li>重复1、2</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.4.7/rag2.jpg" alt="化简" /></p>
-<ul>
-<li>(1)到(2): R2剩余1个资源，分配给P1，释放P1</li>
-<li>(2)到(3): R1剩余2个资源，分配给P2，释放P2</li>
-</ul>
-<p>若能消去所有的边，则该图是可完全简化的，死锁的条件是当且仅当S状态的资源分配图是不可完全简化的</p>
-<h3 id="死锁恢复"><a class="markdownIt-Anchor" href="#死锁恢复"></a> 死锁恢复</h3>
-<ul>
-<li>资源剥夺法。挂起某些死锁进程并抢夺它的资源，直到死锁接触。但要防止被挂起的进程长时间得不到资源而饥饿。</li>
-<li>撤销进程法。强制撤销部分、甚至全部死锁进程并剥夺这些资源。</li>
-<li>进程回退法。让一个或多个进程回退到足以回避死锁的地步。要求保持进程的历史信息，设置还原点。</li>
-</ul>
-<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
-<p><a href="https://www.nowcoder.com/questionTerminal/09b51b00891543d6b08ace80c0704b01">什么是死锁(deadlock)</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/25677118">死锁产生的原因及四个必要条件</a></p>
-<p><a href="https://blog.csdn.net/zhangpower1993/article/details/89518780">死锁的四个必要条件、预防和避免办法</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/61221667">​死锁的产生、防止、避免、检测和解除</a></p>
 ]]></content>
       <categories>
         <category>OS</category>
@@ -4466,6 +4466,62 @@ G1并没有将内存进行物理划分，它只是将堆内存划分为一个个
       </tags>
   </entry>
   <entry>
+    <title>js检测开发者工具是否打开</title>
+    <url>/2023/01/26/js-check-devtool/</url>
+    <content><![CDATA[<blockquote>
+<p>封面 《Unless Terminalia》</p>
+</blockquote>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>在使用浏览器对一些网站进行分析的时候经常会遇到打开开发者工具后跳出debugger或者说是跳转到了别的网页。下面我会讲一些网站是如何做到的和应对方法。</p>
+<h1 id="debugger"><a class="markdownIt-Anchor" href="#debugger"></a> debugger</h1>
+<p>一种常见的方法是使用<code>debugger</code>，比如米游社用的是这种，当打开开发者工具时会有debugger跳出效果如下，效果类似于程序中的断点，点继续调试的时候也是如此，让人忙于处理debugger<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.2/debugger.png" alt="" /></p>
+<p>实现起来为如下代码</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">check</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">debugger</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="built_in">setTimeout</span>(check, <span class="number">1</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">check</span>();</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="破解方法"><a class="markdownIt-Anchor" href="#破解方法"></a> 破解方法</h2>
+<p>对于这种方法，我们只需要禁用debugger就行，最简单的方法就是点击开发中工具中的deactivated breakpoints<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.2/debugger-hack.png" alt="" /></p>
+<h1 id="禁用右键和f12"><a class="markdownIt-Anchor" href="#禁用右键和f12"></a> 禁用右键和F12</h1>
+<p>禁用F12和右键，使得无法打开开发者工具。这种方法有点掩耳盗铃</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// F12</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="property">onkeydown</span> = <span class="variable language_">window</span>.<span class="property">onkeyup</span> = <span class="variable language_">window</span>.<span class="property">onkeypress</span> = <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 判断是否按下F12，F12键码为123  </span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (event.<span class="property">keyCode</span> = <span class="number">123</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                event.<span class="title function_">preventDefault</span>(); <span class="comment">// 阻止默认事件行为  </span></span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">window</span>.<span class="property">event</span>.<span class="property">returnValue</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 右键</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="property">oncontextmenu</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            event.<span class="property">returnValue</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="破解方法-2"><a class="markdownIt-Anchor" href="#破解方法-2"></a> 破解方法</h2>
+<p>按下<code>ctrl+shift+I</code>或者点击chrome浏览器头像右侧的地方里面的<code>更多工具-&gt;开发者工具</code></p>
+<h1 id="检测窗口大小变化"><a class="markdownIt-Anchor" href="#检测窗口大小变化"></a> 检测窗口大小变化</h1>
+<p><code>window.outerHeight</code>和<code>window.outerWidth</code>返回整个浏览器窗口的高度，宽度，包括侧边栏（如果存在）。<code>window.innerHeight</code>和<code>window.innerWidth</code>返回浏览器视窗大小，如果有滚动条也包含滚动条。具体区分可见下图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.2/height.png" alt="" /></p>
+<p>这里实现直接照搬别人的<a href="https://github.com/sindresorhus/devtools-detect">github</a>，附带上该库的<a href="https://sindresorhus.com/devtools-detect/">例程</a></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> devtools = &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">isOpen</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">orientation</span>: <span class="literal">undefined</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// inner和outer之间大小的阈值</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> threshold = <span class="number">170</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 定义监听开发者工具事件</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">emitEvent</span> = (<span class="params">isOpen, orientation</span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            globalThis.<span class="title function_">dispatchEvent</span>(<span class="keyword">new</span> globalThis.<span class="title class_">CustomEvent</span>(<span class="string">&#x27;devtoolschange&#x27;</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">detail</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                    isOpen,</span></span><br><span class="line"><span class="language-javascript">                    orientation,</span></span><br><span class="line"><span class="language-javascript">                &#125;,</span></span><br><span class="line"><span class="language-javascript">            &#125;));</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">main</span> = (<span class="params">&#123; emitEvents = <span class="literal">true</span> &#125; = &#123;&#125;</span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> widthThreshold = globalThis.<span class="property">outerWidth</span> - globalThis.<span class="property">innerWidth</span> &gt; threshold;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> heightThreshold = globalThis.<span class="property">outerHeight</span> - globalThis.<span class="property">innerHeight</span> &gt; threshold;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> orientation = widthThreshold ? <span class="string">&#x27;vertical&#x27;</span> : <span class="string">&#x27;horizontal&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (</span></span><br><span class="line"><span class="language-javascript">                !(heightThreshold &amp;&amp; widthThreshold)</span></span><br><span class="line"><span class="language-javascript">                &amp;&amp; ((globalThis.<span class="property">Firebug</span> &amp;&amp; globalThis.<span class="property">Firebug</span>.<span class="property">chrome</span> &amp;&amp; globalThis.<span class="property">Firebug</span>.<span class="property">chrome</span>.<span class="property">isInitialized</span>) || widthThreshold || heightThreshold)</span></span><br><span class="line"><span class="language-javascript">            ) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 有超过阈值 是打开的</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> ((!devtools.<span class="property">isOpen</span> || devtools.<span class="property">orientation</span> !== orientation) &amp;&amp; emitEvents) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">emitEvent</span>(<span class="literal">true</span>, orientation);</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                devtools.<span class="property">isOpen</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript">                devtools.<span class="property">orientation</span> = orientation;</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 开发者工具未打开</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (devtools.<span class="property">isOpen</span> &amp;&amp; emitEvents) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">emitEvent</span>(<span class="literal">false</span>, <span class="literal">undefined</span>);</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                devtools.<span class="property">isOpen</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">                devtools.<span class="property">orientation</span> = <span class="literal">undefined</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">main</span>(&#123; <span class="attr">emitEvents</span>: <span class="literal">false</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">        <span class="built_in">setInterval</span>(main, <span class="number">500</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;devtoolschange&#x27;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">detail</span>.<span class="property">isOpen</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="破解方法-3"><a class="markdownIt-Anchor" href="#破解方法-3"></a> 破解方法</h2>
+<p>这种方法需要设置一个阈值，容易误触发。破解方法就是将开发者工具设置为独立窗口，这样就无法检测到窗口变化。<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.2/resize-hack.png" alt="" /></p>
+<h1 id="重写tostring"><a class="markdownIt-Anchor" href="#重写tostring"></a> 重写toString</h1>
+<div class="note red icon-padding simple"><i class="note-icon fa-solid fa-triangle-exclamation"></i><p>在我的chrome 109.0.5414.119上没有复现成功</p>
+</div>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(x, <span class="string">&#x27;id&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">get</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="comment">// 开发者工具被打开</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x);</span><br><span class="line"><span class="comment">//方法2</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">c.<span class="property">toString</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 开发者工具被打开</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c);</span><br></pre></td></tr></table></figure>
+<h2 id="破解方法-4"><a class="markdownIt-Anchor" href="#破解方法-4"></a> 破解方法</h2>
+<p>对于一些使用<code>console</code>判断的可以把<code>console</code>的输出失效。这里可以用<a href="https://github.com/546669204/fuck-debugger-extensions">插件</a>完成</p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>以上就是一些常见的检测方法了，还有一些可能没有说到，可以看一看<a href="https://github.com/AEPKILL/devtools-detector">devtools-detector</a>里面的实现。</p>
+<p>因为前端是源码给到浏览器用户的，其实想要避免被扒还是有点困难，一些组织办法只是增加扒代码一方的麻烦，或者过滤掉一部分人。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="https://paper.seebug.org/1900/#_24">前端 JS 攻防对抗</a></p>
+<p><a href="https://segmentfault.com/a/1190000021510230">如何解决反调试困扰-chrome extension</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/outerHeight">Window.outerHeight</a></p>
+<p><a href="https://github.com/sindresorhus/devtools-detect">devtools-detect</a></p>
+<p><a href="https://github.com/546669204/fuck-debugger-extensions">fuck-debugger-extensions</a></p>
+<p><a href="https://stackoverflow.com/questions/7798748/find-out-whether-chrome-console-is-open">Find out whether Chrome console is open</a></p>
+<p><a href="https://github.com/AEPKILL/devtools-detector">devtools-detector</a></p>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>爬虫</tag>
+        <tag>javascript</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>mann-kendall检验</title>
     <url>/2022/12/22/mann-kendall-test/</url>
     <content><![CDATA[<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
@@ -4637,59 +4693,47 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>js检测开发者工具是否打开</title>
-    <url>/2023/01/26/js-check-devtool/</url>
+    <title>崩坏3rd 2023新年礼盒开箱</title>
+    <url>/2023/02/08/honkai-gift-box-2023/</url>
     <content><![CDATA[<blockquote>
-<p>封面 《Unless Terminalia》</p>
+<p>mihoyo旗舰店买的崩坏3rd 2023年新年礼盒，包含活页本、虚三家亚克力立牌、春联、贺卡、红包套装和微信红包封面兑换卡。</p>
 </blockquote>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>在使用浏览器对一些网站进行分析的时候经常会遇到打开开发者工具后跳出debugger或者说是跳转到了别的网页。下面我会讲一些网站是如何做到的和应对方法。</p>
-<h1 id="debugger"><a class="markdownIt-Anchor" href="#debugger"></a> debugger</h1>
-<p>一种常见的方法是使用<code>debugger</code>，比如米游社用的是这种，当打开开发者工具时会有debugger跳出效果如下，效果类似于程序中的断点，点继续调试的时候也是如此，让人忙于处理debugger<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.2/debugger.png" alt="" /></p>
-<p>实现起来为如下代码</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">check</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">debugger</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="built_in">setTimeout</span>(check, <span class="number">1</span>);</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">check</span>();</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="破解方法"><a class="markdownIt-Anchor" href="#破解方法"></a> 破解方法</h2>
-<p>对于这种方法，我们只需要禁用debugger就行，最简单的方法就是点击开发中工具中的deactivated breakpoints<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.2/debugger-hack.png" alt="" /></p>
-<h1 id="禁用右键和f12"><a class="markdownIt-Anchor" href="#禁用右键和f12"></a> 禁用右键和F12</h1>
-<p>禁用F12和右键，使得无法打开开发者工具。这种方法有点掩耳盗铃</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// F12</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="property">onkeydown</span> = <span class="variable language_">window</span>.<span class="property">onkeyup</span> = <span class="variable language_">window</span>.<span class="property">onkeypress</span> = <span class="keyword">function</span> (<span class="params">event</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 判断是否按下F12，F12键码为123  </span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (event.<span class="property">keyCode</span> = <span class="number">123</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                event.<span class="title function_">preventDefault</span>(); <span class="comment">// 阻止默认事件行为  </span></span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">window</span>.<span class="property">event</span>.<span class="property">returnValue</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 右键</span></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">document</span>.<span class="property">oncontextmenu</span> = <span class="keyword">function</span> (<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            event.<span class="property">returnValue</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="破解方法-2"><a class="markdownIt-Anchor" href="#破解方法-2"></a> 破解方法</h2>
-<p>按下<code>ctrl+shift+I</code>或者点击chrome浏览器头像右侧的地方里面的<code>更多工具-&gt;开发者工具</code></p>
-<h1 id="检测窗口大小变化"><a class="markdownIt-Anchor" href="#检测窗口大小变化"></a> 检测窗口大小变化</h1>
-<p><code>window.outerHeight</code>和<code>window.outerWidth</code>返回整个浏览器窗口的高度，宽度，包括侧边栏（如果存在）。<code>window.innerHeight</code>和<code>window.innerWidth</code>返回浏览器视窗大小，如果有滚动条也包含滚动条。具体区分可见下图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.2/height.png" alt="" /></p>
-<p>这里实现直接照搬别人的<a href="https://github.com/sindresorhus/devtools-detect">github</a>，附带上该库的<a href="https://sindresorhus.com/devtools-detect/">例程</a></p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> devtools = &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">isOpen</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="language-javascript">            <span class="attr">orientation</span>: <span class="literal">undefined</span>,</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript">        </span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// inner和outer之间大小的阈值</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> threshold = <span class="number">170</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 定义监听开发者工具事件</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">emitEvent</span> = (<span class="params">isOpen, orientation</span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            globalThis.<span class="title function_">dispatchEvent</span>(<span class="keyword">new</span> globalThis.<span class="title class_">CustomEvent</span>(<span class="string">&#x27;devtoolschange&#x27;</span>, &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">detail</span>: &#123;</span></span><br><span class="line"><span class="language-javascript">                    isOpen,</span></span><br><span class="line"><span class="language-javascript">                    orientation,</span></span><br><span class="line"><span class="language-javascript">                &#125;,</span></span><br><span class="line"><span class="language-javascript">            &#125;));</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">const</span> <span class="title function_">main</span> = (<span class="params">&#123; emitEvents = <span class="literal">true</span> &#125; = &#123;&#125;</span>) =&gt; &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> widthThreshold = globalThis.<span class="property">outerWidth</span> - globalThis.<span class="property">innerWidth</span> &gt; threshold;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> heightThreshold = globalThis.<span class="property">outerHeight</span> - globalThis.<span class="property">innerHeight</span> &gt; threshold;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">const</span> orientation = widthThreshold ? <span class="string">&#x27;vertical&#x27;</span> : <span class="string">&#x27;horizontal&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span> (</span></span><br><span class="line"><span class="language-javascript">                !(heightThreshold &amp;&amp; widthThreshold)</span></span><br><span class="line"><span class="language-javascript">                &amp;&amp; ((globalThis.<span class="property">Firebug</span> &amp;&amp; globalThis.<span class="property">Firebug</span>.<span class="property">chrome</span> &amp;&amp; globalThis.<span class="property">Firebug</span>.<span class="property">chrome</span>.<span class="property">isInitialized</span>) || widthThreshold || heightThreshold)</span></span><br><span class="line"><span class="language-javascript">            ) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 有超过阈值 是打开的</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> ((!devtools.<span class="property">isOpen</span> || devtools.<span class="property">orientation</span> !== orientation) &amp;&amp; emitEvents) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">emitEvent</span>(<span class="literal">true</span>, orientation);</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                devtools.<span class="property">isOpen</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript">                devtools.<span class="property">orientation</span> = orientation;</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 开发者工具未打开</span></span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">if</span> (devtools.<span class="property">isOpen</span> &amp;&amp; emitEvents) &#123;</span></span><br><span class="line"><span class="language-javascript">                    <span class="title function_">emitEvent</span>(<span class="literal">false</span>, <span class="literal">undefined</span>);</span></span><br><span class="line"><span class="language-javascript">                &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                devtools.<span class="property">isOpen</span> = <span class="literal">false</span>;</span></span><br><span class="line"><span class="language-javascript">                devtools.<span class="property">orientation</span> = <span class="literal">undefined</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">main</span>(&#123; <span class="attr">emitEvents</span>: <span class="literal">false</span> &#125;);</span></span><br><span class="line"><span class="language-javascript">        <span class="built_in">setInterval</span>(main, <span class="number">500</span>);</span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;devtoolschange&#x27;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(event.<span class="property">detail</span>.<span class="property">isOpen</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="破解方法-3"><a class="markdownIt-Anchor" href="#破解方法-3"></a> 破解方法</h2>
-<p>这种方法需要设置一个阈值，容易误触发。破解方法就是将开发者工具设置为独立窗口，这样就无法检测到窗口变化。<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.2/resize-hack.png" alt="" /></p>
-<h1 id="重写tostring"><a class="markdownIt-Anchor" href="#重写tostring"></a> 重写toString</h1>
-<div class="note red icon-padding simple"><i class="note-icon fa-solid fa-triangle-exclamation"></i><p>在我的chrome 109.0.5414.119上没有复现成功</p>
-</div>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//方法1</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(x, <span class="string">&#x27;id&#x27;</span>, &#123;</span><br><span class="line">    <span class="attr">get</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">        <span class="comment">// 开发者工具被打开</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(x);</span><br><span class="line"><span class="comment">//方法2</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">c.<span class="property">toString</span> = <span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">  <span class="comment">// 开发者工具被打开</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c);</span><br></pre></td></tr></table></figure>
-<h2 id="破解方法-4"><a class="markdownIt-Anchor" href="#破解方法-4"></a> 破解方法</h2>
-<p>对于一些使用<code>console</code>判断的可以把<code>console</code>的输出失效。这里可以用<a href="https://github.com/546669204/fuck-debugger-extensions">插件</a>完成</p>
-<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>以上就是一些常见的检测方法了，还有一些可能没有说到，可以看一看<a href="https://github.com/AEPKILL/devtools-detector">devtools-detector</a>里面的实现。</p>
-<p>因为前端是源码给到浏览器用户的，其实想要避免被扒还是有点困难，一些组织办法只是增加扒代码一方的麻烦，或者过滤掉一部分人。</p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<p><a href="https://paper.seebug.org/1900/#_24">前端 JS 攻防对抗</a></p>
-<p><a href="https://segmentfault.com/a/1190000021510230">如何解决反调试困扰-chrome extension</a></p>
-<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/outerHeight">Window.outerHeight</a></p>
-<p><a href="https://github.com/sindresorhus/devtools-detect">devtools-detect</a></p>
-<p><a href="https://github.com/546669204/fuck-debugger-extensions">fuck-debugger-extensions</a></p>
-<p><a href="https://stackoverflow.com/questions/7798748/find-out-whether-chrome-console-is-open">Find out whether Chrome console is open</a></p>
-<p><a href="https://github.com/AEPKILL/devtools-detector">devtools-detector</a></p>
+<blockquote>
+<p>封面来自淘宝商品界面</p>
+</blockquote>
+<h1 id="礼盒主题"><a class="markdownIt-Anchor" href="#礼盒主题"></a> 礼盒主题</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/front.jpg" alt="正面" /><br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/back.jpg" alt="反面" /></p>
+<h1 id="第一层"><a class="markdownIt-Anchor" href="#第一层"></a> 第一层</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/first.jpg" alt="第一层" /></p>
+<h2 id="红包包装"><a class="markdownIt-Anchor" href="#红包包装"></a> 红包包装</h2>
+<p>御三家的红包封面都挺好看的。<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_153527.jpg" alt="红包" /><br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_163940.jpg" alt="微信红包兑换卡" /></p>
+<h2 id="春联"><a class="markdownIt-Anchor" href="#春联"></a> 春联</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/couplets.jpg" alt="春联" /></p>
+<h2 id="活页本"><a class="markdownIt-Anchor" href="#活页本"></a> 活页本</h2>
+<p>里面也是封面御三家<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154046.jpg" alt="活页本" /><br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/kiana.jpg" alt="琪亚娜" /><br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/mei.jpg" alt="芽衣" /><br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/bronya.jpg" alt="板鸭" /></p>
+<h1 id="第二层"><a class="markdownIt-Anchor" href="#第二层"></a> 第二层</h1>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/second.jpg" alt="第二层" /></p>
+<h2 id="贺卡"><a class="markdownIt-Anchor" href="#贺卡"></a> 贺卡</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154254.jpg" alt="" /><br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154305.jpg" alt="" /></p>
+<h2 id="亚克力立牌"><a class="markdownIt-Anchor" href="#亚克力立牌"></a> 亚克力立牌</h2>
+<p>这个亚克力立牌应该是礼盒里我最喜欢的，底座可以合并也可以分开<br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_163940.jpg" alt="" /><br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154615.jpg" alt="" /><br />
+<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154634.jpg" alt="" /></p>
 ]]></content>
       <categories>
-        <category>javascript</category>
+        <category>生活</category>
       </categories>
       <tags>
-        <tag>爬虫</tag>
-        <tag>javascript</tag>
-        <tag>web</tag>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -4765,50 +4809,6 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       <tags>
         <tag>react</tag>
         <tag>react native</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>崩坏3rd 2023新年礼盒开箱</title>
-    <url>/2023/02/08/honkai-gift-box-2023/</url>
-    <content><![CDATA[<blockquote>
-<p>mihoyo旗舰店买的崩坏3rd 2023年新年礼盒，包含活页本、虚三家亚克力立牌、春联、贺卡、红包套装和微信红包封面兑换卡。</p>
-</blockquote>
-<blockquote>
-<p>封面来自淘宝商品界面</p>
-</blockquote>
-<h1 id="礼盒主题"><a class="markdownIt-Anchor" href="#礼盒主题"></a> 礼盒主题</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/front.jpg" alt="正面" /><br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/back.jpg" alt="反面" /></p>
-<h1 id="第一层"><a class="markdownIt-Anchor" href="#第一层"></a> 第一层</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/first.jpg" alt="第一层" /></p>
-<h2 id="红包包装"><a class="markdownIt-Anchor" href="#红包包装"></a> 红包包装</h2>
-<p>御三家的红包封面都挺好看的。<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_153527.jpg" alt="红包" /><br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_163940.jpg" alt="微信红包兑换卡" /></p>
-<h2 id="春联"><a class="markdownIt-Anchor" href="#春联"></a> 春联</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/couplets.jpg" alt="春联" /></p>
-<h2 id="活页本"><a class="markdownIt-Anchor" href="#活页本"></a> 活页本</h2>
-<p>里面也是封面御三家<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154046.jpg" alt="活页本" /><br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/kiana.jpg" alt="琪亚娜" /><br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/mei.jpg" alt="芽衣" /><br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/bronya.jpg" alt="板鸭" /></p>
-<h1 id="第二层"><a class="markdownIt-Anchor" href="#第二层"></a> 第二层</h1>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/second.jpg" alt="第二层" /></p>
-<h2 id="贺卡"><a class="markdownIt-Anchor" href="#贺卡"></a> 贺卡</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154254.jpg" alt="" /><br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154305.jpg" alt="" /></p>
-<h2 id="亚克力立牌"><a class="markdownIt-Anchor" href="#亚克力立牌"></a> 亚克力立牌</h2>
-<p>这个亚克力立牌应该是礼盒里我最喜欢的，底座可以合并也可以分开<br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_163940.jpg" alt="" /><br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154615.jpg" alt="" /><br />
-<img src="https://cdn.jsdelivr.net/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154634.jpg" alt="" /></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
