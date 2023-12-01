@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://qianxu.run/categories/index.html</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://qianxu.run/gallery/index.html</loc>
     
     <lastmod>2023-12-01</lastmod>
@@ -30,24 +21,6 @@
   
   <url>
     <loc>https://qianxu.run/tags/index.html</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2021/06/26/YOLO-openreport/</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2021/06/28/YOLO9000-translate/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -506,6 +479,15 @@
   </url>
   
   <url>
+    <loc>https://qianxu.run/categories/index.html</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://qianxu.run/2020/10/18/helloworld/</loc>
     
     <lastmod>2023-12-01</lastmod>
@@ -687,6 +669,24 @@
   
   <url>
     <loc>https://qianxu.run/2021/06/15/HK416-GK/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2021/06/26/YOLO-openreport/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2021/06/28/YOLO9000-translate/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
