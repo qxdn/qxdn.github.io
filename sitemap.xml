@@ -20,6 +20,42 @@
   </url>
   
   <url>
+    <loc>https://qianxu.run/2021/07/03/YOLO-oral-defense/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2021/07/02/YOLO-paper/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2021/07/11/ResNet-Note/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2021/07/27/bcy-spider/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://qianxu.run/2021/08/05/DCGAN/</loc>
     
     <lastmod>2023-12-01</lastmod>
@@ -29,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
+    <loc>https://qianxu.run/2021/08/13/file-hash/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -38,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2021/08/13/file-hash/</loc>
+    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -101,15 +137,6 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2021/10/16/java-pbkdf2sha256/</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://qianxu.run/2021/10/24/node-docker/</loc>
     
     <lastmod>2023-12-01</lastmod>
@@ -119,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2021/11/04/matplotlib-crash/</loc>
+    <loc>https://qianxu.run/2021/10/16/java-pbkdf2sha256/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -129,6 +156,15 @@
   
   <url>
     <loc>https://qianxu.run/2021/11/02/remote-copy/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2021/11/04/matplotlib-crash/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -245,6 +281,15 @@
   </url>
   
   <url>
+    <loc>https://qianxu.run/2022/10/06/process-and-thread/</loc>
+    
+    <lastmod>2023-12-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://qianxu.run/2022/08/03/convnext-note/</loc>
     
     <lastmod>2023-12-01</lastmod>
@@ -255,15 +300,6 @@
   
   <url>
     <loc>https://qianxu.run/2022/10/19/dead-lock/</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2022/10/06/process-and-thread/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -317,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2023/01/26/js-check-devtool/</loc>
+    <loc>https://qianxu.run/2022/12/22/mann-kendall-test/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -326,7 +362,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2022/12/22/mann-kendall-test/</loc>
+    <loc>https://qianxu.run/2023/01/26/js-check-devtool/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -425,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/categories/index.html</loc>
+    <loc>https://qianxu.run/about/index.html</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -434,7 +470,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/about/index.html</loc>
+    <loc>https://qianxu.run/categories/index.html</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -488,7 +524,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2020/10/23/DogsVsCatsAlexNet/</loc>
+    <loc>https://qianxu.run/2020/10/24/upgradeWSL2/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -497,7 +533,7 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/2020/10/24/upgradeWSL2/</loc>
+    <loc>https://qianxu.run/2020/10/23/DogsVsCatsAlexNet/</loc>
     
     <lastmod>2023-12-01</lastmod>
     
@@ -658,42 +694,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://qianxu.run/2021/07/03/YOLO-oral-defense/</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2021/07/02/YOLO-paper/</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2021/07/11/ResNet-Note/</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2021/07/27/bcy-spider/</loc>
-    
-    <lastmod>2023-12-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>https://qianxu.run/</loc>
@@ -767,6 +767,27 @@
   </url>
   
   <url>
+    <loc>https://qianxu.run/tags/Windows/</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/tags/Linux/</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/tags/WSL/</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://qianxu.run/tags/python/</loc>
     <lastmod>2023-12-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -789,27 +810,6 @@
   
   <url>
     <loc>https://qianxu.run/tags/AlexNet/</loc>
-    <lastmod>2023-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/tags/Windows/</loc>
-    <lastmod>2023-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/tags/Linux/</loc>
-    <lastmod>2023-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/tags/WSL/</loc>
     <lastmod>2023-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -872,20 +872,6 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/tags/javascript/</loc>
-    <lastmod>2023-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
-    <lastmod>2023-12-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://qianxu.run/tags/hash/</loc>
     <lastmod>2023-12-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -894,6 +880,20 @@
   
   <url>
     <loc>https://qianxu.run/tags/%E7%99%BE%E5%BA%A6%E4%BA%91/</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/tags/javascript/</loc>
+    <lastmod>2023-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc>
     <lastmod>2023-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1140,14 +1140,14 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://qianxu.run/categories/Linux/</loc>
     <lastmod>2023-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://qianxu.run/categories/Linux/</loc>
+    <loc>https://qianxu.run/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
