@@ -63,6 +63,33 @@
       </tags>
   </entry>
   <entry>
+    <title>电赛准备</title>
+    <url>/2020/10/19/electronicDesignContestPerpare/</url>
+    <content><![CDATA[<h2 id="进入606实验室"><a class="markdownIt-Anchor" href="#进入606实验室"></a> 进入606实验室</h2>
+<p>  加入实验室需要经过笔试以及面试。招生时间通常为大一下到大二上这段时间。笔试期间主要为《电路分析》、《模拟电子技术基础》和《数字电子技术基础》里面的知识，还包括单片机、C语音以及IDE的一些知识。面试主要看一些个人项目。我主要展示了一些在403实验室制作的水温控制系统、万年历还有个人制作的简易示波器（因为当时对ADC不是很熟练，而且不知道奈奎斯特抽样定理，所以做的很尴尬）。进入实验室后和学长进行双选，因为当时和张俊伟、李洋一起被分配做电源，所以找了余世民学长做电源。</p>
+<h2 id="606实验室学习"><a class="markdownIt-Anchor" href="#606实验室学习"></a> 606实验室学习</h2>
+<p>  在实验室的上半个学期主要为学习，以及完成实验室的任务。实验室有着淘汰机制，没有完成阶段任务，在最后就会被淘汰。阶段任务主要为三极管放大电路、运放电路、滤波器等。虽然题目看起来简单，但是实际做起来还是与书上的理想情况不一样。幸好最后没有被淘汰。</p>
+<h2 id="转为控制组"><a class="markdownIt-Anchor" href="#转为控制组"></a> 转为控制组</h2>
+<p>  在一段时间的电源制作（其实没有）后，我反而对控制题目比较感兴趣，就加入了<a href="https://github.com/while0l1">李志豪</a>、<a href="https://github.com/renruiwhut">任睿</a>的小组，一起做控制题。制作了一阶倒立摆、自由摆、板球控制系统、麦克纳姆轮四轮车、悬挂系统、风力摆、二轮循迹平衡车、XY写字机器人等项目。</p>
+<h2 id="实物图片"><a class="markdownIt-Anchor" href="#实物图片"></a> 实物图片</h2>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.0/flb.gif" alt="风力摆" /><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.0/balanceCar.gif" alt="二轮平衡车" /><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.0/XYWriter.gif" alt="XY写字机器人" /></p>
+<h2 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h2>
+<p>  这些就是我们组在电赛期间的一些准备内容，代码主要在<a href="https://github.com/while0l1/stm32f4_modules">代码1</a>和<a href="https://github.com/qxdn/MYDS">代码2</a>和<a href="https://github.com/qxdn/BIg-Ivan">训练代码</a></p>
+]]></content>
+      <categories>
+        <category>c</category>
+      </categories>
+      <tags>
+        <tag>电赛</tag>
+        <tag>C</tag>
+        <tag>C++</tag>
+        <tag>软件</tag>
+        <tag>硬件</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>节能减排</title>
     <url>/2020/10/19/energySaving/</url>
     <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
@@ -90,33 +117,6 @@
         <tag>节能减排</tag>
         <tag>java</tag>
         <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>电赛准备</title>
-    <url>/2020/10/19/electronicDesignContestPerpare/</url>
-    <content><![CDATA[<h2 id="进入606实验室"><a class="markdownIt-Anchor" href="#进入606实验室"></a> 进入606实验室</h2>
-<p>  加入实验室需要经过笔试以及面试。招生时间通常为大一下到大二上这段时间。笔试期间主要为《电路分析》、《模拟电子技术基础》和《数字电子技术基础》里面的知识，还包括单片机、C语音以及IDE的一些知识。面试主要看一些个人项目。我主要展示了一些在403实验室制作的水温控制系统、万年历还有个人制作的简易示波器（因为当时对ADC不是很熟练，而且不知道奈奎斯特抽样定理，所以做的很尴尬）。进入实验室后和学长进行双选，因为当时和张俊伟、李洋一起被分配做电源，所以找了余世民学长做电源。</p>
-<h2 id="606实验室学习"><a class="markdownIt-Anchor" href="#606实验室学习"></a> 606实验室学习</h2>
-<p>  在实验室的上半个学期主要为学习，以及完成实验室的任务。实验室有着淘汰机制，没有完成阶段任务，在最后就会被淘汰。阶段任务主要为三极管放大电路、运放电路、滤波器等。虽然题目看起来简单，但是实际做起来还是与书上的理想情况不一样。幸好最后没有被淘汰。</p>
-<h2 id="转为控制组"><a class="markdownIt-Anchor" href="#转为控制组"></a> 转为控制组</h2>
-<p>  在一段时间的电源制作（其实没有）后，我反而对控制题目比较感兴趣，就加入了<a href="https://github.com/while0l1">李志豪</a>、<a href="https://github.com/renruiwhut">任睿</a>的小组，一起做控制题。制作了一阶倒立摆、自由摆、板球控制系统、麦克纳姆轮四轮车、悬挂系统、风力摆、二轮循迹平衡车、XY写字机器人等项目。</p>
-<h2 id="实物图片"><a class="markdownIt-Anchor" href="#实物图片"></a> 实物图片</h2>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.0/flb.gif" alt="风力摆" /><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.0/balanceCar.gif" alt="二轮平衡车" /><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.0/XYWriter.gif" alt="XY写字机器人" /></p>
-<h2 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h2>
-<p>  这些就是我们组在电赛期间的一些准备内容，代码主要在<a href="https://github.com/while0l1/stm32f4_modules">代码1</a>和<a href="https://github.com/qxdn/MYDS">代码2</a>和<a href="https://github.com/qxdn/BIg-Ivan">训练代码</a></p>
-]]></content>
-      <categories>
-        <category>c</category>
-      </categories>
-      <tags>
-        <tag>电赛</tag>
-        <tag>C</tag>
-        <tag>C++</tag>
-        <tag>软件</tag>
-        <tag>硬件</tag>
       </tags>
   </entry>
   <entry>
@@ -1923,6 +1923,77 @@ ms。可以估算得到改进后模型的速度约为159 FPS，可以满足实�
       </tags>
   </entry>
   <entry>
+    <title>常用软件镜像源</title>
+    <url>/2021/08/11/source-mirror/</url>
+    <content><![CDATA[<p>为了制作魔镜，重装了树莓派系统。因为要将各种软件源设置镜像源，因此写这样一条博客方便自己查询。<br />
+封面《9-nine-NewEpisode》</p>
+<span id="more"></span>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>其实各个镜像源站都写有各自的设置的方式，本文基本上只是搬运和整合，附上自己的一点点感受。此处列出我常用的镜像站</p>
+<ul>
+<li><a href="https://developer.aliyun.com/mirror/">阿里云镜像站</a>:个人觉得最好用的镜像站，速度快且稳定，之前维护时间很长我还以为阿里不搞了，最近恢复了</li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/">清华镜像站</a>:印象里anaconda之前因为版权问题，镜像源全部下架。后来好像清华源经过交涉重新构建了镜像源。因此现在conda镜像用清华，不过有时候下载还是不好用</li>
+<li><a href="http://mirrors.zju.edu.cn/">浙大镜像站</a>:这个没用过，感觉不是很好，之后在浙大校园内再试一试</li>
+</ul>
+<h1 id="树莓派镜像"><a class="markdownIt-Anchor" href="#树莓派镜像"></a> 树莓派镜像</h1>
+<p>打开<code>/etc/apt/sources.list</code>，修改为以下内容。需要注意不同版本有所不同</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb https://mirrors.aliyun.com/raspbian/raspbian/ buster main non-free contrib</span><br><span class="line">deb-src https://mirrors.aliyun.com/raspbian/raspbian/ buster main non-free contrib</span><br></pre></td></tr></table></figure>
+<h1 id="ubuntu镜像"><a class="markdownIt-Anchor" href="#ubuntu镜像"></a> Ubuntu镜像</h1>
+<p>同样是打开<code>/etc/apt/sources.list</code>，将<code>https://archive.ubuntu.com/</code>替换为<code>mirrors.aliyun.com</code>，由于要改的地方较多，建议先备份一下。<br />
+以ubuntu20.04为例子大致如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<h1 id="github镜像"><a class="markdownIt-Anchor" href="#github镜像"></a> github镜像</h1>
+<p>github在国内的访问时好时坏，用VPN的时候会好一点，但是没VPN的时候就很难受。有修改DNS的方法，以前觉得还行，不过好像最近使用的时候不太好用</p>
+<h2 id="镜像站"><a class="markdownIt-Anchor" href="#镜像站"></a> 镜像站</h2>
+<p>此处推荐一个本人觉得不错的镜像站<br />
+<a href="https://github.com.cnpmjs.org/">https://github.com.cnpmjs.org/</a>:下载时只需要将<code>github.com</code>替换为<code>github.com.cnpmjs.org</code>即可。<br />
+例子如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/qxdn/live2d-widget.git</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/qxdn/live2d-widget.git</span><br></pre></td></tr></table></figure>
+<h2 id="cdn"><a class="markdownIt-Anchor" href="#cdn"></a> cdn</h2>
+<p>此处推荐一个本人常用的cdn。<br />
+<a href="https://www.jsdelivr.com/">jsdelivr</a>:除了github以外还可以加速npm。用法也很简单，在官网有说。<br />
+简单例子如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本</span></span><br><span class="line">https://raw.githubusercontent.com/qxdn/live2d-widget/master/autoload.js</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">https://jsd.cdn.zzko.cn/gh/qxdn/live2d-widget@latest/autoload.js</span><br></pre></td></tr></table></figure>
+<h1 id="java"><a class="markdownIt-Anchor" href="#java"></a> java</h1>
+<p>java中举一下<code>maven</code>的例子，因为本人基本上都用的是<code>maven</code>，没怎么使用<code>gradle</code>就不提<code>gradle</code>。</p>
+<p>一般来说<code>maven</code>的配置文件在<code>conf/settings.xml</code>里面，找到<code>&lt;mirrors&gt;&lt;/mirrors&gt;</code>添加如下代码</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyunmaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>阿里云公共仓库<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="python"><a class="markdownIt-Anchor" href="#python"></a> python</h1>
+<h2 id="pip"><a class="markdownIt-Anchor" href="#pip"></a> pip</h2>
+<h3 id="单次使用"><a class="markdownIt-Anchor" href="#单次使用"></a> 单次使用</h3>
+<p>以安装<code>httpx</code>为例子</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本安装</span></span><br><span class="line">pip install httpx</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">pip install -i https://mirrors.aliyun.com/pypi/simple/ httpx</span><br></pre></td></tr></table></figure>
+<h3 id="长期使用"><a class="markdownIt-Anchor" href="#长期使用"></a> 长期使用</h3>
+<p>Linux下找到<code>~/.pip/pip.conf</code>,Windows下新建<code>C:\Users\&#123;Your User Name&#125;\pip\pip.ini</code>文件。修改内容如下</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<h2 id="conda"><a class="markdownIt-Anchor" href="#conda"></a> conda</h2>
+<p>修改用户目录下的<code>.condarc</code>文件，对于windows用户可能要先执行一遍<code>conda config --set show_channel_urls yes</code>才行。修改完后可能还需要执行<code>conda clean -i</code>来清理缓存。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">default_channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"><span class="attr">custom_channels:</span></span><br><span class="line">  <span class="attr">conda-forge:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">msys2:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">bioconda:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">menpo:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">simpleitk:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br></pre></td></tr></table></figure>
+<h1 id="javascript"><a class="markdownIt-Anchor" href="#javascript"></a> javascript</h1>
+<p>npm镜像一般都是使用的淘宝镜像，此外还有一个cnpm工具专门用于代理淘宝的npm<br />
+<a href="http://npm.taobao.org/">淘宝npm镜像</a>:本文撰写期间在维护升级，还不清楚能不能正常使用。不过之前阿里云镜像维护期间也能正常使用，应该只是web页面升级不影响使用。<br />
+<a href="https://cnpmjs.org/">cnpm</a>:用于代理淘宝镜像的npm工具，国内很好用</p>
+<h2 id="临时使用"><a class="markdownIt-Anchor" href="#临时使用"></a> 临时使用</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org install hexo</span><br></pre></td></tr></table></figure>
+<h2 id="长期使用-2"><a class="markdownIt-Anchor" href="#长期使用-2"></a> 长期使用</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br><span class="line"><span class="comment"># 验证是否成功方法</span></span><br><span class="line">npm config <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用cnpm"><a class="markdownIt-Anchor" href="#使用cnpm"></a> 使用cnpm</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">cnpm install hexo</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>本文为常用软件镜像源的归档，方便本人在后续使用时翻阅，如果遇到了问题还请去镜像站看下使用方法。</p>
+]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>python</tag>
+        <tag>Linux</tag>
+        <tag>javascript</tag>
+        <tag>树莓派</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DCGAN生成手写数字</title>
     <url>/2021/08/05/DCGAN/</url>
     <content><![CDATA[<p>想试试用GAN生成动漫头像，于是先用简单GAN试一试。不过有一说一，GAN真的难训练。<br />
@@ -2112,77 +2183,6 @@ _________________________________________________________________
       <tags>
         <tag>机器学习</tag>
         <tag>GAN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用软件镜像源</title>
-    <url>/2021/08/11/source-mirror/</url>
-    <content><![CDATA[<p>为了制作魔镜，重装了树莓派系统。因为要将各种软件源设置镜像源，因此写这样一条博客方便自己查询。<br />
-封面《9-nine-NewEpisode》</p>
-<span id="more"></span>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>其实各个镜像源站都写有各自的设置的方式，本文基本上只是搬运和整合，附上自己的一点点感受。此处列出我常用的镜像站</p>
-<ul>
-<li><a href="https://developer.aliyun.com/mirror/">阿里云镜像站</a>:个人觉得最好用的镜像站，速度快且稳定，之前维护时间很长我还以为阿里不搞了，最近恢复了</li>
-<li><a href="https://mirrors.tuna.tsinghua.edu.cn/">清华镜像站</a>:印象里anaconda之前因为版权问题，镜像源全部下架。后来好像清华源经过交涉重新构建了镜像源。因此现在conda镜像用清华，不过有时候下载还是不好用</li>
-<li><a href="http://mirrors.zju.edu.cn/">浙大镜像站</a>:这个没用过，感觉不是很好，之后在浙大校园内再试一试</li>
-</ul>
-<h1 id="树莓派镜像"><a class="markdownIt-Anchor" href="#树莓派镜像"></a> 树莓派镜像</h1>
-<p>打开<code>/etc/apt/sources.list</code>，修改为以下内容。需要注意不同版本有所不同</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb https://mirrors.aliyun.com/raspbian/raspbian/ buster main non-free contrib</span><br><span class="line">deb-src https://mirrors.aliyun.com/raspbian/raspbian/ buster main non-free contrib</span><br></pre></td></tr></table></figure>
-<h1 id="ubuntu镜像"><a class="markdownIt-Anchor" href="#ubuntu镜像"></a> Ubuntu镜像</h1>
-<p>同样是打开<code>/etc/apt/sources.list</code>，将<code>https://archive.ubuntu.com/</code>替换为<code>mirrors.aliyun.com</code>，由于要改的地方较多，建议先备份一下。<br />
-以ubuntu20.04为例子大致如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-<h1 id="github镜像"><a class="markdownIt-Anchor" href="#github镜像"></a> github镜像</h1>
-<p>github在国内的访问时好时坏，用VPN的时候会好一点，但是没VPN的时候就很难受。有修改DNS的方法，以前觉得还行，不过好像最近使用的时候不太好用</p>
-<h2 id="镜像站"><a class="markdownIt-Anchor" href="#镜像站"></a> 镜像站</h2>
-<p>此处推荐一个本人觉得不错的镜像站<br />
-<a href="https://github.com.cnpmjs.org/">https://github.com.cnpmjs.org/</a>:下载时只需要将<code>github.com</code>替换为<code>github.com.cnpmjs.org</code>即可。<br />
-例子如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/qxdn/live2d-widget.git</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/qxdn/live2d-widget.git</span><br></pre></td></tr></table></figure>
-<h2 id="cdn"><a class="markdownIt-Anchor" href="#cdn"></a> cdn</h2>
-<p>此处推荐一个本人常用的cdn。<br />
-<a href="https://www.jsdelivr.com/">jsdelivr</a>:除了github以外还可以加速npm。用法也很简单，在官网有说。<br />
-简单例子如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本</span></span><br><span class="line">https://raw.githubusercontent.com/qxdn/live2d-widget/master/autoload.js</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">https://jsd.cdn.zzko.cn/gh/qxdn/live2d-widget@latest/autoload.js</span><br></pre></td></tr></table></figure>
-<h1 id="java"><a class="markdownIt-Anchor" href="#java"></a> java</h1>
-<p>java中举一下<code>maven</code>的例子，因为本人基本上都用的是<code>maven</code>，没怎么使用<code>gradle</code>就不提<code>gradle</code>。</p>
-<p>一般来说<code>maven</code>的配置文件在<code>conf/settings.xml</code>里面，找到<code>&lt;mirrors&gt;&lt;/mirrors&gt;</code>添加如下代码</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyunmaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>阿里云公共仓库<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="python"><a class="markdownIt-Anchor" href="#python"></a> python</h1>
-<h2 id="pip"><a class="markdownIt-Anchor" href="#pip"></a> pip</h2>
-<h3 id="单次使用"><a class="markdownIt-Anchor" href="#单次使用"></a> 单次使用</h3>
-<p>以安装<code>httpx</code>为例子</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本安装</span></span><br><span class="line">pip install httpx</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">pip install -i https://mirrors.aliyun.com/pypi/simple/ httpx</span><br></pre></td></tr></table></figure>
-<h3 id="长期使用"><a class="markdownIt-Anchor" href="#长期使用"></a> 长期使用</h3>
-<p>Linux下找到<code>~/.pip/pip.conf</code>,Windows下新建<code>C:\Users\&#123;Your User Name&#125;\pip\pip.ini</code>文件。修改内容如下</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
-<h2 id="conda"><a class="markdownIt-Anchor" href="#conda"></a> conda</h2>
-<p>修改用户目录下的<code>.condarc</code>文件，对于windows用户可能要先执行一遍<code>conda config --set show_channel_urls yes</code>才行。修改完后可能还需要执行<code>conda clean -i</code>来清理缓存。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">default_channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"><span class="attr">custom_channels:</span></span><br><span class="line">  <span class="attr">conda-forge:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">msys2:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">bioconda:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">menpo:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">simpleitk:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br></pre></td></tr></table></figure>
-<h1 id="javascript"><a class="markdownIt-Anchor" href="#javascript"></a> javascript</h1>
-<p>npm镜像一般都是使用的淘宝镜像，此外还有一个cnpm工具专门用于代理淘宝的npm<br />
-<a href="http://npm.taobao.org/">淘宝npm镜像</a>:本文撰写期间在维护升级，还不清楚能不能正常使用。不过之前阿里云镜像维护期间也能正常使用，应该只是web页面升级不影响使用。<br />
-<a href="https://cnpmjs.org/">cnpm</a>:用于代理淘宝镜像的npm工具，国内很好用</p>
-<h2 id="临时使用"><a class="markdownIt-Anchor" href="#临时使用"></a> 临时使用</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org install hexo</span><br></pre></td></tr></table></figure>
-<h2 id="长期使用-2"><a class="markdownIt-Anchor" href="#长期使用-2"></a> 长期使用</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br><span class="line"><span class="comment"># 验证是否成功方法</span></span><br><span class="line">npm config <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用cnpm"><a class="markdownIt-Anchor" href="#使用cnpm"></a> 使用cnpm</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">cnpm install hexo</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
-<p>本文为常用软件镜像源的归档，方便本人在后续使用时翻阅，如果遇到了问题还请去镜像站看下使用方法。</p>
-]]></content>
-      <categories>
-        <category>杂项</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>python</tag>
-        <tag>Linux</tag>
-        <tag>javascript</tag>
-        <tag>树莓派</tag>
       </tags>
   </entry>
   <entry>
@@ -3144,44 +3144,6 @@ Cypher中的节点表示如下</p>
       </tags>
   </entry>
   <entry>
-    <title>U-Net论文笔记</title>
-    <url>/2022/01/27/unet-note/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《湛蓝牢笼 Rail of Möbius》</p>
-</blockquote>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>因为实验室项目使用了U-Net网络因此读了一下论文来了解一下。</p>
-<p>卷积神经网络的典型应用是分类任务，而医学影像需要位置信息，即对每一个像素打标签。此外医学影像的数据集很少。<br />
-在U-Net之前Hence,Ciresan等人训练了一种基于滑动窗口的方法，该方法使用一个像素周围的局部区域（patch）的像素来预测该像素的类别。这种方法有两个优点:</p>
-<ul>
-<li>可以进行类别的定位</li>
-<li>每个patch可以视为数据增强增大训练集的数据量。</li>
-</ul>
-<p>但是这种方法也有两个缺点:</p>
-<ul>
-<li>速度很慢，因为网络需要计算每个patch，同时每个patch还有大量重叠冗余</li>
-<li>需要权衡定位准确度和使用的上下文信息，因为大patch需要更多的池化层，会减少定位的准确度。而小patch只能让网络看到一点内容。</li>
-</ul>
-<p>对此U-Net提出了新的网络结构。而对于医学影像数据集少，U-Net提出了使用弹性形变来进行数据增强增加数据集。</p>
-<h1 id="u-net网络结构"><a class="markdownIt-Anchor" href="#u-net网络结构"></a> U-Net网络结构</h1>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.4/U-Net.png" alt="U-Net结构" /></p>
-<p>U-Net的其中一个创新点就是其网络结构，其分为左侧的contrating path和右侧的expansive path。左侧为典型的卷积神经网络，使用两个3×3卷积层，每一个卷积后有一个非线性的RELU，然后用2×2的最大池化层进行下采样，下采样之后将通道数翻倍。右侧的expansive path每一步为使用一个2×2的卷积上采样减半通道数，并将左侧的特征图拼接起来（concat），然后使用通过两个3×3的卷积层，每一个有RELU激活函数。在最后一层使用1×1卷积将通道转换为需要的类别。整个网络一共有23个卷积层。</p>
-<p>整个网络是一个encoder-decoder结构，由于形状像U型所以被命名为U-Net。</p>
-<h1 id="3d-u-net结构"><a class="markdownIt-Anchor" href="#3d-u-net结构"></a> 3D U-Net结构</h1>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.4/3D_U-Net.png" alt="3D U-Net结构" /><br />
-3D U-Net的结构与U-Net基本一致，就是卷积等操作变成三维操作，同时相比U-Net还增加了BatchNorm层，结构图中还可以看出上采样的时候通道数并没有减半。</p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<p><a href="https://arxiv.org/abs/1505.04597">Ronneberger O, Fischer P, Brox T. U-net: Convolutional networks for biomedical image segmentation[C]//International Conference on Medical image computing and computer-assisted intervention. Springer, Cham, 2015: 234-241.</a></p>
-<p><a href="https://arxiv.org/abs/1606.06650">Çiçek Ö, Abdulkadir A, Lienkamp S S, et al. 3D U-Net: learning dense volumetric segmentation from sparse annotation[C]//International conference on medical image computing and computer-assisted intervention. Springer, Cham, 2016: 424-432.</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java全角转半角</title>
     <url>/2022/02/24/sbc2dbc/</url>
     <content><![CDATA[<blockquote>
@@ -3218,6 +3180,44 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       </categories>
       <tags>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>U-Net论文笔记</title>
+    <url>/2022/01/27/unet-note/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《湛蓝牢笼 Rail of Möbius》</p>
+</blockquote>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>因为实验室项目使用了U-Net网络因此读了一下论文来了解一下。</p>
+<p>卷积神经网络的典型应用是分类任务，而医学影像需要位置信息，即对每一个像素打标签。此外医学影像的数据集很少。<br />
+在U-Net之前Hence,Ciresan等人训练了一种基于滑动窗口的方法，该方法使用一个像素周围的局部区域（patch）的像素来预测该像素的类别。这种方法有两个优点:</p>
+<ul>
+<li>可以进行类别的定位</li>
+<li>每个patch可以视为数据增强增大训练集的数据量。</li>
+</ul>
+<p>但是这种方法也有两个缺点:</p>
+<ul>
+<li>速度很慢，因为网络需要计算每个patch，同时每个patch还有大量重叠冗余</li>
+<li>需要权衡定位准确度和使用的上下文信息，因为大patch需要更多的池化层，会减少定位的准确度。而小patch只能让网络看到一点内容。</li>
+</ul>
+<p>对此U-Net提出了新的网络结构。而对于医学影像数据集少，U-Net提出了使用弹性形变来进行数据增强增加数据集。</p>
+<h1 id="u-net网络结构"><a class="markdownIt-Anchor" href="#u-net网络结构"></a> U-Net网络结构</h1>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.4/U-Net.png" alt="U-Net结构" /></p>
+<p>U-Net的其中一个创新点就是其网络结构，其分为左侧的contrating path和右侧的expansive path。左侧为典型的卷积神经网络，使用两个3×3卷积层，每一个卷积后有一个非线性的RELU，然后用2×2的最大池化层进行下采样，下采样之后将通道数翻倍。右侧的expansive path每一步为使用一个2×2的卷积上采样减半通道数，并将左侧的特征图拼接起来（concat），然后使用通过两个3×3的卷积层，每一个有RELU激活函数。在最后一层使用1×1卷积将通道转换为需要的类别。整个网络一共有23个卷积层。</p>
+<p>整个网络是一个encoder-decoder结构，由于形状像U型所以被命名为U-Net。</p>
+<h1 id="3d-u-net结构"><a class="markdownIt-Anchor" href="#3d-u-net结构"></a> 3D U-Net结构</h1>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.4/3D_U-Net.png" alt="3D U-Net结构" /><br />
+3D U-Net的结构与U-Net基本一致，就是卷积等操作变成三维操作，同时相比U-Net还增加了BatchNorm层，结构图中还可以看出上采样的时候通道数并没有减半。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="https://arxiv.org/abs/1505.04597">Ronneberger O, Fischer P, Brox T. U-net: Convolutional networks for biomedical image segmentation[C]//International Conference on Medical image computing and computer-assisted intervention. Springer, Cham, 2015: 234-241.</a></p>
+<p><a href="https://arxiv.org/abs/1606.06650">Çiçek Ö, Abdulkadir A, Lienkamp S S, et al. 3D U-Net: learning dense volumetric segmentation from sparse annotation[C]//International conference on medical image computing and computer-assisted intervention. Springer, Cham, 2016: 424-432.</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -3521,6 +3521,68 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       </tags>
   </entry>
   <entry>
+    <title>ConvNeXt论文笔记</title>
+    <url>/2022/08/03/convnext-note/</url>
+    <content><![CDATA[<blockquote>
+<p>封面 《紅月ゆれる恋あかり》</p>
+</blockquote>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>年初的时候看到别人推荐了ConvNeXt论文，看到了下面这张图，了解到了ConvNeXt比Swin Transformer效果好，因此读了一下这篇论文，写一下笔记。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/compare.png" alt="效果" /></p>
+<h1 id="convnext的改进点"><a class="markdownIt-Anchor" href="#convnext的改进点"></a> ConvNeXt的改进点</h1>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/Improve.png" alt="总体改进" /></p>
+<p>ConvNeXt的总体改进如上所示，各个改进和其效果都可以看的比较明白</p>
+<h2 id="macro-design"><a class="markdownIt-Anchor" href="#macro-design"></a> Macro Design</h2>
+<h3 id="changing-stage-compute-ratio"><a class="markdownIt-Anchor" href="#changing-stage-compute-ratio"></a> Changing stage compute ratio</h3>
+<p>在原先的ResNet中各个stage之间的比例是(3:4:6:4)，而在swin transformer中这个比例是(1:1:3:1)在large模型中这个比例是(1:1:9:1)，因此作者将ResNet各个阶段的比例设置为(3:3:9:3)，准确率从78.8%上升到了79.4%。此外作者还表示这个比例还有优化空间</p>
+<h3 id="changing-stem-to-patchify"><a class="markdownIt-Anchor" href="#changing-stem-to-patchify"></a> Changing stem to “Patchify”</h3>
+<p>什么是stem？stem简单来说就说第一个下采样，主要的功能是压缩输入，减少计算量<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/stem.png" alt="stem" /><br />
+在原本的ResNet中，stem层使用的是卷积核大小为7×7，stride=2的卷积核，其结果就是4倍的下采样。而在vit模型中，stem层用的是更加激进的卷积，卷积大小是14或者16，且移动没有重叠的。而在swin中stem使用的是相似的卷积，但是卷积大小是4×4。因此ConvNeXt中使用的是卷积大小4×4，stride=4的卷积。这使得准确率从79.4%上升到79.6%。</p>
+<h2 id="resnext-ify"><a class="markdownIt-Anchor" href="#resnext-ify"></a> ResNeXt-ify</h2>
+<p>ResNeXt在准确度和FLOPs之间有一个较好的权衡，ResNeXt的block结构如下所示，其结合了Inception的思想。<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/resnext.png" alt="ResNeXt" /><br />
+与原本的ResNeXt block不同的是，在ConvNeXt，ResNeXt的卷积部分使用的Group数和Channel的数量相同。同时，作者还认为depthwise卷积的操作和self-attention类似。这使得准确率下降到了78.3%,但是GFLOPs从4.4下降到了2.4。</p>
+<p>此外还将网络的channel改到了和swin一样的96，这使得准确率提高到了80.5%，但是GFLOPs上升到了5.3</p>
+<h2 id="inverted-bottleneck"><a class="markdownIt-Anchor" href="#inverted-bottleneck"></a> Inverted Bottleneck</h2>
+<p>Transformer block的MLP层与MobileNetV2的反转瓶颈层很像，因此ConvNeXt也设计了一个反转瓶颈层即中间粗两边细的结构。在Transformer中MLP的隐藏层的维度都是4倍于输入维度，因此反转瓶颈层的中间层也是四倍缩放。下图中(a)是ResNet的block，而(b)是ConvNeXt建立的反转瓶颈层，©是降空间depthwise的层上移。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/InvertedBottleneck.png" alt="Inverted Bottleneck" /></p>
+<p>使用反转瓶颈后，小模型中准确率从80.5%上升到80.6%，大模型的准确率从81.9%上升到82.6%，且FLOPs都减小。</p>
+<h2 id="large-kernel-sizes"><a class="markdownIt-Anchor" href="#large-kernel-sizes"></a> Large Kernel Sizes</h2>
+<h3 id="moving-up-depthwise-conv-layer"><a class="markdownIt-Anchor" href="#moving-up-depthwise-conv-layer"></a> Moving up depthwise conv layer</h3>
+<p>因为在transformer模型上，MSA(Multi head self-attetion)是在MLP前面的，因此在反转瓶颈的时候，将depthwise卷积放到前面，即Inverted Bottleneck中的(b)到©。此外中间的1×1的卷积在代码里面是使用全连接层来实现的，因为1×1卷积和全连接几乎等价。</p>
+<p>这使得FLOPs下降到4.1G，准确率到79.1%</p>
+<h3 id="increasing-the-kernel-size"><a class="markdownIt-Anchor" href="#increasing-the-kernel-size"></a> Increasing the kernel size</h3>
+<p>作者尝试增大卷积核的大小，可以看到卷积核加到7×7之后趋于饱和，因此选择在每个block中使用7×7的卷积核作为depthwise卷积。准确率上升到了80.6%。<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/filter.png" alt="kernel size" /></p>
+<h2 id="micro-design"><a class="markdownIt-Anchor" href="#micro-design"></a> Micro Design</h2>
+<h3 id="replacing-relu-with-gelu"><a class="markdownIt-Anchor" href="#replacing-relu-with-gelu"></a> Replacing ReLU with GELU</h3>
+<p>大多数卷积网络使用的是RELU激活，而transformer大多使用GELU激活，因此使用GELU激活，这对准确率没有什么影响</p>
+<h3 id="fewer-activation-functions"><a class="markdownIt-Anchor" href="#fewer-activation-functions"></a> Fewer activation functions</h3>
+<p>相较于ResNet，transformer拥有更少的激活函数。每一个transformer block中只有1个激活函数在MLP层之中，因此ConvNeXt也做类似，每个block在两个1×1之间加GELU激活。其结构如下图所示。这使得准确率从80.6%提升到了81.3%。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/block.png" alt="ConvNeXt Block" /></p>
+<h3 id="fewer-normalization-layers"><a class="markdownIt-Anchor" href="#fewer-normalization-layers"></a> Fewer normalization layers</h3>
+<p>transformer block中也是拥有较少的norm层，因此作者只保留了1×1卷积前面的BN层，这使得准确率到了81.4%，超过了Swin-T。需要注意的是作者尝试把BN加在Block前面，但是效果没有什么提升。</p>
+<h3 id="substituting-bn-with-ln"><a class="markdownIt-Anchor" href="#substituting-bn-with-ln"></a> Substituting BN with LN</h3>
+<p>在Transformer中经常使用LN，因此作者使用LN替换原来的BN，这使得准确率上升到了81.5%。</p>
+<h3 id="separate-downsampling-layers"><a class="markdownIt-Anchor" href="#separate-downsampling-layers"></a> Separate downsampling layers</h3>
+<p>在ResNet中空间下采样是在每个block stage的开头完成，通过使用3×3卷积stride=2，shortcut部分使用1×1卷积stride=2实现。而在swin transformer中在每个stage之间使用一个单独下采样层。因此作者使用2×2，stride=2的单独下采样层来实现。同时在下采样的卷积前使用layernorm可以帮助其收敛，而在stem层的layernorm加在卷积后面。这使得准确率提高到了82.0%，超过了Swin。</p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>以上就是一直拖着没更新的ConvNeXt了，这是一个纯卷积神经网络，实现起来比较容易，且效果要好于Swin-T。是个不错的网络。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="https://stackoverflow.com/questions/68258188/why-does-cnns-usually-have-a-stem">Why does CNNs usually have a stem?</a></p>
+<p><a href="https://arxiv.org/abs/1611.05431v2">Aggregated Residual Transformations for Deep Neural Networks</a></p>
+<p><a href="https://arxiv.org/abs/2201.03545">A ConvNet for the 2020s</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>进程与线程</title>
     <url>/2022/10/06/process-and-thread/</url>
     <content><![CDATA[<blockquote>
@@ -3689,68 +3751,6 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       <tags>
         <tag>面经</tag>
         <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ConvNeXt论文笔记</title>
-    <url>/2022/08/03/convnext-note/</url>
-    <content><![CDATA[<blockquote>
-<p>封面 《紅月ゆれる恋あかり》</p>
-</blockquote>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>年初的时候看到别人推荐了ConvNeXt论文，看到了下面这张图，了解到了ConvNeXt比Swin Transformer效果好，因此读了一下这篇论文，写一下笔记。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/compare.png" alt="效果" /></p>
-<h1 id="convnext的改进点"><a class="markdownIt-Anchor" href="#convnext的改进点"></a> ConvNeXt的改进点</h1>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/Improve.png" alt="总体改进" /></p>
-<p>ConvNeXt的总体改进如上所示，各个改进和其效果都可以看的比较明白</p>
-<h2 id="macro-design"><a class="markdownIt-Anchor" href="#macro-design"></a> Macro Design</h2>
-<h3 id="changing-stage-compute-ratio"><a class="markdownIt-Anchor" href="#changing-stage-compute-ratio"></a> Changing stage compute ratio</h3>
-<p>在原先的ResNet中各个stage之间的比例是(3:4:6:4)，而在swin transformer中这个比例是(1:1:3:1)在large模型中这个比例是(1:1:9:1)，因此作者将ResNet各个阶段的比例设置为(3:3:9:3)，准确率从78.8%上升到了79.4%。此外作者还表示这个比例还有优化空间</p>
-<h3 id="changing-stem-to-patchify"><a class="markdownIt-Anchor" href="#changing-stem-to-patchify"></a> Changing stem to “Patchify”</h3>
-<p>什么是stem？stem简单来说就说第一个下采样，主要的功能是压缩输入，减少计算量<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/stem.png" alt="stem" /><br />
-在原本的ResNet中，stem层使用的是卷积核大小为7×7，stride=2的卷积核，其结果就是4倍的下采样。而在vit模型中，stem层用的是更加激进的卷积，卷积大小是14或者16，且移动没有重叠的。而在swin中stem使用的是相似的卷积，但是卷积大小是4×4。因此ConvNeXt中使用的是卷积大小4×4，stride=4的卷积。这使得准确率从79.4%上升到79.6%。</p>
-<h2 id="resnext-ify"><a class="markdownIt-Anchor" href="#resnext-ify"></a> ResNeXt-ify</h2>
-<p>ResNeXt在准确度和FLOPs之间有一个较好的权衡，ResNeXt的block结构如下所示，其结合了Inception的思想。<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/resnext.png" alt="ResNeXt" /><br />
-与原本的ResNeXt block不同的是，在ConvNeXt，ResNeXt的卷积部分使用的Group数和Channel的数量相同。同时，作者还认为depthwise卷积的操作和self-attention类似。这使得准确率下降到了78.3%,但是GFLOPs从4.4下降到了2.4。</p>
-<p>此外还将网络的channel改到了和swin一样的96，这使得准确率提高到了80.5%，但是GFLOPs上升到了5.3</p>
-<h2 id="inverted-bottleneck"><a class="markdownIt-Anchor" href="#inverted-bottleneck"></a> Inverted Bottleneck</h2>
-<p>Transformer block的MLP层与MobileNetV2的反转瓶颈层很像，因此ConvNeXt也设计了一个反转瓶颈层即中间粗两边细的结构。在Transformer中MLP的隐藏层的维度都是4倍于输入维度，因此反转瓶颈层的中间层也是四倍缩放。下图中(a)是ResNet的block，而(b)是ConvNeXt建立的反转瓶颈层，©是降空间depthwise的层上移。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/InvertedBottleneck.png" alt="Inverted Bottleneck" /></p>
-<p>使用反转瓶颈后，小模型中准确率从80.5%上升到80.6%，大模型的准确率从81.9%上升到82.6%，且FLOPs都减小。</p>
-<h2 id="large-kernel-sizes"><a class="markdownIt-Anchor" href="#large-kernel-sizes"></a> Large Kernel Sizes</h2>
-<h3 id="moving-up-depthwise-conv-layer"><a class="markdownIt-Anchor" href="#moving-up-depthwise-conv-layer"></a> Moving up depthwise conv layer</h3>
-<p>因为在transformer模型上，MSA(Multi head self-attetion)是在MLP前面的，因此在反转瓶颈的时候，将depthwise卷积放到前面，即Inverted Bottleneck中的(b)到©。此外中间的1×1的卷积在代码里面是使用全连接层来实现的，因为1×1卷积和全连接几乎等价。</p>
-<p>这使得FLOPs下降到4.1G，准确率到79.1%</p>
-<h3 id="increasing-the-kernel-size"><a class="markdownIt-Anchor" href="#increasing-the-kernel-size"></a> Increasing the kernel size</h3>
-<p>作者尝试增大卷积核的大小，可以看到卷积核加到7×7之后趋于饱和，因此选择在每个block中使用7×7的卷积核作为depthwise卷积。准确率上升到了80.6%。<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/filter.png" alt="kernel size" /></p>
-<h2 id="micro-design"><a class="markdownIt-Anchor" href="#micro-design"></a> Micro Design</h2>
-<h3 id="replacing-relu-with-gelu"><a class="markdownIt-Anchor" href="#replacing-relu-with-gelu"></a> Replacing ReLU with GELU</h3>
-<p>大多数卷积网络使用的是RELU激活，而transformer大多使用GELU激活，因此使用GELU激活，这对准确率没有什么影响</p>
-<h3 id="fewer-activation-functions"><a class="markdownIt-Anchor" href="#fewer-activation-functions"></a> Fewer activation functions</h3>
-<p>相较于ResNet，transformer拥有更少的激活函数。每一个transformer block中只有1个激活函数在MLP层之中，因此ConvNeXt也做类似，每个block在两个1×1之间加GELU激活。其结构如下图所示。这使得准确率从80.6%提升到了81.3%。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.5/block.png" alt="ConvNeXt Block" /></p>
-<h3 id="fewer-normalization-layers"><a class="markdownIt-Anchor" href="#fewer-normalization-layers"></a> Fewer normalization layers</h3>
-<p>transformer block中也是拥有较少的norm层，因此作者只保留了1×1卷积前面的BN层，这使得准确率到了81.4%，超过了Swin-T。需要注意的是作者尝试把BN加在Block前面，但是效果没有什么提升。</p>
-<h3 id="substituting-bn-with-ln"><a class="markdownIt-Anchor" href="#substituting-bn-with-ln"></a> Substituting BN with LN</h3>
-<p>在Transformer中经常使用LN，因此作者使用LN替换原来的BN，这使得准确率上升到了81.5%。</p>
-<h3 id="separate-downsampling-layers"><a class="markdownIt-Anchor" href="#separate-downsampling-layers"></a> Separate downsampling layers</h3>
-<p>在ResNet中空间下采样是在每个block stage的开头完成，通过使用3×3卷积stride=2，shortcut部分使用1×1卷积stride=2实现。而在swin transformer中在每个stage之间使用一个单独下采样层。因此作者使用2×2，stride=2的单独下采样层来实现。同时在下采样的卷积前使用layernorm可以帮助其收敛，而在stem层的layernorm加在卷积后面。这使得准确率提高到了82.0%，超过了Swin。</p>
-<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>以上就是一直拖着没更新的ConvNeXt了，这是一个纯卷积神经网络，实现起来比较容易，且效果要好于Swin-T。是个不错的网络。</p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<p><a href="https://stackoverflow.com/questions/68258188/why-does-cnns-usually-have-a-stem">Why does CNNs usually have a stem?</a></p>
-<p><a href="https://arxiv.org/abs/1611.05431v2">Aggregated Residual Transformations for Deep Neural Networks</a></p>
-<p><a href="https://arxiv.org/abs/2201.03545">A ConvNet for the 2020s</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -4313,6 +4313,81 @@ G1并没有将内存进行物理划分，它只是将堆内存划分为一个个
       </tags>
   </entry>
   <entry>
+    <title>java-volatile</title>
+    <url>/2022/12/05/java-volatile/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《千の刃濤、桃花染の皇姫》</p>
+</blockquote>
+<blockquote>
+<p>在同步执行不重要的时候，编译器、运行时刻和处理器会进行一些优化，虽然这些优化通常是有益的，但是有时候会有一些微妙的问题<br />
+缓存和指令重排是并发中容易出问题的优化，在Java和JVM中提供了许多方法来控制内存顺序，volatile关键字便是其中之一</p>
+</blockquote>
+<h1 id="多处理器结构"><a class="markdownIt-Anchor" href="#多处理器结构"></a> 多处理器结构</h1>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.5.0/cpu.png" alt="" /></p>
+<p>计算机执行程序的时候每条指令都是在CPU中执行的，而执行指令过程中，势必涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于CPU执行速度很快，而从内存读取数据和向内存写入数据的过程跟CPU执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。因此在CPU里面就有了高速缓存。</p>
+<p>当程序在运行过程中，会将运算需要的数据从主存复制一份到CPU的高速缓存当中，那么CPU进行计算时就可以直接从它的高速缓存读取数据和向其中写入数据，当运算结束之后，再将高速缓存中的数据刷新到主存当中。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SharedObj</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// Changes made to sharedVar in one thread</span></span><br><span class="line">   <span class="comment">// may not immediately reflect in other thread</span></span><br><span class="line">   <span class="keyword">static</span> <span class="type">int</span> <span class="variable">sharedVar</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>举个例子，假设有两个线程使用<code>SharedObj</code>，如果两个线程运行在两个不同的处理器上（如下图所示），那么每个线程有一份本地的<code>sharedVariable</code>缓存。如果其中一个线程改变其变量，可能不会马上反映到主线程中，另一个线程不会注意到数据改变了，导致了数据的不一致。关于缓存一致性可以读<a href="https://en.wikipedia.org/wiki/Cache_coherence">这篇</a></p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.5.0/shared-memory.png" alt="" /></p>
+<h1 id="volatile作用"><a class="markdownIt-Anchor" href="#volatile作用"></a> volatile作用</h1>
+<h2 id="内存可见性"><a class="markdownIt-Anchor" href="#内存可见性"></a> 内存可见性</h2>
+<p>可见性问题主要指一个线程修改了共享变量值，而另一个线程却看不到。引起可见性问题的主要原因是每个线程拥有自己的一个高速缓存区——线程工作内存。volatile关键字能有效的解决这个问题。</p>
+<p>让我们来看下面这个例子</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">readerThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (temp != num) &#123;</span><br><span class="line">                    temp = num;</span><br><span class="line">                    System.out.println(<span class="string">&quot;reader: value of num = &quot;</span> + num);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">writerThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">                num++;</span><br><span class="line">                System.out.println(<span class="string">&quot;writer: changed value to = &quot;</span> + num);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 退出程序，否则readerThread会一直等</span></span><br><span class="line">            System.exit(<span class="number">0</span>);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        readerThread.start();</span><br><span class="line">        writerThread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reader: value of num = 1</span><br><span class="line">writer: changed value to = 1</span><br><span class="line">writer: changed value to = 2</span><br><span class="line">writer: changed value to = 3</span><br><span class="line">writer: changed value to = 4</span><br><span class="line">writer: changed value to = 5</span><br></pre></td></tr></table></figure>
+<p>没加volatile的时候reader只读到0-1的变化。</p>
+<p>接下来修改代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> num;</span><br></pre></td></tr></table></figure>
+<p>输出如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">writer: changed value to = 1</span><br><span class="line">reader: value of num = 1</span><br><span class="line">writer: changed value to = 2</span><br><span class="line">reader: value of num = 2</span><br><span class="line">writer: changed value to = 3</span><br><span class="line">reader: value of num = 3</span><br><span class="line">writer: changed value to = 4</span><br><span class="line">reader: value of num = 4</span><br><span class="line">writer: changed value to = 5</span><br><span class="line">reader: value of num = 5</span><br></pre></td></tr></table></figure>
+<p>可以看到输出reader可以读到num的变化，volatile指示编译器，这个变量是共享的且不稳定，每次要到主程序中读取。</p>
+<h2 id="禁止指令重排"><a class="markdownIt-Anchor" href="#禁止指令重排"></a> 禁止指令重排</h2>
+<p>一般来说，处理器为了提高程序运行效率，可能会对输入代码进行优化，它不保证程序中各个语句的执行先后顺序同代码中的顺序一致，但是它会保证程序最终执行结果和代码顺序执行的结果是一致的</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;    <span class="comment">//语句1</span></span><br><span class="line"><span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">2</span>;    <span class="comment">//语句2</span></span><br><span class="line">a = a + <span class="number">3</span>;    <span class="comment">//语句3</span></span><br><span class="line">r = a*a;     <span class="comment">//语句4</span></span><br></pre></td></tr></table></figure>
+<p>这段代码有4个语句，那么可能的一个执行顺序是：<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.5.0/reorder.jpg" alt="" /><br />
+但是执行顺序不可能是:语句2-语句1-语句4-语句3。因为处理器在进行重排序时是会考虑指令之间的数据依赖性，如果一个指令Instruction 2必须用到Instruction 1的结果，那么处理器会保证Instruction 1会在Instruction 2之前执行。</p>
+<p>虽然重排不影响单线程内程序执行结果，但是多线程中会有影响</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//线程1:</span></span><br><span class="line">context = loadContext();   <span class="comment">//语句1</span></span><br><span class="line">inited = <span class="literal">true</span>;             <span class="comment">//语句2</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//线程2:</span></span><br><span class="line"><span class="keyword">while</span>(!inited )&#123;</span><br><span class="line">  sleep()</span><br><span class="line">&#125;</span><br><span class="line">doSomethingwithconfig(context);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，由于语句1和语句2没有数据依赖性，因此可能会被重排序。假如发生了重排序，在线程1执行过程中先执行语句2，而此是线程2会以为初始化工作已经完成，那么就会跳出while循环，去执行doSomethingwithconfig(context)方法，而此时context并没有被初始化，就会导致程序出错。</p>
+<blockquote>
+<p>在Java中，volatile关键字除了可以保证变量的可见性，还有一个重要的作用就是防止JVM的指令重排序。如果我们将变量声明为volatile，在对这个变量进行读写操作的时候，会通过插入特定的内存屏障的方式来禁止指令重排序。</p>
+</blockquote>
+<h1 id="volatile不保证原子性"><a class="markdownIt-Anchor" href="#volatile不保证原子性"></a> volatile不保证原子性</h1>
+<p>volatile关键字保证变量的可见性，但是不保证对变量操作是原子性。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            threadPool.execute(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++)&#123;</span><br><span class="line">                    num++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码按照预期应该是输出2500，然而实际的输出结果不一定是2500，比如2136。<br />
+这是因为<code>num++</code>不是原子性的，其包含三步</p>
+<ul>
+<li>读取num的值。</li>
+<li>对num加1。</li>
+<li>将num的值写回内存。</li>
+</ul>
+<p>改进也很简单，使用<code>synchronized</code>、<code>Lock</code>或者<code>JUC</code>即可。</p>
+<h2 id="synchronized"><a class="markdownIt-Anchor" href="#synchronized"></a> synchronized</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>&#123;</span><br><span class="line">        num++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            threadPool.execute(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++)&#123;</span><br><span class="line">                    demo.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="juc"><a class="markdownIt-Anchor" href="#juc"></a> JUC</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">AtomicInteger</span> <span class="variable">num</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>&#123;</span><br><span class="line">        num.getAndIncrement();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            threadPool.execute(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++)&#123;</span><br><span class="line">                    demo.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="lock"><a class="markdownIt-Anchor" href="#lock"></a> Lock</h2>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">Lock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>&#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        num++;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            threadPool.execute(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++)&#123;</span><br><span class="line">                    demo.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="java和cc中volatile的区别"><a class="markdownIt-Anchor" href="#java和cc中volatile的区别"></a> Java和C/C++中volatile的区别</h1>
+<p>Java和C/C++中的volatile关键字不一样，在java中volatile告诉编译器变量不能缓存该值，需要到主存中去读取</p>
+<p>C/C++中，开发嵌入式设备需要volatile，需要读取和写入内存映射的硬件设备，其值可能随时变化，所以用volatile告诉编译器不要将其优化。</p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p><a href="https://www.baeldung.com/java-volatile">Guide to the Volatile Keyword in Java</a></p>
+<p><a href="https://www.cnblogs.com/dolphin0520/p/3920373.html">Java并发编程：volatile关键字解析</a></p>
+<p><a href="https://www.geeksforgeeks.org/volatile-keyword-in-java/">volatile Keyword in Java</a></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>并发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python实现依赖注入</title>
     <url>/2022/12/15/python-dependency-injection/</url>
     <content><![CDATA[<blockquote>
@@ -4388,81 +4463,6 @@ G1并没有将内存进行物理划分，它只是将堆内存划分为一个个
       <tags>
         <tag>python</tag>
         <tag>nonebot</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>java-volatile</title>
-    <url>/2022/12/05/java-volatile/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《千の刃濤、桃花染の皇姫》</p>
-</blockquote>
-<blockquote>
-<p>在同步执行不重要的时候，编译器、运行时刻和处理器会进行一些优化，虽然这些优化通常是有益的，但是有时候会有一些微妙的问题<br />
-缓存和指令重排是并发中容易出问题的优化，在Java和JVM中提供了许多方法来控制内存顺序，volatile关键字便是其中之一</p>
-</blockquote>
-<h1 id="多处理器结构"><a class="markdownIt-Anchor" href="#多处理器结构"></a> 多处理器结构</h1>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.5.0/cpu.png" alt="" /></p>
-<p>计算机执行程序的时候每条指令都是在CPU中执行的，而执行指令过程中，势必涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于CPU执行速度很快，而从内存读取数据和向内存写入数据的过程跟CPU执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。因此在CPU里面就有了高速缓存。</p>
-<p>当程序在运行过程中，会将运算需要的数据从主存复制一份到CPU的高速缓存当中，那么CPU进行计算时就可以直接从它的高速缓存读取数据和向其中写入数据，当运算结束之后，再将高速缓存中的数据刷新到主存当中。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SharedObj</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">// Changes made to sharedVar in one thread</span></span><br><span class="line">   <span class="comment">// may not immediately reflect in other thread</span></span><br><span class="line">   <span class="keyword">static</span> <span class="type">int</span> <span class="variable">sharedVar</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>举个例子，假设有两个线程使用<code>SharedObj</code>，如果两个线程运行在两个不同的处理器上（如下图所示），那么每个线程有一份本地的<code>sharedVariable</code>缓存。如果其中一个线程改变其变量，可能不会马上反映到主线程中，另一个线程不会注意到数据改变了，导致了数据的不一致。关于缓存一致性可以读<a href="https://en.wikipedia.org/wiki/Cache_coherence">这篇</a></p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.5.0/shared-memory.png" alt="" /></p>
-<h1 id="volatile作用"><a class="markdownIt-Anchor" href="#volatile作用"></a> volatile作用</h1>
-<h2 id="内存可见性"><a class="markdownIt-Anchor" href="#内存可见性"></a> 内存可见性</h2>
-<p>可见性问题主要指一个线程修改了共享变量值，而另一个线程却看不到。引起可见性问题的主要原因是每个线程拥有自己的一个高速缓存区——线程工作内存。volatile关键字能有效的解决这个问题。</p>
-<p>让我们来看下面这个例子</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">readerThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (temp != num) &#123;</span><br><span class="line">                    temp = num;</span><br><span class="line">                    System.out.println(<span class="string">&quot;reader: value of num = &quot;</span> + num);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">writerThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">                num++;</span><br><span class="line">                System.out.println(<span class="string">&quot;writer: changed value to = &quot;</span> + num);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 退出程序，否则readerThread会一直等</span></span><br><span class="line">            System.exit(<span class="number">0</span>);</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        readerThread.start();</span><br><span class="line">        writerThread.start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">reader: value of num = 1</span><br><span class="line">writer: changed value to = 1</span><br><span class="line">writer: changed value to = 2</span><br><span class="line">writer: changed value to = 3</span><br><span class="line">writer: changed value to = 4</span><br><span class="line">writer: changed value to = 5</span><br></pre></td></tr></table></figure>
-<p>没加volatile的时候reader只读到0-1的变化。</p>
-<p>接下来修改代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> num;</span><br></pre></td></tr></table></figure>
-<p>输出如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">writer: changed value to = 1</span><br><span class="line">reader: value of num = 1</span><br><span class="line">writer: changed value to = 2</span><br><span class="line">reader: value of num = 2</span><br><span class="line">writer: changed value to = 3</span><br><span class="line">reader: value of num = 3</span><br><span class="line">writer: changed value to = 4</span><br><span class="line">reader: value of num = 4</span><br><span class="line">writer: changed value to = 5</span><br><span class="line">reader: value of num = 5</span><br></pre></td></tr></table></figure>
-<p>可以看到输出reader可以读到num的变化，volatile指示编译器，这个变量是共享的且不稳定，每次要到主程序中读取。</p>
-<h2 id="禁止指令重排"><a class="markdownIt-Anchor" href="#禁止指令重排"></a> 禁止指令重排</h2>
-<p>一般来说，处理器为了提高程序运行效率，可能会对输入代码进行优化，它不保证程序中各个语句的执行先后顺序同代码中的顺序一致，但是它会保证程序最终执行结果和代码顺序执行的结果是一致的</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;    <span class="comment">//语句1</span></span><br><span class="line"><span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">2</span>;    <span class="comment">//语句2</span></span><br><span class="line">a = a + <span class="number">3</span>;    <span class="comment">//语句3</span></span><br><span class="line">r = a*a;     <span class="comment">//语句4</span></span><br></pre></td></tr></table></figure>
-<p>这段代码有4个语句，那么可能的一个执行顺序是：<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.5.0/reorder.jpg" alt="" /><br />
-但是执行顺序不可能是:语句2-语句1-语句4-语句3。因为处理器在进行重排序时是会考虑指令之间的数据依赖性，如果一个指令Instruction 2必须用到Instruction 1的结果，那么处理器会保证Instruction 1会在Instruction 2之前执行。</p>
-<p>虽然重排不影响单线程内程序执行结果，但是多线程中会有影响</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//线程1:</span></span><br><span class="line">context = loadContext();   <span class="comment">//语句1</span></span><br><span class="line">inited = <span class="literal">true</span>;             <span class="comment">//语句2</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//线程2:</span></span><br><span class="line"><span class="keyword">while</span>(!inited )&#123;</span><br><span class="line">  sleep()</span><br><span class="line">&#125;</span><br><span class="line">doSomethingwithconfig(context);</span><br></pre></td></tr></table></figure>
-<p>上面代码中，由于语句1和语句2没有数据依赖性，因此可能会被重排序。假如发生了重排序，在线程1执行过程中先执行语句2，而此是线程2会以为初始化工作已经完成，那么就会跳出while循环，去执行doSomethingwithconfig(context)方法，而此时context并没有被初始化，就会导致程序出错。</p>
-<blockquote>
-<p>在Java中，volatile关键字除了可以保证变量的可见性，还有一个重要的作用就是防止JVM的指令重排序。如果我们将变量声明为volatile，在对这个变量进行读写操作的时候，会通过插入特定的内存屏障的方式来禁止指令重排序。</p>
-</blockquote>
-<h1 id="volatile不保证原子性"><a class="markdownIt-Anchor" href="#volatile不保证原子性"></a> volatile不保证原子性</h1>
-<p>volatile关键字保证变量的可见性，但是不保证对变量操作是原子性。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            threadPool.execute(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++)&#123;</span><br><span class="line">                    num++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>以上代码按照预期应该是输出2500，然而实际的输出结果不一定是2500，比如2136。<br />
-这是因为<code>num++</code>不是原子性的，其包含三步</p>
-<ul>
-<li>读取num的值。</li>
-<li>对num加1。</li>
-<li>将num的值写回内存。</li>
-</ul>
-<p>改进也很简单，使用<code>synchronized</code>、<code>Lock</code>或者<code>JUC</code>即可。</p>
-<h2 id="synchronized"><a class="markdownIt-Anchor" href="#synchronized"></a> synchronized</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>&#123;</span><br><span class="line">        num++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            threadPool.execute(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++)&#123;</span><br><span class="line">                    demo.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="juc"><a class="markdownIt-Anchor" href="#juc"></a> JUC</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">AtomicInteger</span> <span class="variable">num</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>&#123;</span><br><span class="line">        num.getAndIncrement();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            threadPool.execute(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++)&#123;</span><br><span class="line">                    demo.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="lock"><a class="markdownIt-Anchor" href="#lock"></a> Lock</h2>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">Lock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>&#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        num++;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">            threadPool.execute(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++)&#123;</span><br><span class="line">                    demo.increase();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="java和cc中volatile的区别"><a class="markdownIt-Anchor" href="#java和cc中volatile的区别"></a> Java和C/C++中volatile的区别</h1>
-<p>Java和C/C++中的volatile关键字不一样，在java中volatile告诉编译器变量不能缓存该值，需要到主存中去读取</p>
-<p>C/C++中，开发嵌入式设备需要volatile，需要读取和写入内存映射的硬件设备，其值可能随时变化，所以用volatile告诉编译器不要将其优化。</p>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p><a href="https://www.baeldung.com/java-volatile">Guide to the Volatile Keyword in Java</a></p>
-<p><a href="https://www.cnblogs.com/dolphin0520/p/3920373.html">Java并发编程：volatile关键字解析</a></p>
-<p><a href="https://www.geeksforgeeks.org/volatile-keyword-in-java/">volatile Keyword in Java</a></p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>并发</tag>
       </tags>
   </entry>
   <entry>
