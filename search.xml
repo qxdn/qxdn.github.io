@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Welcome to qxdn Blog</title>
+    <url>/2020/10/18/helloworld/</url>
+    <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>保研后无所事事，同时想起来自己的GitHub Page一直没有用过，因此借用了<a href="https://github.com/Huxpro">Huxpro</a>的<a href="https://github.com/Huxpro/huxpro.github.io">Hux Blog</a>来搭建自己的GitHub page</p>
+<h2 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h2>
+<p>Hello World</p>
+<p>这里是<a href="https://github.com/qxdn">qxdn</a>的Blog，也是第一篇Blog</p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>电赛</title>
     <url>/2020/10/19/electronicDesignContest/</url>
     <content><![CDATA[<h2 id="电赛选题"><a class="markdownIt-Anchor" href="#电赛选题"></a> 电赛选题</h2>
@@ -44,22 +60,6 @@
         <tag>C++</tag>
         <tag>软件</tag>
         <tag>硬件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Welcome to qxdn Blog</title>
-    <url>/2020/10/18/helloworld/</url>
-    <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
-<p>保研后无所事事，同时想起来自己的GitHub Page一直没有用过，因此借用了<a href="https://github.com/Huxpro">Huxpro</a>的<a href="https://github.com/Huxpro/huxpro.github.io">Hux Blog</a>来搭建自己的GitHub page</p>
-<h2 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h2>
-<p>Hello World</p>
-<p>这里是<a href="https://github.com/qxdn">qxdn</a>的Blog，也是第一篇Blog</p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -117,52 +117,6 @@
         <tag>节能减排</tag>
         <tag>java</tag>
         <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>升级到WSL2</title>
-    <url>/2020/10/24/upgradeWSL2/</url>
-    <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
-<p>因为一些个人原因，需要将原先的WSL1升级到WSL2，参考<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">微软文档</a>，记录踩坑</p>
-<h2 id="一-检查版本"><a class="markdownIt-Anchor" href="#一-检查版本"></a> 一、检查版本</h2>
-<p>对于x64系统目前的要求是<code>1903</code>或者更高,<code>Build 18362</code>或者更高。使用<code>win+R</code>输入<code>winver</code>来检查自己的版本<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.3.6/version.png" alt="version" /></p>
-<h2 id="二-启动虚拟机功能"><a class="markdownIt-Anchor" href="#二-启动虚拟机功能"></a> 二、启动虚拟机功能</h2>
-<p>管理员模式启动powershell输入</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.3.6/enableVMFeature.png" alt="启动虚拟机功能" /><br />
-<strong>然后重启电脑</strong></p>
-<h2 id="三-下载linux内核升级包"><a class="markdownIt-Anchor" href="#三-下载linux内核升级包"></a> 三、下载Linux内核升级包</h2>
-<p>下载最新<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">升级包</a><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.3.6/package.png" alt="package" /></p>
-<h2 id="四-设置wsl2作为默认版本"><a class="markdownIt-Anchor" href="#四-设置wsl2作为默认版本"></a> 四、设置WSL2作为默认版本</h2>
-<p>管理员powershell中运行</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">wsl <span class="literal">--set-default-version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<h2 id="五-转换wsl"><a class="markdownIt-Anchor" href="#五-转换wsl"></a> 五、转换WSL</h2>
-<p>使用该指令查看wsl状态</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">wsl <span class="literal">-l</span> <span class="literal">-v</span></span><br></pre></td></tr></table></figure>
-<p>我的输出</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">  NAME      STATE           VERSION</span><br><span class="line">* Ubuntu    Stopped         <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>转换WSL</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">wsl <span class="literal">--set-version</span> Ubuntu <span class="number">2</span></span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">正在进行转换，这可能需要几分钟时间...</span><br><span class="line">有关与 WSL <span class="number">2</span> 的主要区别的信息，请访问 https://aka.ms/wsl2</span><br><span class="line">请启用虚拟机平台 Windows 功能并确保在 BIOS 中启用虚拟化。</span><br><span class="line">有关信息，请访问 https://aka.ms/wsl2<span class="literal">-install</span></span><br></pre></td></tr></table></figure>
-<p>这里在我搜索了<a href="https://github.com/microsoft/WSL/issues/5363">issue</a>后发现主要还是Hyper-V、虚拟平台等问题，可以试一试管理员模式运行以下指令</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">DISM /Online /<span class="built_in">Enable-Feature</span> /All /FeatureName:Microsoft<span class="literal">-Hyper-V</span></span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows-Subsystem-Linux</span> /all /norestart</span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype auto</span><br></pre></td></tr></table></figure>
-<p>最主要的应该是</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">DISM /Online /<span class="built_in">Enable-Feature</span> /All /FeatureName:Microsoft<span class="literal">-Hyper-V</span></span><br><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype auto</span><br></pre></td></tr></table></figure>
-<p>重新转换<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.3.6/converted.png" alt="转换完成" /></p>
-<h2 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h2>
-<p>VMware老版本与Hyper-V冲突，得找个时间去更新到最新版本兼容</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>Linux</tag>
-        <tag>WSL</tag>
       </tags>
   </entry>
   <entry>
@@ -326,6 +280,52 @@ export saved model.
         <tag>tensorflow</tag>
         <tag>机器学习</tag>
         <tag>AlexNet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>升级到WSL2</title>
+    <url>/2020/10/24/upgradeWSL2/</url>
+    <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
+<p>因为一些个人原因，需要将原先的WSL1升级到WSL2，参考<a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10">微软文档</a>，记录踩坑</p>
+<h2 id="一-检查版本"><a class="markdownIt-Anchor" href="#一-检查版本"></a> 一、检查版本</h2>
+<p>对于x64系统目前的要求是<code>1903</code>或者更高,<code>Build 18362</code>或者更高。使用<code>win+R</code>输入<code>winver</code>来检查自己的版本<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.3.6/version.png" alt="version" /></p>
+<h2 id="二-启动虚拟机功能"><a class="markdownIt-Anchor" href="#二-启动虚拟机功能"></a> 二、启动虚拟机功能</h2>
+<p>管理员模式启动powershell输入</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br></pre></td></tr></table></figure>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.3.6/enableVMFeature.png" alt="启动虚拟机功能" /><br />
+<strong>然后重启电脑</strong></p>
+<h2 id="三-下载linux内核升级包"><a class="markdownIt-Anchor" href="#三-下载linux内核升级包"></a> 三、下载Linux内核升级包</h2>
+<p>下载最新<a href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">升级包</a><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.3.6/package.png" alt="package" /></p>
+<h2 id="四-设置wsl2作为默认版本"><a class="markdownIt-Anchor" href="#四-设置wsl2作为默认版本"></a> 四、设置WSL2作为默认版本</h2>
+<p>管理员powershell中运行</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">wsl <span class="literal">--set-default-version</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h2 id="五-转换wsl"><a class="markdownIt-Anchor" href="#五-转换wsl"></a> 五、转换WSL</h2>
+<p>使用该指令查看wsl状态</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">wsl <span class="literal">-l</span> <span class="literal">-v</span></span><br></pre></td></tr></table></figure>
+<p>我的输出</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">  NAME      STATE           VERSION</span><br><span class="line">* Ubuntu    Stopped         <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>转换WSL</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">wsl <span class="literal">--set-version</span> Ubuntu <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">正在进行转换，这可能需要几分钟时间...</span><br><span class="line">有关与 WSL <span class="number">2</span> 的主要区别的信息，请访问 https://aka.ms/wsl2</span><br><span class="line">请启用虚拟机平台 Windows 功能并确保在 BIOS 中启用虚拟化。</span><br><span class="line">有关信息，请访问 https://aka.ms/wsl2<span class="literal">-install</span></span><br></pre></td></tr></table></figure>
+<p>这里在我搜索了<a href="https://github.com/microsoft/WSL/issues/5363">issue</a>后发现主要还是Hyper-V、虚拟平台等问题，可以试一试管理员模式运行以下指令</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">DISM /Online /<span class="built_in">Enable-Feature</span> /All /FeatureName:Microsoft<span class="literal">-Hyper-V</span></span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:Microsoft<span class="literal">-Windows-Subsystem-Linux</span> /all /norestart</span><br><span class="line">dism.exe /online /<span class="built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart</span><br><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype auto</span><br></pre></td></tr></table></figure>
+<p>最主要的应该是</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">DISM /Online /<span class="built_in">Enable-Feature</span> /All /FeatureName:Microsoft<span class="literal">-Hyper-V</span></span><br><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype auto</span><br></pre></td></tr></table></figure>
+<p>重新转换<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.3.6/converted.png" alt="转换完成" /></p>
+<h2 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h2>
+<p>VMware老版本与Hyper-V冲突，得找个时间去更新到最新版本兼容</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>Linux</tag>
+        <tag>WSL</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,6 +1153,8 @@ BDD100K的标签文件格式遵循<a href="https://doc.scalabel.ai/format.html">
     <content><![CDATA[<p>搭建部署live2d api<br />
 封面《春音アリス*グラム》</p>
 <span id="more"></span>
+<div class="note info simple"><p>关于moc3模型的支持请参考这篇文章<a href="https://qianxu.run/2023/11/25/live2d-widget-moc3/">live2d-widget-moc3</a></p>
+</div>
 <h1 id="引言"><a class="markdownIt-Anchor" href="#引言"></a> 引言</h1>
 <p>想要根据<a href="https://github.com/fghrsh/live2d_api">live2d api</a>搭建自己的api。我想要使用docker方便部署，但是不会php和nginx环境搭建，还对docker比较陌生。因此写下这篇文章。因为这三件都不是很熟悉，轻喷。</p>
 <h1 id="docker配置"><a class="markdownIt-Anchor" href="#docker配置"></a> docker配置</h1>
@@ -1454,6 +1456,50 @@ YOLO9000是一个通过联合优化检测、分类数据集检测超过9000个�
 [18] C. Szegedy, S. Ioffe, and V. Vanhoucke. Inception-v4, inception-resnet and the impact of residual connections on learning. CoRR, abs/1602.07261, 2016. 2<br />
 [19] C. Szegedy, W. Liu, Y. Jia, P. Sermanet, S. Reed, D. Anguelov, D. Erhan, V. Vanhoucke, and A. Rabinovich. Going deeper with convolutions. CoRR, abs/1409.4842,2014. 5<br />
 [20] B. Thomee, D. A. Shamma, G. Friedland, B. Elizalde, K. Ni, D. Poland, D. Borth, and L.-J. Li. Yfcc100m: The new data in multimedia research. Communications of the ACM, 59(2):64–73, 2016. 1</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>毕业设计</tag>
+        <tag>yolo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
+    <url>/2021/07/03/YOLO-oral-defense/</url>
+    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
+<span id="more"></span>
+<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
+<blockquote>
+<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
+</blockquote>
+<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
+<ul>
+<li>Q1： 几类目标？<br />
+6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
+<li>Q2：实测框架？<br />
+本次系统使用pytorch框架实现</li>
+<li>Q3：不平衡怎么去确定<br />
+根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
+<li>Q4：数据集如何自建？收集？<br />
+本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
+<li>Q5：损失函数的选择理由？<br />
+损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
+<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
+由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
+本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
+(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
+<li>Q7：改进结果突出哪些类？<br />
+所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
+<li>Q8：为什么car类提升效果最高？<br />
+调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
+(因为当时PPT打错了，老师原本问的是motor)</li>
+</ul>
+<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
+<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -1778,50 +1824,6 @@ ms。可以估算得到改进后模型的速度约为159 FPS，可以满足实�
 </li>
 </ol>
 </section>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>毕业设计</tag>
-        <tag>yolo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
-    <url>/2021/07/03/YOLO-oral-defense/</url>
-    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
-<span id="more"></span>
-<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
-<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
-<blockquote>
-<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
-</blockquote>
-<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
-<ul>
-<li>Q1： 几类目标？<br />
-6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
-<li>Q2：实测框架？<br />
-本次系统使用pytorch框架实现</li>
-<li>Q3：不平衡怎么去确定<br />
-根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
-<li>Q4：数据集如何自建？收集？<br />
-本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
-<li>Q5：损失函数的选择理由？<br />
-损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
-<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
-由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
-本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
-(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
-<li>Q7：改进结果突出哪些类？<br />
-所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
-<li>Q8：为什么car类提升效果最高？<br />
-调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
-(因为当时PPT打错了，老师原本问的是motor)</li>
-</ul>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -2179,8 +2181,8 @@ _________________________________________________________________
       </categories>
       <tags>
         <tag>java</tag>
-        <tag>Linux</tag>
         <tag>python</tag>
+        <tag>Linux</tag>
         <tag>javascript</tag>
         <tag>树莓派</tag>
       </tags>
