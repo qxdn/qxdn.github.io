@@ -1467,6 +1467,100 @@ YOLO9000是一个通过联合优化检测、分类数据集检测超过9000个�
       </tags>
   </entry>
   <entry>
+    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
+    <url>/2021/07/03/YOLO-oral-defense/</url>
+    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
+<span id="more"></span>
+<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
+<blockquote>
+<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
+</blockquote>
+<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
+<ul>
+<li>Q1： 几类目标？<br />
+6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
+<li>Q2：实测框架？<br />
+本次系统使用pytorch框架实现</li>
+<li>Q3：不平衡怎么去确定<br />
+根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
+<li>Q4：数据集如何自建？收集？<br />
+本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
+<li>Q5：损失函数的选择理由？<br />
+损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
+<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
+由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
+本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
+(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
+<li>Q7：改进结果突出哪些类？<br />
+所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
+<li>Q8：为什么car类提升效果最高？<br />
+调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
+(因为当时PPT打错了，老师原本问的是motor)</li>
+</ul>
+<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
+<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>毕业设计</tag>
+        <tag>yolo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ResNet论文笔记</title>
+    <url>/2021/07/11/ResNet-Note/</url>
+    <content><![CDATA[<p>ResNet是解决了深度学习网络中随着网络深化，网络能力反而退化的问题。<br />
+封面《恋×シンアイ彼女》</p>
+<span id="more"></span>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>卷积神经网络中网络的深度是非常关键的，许多非凡的视觉识别任务都收益于非常深的模型。因此便有一个问题“学习更好的网络是否就像堆叠更多的层一样简单？”回答这个问题的其中一个臭名昭著的障碍就是“梯度消失/爆炸”，其阻碍了网络收敛。然而这个问题被通过初始归一化和中间层归一化解决了。<br />
+当更深的网络能够收敛的时候，网络退化的问题出现了。随着网络深度的增加，准确率达到饱和然后迅速下降。让人意外的是这种退化并不是由过拟合导致的，随着层数的不断增加，模型反而有了更高的训练误差。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/fig1.png" alt="" /></p>
+<h1 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h1>
+<p>为了解决退化问题，何凯明团队提出了一种新型网络结构——残差结构。其结构如下图所示，新增加的层为恒等映射层，另一个为从浅层学习结果的复制。原本底层的输出变成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>，增加的非线性连接去拟合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>:</mo><mo>=</mo><mi>H</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">F(x):=H(x)-x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>，原始的映射重构成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">F(x)+x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>。何凯明团队假定残差部分比原本映射更容易优化。如果恒等映射是最优的，那么只需要讲残差部分置0即可，这比拟合非线性层更容易。<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/res_block.png" alt="" /><br />
+<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">F(x)+x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>可以通过前向神经网络加上“短路“（shortcut）来实现，无需额外参数和计算复杂度，依然可以用SGD来优化。</p>
+<h1 id="网络结构"><a class="markdownIt-Anchor" href="#网络结构"></a> 网络结构</h1>
+<h2 id="plain-network"><a class="markdownIt-Anchor" href="#plain-network"></a> plain network</h2>
+<p>受到VGG启发，何凯明团队基于以下原则设计了一种新的结构plain-network作为测试的基准线</p>
+<ul>
+<li>输出大小一样的层拥有一样的卷积核数</li>
+<li>特征图变成原来一半的时候输出的卷积核翻倍<br />
+同时使用步长为2的卷积替代下采样，使用全局平均池化和带有softmax的1000输出全连接作为输出。该结构比VGG花费更少的卷积核，复杂度更低。计算量为3.6 BFLOPs（乘加），只有原本VGG的18%。<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/architectures.png" alt="" /></li>
+</ul>
+<h2 id="residual-network"><a class="markdownIt-Anchor" href="#residual-network"></a> residual network</h2>
+<p>plain network的残差版，对于输入输出维度相等时直接”短路“即可，即上图中的实线。对于维度上升的，图中虚线部分，则有两种方案：</p>
+<ol>
+<li>短路部分依然使用恒等映射，维度增加的部分补0填充，这样不会引入新的参数</li>
+<li>使用公式<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><msub><mi>W</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>W</mi><mi>s</mi></msub><mi>x</mi></mrow><annotation encoding="application/x-tex">y=F(x,{W_i})+W_sx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">x</span></span></span></span>匹配维度，使用1×1卷积实现。<br />
+对于两种实现方案，连接不同大小的特征图时，都需要步长为2。</li>
+</ol>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/table1.png" alt="" /><br />
+表一为其结构的各种变种。</p>
+<h1 id="实验"><a class="markdownIt-Anchor" href="#实验"></a> 实验</h1>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/fig4.png" alt="" /><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/top1-error.png" alt="top1-error" /></p>
+<h1 id="更深的瓶颈结构"><a class="markdownIt-Anchor" href="#更深的瓶颈结构"></a> 更深的瓶颈结构</h1>
+<p>为了减少深层网络的训练时间，作者重新设计了一种瓶颈结构，如下图所示。使用1×1，3×3，1×1卷积替换原来的2层卷积。其中1×1的卷积用于升降维，使得3×3卷积的输入维度和输出维度减小，这降低了网络复杂度和计算量。（在后续一些网络如YOLO中都能看到bottleneck结构）<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/bottleneck.png" alt="" /></p>
+<h1 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h1>
+<p>ResNet中的残差结构解决了网络退化问题，且结构简单，现实方便也没有增加太多的计算量。在后续的网络中几乎全都有残差结构，而且网络深度也开始到了上百层,训练时也更容易OOM了（哭）。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p>[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE conference on computer vision and pattern recognition. 2016: 770-778.</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毕业设计（六）基于深度学习算法YOLO的行人车辆检测——论文</title>
     <url>/2021/07/02/YOLO-paper/</url>
     <content><![CDATA[<p>特别特别水的论文，数据集和权重晚点放到仓库里面</p>
@@ -1788,100 +1882,6 @@ ms。可以估算得到改进后模型的速度约为159 FPS，可以满足实�
         <tag>机器学习</tag>
         <tag>毕业设计</tag>
         <tag>yolo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
-    <url>/2021/07/03/YOLO-oral-defense/</url>
-    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
-<span id="more"></span>
-<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
-<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
-<blockquote>
-<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
-</blockquote>
-<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
-<ul>
-<li>Q1： 几类目标？<br />
-6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
-<li>Q2：实测框架？<br />
-本次系统使用pytorch框架实现</li>
-<li>Q3：不平衡怎么去确定<br />
-根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
-<li>Q4：数据集如何自建？收集？<br />
-本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
-<li>Q5：损失函数的选择理由？<br />
-损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
-<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
-由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
-本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
-(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
-<li>Q7：改进结果突出哪些类？<br />
-所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
-<li>Q8：为什么car类提升效果最高？<br />
-调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
-(因为当时PPT打错了，老师原本问的是motor)</li>
-</ul>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>毕业设计</tag>
-        <tag>yolo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ResNet论文笔记</title>
-    <url>/2021/07/11/ResNet-Note/</url>
-    <content><![CDATA[<p>ResNet是解决了深度学习网络中随着网络深化，网络能力反而退化的问题。<br />
-封面《恋×シンアイ彼女》</p>
-<span id="more"></span>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>卷积神经网络中网络的深度是非常关键的，许多非凡的视觉识别任务都收益于非常深的模型。因此便有一个问题“学习更好的网络是否就像堆叠更多的层一样简单？”回答这个问题的其中一个臭名昭著的障碍就是“梯度消失/爆炸”，其阻碍了网络收敛。然而这个问题被通过初始归一化和中间层归一化解决了。<br />
-当更深的网络能够收敛的时候，网络退化的问题出现了。随着网络深度的增加，准确率达到饱和然后迅速下降。让人意外的是这种退化并不是由过拟合导致的，随着层数的不断增加，模型反而有了更高的训练误差。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/fig1.png" alt="" /></p>
-<h1 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h1>
-<p>为了解决退化问题，何凯明团队提出了一种新型网络结构——残差结构。其结构如下图所示，新增加的层为恒等映射层，另一个为从浅层学习结果的复制。原本底层的输出变成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>H</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(x)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span></span></span></span>，增加的非线性连接去拟合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>:</mo><mo>=</mo><mi>H</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>−</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">F(x):=H(x)-x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>，原始的映射重构成了<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">F(x)+x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>。何凯明团队假定残差部分比原本映射更容易优化。如果恒等映射是最优的，那么只需要讲残差部分置0即可，这比拟合非线性层更容易。<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/res_block.png" alt="" /><br />
-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">F(x)+x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>可以通过前向神经网络加上“短路“（shortcut）来实现，无需额外参数和计算复杂度，依然可以用SGD来优化。</p>
-<h1 id="网络结构"><a class="markdownIt-Anchor" href="#网络结构"></a> 网络结构</h1>
-<h2 id="plain-network"><a class="markdownIt-Anchor" href="#plain-network"></a> plain network</h2>
-<p>受到VGG启发，何凯明团队基于以下原则设计了一种新的结构plain-network作为测试的基准线</p>
-<ul>
-<li>输出大小一样的层拥有一样的卷积核数</li>
-<li>特征图变成原来一半的时候输出的卷积核翻倍<br />
-同时使用步长为2的卷积替代下采样，使用全局平均池化和带有softmax的1000输出全连接作为输出。该结构比VGG花费更少的卷积核，复杂度更低。计算量为3.6 BFLOPs（乘加），只有原本VGG的18%。<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/architectures.png" alt="" /></li>
-</ul>
-<h2 id="residual-network"><a class="markdownIt-Anchor" href="#residual-network"></a> residual network</h2>
-<p>plain network的残差版，对于输入输出维度相等时直接”短路“即可，即上图中的实线。对于维度上升的，图中虚线部分，则有两种方案：</p>
-<ol>
-<li>短路部分依然使用恒等映射，维度增加的部分补0填充，这样不会引入新的参数</li>
-<li>使用公式<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>y</mi><mo>=</mo><mi>F</mi><mo stretchy="false">(</mo><mi>x</mi><mo separator="true">,</mo><msub><mi>W</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo>+</mo><msub><mi>W</mi><mi>s</mi></msub><mi>x</mi></mrow><annotation encoding="application/x-tex">y=F(x,{W_i})+W_sx</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">F</span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">s</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord mathdefault">x</span></span></span></span>匹配维度，使用1×1卷积实现。<br />
-对于两种实现方案，连接不同大小的特征图时，都需要步长为2。</li>
-</ol>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/table1.png" alt="" /><br />
-表一为其结构的各种变种。</p>
-<h1 id="实验"><a class="markdownIt-Anchor" href="#实验"></a> 实验</h1>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/fig4.png" alt="" /><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/top1-error.png" alt="top1-error" /></p>
-<h1 id="更深的瓶颈结构"><a class="markdownIt-Anchor" href="#更深的瓶颈结构"></a> 更深的瓶颈结构</h1>
-<p>为了减少深层网络的训练时间，作者重新设计了一种瓶颈结构，如下图所示。使用1×1，3×3，1×1卷积替换原来的2层卷积。其中1×1的卷积用于升降维，使得3×3卷积的输入维度和输出维度减小，这降低了网络复杂度和计算量。（在后续一些网络如YOLO中都能看到bottleneck结构）<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.2/bottleneck.png" alt="" /></p>
-<h1 id="小结"><a class="markdownIt-Anchor" href="#小结"></a> 小结</h1>
-<p>ResNet中的残差结构解决了网络退化问题，且结构简单，现实方便也没有增加太多的计算量。在后续的网络中几乎全都有残差结构，而且网络深度也开始到了上百层,训练时也更容易OOM了（哭）。</p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<p>[1] He K, Zhang X, Ren S, et al. Deep residual learning for image recognition[C]//Proceedings of the IEEE conference on computer vision and pattern recognition. 2016: 770-778.</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -5244,6 +5244,91 @@ x方向的蛇形卷积，可以看到通过约束，相邻两个感受野y坐标
       </tags>
   </entry>
   <entry>
+    <title>Azure搭建AList管理网盘</title>
+    <url>/azure-alist/</url>
+    <content><![CDATA[<blockquote>
+<p>封面 《はつゆきさくら》</p>
+</blockquote>
+<details class="toggle" ><summary class="toggle-button" style="">效果</summary><div class="toggle-content"><p>demo: <a href="https://pan.qianxu.run">https://pan.qianxu.run</a></p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/alist-pan.png" alt="管理员效果" /></p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/guest.png" alt="游客效果" /></p>
+</div></details>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>因为在逛友链的时候看到别人搭建的alist网盘可以统一管理好多网盘，想到了自己也有好多网盘需要统一管理一下。同时由于我平时的参考文献都放在了OneDrive上，但是ipad上的OneDrive刷新速度实在是太慢了，甚至我主动刷新都没法获取我最新下载的论文，所以就想着把OneDrive也放到Alist上面去。同时我还想把我的网盘加上我自己的pan子域名，但是vercel无法挂Alist，我自己的阿里云又没有备案没法挂域名，render又被拿去挂监控了，想来想去还剩下一个azure的学生优惠可以用。于是就有了这篇文章。</p>
+<h1 id="azure准备"><a class="markdownIt-Anchor" href="#azure准备"></a> Azure准备</h1>
+<p>首先你需要一个azure的学生账号，这个可以去<a href="https://azure.microsoft.com/zh-cn/free/students/">这里</a>申请，申请完之后你会得到一个azure的学生账号，这个账号有100美元的额度，可以用来搭建一些小型的服务。然后你需要一个域名，这个域名可以去<a href="https://www.freenom.com/zh/index.html?lang=zh">这里</a>申请，在<a href="https://www.microsoftazuresponsorships.com/Balance">这</a>可以看到你的优惠余额。选择一台虚拟机直接开一个ubuntu系统即可，怎么便宜怎么来，具体白嫖的方法可以看底下的参考链接。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/balance.png" alt="余额" /></p>
+<h1 id="alist安装"><a class="markdownIt-Anchor" href="#alist安装"></a> Alist安装</h1>
+<p>通过ssh登陆到我们的虚拟机，在azure的虚拟机控制面板里面可以看到我们的ip，也可以自己设定一下dns获得域名。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/azure-ip.png" alt="ip" /></p>
+<p>由于我自己的azure已经安装好了alist，所以后面用阿里云来进行演示</p>
+<p>在登上服务器之后，我们可以先进行一下更新依赖操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+<p>参考<a href="https://alist.nn.ci/">AList文档</a>，因为我们使用的是Ubuntu系统，直接使用一键安装命令即可，</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://alist.nn.ci/v3.sh&quot;</span> | sudo bash -s install</span><br></pre></td></tr></table></figure>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/alist-install.png" alt="AList安装完成" /></p>
+<p>随后我们按照提示进入alist的安装目录，设置管理员账号</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/alist</span><br><span class="line">./alist admin <span class="built_in">set</span> 123456 <span class="comment">#123456改成你的密码</span></span><br></pre></td></tr></table></figure>
+<p>打开<code>http://your_ip:5244</code>网页，这里不管是azure和阿里云都需要打开安全组的5244端口。azure安全组的在网络设置中，顺便我们把后续要用到的80和443端口也打开一下。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/azure-port.png" alt="azure入站设置" /></p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/azure-web.png" alt="效果" /></p>
+<p>后面正常按照<code>AList</code>的文档操作就可以挂载各种云盘</p>
+<h1 id="反向代理"><a class="markdownIt-Anchor" href="#反向代理"></a> 反向代理</h1>
+<p>很显然我们通常都是使用http的80端口或者https的443端口，而AList用的是5244端口，当然我们可以使用修改端口来设置，但是常见的方案是使用nginx进行代理。安装nginx直接按照<a href="https://nginx.org/en/linux_packages.html#Ubuntu">文档</a>就行，当然也最好先检查一下nginx有没有按照。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查nginx是否安装</span></span><br><span class="line">whereis nginx</span><br><span class="line"><span class="comment"># 安装nginx</span></span><br><span class="line">sudo apt install nginx</span><br><span class="line"><span class="comment"># 看看效果</span></span><br><span class="line">curl localhost</span><br></pre></td></tr></table></figure>
+<p>安装完成后修改nginx中的配置文件，我这里就直接简单一点执行<code>sudo vim /etc/nginx/sites-enabled/default</code>，在其中的<code>service</code>里面添加下面代码，并把原先的<code>try_files $uri $uri/ =404;</code>给注释了。</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">location</span> / &#123;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> Host <span class="variable">$http_host</span>;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> Range <span class="variable">$http_range</span>;</span><br><span class="line">	<span class="attribute">proxy_set_header</span> If-Range <span class="variable">$http_if_range</span>;</span><br><span class="line">  <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">  <span class="attribute">proxy_pass</span> http://127.0.0.1:5244;</span><br><span class="line">  <span class="comment"># the max size of file to upload</span></span><br><span class="line">  <span class="attribute">client_max_body_size</span> <span class="number">20000m</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后重启nginx，<code>sudo service nginx restart</code>，就可以在80端口打开访问</p>
+<h1 id="配置tlsssl"><a class="markdownIt-Anchor" href="#配置tlsssl"></a> 配置TLS/SSL</h1>
+<p>比较麻烦的是SSL证书，正规的只支持单域名的DV证书也要将近3000，多少有点不值得。所以在看了看各种方案，打算继续沿用cloudflare的方案，其可以为服务器免费提供SSL证书，但是只有cloudflare支持。</p>
+<p>首先先去cloudflare的DNS里面添加一条域名A类解析<code>域名-DNS-记录</code><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/cloudflare-dns.png" alt="DNS解析" /></p>
+<p>然后去申请SSL证书，申请路径如下，点击创建证书，有效期选择15年，然后选择自己的域名，然后将证书进行保存0<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/server-ssl.png" alt="SSL证书申请" /><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/server-ssl2.png" alt="SSL证书创建" /><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/server-ssl3.png" alt="SSL证书保存" /></p>
+<p>然后我们继续编辑上文中的nginx配置文件，在刚才的location中添加下面的代码</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">listen</span> <span class="number">443</span> ssl default_server;</span><br><span class="line"><span class="attribute">listen</span> [::]:<span class="number">443</span> ssl default_server;</span><br><span class="line"><span class="attribute">ssl_certificate</span> your pem;</span><br><span class="line"><span class="attribute">ssl_certificate_key</span> your key;</span><br></pre></td></tr></table></figure>
+<p>继续重启nginx，<code>sudo service nginx restart</code>现在可以通过https访问了，效果如下</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/alist-pan.png" alt="效果" /></p>
+<h1 id="设置alist别名"><a class="markdownIt-Anchor" href="#设置alist别名"></a> 设置AList别名</h1>
+<p>我的百度盘中存放我的游戏等等私密信息，OneDrive主要是论文和个人信息，Google Drive主要是代码，其他盘放一些杂七杂八的，不可能让游客都看到。最简单的方法就是设置游客不登录不可见，但是我还有一些数据集和论文资料需要共享，因此就轮到AList的别名登场了。</p>
+<p>挂在一个<code>/guest</code>盘的Alias，然后设置为游客可见只读，然后设置文件映射，具体的优化可以看文档</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># alias路径:实际路径</span><br><span class="line">参考文献:/onedrive/参考文献</span><br><span class="line">开题参考:/onedrive/开题参考</span><br><span class="line">百度云:/百度云/毕设数据集</span><br></pre></td></tr></table></figure>
+<p>如此一来，游客的浏览效果如下</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/guest.png" alt="游客浏览" /></p>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>通过AList各种网盘教程，将大部分网盘都统一管理，如此一来方便我随时管理和解决ipad上弊端。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<ul>
+<li>
+<p><a href="https://github.com/alist-org/alist">Alist</a></p>
+</li>
+<li>
+<p><a href="https://alist.nn.ci/">AList 文档</a></p>
+</li>
+<li>
+<p><a href="https://isedu.top/index.php/archives/52/">关于微软Azure学生白嫖指南</a></p>
+</li>
+<li>
+<p><a href="https://nginx.org/en/linux_packages.html#Ubuntu">nginx install</a></p>
+</li>
+<li>
+<p><a href="https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/aspnetcore/practice-troubleshoot-linux/2-2-install-nginx-configure-it-reverse-proxy">Install Nginx and configure it as a reverse proxy server</a></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Azure</category>
+      </categories>
+      <tags>
+        <tag>百度云</tag>
+        <tag>Azure</tag>
+        <tag>AList</tag>
+        <tag>网盘</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>用TTS模型做春风学姐的语音合成</title>
     <url>/2023/11/29/tts-haruka/</url>
     <content><![CDATA[<blockquote>
@@ -5376,91 +5461,6 @@ demo: <a href="https://huggingface.co/spaces/qxdn/tts-9nine">demo</a><br />
       </tags>
   </entry>
   <entry>
-    <title>Azure搭建AList管理网盘</title>
-    <url>/azure-alist/</url>
-    <content><![CDATA[<blockquote>
-<p>封面 《はつゆきさくら》</p>
-</blockquote>
-<details class="toggle" ><summary class="toggle-button" style="">效果</summary><div class="toggle-content"><p>demo: <a href="https://pan.qianxu.run">https://pan.qianxu.run</a></p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/alist-pan.png" alt="管理员效果" /></p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/guest.png" alt="游客效果" /></p>
-</div></details>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>因为在逛友链的时候看到别人搭建的alist网盘可以统一管理好多网盘，想到了自己也有好多网盘需要统一管理一下。同时由于我平时的参考文献都放在了OneDrive上，但是ipad上的OneDrive刷新速度实在是太慢了，甚至我主动刷新都没法获取我最新下载的论文，所以就想着把OneDrive也放到Alist上面去。同时我还想把我的网盘加上我自己的pan子域名，但是vercel无法挂Alist，我自己的阿里云又没有备案没法挂域名，render又被拿去挂监控了，想来想去还剩下一个azure的学生优惠可以用。于是就有了这篇文章。</p>
-<h1 id="azure准备"><a class="markdownIt-Anchor" href="#azure准备"></a> Azure准备</h1>
-<p>首先你需要一个azure的学生账号，这个可以去<a href="https://azure.microsoft.com/zh-cn/free/students/">这里</a>申请，申请完之后你会得到一个azure的学生账号，这个账号有100美元的额度，可以用来搭建一些小型的服务。然后你需要一个域名，这个域名可以去<a href="https://www.freenom.com/zh/index.html?lang=zh">这里</a>申请，在<a href="https://www.microsoftazuresponsorships.com/Balance">这</a>可以看到你的优惠余额。选择一台虚拟机直接开一个ubuntu系统即可，怎么便宜怎么来，具体白嫖的方法可以看底下的参考链接。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/balance.png" alt="余额" /></p>
-<h1 id="alist安装"><a class="markdownIt-Anchor" href="#alist安装"></a> Alist安装</h1>
-<p>通过ssh登陆到我们的虚拟机，在azure的虚拟机控制面板里面可以看到我们的ip，也可以自己设定一下dns获得域名。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/azure-ip.png" alt="ip" /></p>
-<p>由于我自己的azure已经安装好了alist，所以后面用阿里云来进行演示</p>
-<p>在登上服务器之后，我们可以先进行一下更新依赖操作</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
-<p>参考<a href="https://alist.nn.ci/">AList文档</a>，因为我们使用的是Ubuntu系统，直接使用一键安装命令即可，</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL <span class="string">&quot;https://alist.nn.ci/v3.sh&quot;</span> | sudo bash -s install</span><br></pre></td></tr></table></figure>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/alist-install.png" alt="AList安装完成" /></p>
-<p>随后我们按照提示进入alist的安装目录，设置管理员账号</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/alist</span><br><span class="line">./alist admin <span class="built_in">set</span> 123456 <span class="comment">#123456改成你的密码</span></span><br></pre></td></tr></table></figure>
-<p>打开<code>http://your_ip:5244</code>网页，这里不管是azure和阿里云都需要打开安全组的5244端口。azure安全组的在网络设置中，顺便我们把后续要用到的80和443端口也打开一下。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/azure-port.png" alt="azure入站设置" /></p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/azure-web.png" alt="效果" /></p>
-<p>后面正常按照<code>AList</code>的文档操作就可以挂载各种云盘</p>
-<h1 id="反向代理"><a class="markdownIt-Anchor" href="#反向代理"></a> 反向代理</h1>
-<p>很显然我们通常都是使用http的80端口或者https的443端口，而AList用的是5244端口，当然我们可以使用修改端口来设置，但是常见的方案是使用nginx进行代理。安装nginx直接按照<a href="https://nginx.org/en/linux_packages.html#Ubuntu">文档</a>就行，当然也最好先检查一下nginx有没有按照。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 检查nginx是否安装</span></span><br><span class="line">whereis nginx</span><br><span class="line"><span class="comment"># 安装nginx</span></span><br><span class="line">sudo apt install nginx</span><br><span class="line"><span class="comment"># 看看效果</span></span><br><span class="line">curl localhost</span><br></pre></td></tr></table></figure>
-<p>安装完成后修改nginx中的配置文件，我这里就直接简单一点执行<code>sudo vim /etc/nginx/sites-enabled/default</code>，在其中的<code>service</code>里面添加下面代码，并把原先的<code>try_files $uri $uri/ =404;</code>给注释了。</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="section">location</span> / &#123;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> Host <span class="variable">$http_host</span>;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">  <span class="attribute">proxy_set_header</span> Range <span class="variable">$http_range</span>;</span><br><span class="line">	<span class="attribute">proxy_set_header</span> If-Range <span class="variable">$http_if_range</span>;</span><br><span class="line">  <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">  <span class="attribute">proxy_pass</span> http://127.0.0.1:5244;</span><br><span class="line">  <span class="comment"># the max size of file to upload</span></span><br><span class="line">  <span class="attribute">client_max_body_size</span> <span class="number">20000m</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后重启nginx，<code>sudo service nginx restart</code>，就可以在80端口打开访问</p>
-<h1 id="配置tlsssl"><a class="markdownIt-Anchor" href="#配置tlsssl"></a> 配置TLS/SSL</h1>
-<p>比较麻烦的是SSL证书，正规的只支持单域名的DV证书也要将近3000，多少有点不值得。所以在看了看各种方案，打算继续沿用cloudflare的方案，其可以为服务器免费提供SSL证书，但是只有cloudflare支持。</p>
-<p>首先先去cloudflare的DNS里面添加一条域名A类解析<code>域名-DNS-记录</code><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/cloudflare-dns.png" alt="DNS解析" /></p>
-<p>然后去申请SSL证书，申请路径如下，点击创建证书，有效期选择15年，然后选择自己的域名，然后将证书进行保存0<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/server-ssl.png" alt="SSL证书申请" /><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/server-ssl2.png" alt="SSL证书创建" /><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/server-ssl3.png" alt="SSL证书保存" /></p>
-<p>然后我们继续编辑上文中的nginx配置文件，在刚才的location中添加下面的代码</p>
-<figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">listen</span> <span class="number">443</span> ssl default_server;</span><br><span class="line"><span class="attribute">listen</span> [::]:<span class="number">443</span> ssl default_server;</span><br><span class="line"><span class="attribute">ssl_certificate</span> your pem;</span><br><span class="line"><span class="attribute">ssl_certificate_key</span> your key;</span><br></pre></td></tr></table></figure>
-<p>继续重启nginx，<code>sudo service nginx restart</code>现在可以通过https访问了，效果如下</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/alist-pan.png" alt="效果" /></p>
-<h1 id="设置alist别名"><a class="markdownIt-Anchor" href="#设置alist别名"></a> 设置AList别名</h1>
-<p>我的百度盘中存放我的游戏等等私密信息，OneDrive主要是论文和个人信息，Google Drive主要是代码，其他盘放一些杂七杂八的，不可能让游客都看到。最简单的方法就是设置游客不登录不可见，但是我还有一些数据集和论文资料需要共享，因此就轮到AList的别名登场了。</p>
-<p>挂在一个<code>/guest</code>盘的Alias，然后设置为游客可见只读，然后设置文件映射，具体的优化可以看文档</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># alias路径:实际路径</span><br><span class="line">参考文献:/onedrive/参考文献</span><br><span class="line">开题参考:/onedrive/开题参考</span><br><span class="line">百度云:/百度云/毕设数据集</span><br></pre></td></tr></table></figure>
-<p>如此一来，游客的浏览效果如下</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.6.3/guest.png" alt="游客浏览" /></p>
-<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
-<p>通过AList各种网盘教程，将大部分网盘都统一管理，如此一来方便我随时管理和解决ipad上弊端。</p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<ul>
-<li>
-<p><a href="https://github.com/alist-org/alist">Alist</a></p>
-</li>
-<li>
-<p><a href="https://alist.nn.ci/">AList 文档</a></p>
-</li>
-<li>
-<p><a href="https://isedu.top/index.php/archives/52/">关于微软Azure学生白嫖指南</a></p>
-</li>
-<li>
-<p><a href="https://nginx.org/en/linux_packages.html#Ubuntu">nginx install</a></p>
-</li>
-<li>
-<p><a href="https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/aspnetcore/practice-troubleshoot-linux/2-2-install-nginx-configure-it-reverse-proxy">Install Nginx and configure it as a reverse proxy server</a></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Azure</category>
-      </categories>
-      <tags>
-        <tag>百度云</tag>
-        <tag>Azure</tag>
-        <tag>AList</tag>
-        <tag>网盘</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>摸鱼人日历</title>
     <url>/moyu/</url>
     <content><![CDATA[<blockquote>
@@ -5529,7 +5529,7 @@ demo: <a href="https://huggingface.co/spaces/qxdn/tts-9nine">demo</a><br />
   </entry>
   <entry>
     <title>来做个ciallo吧</title>
-    <url>/ciallo/</url>
+    <url>/ciallo-web/</url>
     <content><![CDATA[<blockquote>
 <p>封面《サノバウィッチ》</p>
 </blockquote>
