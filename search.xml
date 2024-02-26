@@ -428,42 +428,6 @@ export saved model.
       </tags>
   </entry>
   <entry>
-    <title>MinGW编译C++无法输出string</title>
-    <url>/2021/03/19/mingw64problem/</url>
-    <content><![CDATA[<p>在调试程序的时候遇到了一个奇葩的问题，C++无法使用string。最后发现居然是MinGW64的问题</p>
-<span id="more"></span>
-<h1 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h1>
-<p>在帮助别人调试<a href="https://github.com/hediet/vscode-debug-visualizer">vscode-debug-visualizer</a>这个插件的时候，遇到了无法出结果的问题。经过一系列定位后发现，居然是使用了string就无法运行，而编译不会出错。</p>
-<h1 id="测试程序"><a class="markdownIt-Anchor" href="#测试程序"></a> 测试程序</h1>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//main.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// visualize `myGraphJson`!</span></span><br><span class="line">    string myGraphJson = <span class="string">&quot;&#123;\&quot;kind\&quot;:&#123;\&quot;graph\&quot;:true&#125;,&quot;</span></span><br><span class="line">        <span class="string">&quot;\&quot;nodes\&quot;:[&#123;\&quot;id\&quot;:\&quot;1\&quot;&#125;,&#123;\&quot;id\&quot;:\&quot;2\&quot;&#125;],&quot;</span></span><br><span class="line">        <span class="string">&quot;\&quot;edges\&quot;:[&#123;\&quot;from\&quot;:\&quot;1\&quot;,\&quot;to\&quot;:\&quot;2\&quot;&#125;]&#125;&quot;</span>;</span><br><span class="line">    cout &lt;&lt; myGraphJson;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="错误现象"><a class="markdownIt-Anchor" href="#错误现象"></a> 错误现象</h1>
-<p>使用编译指令如下</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">g++ <span class="literal">-g</span> main.c <span class="literal">-o</span> main.exe</span><br></pre></td></tr></table></figure>
-<p>结果正常，运行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.\main.exe</span><br></pre></td></tr></table></figure>
-<p>输出为空</p>
-<p>使用gdb进行debug。错误如下</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ERROR: Unable to <span class="built_in">start</span> debugging. Unexpected GDB output from command <span class="string">&quot;-exec-run&quot;</span>. During startup program exited with code <span class="number">0</span>xc0000139.</span><br></pre></td></tr></table></figure>
-<h1 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h1>
-<p>在<a href="https://stackoverflow.com/questions/18668003/the-procedure-entry-point-gxx-personality-v0-could-not-be-located">stackoverflow</a>上找到解决方案。</p>
-<p>从<code>MinGW</code>的安装目录里面找到<code>bin</code>文件夹。将里面的<code>libstdc++-6.dll</code>拷贝到工作目录。目录结构如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">+ .vscode</span><br><span class="line">    launch.json</span><br><span class="line">    tasks.json</span><br><span class="line">libstdc++-6.dll</span><br><span class="line">main.cpp</span><br></pre></td></tr></table></figure>
-<p>再次进行编译、运行</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">g++ <span class="literal">-g</span> main.c <span class="literal">-o</span> main.exe</span><br><span class="line">.\main.exe</span><br></pre></td></tr></table></figure>
-<p>输出</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">&quot;kind&quot;</span>:&#123;<span class="string">&quot;graph&quot;</span>:true&#125;,<span class="string">&quot;nodes&quot;</span>:[&#123;<span class="string">&quot;id&quot;</span>:<span class="string">&quot;1&quot;</span>&#125;,&#123;<span class="string">&quot;id&quot;</span>:<span class="string">&quot;2&quot;</span>&#125;],<span class="string">&quot;edges&quot;</span>:[&#123;<span class="string">&quot;from&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;to&quot;</span>:<span class="string">&quot;2&quot;</span>&#125;]&#125;</span><br></pre></td></tr></table></figure>
-<p>gdb的debug结果正常</p>
-<h1 id="吐槽"><a class="markdownIt-Anchor" href="#吐槽"></a> 吐槽</h1>
-<p>这个问题在7年前就被提出了，居然现在还有。MinGW真是坑啊，用了环境变量也没用。</p>
-]]></content>
-      <categories>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>win10家庭版下安装docker</title>
     <url>/2021/03/18/installDocker/</url>
     <content><![CDATA[<p>因为装软件、装环境老是折腾，就开始思考各个生产环境之间隔离或者直接使用他人配好的环境。因而想到了人们常说的docker。因此打算安装来体验一下</p>
@@ -508,6 +472,42 @@ export saved model.
       <tags>
         <tag>Windows</tag>
         <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MinGW编译C++无法输出string</title>
+    <url>/2021/03/19/mingw64problem/</url>
+    <content><![CDATA[<p>在调试程序的时候遇到了一个奇葩的问题，C++无法使用string。最后发现居然是MinGW64的问题</p>
+<span id="more"></span>
+<h1 id="起因"><a class="markdownIt-Anchor" href="#起因"></a> 起因</h1>
+<p>在帮助别人调试<a href="https://github.com/hediet/vscode-debug-visualizer">vscode-debug-visualizer</a>这个插件的时候，遇到了无法出结果的问题。经过一系列定位后发现，居然是使用了string就无法运行，而编译不会出错。</p>
+<h1 id="测试程序"><a class="markdownIt-Anchor" href="#测试程序"></a> 测试程序</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">//main.c</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// visualize `myGraphJson`!</span></span><br><span class="line">    string myGraphJson = <span class="string">&quot;&#123;\&quot;kind\&quot;:&#123;\&quot;graph\&quot;:true&#125;,&quot;</span></span><br><span class="line">        <span class="string">&quot;\&quot;nodes\&quot;:[&#123;\&quot;id\&quot;:\&quot;1\&quot;&#125;,&#123;\&quot;id\&quot;:\&quot;2\&quot;&#125;],&quot;</span></span><br><span class="line">        <span class="string">&quot;\&quot;edges\&quot;:[&#123;\&quot;from\&quot;:\&quot;1\&quot;,\&quot;to\&quot;:\&quot;2\&quot;&#125;]&#125;&quot;</span>;</span><br><span class="line">    cout &lt;&lt; myGraphJson;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="错误现象"><a class="markdownIt-Anchor" href="#错误现象"></a> 错误现象</h1>
+<p>使用编译指令如下</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">g++ <span class="literal">-g</span> main.c <span class="literal">-o</span> main.exe</span><br></pre></td></tr></table></figure>
+<p>结果正常，运行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.\main.exe</span><br></pre></td></tr></table></figure>
+<p>输出为空</p>
+<p>使用gdb进行debug。错误如下</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">ERROR: Unable to <span class="built_in">start</span> debugging. Unexpected GDB output from command <span class="string">&quot;-exec-run&quot;</span>. During startup program exited with code <span class="number">0</span>xc0000139.</span><br></pre></td></tr></table></figure>
+<h1 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h1>
+<p>在<a href="https://stackoverflow.com/questions/18668003/the-procedure-entry-point-gxx-personality-v0-could-not-be-located">stackoverflow</a>上找到解决方案。</p>
+<p>从<code>MinGW</code>的安装目录里面找到<code>bin</code>文件夹。将里面的<code>libstdc++-6.dll</code>拷贝到工作目录。目录结构如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">+ .vscode</span><br><span class="line">    launch.json</span><br><span class="line">    tasks.json</span><br><span class="line">libstdc++-6.dll</span><br><span class="line">main.cpp</span><br></pre></td></tr></table></figure>
+<p>再次进行编译、运行</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">g++ <span class="literal">-g</span> main.c <span class="literal">-o</span> main.exe</span><br><span class="line">.\main.exe</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">&#123;<span class="string">&quot;kind&quot;</span>:&#123;<span class="string">&quot;graph&quot;</span>:true&#125;,<span class="string">&quot;nodes&quot;</span>:[&#123;<span class="string">&quot;id&quot;</span>:<span class="string">&quot;1&quot;</span>&#125;,&#123;<span class="string">&quot;id&quot;</span>:<span class="string">&quot;2&quot;</span>&#125;],<span class="string">&quot;edges&quot;</span>:[&#123;<span class="string">&quot;from&quot;</span>:<span class="string">&quot;1&quot;</span>,<span class="string">&quot;to&quot;</span>:<span class="string">&quot;2&quot;</span>&#125;]&#125;</span><br></pre></td></tr></table></figure>
+<p>gdb的debug结果正常</p>
+<h1 id="吐槽"><a class="markdownIt-Anchor" href="#吐槽"></a> 吐槽</h1>
+<p>这个问题在7年前就被提出了，居然现在还有。MinGW真是坑啊，用了环境变量也没用。</p>
+]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -683,6 +683,54 @@ f_{i,j,k_n}^n = max({\omega_{k_n}^n}^Tf_{i,j}^{n-1}+b_{k_n},0)
 ]]></content>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>毕业设计（三）BDD100K数据集转yolo格式</title>
+    <url>/2021/04/09/bdd100k2yolo/</url>
+    <content><![CDATA[<p>将bdd100k数据集转换为yolo格式<br />
+封面图《見上げてごらん、夜空の星》</p>
+<span id="more"></span>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>因为原先从COCO中提取的数据集的检测效果一直不好，在观察了几个数据集后发现，COCO数据集的图片中我需要的目标都比较小，且我需要的一些类样本不均衡，比如truck类就特别少，尽管YOLOv4的论文中说可以使用focal loss来解决样本不均衡，但是最简单的还是换一个数据集，因此打算新做一个数据集。</p>
+<h1 id="bdd100k数据集"><a class="markdownIt-Anchor" href="#bdd100k数据集"></a> BDD100K数据集</h1>
+<p>官网：<a href="https://bdd-data.berkeley.edu/">https://bdd-data.berkeley.edu/</a><br />
+论文：<a href="https://arxiv.org/abs/1805.04687">https://arxiv.org/abs/1805.04687</a><br />
+github：<a href="https://github.com/bdd100k/bdd100k">https://github.com/bdd100k/bdd100k</a><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/bdd100k.gif" alt="bdd100k" /><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/compare.jpg" alt="compare" /></p>
+<p>BDD100K是伯克利大小AI实验室发布的一个自动驾驶领域的数据集。具体内容可以看论文，在此我只关心我需要的内容，各个类别的数据量。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/categories.png" alt="类别数量" /><br />
+BDD100K中车辆行人的数量都很多，truck有4296个，Bus有16505个。而COCO中我想要2000个truck最后只返回了我1400左右，因此在COCO提取训练集训练测试结果的时候发现truck和bus分不清，且truck的AP50很低。</p>
+<h1 id="数据集转换"><a class="markdownIt-Anchor" href="#数据集转换"></a> 数据集转换</h1>
+<p>由于BDD100K的数据集格式和darknet需要的yolo格式不一样，因此需要将label进行转换，顺便对label进行一下提取，去掉几个我不需要的类。<br />
+BDD100K的标签文件格式遵循<a href="https://doc.scalabel.ai/format.html">Scalabel Format</a>，此外还有一些BDD100K自己的格式，不过与我的需求没有关系。因此先来看一下scalabel格式</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- name: string</span><br><span class="line">- url: string</span><br><span class="line">- videoName: string (optional)</span><br><span class="line">- attributes: a dictionary of frame attributes</span><br><span class="line">- intrinsics</span><br><span class="line">    - focal: [x, y]</span><br><span class="line">    - center: [x, y]</span><br><span class="line">    - nearClip:</span><br><span class="line">- extrinsics</span><br><span class="line">    - location</span><br><span class="line">    - rotation</span><br><span class="line">- timestamp: int64 (epoch time ms)</span><br><span class="line">- frameIndex: int (optional, frame index in this video)</span><br><span class="line">- labels [ ]:</span><br><span class="line">    - id: string</span><br><span class="line">    - category: string (classification)</span><br><span class="line">    - manualShape: boolean</span><br><span class="line">    - manualAttributes: boolean</span><br><span class="line">    - score: float</span><br><span class="line">    - attributes: a dictionary of label attributes</span><br><span class="line">    - box2d:</span><br><span class="line">        - x1: float</span><br><span class="line">        - y1: float</span><br><span class="line">        - x2: float</span><br><span class="line">        - y2: float</span><br><span class="line">    - box3d:</span><br><span class="line">        - alpha:</span><br><span class="line">        - orientation:</span><br><span class="line">        - location: ()</span><br><span class="line">        - dimension: (3D point, height, width, length)</span><br><span class="line">    - poly2d: an array of objects, with the structure</span><br><span class="line">        - vertices: [][]float (list of 2-tuples [x, y])</span><br><span class="line">        - types: string</span><br><span class="line">        - closed: boolean</span><br></pre></td></tr></table></figure>
+<p>再看一看实际文件，还是符合的<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/bdd100k_labels.png" alt="compare" /></p>
+<h1 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h1>
+<p>参考了github的一个现有<a href="https://github.com/km23630/bdd100k_to_yolo_converter">转换脚本</a>进行了一定的修改，添加了命令行支持和类别提取。代码如下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">TRAIN_LABEL_NAME = <span class="string">&#x27;bdd100k_labels_images_train.json&#x27;</span></span><br><span class="line">VAL_LABEL_NAME = <span class="string">&#x27;bdd100k_labels_images_val.json&#x27;</span></span><br><span class="line"></span><br><span class="line">classes = [</span><br><span class="line">    <span class="string">&quot;person&quot;</span>,</span><br><span class="line">    <span class="string">&quot;bike&quot;</span>,</span><br><span class="line">    <span class="string">&quot;car&quot;</span>,</span><br><span class="line">    <span class="string">&quot;motor&quot;</span>,</span><br><span class="line">    <span class="string">&quot;bus&quot;</span>,</span><br><span class="line">    <span class="string">&quot;truck&quot;</span>,</span><br><span class="line">    <span class="string">&quot;rider&quot;</span>,</span><br><span class="line">    <span class="string">&quot;train&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">counter = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> classes:</span><br><span class="line">    counter[c] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_args</span>():</span><br><span class="line">    <span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line"></span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-i&#x27;</span>, <span class="string">&#x27;--images&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;images path&quot;</span>,</span><br><span class="line">                        <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&#x27;./images/100k&#x27;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-l&#x27;</span>, <span class="string">&#x27;--labels&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;labels path&quot;</span>,</span><br><span class="line">                        <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&quot;./labels&quot;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-t&#x27;</span>, <span class="string">&#x27;--type&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;type of dataset&quot;</span>,</span><br><span class="line">                        choices=[<span class="string">&#x27;train&#x27;</span>, <span class="string">&#x27;val&#x27;</span>], default=<span class="string">&#x27;train&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> parser.parse_args()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convertBdd100k2yolo</span>(<span class="params">imageFileName, label</span>):</span><br><span class="line">    img = cv2.imread(imageFileName)</span><br><span class="line">    width, height = img.shape[<span class="number">1</span>], img.shape[<span class="number">0</span>]</span><br><span class="line">    dw = <span class="number">1.0</span>/width</span><br><span class="line">    dh = <span class="number">1.0</span>/height</span><br><span class="line"></span><br><span class="line">    catName = label[<span class="string">&#x27;category&#x27;</span>]</span><br><span class="line">    classIndex = classes.index(catName)</span><br><span class="line">    roi = label[<span class="string">&#x27;box2d&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    w = roi[<span class="string">&#x27;x2&#x27;</span>]-roi[<span class="string">&#x27;x1&#x27;</span>]</span><br><span class="line">    h = roi[<span class="string">&#x27;y2&#x27;</span>]-roi[<span class="string">&#x27;y1&#x27;</span>]</span><br><span class="line">    x_center = roi[<span class="string">&#x27;x1&#x27;</span>] + w/<span class="number">2</span></span><br><span class="line">    y_center = roi[<span class="string">&#x27;y1&#x27;</span>] + h/<span class="number">2</span></span><br><span class="line"></span><br><span class="line">    x_center, y_center, w, h = x_center*dw, y_center*dh, w*dw, h*dh</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&#123;&#125; &#123;&#125; &#123;&#125; &#123;&#125; &#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(classIndex, x_center, y_center, w, h)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    args = get_args()</span><br><span class="line">    <span class="comment"># 转为文件位置</span></span><br><span class="line">    <span class="keyword">if</span> args.<span class="built_in">type</span> == <span class="string">&#x27;train&#x27;</span>:</span><br><span class="line">        imageRootPath = os.path.join(args.images, <span class="string">&#x27;train&#x27;</span>)</span><br><span class="line">        labelFilePath = os.path.join(args.labels, TRAIN_LABEL_NAME)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        imageRootPath = os.path.join(args.images, <span class="string">&#x27;val&#x27;</span>)</span><br><span class="line">        labelFilePath = os.path.join(args.labels, VAL_LABEL_NAME)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(labelFilePath) <span class="keyword">as</span> file:</span><br><span class="line">        lines = json.load(file)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;loaded labels&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> tqdm(lines):</span><br><span class="line">        <span class="comment"># 图像名</span></span><br><span class="line">        name = line[<span class="string">&#x27;name&#x27;</span>]</span><br><span class="line">        labels = line[<span class="string">&#x27;labels&#x27;</span>]</span><br><span class="line">        imagePath = os.path.join(imageRootPath, name)</span><br><span class="line">        labelPath = imagePath.replace(<span class="string">&#x27;jpg&#x27;</span>, <span class="string">&#x27;txt&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(os.path.realpath(imagePath)):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(labelPath, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">            <span class="comment"># 遍历label</span></span><br><span class="line">            <span class="keyword">for</span> label <span class="keyword">in</span> labels:</span><br><span class="line">                cat = label[<span class="string">&#x27;category&#x27;</span>]</span><br><span class="line">                <span class="keyword">if</span> cat <span class="keyword">in</span> classes:</span><br><span class="line">                    counter[cat] += <span class="number">1</span></span><br><span class="line">                    file.write(convertBdd100k2yolo(imagePath,label))</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(counter)</span><br></pre></td></tr></table></figure>
+<p>效果如下，训练集因为中途缩放了一下vscode窗口，所以进度条就这样了。除去一个20%量的test，类别数量还是和论文里面的差不多的。<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/bdd100k_train_convert.png" alt="train" /><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/bdd100k_val_convert.png" alt="val" /></p>
+<h1 id="删除无标签图片"><a class="markdownIt-Anchor" href="#删除无标签图片"></a> 删除无标签图片</h1>
+<p>经过训练发现存在一些无标签图片，因此需要进行删除，代码如下</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_args</span>():</span><br><span class="line">    <span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line"></span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-i&#x27;</span>, <span class="string">&#x27;--images&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;images path&quot;</span>,</span><br><span class="line">                        <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&#x27;./images/100k&#x27;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-t&#x27;</span>, <span class="string">&#x27;--type&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;type of dataset&quot;</span>,</span><br><span class="line">                        choices=[<span class="string">&#x27;train&#x27;</span>, <span class="string">&#x27;val&#x27;</span>], default=<span class="string">&#x27;train&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> parser.parse_args()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getFileList</span>(<span class="params"><span class="built_in">dir</span>, extract</span>):</span><br><span class="line">    fileList = []</span><br><span class="line">    filenames = os.listdir(<span class="built_in">dir</span>)</span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">        ext = os.path.splitext(filename)[-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> ext == extract:</span><br><span class="line">            fileList.append(filename)</span><br><span class="line">    <span class="keyword">return</span> fileList</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    args = get_args()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> args.<span class="built_in">type</span> == <span class="string">&#x27;train&#x27;</span>:</span><br><span class="line">        imageRootPath = os.path.join(args.images, <span class="string">&#x27;train&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        imageRootPath = os.path.join(args.images, <span class="string">&#x27;val&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    imageName = getFileList(imageRootPath, <span class="string">&#x27;.jpg&#x27;</span>)</span><br><span class="line">    labelName = getFileList(imageRootPath, <span class="string">&#x27;.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    labelName = [label.replace(<span class="string">&quot;.txt&quot;</span>, <span class="string">&quot;.jpg&quot;</span>) <span class="keyword">for</span> label <span class="keyword">in</span> labelName]</span><br><span class="line">    lackImages = <span class="built_in">set</span>(imageName) - <span class="built_in">set</span>(labelName)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> lackImages:</span><br><span class="line">        os.remove(os.path.join(imageRootPath,file))</span><br><span class="line">        <span class="comment">#print(os.path.join(imageRootPath,file))</span></span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>标签转换完成，接下来生成train.txt和val.txt就和之前的coco2yolo一样了。随后的效果就得训练后才能知道了。</p>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<p>[1]Yu F, Chen H, Wang X, et al. Bdd100k: A diverse driving dataset for heterogeneous multitask learning[C]//Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2020: 2636-2645.<br />
+[2]<a href="https://blog.csdn.net/jocelyn870/article/details/81207448">BDD100K：一个大规模、多样化的驾驶视频数据集</a><br />
+[3]<a href="https://github.com/km23630/bdd100k_to_yolo_converter">bdd100k_to_yolo_converter</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>毕业设计</tag>
+        <tag>yolo</tag>
       </tags>
   </entry>
   <entry>
@@ -939,54 +987,6 @@ f_{i,j,k_n}^n = max({\omega_{k_n}^n}^Tf_{i,j}^{n-1}+b_{k_n},0)
       </categories>
       <tags>
         <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>毕业设计（三）BDD100K数据集转yolo格式</title>
-    <url>/2021/04/09/bdd100k2yolo/</url>
-    <content><![CDATA[<p>将bdd100k数据集转换为yolo格式<br />
-封面图《見上げてごらん、夜空の星》</p>
-<span id="more"></span>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>因为原先从COCO中提取的数据集的检测效果一直不好，在观察了几个数据集后发现，COCO数据集的图片中我需要的目标都比较小，且我需要的一些类样本不均衡，比如truck类就特别少，尽管YOLOv4的论文中说可以使用focal loss来解决样本不均衡，但是最简单的还是换一个数据集，因此打算新做一个数据集。</p>
-<h1 id="bdd100k数据集"><a class="markdownIt-Anchor" href="#bdd100k数据集"></a> BDD100K数据集</h1>
-<p>官网：<a href="https://bdd-data.berkeley.edu/">https://bdd-data.berkeley.edu/</a><br />
-论文：<a href="https://arxiv.org/abs/1805.04687">https://arxiv.org/abs/1805.04687</a><br />
-github：<a href="https://github.com/bdd100k/bdd100k">https://github.com/bdd100k/bdd100k</a><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/bdd100k.gif" alt="bdd100k" /><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/compare.jpg" alt="compare" /></p>
-<p>BDD100K是伯克利大小AI实验室发布的一个自动驾驶领域的数据集。具体内容可以看论文，在此我只关心我需要的内容，各个类别的数据量。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/categories.png" alt="类别数量" /><br />
-BDD100K中车辆行人的数量都很多，truck有4296个，Bus有16505个。而COCO中我想要2000个truck最后只返回了我1400左右，因此在COCO提取训练集训练测试结果的时候发现truck和bus分不清，且truck的AP50很低。</p>
-<h1 id="数据集转换"><a class="markdownIt-Anchor" href="#数据集转换"></a> 数据集转换</h1>
-<p>由于BDD100K的数据集格式和darknet需要的yolo格式不一样，因此需要将label进行转换，顺便对label进行一下提取，去掉几个我不需要的类。<br />
-BDD100K的标签文件格式遵循<a href="https://doc.scalabel.ai/format.html">Scalabel Format</a>，此外还有一些BDD100K自己的格式，不过与我的需求没有关系。因此先来看一下scalabel格式</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">- name: string</span><br><span class="line">- url: string</span><br><span class="line">- videoName: string (optional)</span><br><span class="line">- attributes: a dictionary of frame attributes</span><br><span class="line">- intrinsics</span><br><span class="line">    - focal: [x, y]</span><br><span class="line">    - center: [x, y]</span><br><span class="line">    - nearClip:</span><br><span class="line">- extrinsics</span><br><span class="line">    - location</span><br><span class="line">    - rotation</span><br><span class="line">- timestamp: int64 (epoch time ms)</span><br><span class="line">- frameIndex: int (optional, frame index in this video)</span><br><span class="line">- labels [ ]:</span><br><span class="line">    - id: string</span><br><span class="line">    - category: string (classification)</span><br><span class="line">    - manualShape: boolean</span><br><span class="line">    - manualAttributes: boolean</span><br><span class="line">    - score: float</span><br><span class="line">    - attributes: a dictionary of label attributes</span><br><span class="line">    - box2d:</span><br><span class="line">        - x1: float</span><br><span class="line">        - y1: float</span><br><span class="line">        - x2: float</span><br><span class="line">        - y2: float</span><br><span class="line">    - box3d:</span><br><span class="line">        - alpha:</span><br><span class="line">        - orientation:</span><br><span class="line">        - location: ()</span><br><span class="line">        - dimension: (3D point, height, width, length)</span><br><span class="line">    - poly2d: an array of objects, with the structure</span><br><span class="line">        - vertices: [][]float (list of 2-tuples [x, y])</span><br><span class="line">        - types: string</span><br><span class="line">        - closed: boolean</span><br></pre></td></tr></table></figure>
-<p>再看一看实际文件，还是符合的<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/bdd100k_labels.png" alt="compare" /></p>
-<h1 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h1>
-<p>参考了github的一个现有<a href="https://github.com/km23630/bdd100k_to_yolo_converter">转换脚本</a>进行了一定的修改，添加了命令行支持和类别提取。代码如下。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">TRAIN_LABEL_NAME = <span class="string">&#x27;bdd100k_labels_images_train.json&#x27;</span></span><br><span class="line">VAL_LABEL_NAME = <span class="string">&#x27;bdd100k_labels_images_val.json&#x27;</span></span><br><span class="line"></span><br><span class="line">classes = [</span><br><span class="line">    <span class="string">&quot;person&quot;</span>,</span><br><span class="line">    <span class="string">&quot;bike&quot;</span>,</span><br><span class="line">    <span class="string">&quot;car&quot;</span>,</span><br><span class="line">    <span class="string">&quot;motor&quot;</span>,</span><br><span class="line">    <span class="string">&quot;bus&quot;</span>,</span><br><span class="line">    <span class="string">&quot;truck&quot;</span>,</span><br><span class="line">    <span class="string">&quot;rider&quot;</span>,</span><br><span class="line">    <span class="string">&quot;train&quot;</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">counter = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> classes:</span><br><span class="line">    counter[c] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_args</span>():</span><br><span class="line">    <span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line"></span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-i&#x27;</span>, <span class="string">&#x27;--images&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;images path&quot;</span>,</span><br><span class="line">                        <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&#x27;./images/100k&#x27;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-l&#x27;</span>, <span class="string">&#x27;--labels&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;labels path&quot;</span>,</span><br><span class="line">                        <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&quot;./labels&quot;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-t&#x27;</span>, <span class="string">&#x27;--type&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;type of dataset&quot;</span>,</span><br><span class="line">                        choices=[<span class="string">&#x27;train&#x27;</span>, <span class="string">&#x27;val&#x27;</span>], default=<span class="string">&#x27;train&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> parser.parse_args()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convertBdd100k2yolo</span>(<span class="params">imageFileName, label</span>):</span><br><span class="line">    img = cv2.imread(imageFileName)</span><br><span class="line">    width, height = img.shape[<span class="number">1</span>], img.shape[<span class="number">0</span>]</span><br><span class="line">    dw = <span class="number">1.0</span>/width</span><br><span class="line">    dh = <span class="number">1.0</span>/height</span><br><span class="line"></span><br><span class="line">    catName = label[<span class="string">&#x27;category&#x27;</span>]</span><br><span class="line">    classIndex = classes.index(catName)</span><br><span class="line">    roi = label[<span class="string">&#x27;box2d&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    w = roi[<span class="string">&#x27;x2&#x27;</span>]-roi[<span class="string">&#x27;x1&#x27;</span>]</span><br><span class="line">    h = roi[<span class="string">&#x27;y2&#x27;</span>]-roi[<span class="string">&#x27;y1&#x27;</span>]</span><br><span class="line">    x_center = roi[<span class="string">&#x27;x1&#x27;</span>] + w/<span class="number">2</span></span><br><span class="line">    y_center = roi[<span class="string">&#x27;y1&#x27;</span>] + h/<span class="number">2</span></span><br><span class="line"></span><br><span class="line">    x_center, y_center, w, h = x_center*dw, y_center*dh, w*dw, h*dh</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&#123;&#125; &#123;&#125; &#123;&#125; &#123;&#125; &#123;&#125;\n&quot;</span>.<span class="built_in">format</span>(classIndex, x_center, y_center, w, h)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    args = get_args()</span><br><span class="line">    <span class="comment"># 转为文件位置</span></span><br><span class="line">    <span class="keyword">if</span> args.<span class="built_in">type</span> == <span class="string">&#x27;train&#x27;</span>:</span><br><span class="line">        imageRootPath = os.path.join(args.images, <span class="string">&#x27;train&#x27;</span>)</span><br><span class="line">        labelFilePath = os.path.join(args.labels, TRAIN_LABEL_NAME)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        imageRootPath = os.path.join(args.images, <span class="string">&#x27;val&#x27;</span>)</span><br><span class="line">        labelFilePath = os.path.join(args.labels, VAL_LABEL_NAME)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(labelFilePath) <span class="keyword">as</span> file:</span><br><span class="line">        lines = json.load(file)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;loaded labels&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> tqdm(lines):</span><br><span class="line">        <span class="comment"># 图像名</span></span><br><span class="line">        name = line[<span class="string">&#x27;name&#x27;</span>]</span><br><span class="line">        labels = line[<span class="string">&#x27;labels&#x27;</span>]</span><br><span class="line">        imagePath = os.path.join(imageRootPath, name)</span><br><span class="line">        labelPath = imagePath.replace(<span class="string">&#x27;jpg&#x27;</span>, <span class="string">&#x27;txt&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(os.path.realpath(imagePath)):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(labelPath, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">            <span class="comment"># 遍历label</span></span><br><span class="line">            <span class="keyword">for</span> label <span class="keyword">in</span> labels:</span><br><span class="line">                cat = label[<span class="string">&#x27;category&#x27;</span>]</span><br><span class="line">                <span class="keyword">if</span> cat <span class="keyword">in</span> classes:</span><br><span class="line">                    counter[cat] += <span class="number">1</span></span><br><span class="line">                    file.write(convertBdd100k2yolo(imagePath,label))</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(counter)</span><br></pre></td></tr></table></figure>
-<p>效果如下，训练集因为中途缩放了一下vscode窗口，所以进度条就这样了。除去一个20%量的test，类别数量还是和论文里面的差不多的。<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/bdd100k_train_convert.png" alt="train" /><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.3/bdd100k_val_convert.png" alt="val" /></p>
-<h1 id="删除无标签图片"><a class="markdownIt-Anchor" href="#删除无标签图片"></a> 删除无标签图片</h1>
-<p>经过训练发现存在一些无标签图片，因此需要进行删除，代码如下</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_args</span>():</span><br><span class="line">    <span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line"></span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-i&#x27;</span>, <span class="string">&#x27;--images&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;images path&quot;</span>,</span><br><span class="line">                        <span class="built_in">type</span>=<span class="built_in">str</span>, default=<span class="string">&#x27;./images/100k&#x27;</span>)</span><br><span class="line">    parser.add_argument(<span class="string">&#x27;-t&#x27;</span>, <span class="string">&#x27;--type&#x27;</span>, <span class="built_in">help</span>=<span class="string">&quot;type of dataset&quot;</span>,</span><br><span class="line">                        choices=[<span class="string">&#x27;train&#x27;</span>, <span class="string">&#x27;val&#x27;</span>], default=<span class="string">&#x27;train&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> parser.parse_args()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">getFileList</span>(<span class="params"><span class="built_in">dir</span>, extract</span>):</span><br><span class="line">    fileList = []</span><br><span class="line">    filenames = os.listdir(<span class="built_in">dir</span>)</span><br><span class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> filenames:</span><br><span class="line">        ext = os.path.splitext(filename)[-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> ext == extract:</span><br><span class="line">            fileList.append(filename)</span><br><span class="line">    <span class="keyword">return</span> fileList</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    args = get_args()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> args.<span class="built_in">type</span> == <span class="string">&#x27;train&#x27;</span>:</span><br><span class="line">        imageRootPath = os.path.join(args.images, <span class="string">&#x27;train&#x27;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        imageRootPath = os.path.join(args.images, <span class="string">&#x27;val&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    imageName = getFileList(imageRootPath, <span class="string">&#x27;.jpg&#x27;</span>)</span><br><span class="line">    labelName = getFileList(imageRootPath, <span class="string">&#x27;.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    labelName = [label.replace(<span class="string">&quot;.txt&quot;</span>, <span class="string">&quot;.jpg&quot;</span>) <span class="keyword">for</span> label <span class="keyword">in</span> labelName]</span><br><span class="line">    lackImages = <span class="built_in">set</span>(imageName) - <span class="built_in">set</span>(labelName)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> lackImages:</span><br><span class="line">        os.remove(os.path.join(imageRootPath,file))</span><br><span class="line">        <span class="comment">#print(os.path.join(imageRootPath,file))</span></span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
-<p>标签转换完成，接下来生成train.txt和val.txt就和之前的coco2yolo一样了。随后的效果就得训练后才能知道了。</p>
-<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
-<p>[1]Yu F, Chen H, Wang X, et al. Bdd100k: A diverse driving dataset for heterogeneous multitask learning[C]//Proceedings of the IEEE/CVF conference on computer vision and pattern recognition. 2020: 2636-2645.<br />
-[2]<a href="https://blog.csdn.net/jocelyn870/article/details/81207448">BDD100K：一个大规模、多样化的驾驶视频数据集</a><br />
-[3]<a href="https://github.com/km23630/bdd100k_to_yolo_converter">bdd100k_to_yolo_converter</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>毕业设计</tag>
-        <tag>yolo</tag>
       </tags>
   </entry>
   <entry>
@@ -1467,6 +1467,50 @@ YOLO9000是一个通过联合优化检测、分类数据集检测超过9000个�
       </tags>
   </entry>
   <entry>
+    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
+    <url>/2021/07/03/YOLO-oral-defense/</url>
+    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
+<span id="more"></span>
+<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
+<blockquote>
+<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
+</blockquote>
+<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
+<ul>
+<li>Q1： 几类目标？<br />
+6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
+<li>Q2：实测框架？<br />
+本次系统使用pytorch框架实现</li>
+<li>Q3：不平衡怎么去确定<br />
+根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
+<li>Q4：数据集如何自建？收集？<br />
+本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
+<li>Q5：损失函数的选择理由？<br />
+损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
+<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
+由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
+本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
+(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
+<li>Q7：改进结果突出哪些类？<br />
+所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
+<li>Q8：为什么car类提升效果最高？<br />
+调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
+(因为当时PPT打错了，老师原本问的是motor)</li>
+</ul>
+<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
+<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>毕业设计</tag>
+        <tag>yolo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毕业设计（六）基于深度学习算法YOLO的行人车辆检测——论文</title>
     <url>/2021/07/02/YOLO-paper/</url>
     <content><![CDATA[<p>特别特别水的论文，数据集和权重晚点放到仓库里面</p>
@@ -1791,50 +1835,6 @@ ms。可以估算得到改进后模型的速度约为159 FPS，可以满足实�
       </tags>
   </entry>
   <entry>
-    <title>毕业设计（七）基于深度学习算法YOLO的行人车辆检测——答辩记录</title>
-    <url>/2021/07/03/YOLO-oral-defense/</url>
-    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就8到9个。</p>
-<span id="more"></span>
-<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
-<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
-<blockquote>
-<p>答辩PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
-</blockquote>
-<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
-<ul>
-<li>Q1： 几类目标？<br />
-6类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
-<li>Q2：实测框架？<br />
-本次系统使用pytorch框架实现</li>
-<li>Q3：不平衡怎么去确定<br />
-根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
-<li>Q4：数据集如何自建？收集？<br />
-本次数据集从大型检测数据集COCO、自动驾驶数据集BDD100K中提取的含有行人车辆图片和网络爬取的图片组成。</li>
-<li>Q5：损失函数的选择理由？<br />
-损失函数由box loss、obj loss、cls loss三部分组成。其中box loss为边界框定位部分，由c-iou loss组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss采用BCE Logits函数，对边界框中含有物体的置信度进行优化。cls loss采用BCE函数，对边界框的分类进行优化。</li>
-<li>Q6：为什么不采用公开数据集？70%训练，30%测试，理由？<br />
-由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br />
-本次训练和验证一共使用约2万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将70%的数据用于训练，20%数据用于验证。<br />
-(其实因为没钱。免费colab嫖到没次数了，租的GPU又贵，网盘功能免费只给5G，只能搞小一点数据集)</li>
-<li>Q7：改进结果突出哪些类？<br />
-所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有4.1%的提升效果。</li>
-<li>Q8：为什么car类提升效果最高？<br />
-调整特征融合部分主要是针对长宽小于8像素的小目标改进，而在这些小目标中car类的实例数量约占一半，因此car类受到的提升效果最高。<br />
-(因为当时PPT打错了，老师原本问的是motor)</li>
-</ul>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>因为当时答辩的PPT把motor类的数值写错了，以至于老师以为我的提升效果有10%，实际只有2%左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>毕业设计</tag>
-        <tag>yolo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ResNet论文笔记</title>
     <url>/2021/07/11/ResNet-Note/</url>
     <content><![CDATA[<p>ResNet是解决了深度学习网络中随着网络深化，网络能力反而退化的问题。<br />
@@ -1882,6 +1882,117 @@ ms。可以估算得到改进后模型的速度约为159 FPS，可以满足实�
       </categories>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>半次元爬虫</title>
+    <url>/2021/07/27/bcy-spider/</url>
+    <content><![CDATA[<p>看着半次元的图不错，打算爬一爬<br />
+封面《chaos;child》</p>
+<span id="more"></span>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>因为偶然的机会得知了半次元的存在，后续又觉得半次元的COS图、JK图还有一些绘图不错，因此打算爬一些好看的图片。</p>
+<h1 id="分析网页"><a class="markdownIt-Anchor" href="#分析网页"></a> 分析网页</h1>
+<h2 id="分析html"><a class="markdownIt-Anchor" href="#分析html"></a> 分析html</h2>
+<p>分析被爬的网页肯定是要打开控制台了，按下F12先观察html可以发现在第一个<code>&lt;script&gt;</code>标签中存在一个json文件。这个json包含了你的用户信息、圈子信息和图片信息等。因为整个json文件解析后行有点点多，因此这里就放出部分内容。<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.1/F12-1.png" alt="F12分析html" /><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.1/html-json.png" alt="html中的json" /></p>
+<h2 id="分析api"><a class="markdownIt-Anchor" href="#分析api"></a> 分析api</h2>
+<p>继续分析网络信息，可以发现在向下滚动后可以发现有一个api返回了包含图片信息的接口，其参数结构如下<br />
+<code>https://www.bcy.net/apiv3/common/circleFeed?circle_id=399&amp;since=rec:2&amp;sort_type=1&amp;grid_type=10</code><br />
+经过多次调用可以发现circle_id表示这个圈子的id，如JK、COS有各自的circle_id。而滚动时变化的只有since的参数，表示的是调用第几波。因此请求的时候只需要修改circle_id和since的内容即可<br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.1/F12-2.png" alt="F12分析api（过滤了无关内容）" /><br />
+<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.1/api-json.png" alt="api返回的json" /></p>
+<h2 id="图片格式"><a class="markdownIt-Anchor" href="#图片格式"></a> 图片格式</h2>
+<p>以上图的网址为例子，半次元的图片有多种请求格式，如下所示。此外看到json里面的<code>format</code>字段则是表示了图片的格式（有gif的）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 返回宽度为650的图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~tplv-banciyuan-w650.image</span><br><span class="line"># 中等大小的图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~tplv-banciyuan-sq360.image</span><br><span class="line"># 稍微大一点大图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~tplv-banciyuan-tl640.image</span><br><span class="line"># 小方图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~tplv-banciyuan-2x2.image</span><br><span class="line"># 似乎是原图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~noop.image</span><br></pre></td></tr></table></figure>
+<h1 id="爬取图片"><a class="markdownIt-Anchor" href="#爬取图片"></a> 爬取图片</h1>
+<p>由于<code>request</code>库不支持异步，下载图片会比较耗时，同时为了后续方便加入<code>nonebot</code>机器人框架中，因此使用<code>httpx</code>作为本次的请求库。<code>httpx</code>另一个好处是兼容<code>request</code>接口<br />
+另外需要注意的是需要使用<code>httpx.AsyncClient()</code>或是<code>request.session()</code>这种保存cookie，如果没有cookie，每次请求半次元api会返回一样的json文件<br />
+为了加快一定速度，本次加了圈名转圈id的缓存，如果在<code>nonebot</code>框架里面可以使用数据库更好。</p>
+<h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> httpx</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_cookies</span>():</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    cookie读取，域敏感因此之间转dict存不行</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(<span class="string">&quot;cookies.pk&quot;</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    cookies = httpx.Cookies()</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;cookies.pk&quot;</span>, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        jar_cookies = pickle.load(f)</span><br><span class="line">    <span class="keyword">for</span> domain, pc <span class="keyword">in</span> jar_cookies.items():</span><br><span class="line">        <span class="keyword">for</span> path, c <span class="keyword">in</span> pc.items():</span><br><span class="line">            <span class="keyword">for</span> k, v <span class="keyword">in</span> c.items():</span><br><span class="line">                cookies.<span class="built_in">set</span>(k, v.value, domain=domain, path=path)</span><br><span class="line">    <span class="keyword">return</span> cookies</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 没有cookie会导致每次获得的json是一样的，如果是全天候定时执行可以去除cookie读取和保存</span></span><br><span class="line">client = httpx.AsyncClient(cookies=load_cookies())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_header</span>(<span class="params">image: <span class="built_in">bool</span> = <span class="literal">False</span></span>) -&gt; <span class="built_in">dict</span>:</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    获取request header部分</span></span><br><span class="line"><span class="string">    image: 请求的是否为图片</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    headers = &#123;<span class="string">&#x27;referer&#x27;</span>: <span class="string">&#x27;https://www.bcy.net/&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&#x27;</span></span><br><span class="line">               &#125;</span><br><span class="line">    <span class="keyword">if</span> image == <span class="literal">True</span>:</span><br><span class="line">        headers[<span class="string">&#x27;accept&#x27;</span>] = <span class="string">&#x27;image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> headers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">id2name</span>(<span class="params"><span class="built_in">id</span>: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    将id转name</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    url = <span class="string">&quot;https://www.bcy.net/tag/&#123;id&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">id</span>=<span class="built_in">id</span>)</span><br><span class="line">    r = <span class="keyword">await</span> client.get(url, headers=get_header())</span><br><span class="line">    soup = BeautifulSoup(r.text, features=<span class="string">&quot;html.parser&quot;</span>)</span><br><span class="line">    name = soup.find(<span class="string">&#x27;meta&#x27;</span>, &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;keywords&#x27;</span>&#125;)[<span class="string">&#x27;content&#x27;</span>].split(<span class="string">&quot; - &quot;</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="comment"># print(name)</span></span><br><span class="line">    <span class="keyword">return</span> name</span><br><span class="line">    <span class="comment"># print(r.text)</span></span><br><span class="line">    <span class="comment"># with open(&#x27;index.html&#x27;,&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span></span><br><span class="line">    <span class="comment">#    f.write(r.text)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">load_name2id_cache</span>():</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    获取name2id的缓存</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(<span class="string">&#x27;cache.json&#x27;</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;cache.json&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">return</span> json.load(f)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">save_name2id_cache</span>(<span class="params">cache</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    保存缓存</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;cache.json&#x27;</span>,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="comment"># 中文</span></span><br><span class="line">        json.dump(cache,f,ensure_ascii=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">name2id</span>(<span class="params">name: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    将name转id</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># 读取name2id的缓存</span></span><br><span class="line">    cache = <span class="keyword">await</span> load_name2id_cache()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> cache == <span class="literal">None</span> <span class="keyword">and</span> name <span class="keyword">in</span> cache:</span><br><span class="line">        <span class="keyword">return</span> cache[name]</span><br><span class="line">    <span class="keyword">if</span> cache == <span class="literal">None</span>:</span><br><span class="line">        cache = &#123;&#125;    </span><br><span class="line">    <span class="comment"># 缓存则爬取</span></span><br><span class="line">    url = <span class="string">&quot;https://www.bcy.net/search/home?k=&#123;name&#125;&quot;</span>.<span class="built_in">format</span>(name=name)</span><br><span class="line">    r = <span class="keyword">await</span> client.get(url, headers=get_header())</span><br><span class="line">    raw = re.findall(<span class="string">&#x27;JSON.parse\(&quot;.*&quot;\);&#x27;</span>, r.text)[<span class="number">0</span>].replace(<span class="string">&#x27;JSON.parse(&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;);&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;\\\\u002F&#x27;</span>, <span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">    data = json.loads(raw) <span class="comment">#这里居然返回的是str</span></span><br><span class="line">    data = json.loads(data)</span><br><span class="line">    circles = data[<span class="string">&#x27;all&#x27;</span>][<span class="string">&#x27;circle&#x27;</span>][<span class="string">&#x27;circle_list&#x27;</span>]</span><br><span class="line">    cid = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">for</span> circle <span class="keyword">in</span> circles:</span><br><span class="line">        cache[circle[<span class="string">&#x27;circle_name&#x27;</span>]] = circle[<span class="string">&#x27;circle_id&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> circle[<span class="string">&#x27;circle_name&#x27;</span>] == name:</span><br><span class="line">            cid = circle[<span class="string">&#x27;circle_id&#x27;</span>]</span><br><span class="line">    <span class="comment">#print(cid)</span></span><br><span class="line">    <span class="keyword">await</span> save_name2id_cache(cache)</span><br><span class="line">    <span class="keyword">return</span> cid</span><br><span class="line">    <span class="comment">#with open(&#x27;index.html&#x27;,&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span></span><br><span class="line">    <span class="comment">#    f.write(r.text)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">download_image</span>(<span class="params">url: <span class="built_in">str</span>, save_path: <span class="built_in">str</span> = <span class="string">&#x27;&#x27;</span>, <span class="built_in">format</span>: <span class="built_in">str</span> = <span class="string">&#x27;jpeg&#x27;</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    通过url下载图片</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    filename = url.split(<span class="string">&#x27;/&#x27;</span>)[-<span class="number">1</span>]+<span class="string">&#x27;.&#x27;</span>+<span class="built_in">format</span></span><br><span class="line">    filename = os.path.join(save_path, filename)</span><br><span class="line">    <span class="comment"># 拼接实际地址</span></span><br><span class="line">    url = url + <span class="string">&quot;~noop.image&quot;</span></span><br><span class="line">    r = <span class="keyword">await</span> client.get(url, headers=get_header())</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(r.content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">get_more_from_tag</span>(<span class="params">circle_id: <span class="built_in">int</span>, since: <span class="built_in">int</span> = <span class="number">0</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    调用circleFeed接口，获取圈子内的图</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    headers = get_header()</span><br><span class="line">    url = <span class="string">&quot;https://www.bcy.net/apiv3/common/circleFeed?circle_id=&#123;cid&#125;&amp;since=rec:&#123;since&#125;&amp;sort_type=1&amp;grid_type=10&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        cid=circle_id, since=since)</span><br><span class="line">    <span class="comment"># print(url)</span></span><br><span class="line">    r = <span class="keyword">await</span> client.get(url, headers=headers)</span><br><span class="line">    <span class="comment"># with open(&#x27;&#123;&#125;.json&#x27;.format(since),&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span></span><br><span class="line">    <span class="comment">#   json.dump(r.json(),f,ensure_ascii=False)</span></span><br><span class="line">    <span class="keyword">return</span> r.json()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">download_image_from_tag</span>(<span class="params">circle_id: <span class="built_in">int</span>, circle_name: <span class="built_in">str</span> = <span class="literal">None</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    通过圈子id下载图片</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># 建文件夹分类</span></span><br><span class="line">    <span class="keyword">if</span> circle_name == <span class="literal">None</span> <span class="keyword">or</span> circle_name.strip() == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        circle_name = <span class="built_in">str</span>(circle_id)</span><br><span class="line">    save_path = circle_name</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(save_path):</span><br><span class="line">        os.mkdir(save_path)</span><br><span class="line">    content = <span class="keyword">await</span> get_more_from_tag(circle_id, since=<span class="number">0</span>)</span><br><span class="line">    items = content[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;items&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        image_list = item[<span class="string">&#x27;item_detail&#x27;</span>][<span class="string">&#x27;image_list&#x27;</span>]</span><br><span class="line">        <span class="keyword">for</span> image <span class="keyword">in</span> image_list:</span><br><span class="line">            <span class="keyword">await</span> download_image(image[<span class="string">&#x27;path&#x27;</span>], save_path=save_path, <span class="built_in">format</span>=image[<span class="string">&#x27;format&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">download_image_from_name</span>(<span class="params">circle_name:<span class="built_in">str</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    通过圈名下载图片</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    cid = <span class="keyword">await</span> name2id(circle_name)</span><br><span class="line">    <span class="keyword">if</span> cid != <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">await</span> download_image_from_tag(cid,circle_name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">close_client</span>():</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    关闭client，保存cookie</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;cookies.pk&quot;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        pickle.dump(client.cookies.jar._cookies, f)</span><br><span class="line">    <span class="keyword">await</span> client.aclose()</span><br><span class="line"></span><br><span class="line"><span class="comment"># asyncio.run(download_image(</span></span><br><span class="line"><span class="comment">#    &quot;https://p3-bcy.byteimg.com/img/banciyuan/2eb5f6a5330f47ccaab29eff30a42a15&quot;))</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># asyncio.run(get_more_from_tag(492))</span></span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line">loop.run_until_complete(download_image_from_name(<span class="string">&quot;COS正片&quot;</span>))</span><br><span class="line"><span class="comment">#loop.run_until_complete(name2id(&quot;JK&quot;))</span></span><br><span class="line">loop.run_until_complete(close_client())</span><br><span class="line">loop.close()</span><br></pre></td></tr></table></figure>
+<h1 id="后续工作"><a class="markdownIt-Anchor" href="#后续工作"></a> 后续工作</h1>
+<p>后续工作在于使用<code>Aspscheduler</code>框架定时爬取。有空的话整合到<code>nonebot</code>里面，并使用数据库保存更多信息。<br />
+此外由于半次元更像是微博一样的个人圈子，圈内发布的内容中含有一定的杂图，因此爬取时会有杂图在内，后续需要加入热榜爬虫。</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常用软件镜像源</title>
+    <url>/2021/08/11/source-mirror/</url>
+    <content><![CDATA[<p>为了制作魔镜，重装了树莓派系统。因为要将各种软件源设置镜像源，因此写这样一条博客方便自己查询。<br />
+封面《9-nine-NewEpisode》</p>
+<span id="more"></span>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>其实各个镜像源站都写有各自的设置的方式，本文基本上只是搬运和整合，附上自己的一点点感受。此处列出我常用的镜像站</p>
+<ul>
+<li><a href="https://developer.aliyun.com/mirror/">阿里云镜像站</a>:个人觉得最好用的镜像站，速度快且稳定，之前维护时间很长我还以为阿里不搞了，最近恢复了</li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/">清华镜像站</a>:印象里anaconda之前因为版权问题，镜像源全部下架。后来好像清华源经过交涉重新构建了镜像源。因此现在conda镜像用清华，不过有时候下载还是不好用</li>
+<li><a href="http://mirrors.zju.edu.cn/">浙大镜像站</a>:这个没用过，感觉不是很好，之后在浙大校园内再试一试</li>
+</ul>
+<h1 id="树莓派镜像"><a class="markdownIt-Anchor" href="#树莓派镜像"></a> 树莓派镜像</h1>
+<p>打开<code>/etc/apt/sources.list</code>，修改为以下内容。需要注意不同版本有所不同</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb https://mirrors.aliyun.com/raspbian/raspbian/ buster main non-free contrib</span><br><span class="line">deb-src https://mirrors.aliyun.com/raspbian/raspbian/ buster main non-free contrib</span><br></pre></td></tr></table></figure>
+<h1 id="ubuntu镜像"><a class="markdownIt-Anchor" href="#ubuntu镜像"></a> Ubuntu镜像</h1>
+<p>同样是打开<code>/etc/apt/sources.list</code>，将<code>https://archive.ubuntu.com/</code>替换为<code>mirrors.aliyun.com</code>，由于要改的地方较多，建议先备份一下。<br />
+以ubuntu20.04为例子大致如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<h1 id="github镜像"><a class="markdownIt-Anchor" href="#github镜像"></a> github镜像</h1>
+<p>github在国内的访问时好时坏，用VPN的时候会好一点，但是没VPN的时候就很难受。有修改DNS的方法，以前觉得还行，不过好像最近使用的时候不太好用</p>
+<h2 id="镜像站"><a class="markdownIt-Anchor" href="#镜像站"></a> 镜像站</h2>
+<p>此处推荐一个本人觉得不错的镜像站<br />
+<a href="https://github.com.cnpmjs.org/">https://github.com.cnpmjs.org/</a>:下载时只需要将<code>github.com</code>替换为<code>github.com.cnpmjs.org</code>即可。<br />
+例子如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/qxdn/live2d-widget.git</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/qxdn/live2d-widget.git</span><br></pre></td></tr></table></figure>
+<h2 id="cdn"><a class="markdownIt-Anchor" href="#cdn"></a> cdn</h2>
+<p>此处推荐一个本人常用的cdn。<br />
+<a href="https://www.jsdelivr.com/">jsdelivr</a>:除了github以外还可以加速npm。用法也很简单，在官网有说。<br />
+简单例子如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本</span></span><br><span class="line">https://raw.githubusercontent.com/qxdn/live2d-widget/master/autoload.js</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">https://jsd.cdn.zzko.cn/gh/qxdn/live2d-widget@latest/autoload.js</span><br></pre></td></tr></table></figure>
+<h1 id="java"><a class="markdownIt-Anchor" href="#java"></a> java</h1>
+<p>java中举一下<code>maven</code>的例子，因为本人基本上都用的是<code>maven</code>，没怎么使用<code>gradle</code>就不提<code>gradle</code>。</p>
+<p>一般来说<code>maven</code>的配置文件在<code>conf/settings.xml</code>里面，找到<code>&lt;mirrors&gt;&lt;/mirrors&gt;</code>添加如下代码</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyunmaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>阿里云公共仓库<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="python"><a class="markdownIt-Anchor" href="#python"></a> python</h1>
+<h2 id="pip"><a class="markdownIt-Anchor" href="#pip"></a> pip</h2>
+<h3 id="单次使用"><a class="markdownIt-Anchor" href="#单次使用"></a> 单次使用</h3>
+<p>以安装<code>httpx</code>为例子</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本安装</span></span><br><span class="line">pip install httpx</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">pip install -i https://mirrors.aliyun.com/pypi/simple/ httpx</span><br></pre></td></tr></table></figure>
+<h3 id="长期使用"><a class="markdownIt-Anchor" href="#长期使用"></a> 长期使用</h3>
+<p>Linux下找到<code>~/.pip/pip.conf</code>,Windows下新建<code>C:\Users\&#123;Your User Name&#125;\pip\pip.ini</code>文件。修改内容如下</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<h2 id="conda"><a class="markdownIt-Anchor" href="#conda"></a> conda</h2>
+<p>修改用户目录下的<code>.condarc</code>文件，对于windows用户可能要先执行一遍<code>conda config --set show_channel_urls yes</code>才行。修改完后可能还需要执行<code>conda clean -i</code>来清理缓存。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">default_channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"><span class="attr">custom_channels:</span></span><br><span class="line">  <span class="attr">conda-forge:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">msys2:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">bioconda:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">menpo:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">simpleitk:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br></pre></td></tr></table></figure>
+<h1 id="javascript"><a class="markdownIt-Anchor" href="#javascript"></a> javascript</h1>
+<p>npm镜像一般都是使用的淘宝镜像，此外还有一个cnpm工具专门用于代理淘宝的npm<br />
+<a href="http://npm.taobao.org/">淘宝npm镜像</a>:本文撰写期间在维护升级，还不清楚能不能正常使用。不过之前阿里云镜像维护期间也能正常使用，应该只是web页面升级不影响使用。<br />
+<a href="https://cnpmjs.org/">cnpm</a>:用于代理淘宝镜像的npm工具，国内很好用</p>
+<h2 id="临时使用"><a class="markdownIt-Anchor" href="#临时使用"></a> 临时使用</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org install hexo</span><br></pre></td></tr></table></figure>
+<h2 id="长期使用-2"><a class="markdownIt-Anchor" href="#长期使用-2"></a> 长期使用</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br><span class="line"><span class="comment"># 验证是否成功方法</span></span><br><span class="line">npm config <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用cnpm"><a class="markdownIt-Anchor" href="#使用cnpm"></a> 使用cnpm</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">cnpm install hexo</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>本文为常用软件镜像源的归档，方便本人在后续使用时翻阅，如果遇到了问题还请去镜像站看下使用方法。</p>
+]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>python</tag>
+        <tag>Linux</tag>
+        <tag>javascript</tag>
+        <tag>树莓派</tag>
       </tags>
   </entry>
   <entry>
@@ -2074,117 +2185,6 @@ _________________________________________________________________
       <tags>
         <tag>机器学习</tag>
         <tag>GAN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>半次元爬虫</title>
-    <url>/2021/07/27/bcy-spider/</url>
-    <content><![CDATA[<p>看着半次元的图不错，打算爬一爬<br />
-封面《chaos;child》</p>
-<span id="more"></span>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>因为偶然的机会得知了半次元的存在，后续又觉得半次元的COS图、JK图还有一些绘图不错，因此打算爬一些好看的图片。</p>
-<h1 id="分析网页"><a class="markdownIt-Anchor" href="#分析网页"></a> 分析网页</h1>
-<h2 id="分析html"><a class="markdownIt-Anchor" href="#分析html"></a> 分析html</h2>
-<p>分析被爬的网页肯定是要打开控制台了，按下F12先观察html可以发现在第一个<code>&lt;script&gt;</code>标签中存在一个json文件。这个json包含了你的用户信息、圈子信息和图片信息等。因为整个json文件解析后行有点点多，因此这里就放出部分内容。<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.1/F12-1.png" alt="F12分析html" /><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.1/html-json.png" alt="html中的json" /></p>
-<h2 id="分析api"><a class="markdownIt-Anchor" href="#分析api"></a> 分析api</h2>
-<p>继续分析网络信息，可以发现在向下滚动后可以发现有一个api返回了包含图片信息的接口，其参数结构如下<br />
-<code>https://www.bcy.net/apiv3/common/circleFeed?circle_id=399&amp;since=rec:2&amp;sort_type=1&amp;grid_type=10</code><br />
-经过多次调用可以发现circle_id表示这个圈子的id，如JK、COS有各自的circle_id。而滚动时变化的只有since的参数，表示的是调用第几波。因此请求的时候只需要修改circle_id和since的内容即可<br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.1/F12-2.png" alt="F12分析api（过滤了无关内容）" /><br />
-<img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.2.1/api-json.png" alt="api返回的json" /></p>
-<h2 id="图片格式"><a class="markdownIt-Anchor" href="#图片格式"></a> 图片格式</h2>
-<p>以上图的网址为例子，半次元的图片有多种请求格式，如下所示。此外看到json里面的<code>format</code>字段则是表示了图片的格式（有gif的）。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 返回宽度为650的图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~tplv-banciyuan-w650.image</span><br><span class="line"># 中等大小的图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~tplv-banciyuan-sq360.image</span><br><span class="line"># 稍微大一点大图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~tplv-banciyuan-tl640.image</span><br><span class="line"># 小方图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~tplv-banciyuan-2x2.image</span><br><span class="line"># 似乎是原图</span><br><span class="line">https://p3-bcy.byteimg.com/img/banciyuan/756021456bf744f2a04ac989a2e106a6~noop.image</span><br></pre></td></tr></table></figure>
-<h1 id="爬取图片"><a class="markdownIt-Anchor" href="#爬取图片"></a> 爬取图片</h1>
-<p>由于<code>request</code>库不支持异步，下载图片会比较耗时，同时为了后续方便加入<code>nonebot</code>机器人框架中，因此使用<code>httpx</code>作为本次的请求库。<code>httpx</code>另一个好处是兼容<code>request</code>接口<br />
-另外需要注意的是需要使用<code>httpx.AsyncClient()</code>或是<code>request.session()</code>这种保存cookie，如果没有cookie，每次请求半次元api会返回一样的json文件<br />
-为了加快一定速度，本次加了圈名转圈id的缓存，如果在<code>nonebot</code>框架里面可以使用数据库更好。</p>
-<h2 id="代码"><a class="markdownIt-Anchor" href="#代码"></a> 代码</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> httpx</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_cookies</span>():</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    cookie读取，域敏感因此之间转dict存不行</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(<span class="string">&quot;cookies.pk&quot;</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    cookies = httpx.Cookies()</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;cookies.pk&quot;</span>, <span class="string">&quot;rb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        jar_cookies = pickle.load(f)</span><br><span class="line">    <span class="keyword">for</span> domain, pc <span class="keyword">in</span> jar_cookies.items():</span><br><span class="line">        <span class="keyword">for</span> path, c <span class="keyword">in</span> pc.items():</span><br><span class="line">            <span class="keyword">for</span> k, v <span class="keyword">in</span> c.items():</span><br><span class="line">                cookies.<span class="built_in">set</span>(k, v.value, domain=domain, path=path)</span><br><span class="line">    <span class="keyword">return</span> cookies</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 没有cookie会导致每次获得的json是一样的，如果是全天候定时执行可以去除cookie读取和保存</span></span><br><span class="line">client = httpx.AsyncClient(cookies=load_cookies())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_header</span>(<span class="params">image: <span class="built_in">bool</span> = <span class="literal">False</span></span>) -&gt; <span class="built_in">dict</span>:</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    获取request header部分</span></span><br><span class="line"><span class="string">    image: 请求的是否为图片</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    headers = &#123;<span class="string">&#x27;referer&#x27;</span>: <span class="string">&#x27;https://www.bcy.net/&#x27;</span>,</span><br><span class="line">               <span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36&#x27;</span></span><br><span class="line">               &#125;</span><br><span class="line">    <span class="keyword">if</span> image == <span class="literal">True</span>:</span><br><span class="line">        headers[<span class="string">&#x27;accept&#x27;</span>] = <span class="string">&#x27;image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> headers</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">id2name</span>(<span class="params"><span class="built_in">id</span>: <span class="built_in">int</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    将id转name</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    url = <span class="string">&quot;https://www.bcy.net/tag/&#123;id&#125;&quot;</span>.<span class="built_in">format</span>(<span class="built_in">id</span>=<span class="built_in">id</span>)</span><br><span class="line">    r = <span class="keyword">await</span> client.get(url, headers=get_header())</span><br><span class="line">    soup = BeautifulSoup(r.text, features=<span class="string">&quot;html.parser&quot;</span>)</span><br><span class="line">    name = soup.find(<span class="string">&#x27;meta&#x27;</span>, &#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;keywords&#x27;</span>&#125;)[<span class="string">&#x27;content&#x27;</span>].split(<span class="string">&quot; - &quot;</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="comment"># print(name)</span></span><br><span class="line">    <span class="keyword">return</span> name</span><br><span class="line">    <span class="comment"># print(r.text)</span></span><br><span class="line">    <span class="comment"># with open(&#x27;index.html&#x27;,&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span></span><br><span class="line">    <span class="comment">#    f.write(r.text)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">load_name2id_cache</span>():</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    获取name2id的缓存</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.isfile(<span class="string">&#x27;cache.json&#x27;</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;cache.json&#x27;</span>,<span class="string">&#x27;r&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="keyword">return</span> json.load(f)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">save_name2id_cache</span>(<span class="params">cache</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    保存缓存</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;cache.json&#x27;</span>,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        <span class="comment"># 中文</span></span><br><span class="line">        json.dump(cache,f,ensure_ascii=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">name2id</span>(<span class="params">name: <span class="built_in">str</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    将name转id</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># 读取name2id的缓存</span></span><br><span class="line">    cache = <span class="keyword">await</span> load_name2id_cache()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> cache == <span class="literal">None</span> <span class="keyword">and</span> name <span class="keyword">in</span> cache:</span><br><span class="line">        <span class="keyword">return</span> cache[name]</span><br><span class="line">    <span class="keyword">if</span> cache == <span class="literal">None</span>:</span><br><span class="line">        cache = &#123;&#125;    </span><br><span class="line">    <span class="comment"># 缓存则爬取</span></span><br><span class="line">    url = <span class="string">&quot;https://www.bcy.net/search/home?k=&#123;name&#125;&quot;</span>.<span class="built_in">format</span>(name=name)</span><br><span class="line">    r = <span class="keyword">await</span> client.get(url, headers=get_header())</span><br><span class="line">    raw = re.findall(<span class="string">&#x27;JSON.parse\(&quot;.*&quot;\);&#x27;</span>, r.text)[<span class="number">0</span>].replace(<span class="string">&#x27;JSON.parse(&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;);&#x27;</span>, <span class="string">&#x27;&#x27;</span>).replace(<span class="string">&#x27;\\\\u002F&#x27;</span>, <span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">    data = json.loads(raw) <span class="comment">#这里居然返回的是str</span></span><br><span class="line">    data = json.loads(data)</span><br><span class="line">    circles = data[<span class="string">&#x27;all&#x27;</span>][<span class="string">&#x27;circle&#x27;</span>][<span class="string">&#x27;circle_list&#x27;</span>]</span><br><span class="line">    cid = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">for</span> circle <span class="keyword">in</span> circles:</span><br><span class="line">        cache[circle[<span class="string">&#x27;circle_name&#x27;</span>]] = circle[<span class="string">&#x27;circle_id&#x27;</span>]</span><br><span class="line">        <span class="keyword">if</span> circle[<span class="string">&#x27;circle_name&#x27;</span>] == name:</span><br><span class="line">            cid = circle[<span class="string">&#x27;circle_id&#x27;</span>]</span><br><span class="line">    <span class="comment">#print(cid)</span></span><br><span class="line">    <span class="keyword">await</span> save_name2id_cache(cache)</span><br><span class="line">    <span class="keyword">return</span> cid</span><br><span class="line">    <span class="comment">#with open(&#x27;index.html&#x27;,&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span></span><br><span class="line">    <span class="comment">#    f.write(r.text)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">download_image</span>(<span class="params">url: <span class="built_in">str</span>, save_path: <span class="built_in">str</span> = <span class="string">&#x27;&#x27;</span>, <span class="built_in">format</span>: <span class="built_in">str</span> = <span class="string">&#x27;jpeg&#x27;</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    通过url下载图片</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    filename = url.split(<span class="string">&#x27;/&#x27;</span>)[-<span class="number">1</span>]+<span class="string">&#x27;.&#x27;</span>+<span class="built_in">format</span></span><br><span class="line">    filename = os.path.join(save_path, filename)</span><br><span class="line">    <span class="comment"># 拼接实际地址</span></span><br><span class="line">    url = url + <span class="string">&quot;~noop.image&quot;</span></span><br><span class="line">    r = <span class="keyword">await</span> client.get(url, headers=get_header())</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(r.content)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">get_more_from_tag</span>(<span class="params">circle_id: <span class="built_in">int</span>, since: <span class="built_in">int</span> = <span class="number">0</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    调用circleFeed接口，获取圈子内的图</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    headers = get_header()</span><br><span class="line">    url = <span class="string">&quot;https://www.bcy.net/apiv3/common/circleFeed?circle_id=&#123;cid&#125;&amp;since=rec:&#123;since&#125;&amp;sort_type=1&amp;grid_type=10&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">        cid=circle_id, since=since)</span><br><span class="line">    <span class="comment"># print(url)</span></span><br><span class="line">    r = <span class="keyword">await</span> client.get(url, headers=headers)</span><br><span class="line">    <span class="comment"># with open(&#x27;&#123;&#125;.json&#x27;.format(since),&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as f:</span></span><br><span class="line">    <span class="comment">#   json.dump(r.json(),f,ensure_ascii=False)</span></span><br><span class="line">    <span class="keyword">return</span> r.json()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">download_image_from_tag</span>(<span class="params">circle_id: <span class="built_in">int</span>, circle_name: <span class="built_in">str</span> = <span class="literal">None</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    通过圈子id下载图片</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="comment"># 建文件夹分类</span></span><br><span class="line">    <span class="keyword">if</span> circle_name == <span class="literal">None</span> <span class="keyword">or</span> circle_name.strip() == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        circle_name = <span class="built_in">str</span>(circle_id)</span><br><span class="line">    save_path = circle_name</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(save_path):</span><br><span class="line">        os.mkdir(save_path)</span><br><span class="line">    content = <span class="keyword">await</span> get_more_from_tag(circle_id, since=<span class="number">0</span>)</span><br><span class="line">    items = content[<span class="string">&#x27;data&#x27;</span>][<span class="string">&#x27;items&#x27;</span>]</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        image_list = item[<span class="string">&#x27;item_detail&#x27;</span>][<span class="string">&#x27;image_list&#x27;</span>]</span><br><span class="line">        <span class="keyword">for</span> image <span class="keyword">in</span> image_list:</span><br><span class="line">            <span class="keyword">await</span> download_image(image[<span class="string">&#x27;path&#x27;</span>], save_path=save_path, <span class="built_in">format</span>=image[<span class="string">&#x27;format&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">download_image_from_name</span>(<span class="params">circle_name:<span class="built_in">str</span></span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    通过圈名下载图片</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    cid = <span class="keyword">await</span> name2id(circle_name)</span><br><span class="line">    <span class="keyword">if</span> cid != <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">await</span> download_image_from_tag(cid,circle_name)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">close_client</span>():</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    关闭client，保存cookie</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;cookies.pk&quot;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        pickle.dump(client.cookies.jar._cookies, f)</span><br><span class="line">    <span class="keyword">await</span> client.aclose()</span><br><span class="line"></span><br><span class="line"><span class="comment"># asyncio.run(download_image(</span></span><br><span class="line"><span class="comment">#    &quot;https://p3-bcy.byteimg.com/img/banciyuan/2eb5f6a5330f47ccaab29eff30a42a15&quot;))</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># asyncio.run(get_more_from_tag(492))</span></span><br><span class="line">loop = asyncio.get_event_loop()</span><br><span class="line">loop.run_until_complete(download_image_from_name(<span class="string">&quot;COS正片&quot;</span>))</span><br><span class="line"><span class="comment">#loop.run_until_complete(name2id(&quot;JK&quot;))</span></span><br><span class="line">loop.run_until_complete(close_client())</span><br><span class="line">loop.close()</span><br></pre></td></tr></table></figure>
-<h1 id="后续工作"><a class="markdownIt-Anchor" href="#后续工作"></a> 后续工作</h1>
-<p>后续工作在于使用<code>Aspscheduler</code>框架定时爬取。有空的话整合到<code>nonebot</code>里面，并使用数据库保存更多信息。<br />
-此外由于半次元更像是微博一样的个人圈子，圈内发布的内容中含有一定的杂图，因此爬取时会有杂图在内，后续需要加入热榜爬虫。</p>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常用软件镜像源</title>
-    <url>/2021/08/11/source-mirror/</url>
-    <content><![CDATA[<p>为了制作魔镜，重装了树莓派系统。因为要将各种软件源设置镜像源，因此写这样一条博客方便自己查询。<br />
-封面《9-nine-NewEpisode》</p>
-<span id="more"></span>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>其实各个镜像源站都写有各自的设置的方式，本文基本上只是搬运和整合，附上自己的一点点感受。此处列出我常用的镜像站</p>
-<ul>
-<li><a href="https://developer.aliyun.com/mirror/">阿里云镜像站</a>:个人觉得最好用的镜像站，速度快且稳定，之前维护时间很长我还以为阿里不搞了，最近恢复了</li>
-<li><a href="https://mirrors.tuna.tsinghua.edu.cn/">清华镜像站</a>:印象里anaconda之前因为版权问题，镜像源全部下架。后来好像清华源经过交涉重新构建了镜像源。因此现在conda镜像用清华，不过有时候下载还是不好用</li>
-<li><a href="http://mirrors.zju.edu.cn/">浙大镜像站</a>:这个没用过，感觉不是很好，之后在浙大校园内再试一试</li>
-</ul>
-<h1 id="树莓派镜像"><a class="markdownIt-Anchor" href="#树莓派镜像"></a> 树莓派镜像</h1>
-<p>打开<code>/etc/apt/sources.list</code>，修改为以下内容。需要注意不同版本有所不同</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb https://mirrors.aliyun.com/raspbian/raspbian/ buster main non-free contrib</span><br><span class="line">deb-src https://mirrors.aliyun.com/raspbian/raspbian/ buster main non-free contrib</span><br></pre></td></tr></table></figure>
-<h1 id="ubuntu镜像"><a class="markdownIt-Anchor" href="#ubuntu镜像"></a> Ubuntu镜像</h1>
-<p>同样是打开<code>/etc/apt/sources.list</code>，将<code>https://archive.ubuntu.com/</code>替换为<code>mirrors.aliyun.com</code>，由于要改的地方较多，建议先备份一下。<br />
-以ubuntu20.04为例子大致如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-<h1 id="github镜像"><a class="markdownIt-Anchor" href="#github镜像"></a> github镜像</h1>
-<p>github在国内的访问时好时坏，用VPN的时候会好一点，但是没VPN的时候就很难受。有修改DNS的方法，以前觉得还行，不过好像最近使用的时候不太好用</p>
-<h2 id="镜像站"><a class="markdownIt-Anchor" href="#镜像站"></a> 镜像站</h2>
-<p>此处推荐一个本人觉得不错的镜像站<br />
-<a href="https://github.com.cnpmjs.org/">https://github.com.cnpmjs.org/</a>:下载时只需要将<code>github.com</code>替换为<code>github.com.cnpmjs.org</code>即可。<br />
-例子如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/qxdn/live2d-widget.git</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com.cnpmjs.org/qxdn/live2d-widget.git</span><br></pre></td></tr></table></figure>
-<h2 id="cdn"><a class="markdownIt-Anchor" href="#cdn"></a> cdn</h2>
-<p>此处推荐一个本人常用的cdn。<br />
-<a href="https://www.jsdelivr.com/">jsdelivr</a>:除了github以外还可以加速npm。用法也很简单，在官网有说。<br />
-简单例子如下</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本</span></span><br><span class="line">https://raw.githubusercontent.com/qxdn/live2d-widget/master/autoload.js</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">https://jsd.cdn.zzko.cn/gh/qxdn/live2d-widget@latest/autoload.js</span><br></pre></td></tr></table></figure>
-<h1 id="java"><a class="markdownIt-Anchor" href="#java"></a> java</h1>
-<p>java中举一下<code>maven</code>的例子，因为本人基本上都用的是<code>maven</code>，没怎么使用<code>gradle</code>就不提<code>gradle</code>。</p>
-<p>一般来说<code>maven</code>的配置文件在<code>conf/settings.xml</code>里面，找到<code>&lt;mirrors&gt;&lt;/mirrors&gt;</code>添加如下代码</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">id</span>&gt;</span>aliyunmaven<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>*<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>阿里云公共仓库<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.aliyun.com/repository/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h1 id="python"><a class="markdownIt-Anchor" href="#python"></a> python</h1>
-<h2 id="pip"><a class="markdownIt-Anchor" href="#pip"></a> pip</h2>
-<h3 id="单次使用"><a class="markdownIt-Anchor" href="#单次使用"></a> 单次使用</h3>
-<p>以安装<code>httpx</code>为例子</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 原本安装</span></span><br><span class="line">pip install httpx</span><br><span class="line"><span class="comment"># 镜像源</span></span><br><span class="line">pip install -i https://mirrors.aliyun.com/pypi/simple/ httpx</span><br></pre></td></tr></table></figure>
-<h3 id="长期使用"><a class="markdownIt-Anchor" href="#长期使用"></a> 长期使用</h3>
-<p>Linux下找到<code>~/.pip/pip.conf</code>,Windows下新建<code>C:\Users\&#123;Your User Name&#125;\pip\pip.ini</code>文件。修改内容如下</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[global]</span></span><br><span class="line"><span class="attr">index-url</span> = https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"></span><br><span class="line"><span class="section">[install]</span></span><br><span class="line"><span class="attr">trusted-host</span>=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
-<h2 id="conda"><a class="markdownIt-Anchor" href="#conda"></a> conda</h2>
-<p>修改用户目录下的<code>.condarc</code>文件，对于windows用户可能要先执行一遍<code>conda config --set show_channel_urls yes</code>才行。修改完后可能还需要执行<code>conda clean -i</code>来清理缓存。</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">defaults</span></span><br><span class="line"><span class="attr">show_channel_urls:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">default_channels:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2</span></span><br><span class="line"><span class="attr">custom_channels:</span></span><br><span class="line">  <span class="attr">conda-forge:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">msys2:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">bioconda:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">menpo:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">pytorch:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br><span class="line">  <span class="attr">simpleitk:</span> <span class="string">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud</span></span><br></pre></td></tr></table></figure>
-<h1 id="javascript"><a class="markdownIt-Anchor" href="#javascript"></a> javascript</h1>
-<p>npm镜像一般都是使用的淘宝镜像，此外还有一个cnpm工具专门用于代理淘宝的npm<br />
-<a href="http://npm.taobao.org/">淘宝npm镜像</a>:本文撰写期间在维护升级，还不清楚能不能正常使用。不过之前阿里云镜像维护期间也能正常使用，应该只是web页面升级不影响使用。<br />
-<a href="https://cnpmjs.org/">cnpm</a>:用于代理淘宝镜像的npm工具，国内很好用</p>
-<h2 id="临时使用"><a class="markdownIt-Anchor" href="#临时使用"></a> 临时使用</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm --registry https://registry.npm.taobao.org install hexo</span><br></pre></td></tr></table></figure>
-<h2 id="长期使用-2"><a class="markdownIt-Anchor" href="#长期使用-2"></a> 长期使用</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</span><br><span class="line"><span class="comment"># 验证是否成功方法</span></span><br><span class="line">npm config <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用cnpm"><a class="markdownIt-Anchor" href="#使用cnpm"></a> 使用cnpm</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line">cnpm install hexo</span><br></pre></td></tr></table></figure>
-<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
-<p>本文为常用软件镜像源的归档，方便本人在后续使用时翻阅，如果遇到了问题还请去镜像站看下使用方法。</p>
-]]></content>
-      <categories>
-        <category>杂项</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>python</tag>
-        <tag>Linux</tag>
-        <tag>javascript</tag>
-        <tag>树莓派</tag>
       </tags>
   </entry>
   <entry>
@@ -2864,6 +2864,40 @@ Cypher中的节点表示如下</p>
       </tags>
   </entry>
   <entry>
+    <title>CMD错误 此时不应有&amp;</title>
+    <url>/2021/11/14/cmd-error-was-unexpected/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《ノラと皇女と野良猫ハート》</p>
+</blockquote>
+<h1 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h1>
+<p>打开cmd的时候直接出错，提示“此时不应有&amp;”，英文版应该是“&amp; was unexpected at this time”。问题的实际情况见下图。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/error.png" alt="" /></p>
+<h1 id="问题解决"><a class="markdownIt-Anchor" href="#问题解决"></a> 问题解决</h1>
+<p>幸运的是在stack overflow上能够找到解决方案。首先经过测试<code>cmd.exe /d</code>能够正常运行。<code>cmd.exe /d</code>命令可以阻止注册表中的<code>AutoRun</code>运行。这一点可以在<code>cmd.exe /?</code>中查看有哪些注册表需要检查。</p>
+<p>需要查阅的注册表一共有两处</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor</span><br><span class="line">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</span><br></pre></td></tr></table></figure>
+<p>使用<code>Win+R</code>并输入<code>regedit</code>打开注册表。查询结果如下</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/regedit1.png" alt="" /></p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/regedit2.png" alt="" /></p>
+<p>可以看到<code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</code>的<code>AutoRun</code>中有一个奇怪的值。这里直接删除即可，或者运行下面的指令。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查询所有定义了AutoRun的位置</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun </span><br><span class="line"><span class="comment"># 查看如果执行了命令会发生什么</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun <span class="literal">-WhatIf</span></span><br><span class="line"><span class="comment"># 删除 -WhatIf即可执行命令</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun</span><br></pre></td></tr></table></figure>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/solution.png" alt="运行结果" /></p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/result1.png" alt="运行后的注册表" /></p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/result2.png" alt="运行后正常的CMD" /></p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>这个奇葩的小问题有点难受，不知道是哪个软件干的。所幸stack overflow上有问题的定位方法和解决过程。</p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p><a href="https://stackoverflow.com/questions/59480657/cmd-exe-throws-error-was-unexpected-at-this-time">cmd.exe throws error “&amp; was unexpected at this time.”</a></p>
+]]></content>
+      <categories>
+        <category>Windows</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>cmd</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>米游社爬虫</title>
     <url>/2021/11/12/mihoyo-bbs-crawler/</url>
     <content><![CDATA[<blockquote>
@@ -3014,40 +3048,6 @@ Cypher中的节点表示如下</p>
       <tags>
         <tag>python</tag>
         <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CMD错误 此时不应有&amp;</title>
-    <url>/2021/11/14/cmd-error-was-unexpected/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《ノラと皇女と野良猫ハート》</p>
-</blockquote>
-<h1 id="问题描述"><a class="markdownIt-Anchor" href="#问题描述"></a> 问题描述</h1>
-<p>打开cmd的时候直接出错，提示“此时不应有&amp;”，英文版应该是“&amp; was unexpected at this time”。问题的实际情况见下图。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/error.png" alt="" /></p>
-<h1 id="问题解决"><a class="markdownIt-Anchor" href="#问题解决"></a> 问题解决</h1>
-<p>幸运的是在stack overflow上能够找到解决方案。首先经过测试<code>cmd.exe /d</code>能够正常运行。<code>cmd.exe /d</code>命令可以阻止注册表中的<code>AutoRun</code>运行。这一点可以在<code>cmd.exe /?</code>中查看有哪些注册表需要检查。</p>
-<p>需要查阅的注册表一共有两处</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor</span><br><span class="line">HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</span><br></pre></td></tr></table></figure>
-<p>使用<code>Win+R</code>并输入<code>regedit</code>打开注册表。查询结果如下</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/regedit1.png" alt="" /></p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/regedit2.png" alt="" /></p>
-<p>可以看到<code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Command Processor</code>的<code>AutoRun</code>中有一个奇怪的值。这里直接删除即可，或者运行下面的指令。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查询所有定义了AutoRun的位置</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun </span><br><span class="line"><span class="comment"># 查看如果执行了命令会发生什么</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun <span class="literal">-WhatIf</span></span><br><span class="line"><span class="comment"># 删除 -WhatIf即可执行命令</span></span><br><span class="line"><span class="built_in">Get-ItemProperty</span> <span class="literal">-ea</span> Ignore (<span class="string">&#x27;HKCU:&#x27;</span>, <span class="string">&#x27;HKLM:&#x27;</span> <span class="operator">-replace</span> <span class="string">&#x27;$&#x27;</span>, <span class="string">&#x27;\Software\Microsoft\Command Processor&#x27;</span>) AutoRun | Remove-</span><br><span class="line">ItemProperty <span class="literal">-Name</span> AutoRun</span><br></pre></td></tr></table></figure>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/solution.png" alt="运行结果" /></p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/result1.png" alt="运行后的注册表" /></p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.0.6/result2.png" alt="运行后正常的CMD" /></p>
-<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>这个奇葩的小问题有点难受，不知道是哪个软件干的。所幸stack overflow上有问题的定位方法和解决过程。</p>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p><a href="https://stackoverflow.com/questions/59480657/cmd-exe-throws-error-was-unexpected-at-this-time">cmd.exe throws error “&amp; was unexpected at this time.”</a></p>
-]]></content>
-      <categories>
-        <category>Windows</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>cmd</tag>
       </tags>
   </entry>
   <entry>
@@ -3585,107 +3585,6 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       </tags>
   </entry>
   <entry>
-    <title>死锁</title>
-    <url>/2022/10/19/dead-lock/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《絆きらめく恋いろは》</p>
-</blockquote>
-<h1 id="死锁的概念"><a class="markdownIt-Anchor" href="#死锁的概念"></a> 死锁的概念</h1>
-<blockquote>
-<p>死锁是指多个进程因竞争资源而造成的一种僵局（互相等待），若无外力作用，这些进程都将无法向前推进</p>
-</blockquote>
-<h1 id="死锁产生的原因"><a class="markdownIt-Anchor" href="#死锁产生的原因"></a> 死锁产生的原因</h1>
-<ul>
-<li>系统资源不足</li>
-<li>程序执行的顺序有问题</li>
-<li>资源分配不当等</li>
-</ul>
-<h1 id="死锁产生的必要条件"><a class="markdownIt-Anchor" href="#死锁产生的必要条件"></a> 死锁产生的必要条件</h1>
-<blockquote>
-<p>产生死锁必须满足四个必要条件，任意一个条件不成立，死锁就不会发生。</p>
-</blockquote>
-<h2 id="互斥条件"><a class="markdownIt-Anchor" href="#互斥条件"></a> 互斥条件</h2>
-<p>在某一段时间内，资源仅被一个进程占有。若有其他进程请求该资源，则请求进程只能等待。</p>
-<h2 id="不剥夺条件"><a class="markdownIt-Anchor" href="#不剥夺条件"></a> 不剥夺条件</h2>
-<p>进程所获得的资源在未使用完之前，不能被其他进程强行夺走，只能由获得该资源的进程自己来释放。</p>
-<h2 id="请求并保持条件"><a class="markdownIt-Anchor" href="#请求并保持条件"></a> 请求并保持条件</h2>
-<p>进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经被其他进程占有，此时请求进程被阻塞，但对自己获得的资源保持不放。</p>
-<h2 id="循环等待条件"><a class="markdownIt-Anchor" href="#循环等待条件"></a> 循环等待条件</h2>
-<p>存在一种进程资源的循环等待链，链中每个进程已获得的资源同时被链中下一个进程所请求。</p>
-<h1 id="处理死锁"><a class="markdownIt-Anchor" href="#处理死锁"></a> 处理死锁</h1>
-<h2 id="死锁预防"><a class="markdownIt-Anchor" href="#死锁预防"></a> 死锁预防</h2>
-<blockquote>
-<p>破坏死锁的4个必要条件</p>
-</blockquote>
-<h3 id="破坏互斥条件"><a class="markdownIt-Anchor" href="#破坏互斥条件"></a> 破坏互斥条件</h3>
-<p>有些资源必须互斥使用，因此无法破坏互斥条件。</p>
-<h3 id="破坏不剥夺条件"><a class="markdownIt-Anchor" href="#破坏不剥夺条件"></a> 破坏不剥夺条件</h3>
-<p>当进程请求新资源得不到满足时，必须释放已经持有的资源，重新申请。这个策略实现起来比较复杂，反复的申请和释放会导致系统开销增加，降低系统吞吐量。这种方式适用于容易保存和恢复的资源，例如CPU的寄存器和内存资源，一般不能用于打印机之类的资源。</p>
-<h3 id="破坏请求与保持条件"><a class="markdownIt-Anchor" href="#破坏请求与保持条件"></a> 破坏请求与保持条件</h3>
-<p>采用预先静态分配方法，进程在运行之前申请完它所需的所有资源，在使用过程中，这些资源一直归它所有。</p>
-<p>容易发生两个问题：1.导致部分进程饥饿现象，永远申请不满资源。2.导致资源浪费，有些资源只在运行初期或者结束时候使用。</p>
-<h3 id="破坏循环等待条件"><a class="markdownIt-Anchor" href="#破坏循环等待条件"></a> 破坏循环等待条件</h3>
-<p>为了破坏循环等待条件，可以采用顺序资源分配法。给资源编号，进程按照编号递增的顺序请求资源。</p>
-<p>容易造成资源使用的浪费和用户编程的麻烦。</p>
-<h2 id="死锁避免"><a class="markdownIt-Anchor" href="#死锁避免"></a> 死锁避免</h2>
-<blockquote>
-<p>在使用前进行判断，只允许不会产生死锁的进程申请资源<br />
-死锁避免是利用额外的检验信息，在分配资源时判断是否会出现死锁，只在不会出现死锁的情况下才分配资源<br />
-各种死锁防止方法能够防止发生死锁，但必然会降低系统并发性，导致低效的资源利用率</p>
-</blockquote>
-<h3 id="安全状态"><a class="markdownIt-Anchor" href="#安全状态"></a> 安全状态</h3>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.7/safe-state.png" alt="安全状态" /></p>
-<p>图 a 的第二列 Has 表示已拥有的资源数，第三列 Max 表示总共需要的资源数，Free 表示还有可以使用的资源数。从图 a 开始出发，先让 B 拥有所需的所有资源（图 b），运行结束后释放 B，此时 Free 变为 5（图 c）；接着以同样的方式运行 C 和 A，使得所有进程都能成功运行，因此可以称图 a 所示的状态时安全的。</p>
-<p>定义：如果没有死锁发生，并且即使所有进程突然请求对资源的最大需求，也仍然存在某种调度次序能够使得每一个进程运行完毕，则称该状态是安全的。</p>
-<h3 id="银行家算法"><a class="markdownIt-Anchor" href="#银行家算法"></a> 银行家算法</h3>
-<p>银行家算法的主要思想是避免死锁进入不安全状态。每次进行资源分配时，它先检查系统是否有足够的资源满足要求，若有则先进行分配，并对分配后的新状态进行安全性检查。若新状态安全，则正是分配上述资源，否则拒绝分配上述资源。然后回收已分配的资源，进行下一轮分配。这样能保证资源始终处于安全状态，从而避免死锁发生。</p>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.7/bank-unsafe.png" alt="" /><br />
-上图c为不安全状态，因此算法会拒绝进入图c请求</p>
-<h2 id="死锁检测与恢复"><a class="markdownIt-Anchor" href="#死锁检测与恢复"></a> 死锁检测与恢复</h2>
-<h3 id="死锁检测"><a class="markdownIt-Anchor" href="#死锁检测"></a> 死锁检测</h3>
-<h4 id="资源分配图"><a class="markdownIt-Anchor" href="#资源分配图"></a> 资源分配图</h4>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.7/rag.jpg" alt="资源分配图" /></p>
-<ul>
-<li>圆圈代表进程</li>
-<li>方框代表一类资源</li>
-<li>进程到资源的有向边代表请求资源边</li>
-<li>资源到进程的有向边代表资源分配边<br />
-如图所示，P1进程分得两个R1资源，又请求一个R2资源；P2进程分得一个R1资源和R2资源，又请求了一个R1资源。</li>
-</ul>
-<h4 id="简化资源分配图"><a class="markdownIt-Anchor" href="#简化资源分配图"></a> 简化资源分配图</h4>
-<p>简化资源分配图步骤</p>
-<ol>
-<li>找一个非孤立、且只有分配边的进程节点，去掉分配边，将其变为孤立节点</li>
-<li>再把相应的资源分配给一个等待该资源的进程，即将该进程的申请边变为分配边</li>
-<li>重复1、2</li>
-</ol>
-<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.7/rag2.jpg" alt="化简" /></p>
-<ul>
-<li>(1)到(2): R2剩余1个资源，分配给P1，释放P1</li>
-<li>(2)到(3): R1剩余2个资源，分配给P2，释放P2</li>
-</ul>
-<p>若能消去所有的边，则该图是可完全简化的，死锁的条件是当且仅当S状态的资源分配图是不可完全简化的</p>
-<h3 id="死锁恢复"><a class="markdownIt-Anchor" href="#死锁恢复"></a> 死锁恢复</h3>
-<ul>
-<li>资源剥夺法。挂起某些死锁进程并抢夺它的资源，直到死锁接触。但要防止被挂起的进程长时间得不到资源而饥饿。</li>
-<li>撤销进程法。强制撤销部分、甚至全部死锁进程并剥夺这些资源。</li>
-<li>进程回退法。让一个或多个进程回退到足以回避死锁的地步。要求保持进程的历史信息，设置还原点。</li>
-</ul>
-<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
-<p><a href="https://www.nowcoder.com/questionTerminal/09b51b00891543d6b08ace80c0704b01">什么是死锁(deadlock)</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/25677118">死锁产生的原因及四个必要条件</a></p>
-<p><a href="https://blog.csdn.net/zhangpower1993/article/details/89518780">死锁的四个必要条件、预防和避免办法</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/61221667">​死锁的产生、防止、避免、检测和解除</a></p>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>进程与线程</title>
     <url>/2022/10/06/process-and-thread/</url>
     <content><![CDATA[<blockquote>
@@ -3847,6 +3746,107 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
 <p><a href="https://mp.weixin.qq.com/s/jhOSjVyRA6rNKqVT2pKMIQ">进程、线程与协程傻傻分不清？一文带你吃透！</a></p>
 <p><a href="https://freecplus.net/d95f4eaf18eb46d19b82383519126dec.html">C语言技术网</a></p>
 <p><a href="https://mp.weixin.qq.com/s/iHQGe2J-4C405CYzBIqXNg">三分钟基础：用户级线程和内核级线程有什么区别？</a></p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>死锁</title>
+    <url>/2022/10/19/dead-lock/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《絆きらめく恋いろは》</p>
+</blockquote>
+<h1 id="死锁的概念"><a class="markdownIt-Anchor" href="#死锁的概念"></a> 死锁的概念</h1>
+<blockquote>
+<p>死锁是指多个进程因竞争资源而造成的一种僵局（互相等待），若无外力作用，这些进程都将无法向前推进</p>
+</blockquote>
+<h1 id="死锁产生的原因"><a class="markdownIt-Anchor" href="#死锁产生的原因"></a> 死锁产生的原因</h1>
+<ul>
+<li>系统资源不足</li>
+<li>程序执行的顺序有问题</li>
+<li>资源分配不当等</li>
+</ul>
+<h1 id="死锁产生的必要条件"><a class="markdownIt-Anchor" href="#死锁产生的必要条件"></a> 死锁产生的必要条件</h1>
+<blockquote>
+<p>产生死锁必须满足四个必要条件，任意一个条件不成立，死锁就不会发生。</p>
+</blockquote>
+<h2 id="互斥条件"><a class="markdownIt-Anchor" href="#互斥条件"></a> 互斥条件</h2>
+<p>在某一段时间内，资源仅被一个进程占有。若有其他进程请求该资源，则请求进程只能等待。</p>
+<h2 id="不剥夺条件"><a class="markdownIt-Anchor" href="#不剥夺条件"></a> 不剥夺条件</h2>
+<p>进程所获得的资源在未使用完之前，不能被其他进程强行夺走，只能由获得该资源的进程自己来释放。</p>
+<h2 id="请求并保持条件"><a class="markdownIt-Anchor" href="#请求并保持条件"></a> 请求并保持条件</h2>
+<p>进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经被其他进程占有，此时请求进程被阻塞，但对自己获得的资源保持不放。</p>
+<h2 id="循环等待条件"><a class="markdownIt-Anchor" href="#循环等待条件"></a> 循环等待条件</h2>
+<p>存在一种进程资源的循环等待链，链中每个进程已获得的资源同时被链中下一个进程所请求。</p>
+<h1 id="处理死锁"><a class="markdownIt-Anchor" href="#处理死锁"></a> 处理死锁</h1>
+<h2 id="死锁预防"><a class="markdownIt-Anchor" href="#死锁预防"></a> 死锁预防</h2>
+<blockquote>
+<p>破坏死锁的4个必要条件</p>
+</blockquote>
+<h3 id="破坏互斥条件"><a class="markdownIt-Anchor" href="#破坏互斥条件"></a> 破坏互斥条件</h3>
+<p>有些资源必须互斥使用，因此无法破坏互斥条件。</p>
+<h3 id="破坏不剥夺条件"><a class="markdownIt-Anchor" href="#破坏不剥夺条件"></a> 破坏不剥夺条件</h3>
+<p>当进程请求新资源得不到满足时，必须释放已经持有的资源，重新申请。这个策略实现起来比较复杂，反复的申请和释放会导致系统开销增加，降低系统吞吐量。这种方式适用于容易保存和恢复的资源，例如CPU的寄存器和内存资源，一般不能用于打印机之类的资源。</p>
+<h3 id="破坏请求与保持条件"><a class="markdownIt-Anchor" href="#破坏请求与保持条件"></a> 破坏请求与保持条件</h3>
+<p>采用预先静态分配方法，进程在运行之前申请完它所需的所有资源，在使用过程中，这些资源一直归它所有。</p>
+<p>容易发生两个问题：1.导致部分进程饥饿现象，永远申请不满资源。2.导致资源浪费，有些资源只在运行初期或者结束时候使用。</p>
+<h3 id="破坏循环等待条件"><a class="markdownIt-Anchor" href="#破坏循环等待条件"></a> 破坏循环等待条件</h3>
+<p>为了破坏循环等待条件，可以采用顺序资源分配法。给资源编号，进程按照编号递增的顺序请求资源。</p>
+<p>容易造成资源使用的浪费和用户编程的麻烦。</p>
+<h2 id="死锁避免"><a class="markdownIt-Anchor" href="#死锁避免"></a> 死锁避免</h2>
+<blockquote>
+<p>在使用前进行判断，只允许不会产生死锁的进程申请资源<br />
+死锁避免是利用额外的检验信息，在分配资源时判断是否会出现死锁，只在不会出现死锁的情况下才分配资源<br />
+各种死锁防止方法能够防止发生死锁，但必然会降低系统并发性，导致低效的资源利用率</p>
+</blockquote>
+<h3 id="安全状态"><a class="markdownIt-Anchor" href="#安全状态"></a> 安全状态</h3>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.7/safe-state.png" alt="安全状态" /></p>
+<p>图 a 的第二列 Has 表示已拥有的资源数，第三列 Max 表示总共需要的资源数，Free 表示还有可以使用的资源数。从图 a 开始出发，先让 B 拥有所需的所有资源（图 b），运行结束后释放 B，此时 Free 变为 5（图 c）；接着以同样的方式运行 C 和 A，使得所有进程都能成功运行，因此可以称图 a 所示的状态时安全的。</p>
+<p>定义：如果没有死锁发生，并且即使所有进程突然请求对资源的最大需求，也仍然存在某种调度次序能够使得每一个进程运行完毕，则称该状态是安全的。</p>
+<h3 id="银行家算法"><a class="markdownIt-Anchor" href="#银行家算法"></a> 银行家算法</h3>
+<p>银行家算法的主要思想是避免死锁进入不安全状态。每次进行资源分配时，它先检查系统是否有足够的资源满足要求，若有则先进行分配，并对分配后的新状态进行安全性检查。若新状态安全，则正是分配上述资源，否则拒绝分配上述资源。然后回收已分配的资源，进行下一轮分配。这样能保证资源始终处于安全状态，从而避免死锁发生。</p>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.7/bank-unsafe.png" alt="" /><br />
+上图c为不安全状态，因此算法会拒绝进入图c请求</p>
+<h2 id="死锁检测与恢复"><a class="markdownIt-Anchor" href="#死锁检测与恢复"></a> 死锁检测与恢复</h2>
+<h3 id="死锁检测"><a class="markdownIt-Anchor" href="#死锁检测"></a> 死锁检测</h3>
+<h4 id="资源分配图"><a class="markdownIt-Anchor" href="#资源分配图"></a> 资源分配图</h4>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.7/rag.jpg" alt="资源分配图" /></p>
+<ul>
+<li>圆圈代表进程</li>
+<li>方框代表一类资源</li>
+<li>进程到资源的有向边代表请求资源边</li>
+<li>资源到进程的有向边代表资源分配边<br />
+如图所示，P1进程分得两个R1资源，又请求一个R2资源；P2进程分得一个R1资源和R2资源，又请求了一个R1资源。</li>
+</ul>
+<h4 id="简化资源分配图"><a class="markdownIt-Anchor" href="#简化资源分配图"></a> 简化资源分配图</h4>
+<p>简化资源分配图步骤</p>
+<ol>
+<li>找一个非孤立、且只有分配边的进程节点，去掉分配边，将其变为孤立节点</li>
+<li>再把相应的资源分配给一个等待该资源的进程，即将该进程的申请边变为分配边</li>
+<li>重复1、2</li>
+</ol>
+<p><img src="https://jsd.cdn.zzko.cn/gh/qxdn/qxdn-assert@0.4.7/rag2.jpg" alt="化简" /></p>
+<ul>
+<li>(1)到(2): R2剩余1个资源，分配给P1，释放P1</li>
+<li>(2)到(3): R1剩余2个资源，分配给P2，释放P2</li>
+</ul>
+<p>若能消去所有的边，则该图是可完全简化的，死锁的条件是当且仅当S状态的资源分配图是不可完全简化的</p>
+<h3 id="死锁恢复"><a class="markdownIt-Anchor" href="#死锁恢复"></a> 死锁恢复</h3>
+<ul>
+<li>资源剥夺法。挂起某些死锁进程并抢夺它的资源，直到死锁接触。但要防止被挂起的进程长时间得不到资源而饥饿。</li>
+<li>撤销进程法。强制撤销部分、甚至全部死锁进程并剥夺这些资源。</li>
+<li>进程回退法。让一个或多个进程回退到足以回避死锁的地步。要求保持进程的历史信息，设置还原点。</li>
+</ul>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<p><a href="https://www.nowcoder.com/questionTerminal/09b51b00891543d6b08ace80c0704b01">什么是死锁(deadlock)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/25677118">死锁产生的原因及四个必要条件</a></p>
+<p><a href="https://blog.csdn.net/zhangpower1993/article/details/89518780">死锁的四个必要条件、预防和避免办法</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/61221667">​死锁的产生、防止、避免、检测和解除</a></p>
 ]]></content>
       <categories>
         <category>OS</category>
