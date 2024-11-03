@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://qianxu.run/sql-hint/</loc>
-    <lastmod>2024-11-03</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
-    <lastmod>2024-11-03</lastmod>
-  </url>
-  <url>
-    <loc>https://qianxu.run/2021/08/13/file-hash/</loc>
-    <lastmod>2024-11-03</lastmod>
-  </url>
-  <url>
     <loc>https://qianxu.run/2021/08/17/beautify-terminal/</loc>
     <lastmod>2024-11-03</lastmod>
   </url>
@@ -225,6 +213,10 @@
     <lastmod>2024-11-03</lastmod>
   </url>
   <url>
+    <loc>https://qianxu.run/sql-hint/</loc>
+    <lastmod>2024-11-03</lastmod>
+  </url>
+  <url>
     <loc>https://qianxu.run/2020/10/18/helloworld/</loc>
     <lastmod>2024-11-03</lastmod>
   </url>
@@ -334,6 +326,14 @@
   </url>
   <url>
     <loc>https://qianxu.run/2021/08/05/DCGAN/</loc>
+    <lastmod>2024-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
+    <lastmod>2024-11-03</lastmod>
+  </url>
+  <url>
+    <loc>https://qianxu.run/2021/08/13/file-hash/</loc>
     <lastmod>2024-11-03</lastmod>
   </url>
 </urlset> 

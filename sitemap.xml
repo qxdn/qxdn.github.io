@@ -20,15 +20,6 @@
   </url>
   
   <url>
-    <loc>https://qianxu.run/sql-hint/</loc>
-    
-    <lastmod>2024-11-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://qianxu.run/about/index.html</loc>
     
     <lastmod>2024-11-03</lastmod>
@@ -57,24 +48,6 @@
   
   <url>
     <loc>https://qianxu.run/gallery/index.html</loc>
-    
-    <lastmod>2024-11-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
-    
-    <lastmod>2024-11-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://qianxu.run/2021/08/13/file-hash/</loc>
     
     <lastmod>2024-11-03</lastmod>
     
@@ -560,6 +533,15 @@
   </url>
   
   <url>
+    <loc>https://qianxu.run/sql-hint/</loc>
+    
+    <lastmod>2024-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://qianxu.run/2020/10/18/helloworld/</loc>
     
     <lastmod>2024-11-03</lastmod>
@@ -804,6 +786,24 @@
   
   <url>
     <loc>https://qianxu.run/2021/08/05/DCGAN/</loc>
+    
+    <lastmod>2024-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2021/08/11/source-mirror/</loc>
+    
+    <lastmod>2024-11-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://qianxu.run/2021/08/13/file-hash/</loc>
     
     <lastmod>2024-11-03</lastmod>
     
