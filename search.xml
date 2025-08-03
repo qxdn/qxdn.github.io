@@ -1467,6 +1467,50 @@ YOLO9000 是一个通过联合优化检测、分类数据集检测超过 9000 �
       </tags>
   </entry>
   <entry>
+    <title>毕业设计（七）基于深度学习算法 YOLO 的行人车辆检测 —— 答辩记录</title>
+    <url>/2021/07/03/YOLO-oral-defense/</url>
+    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就 8 到 9 个。</p>
+<span id="more"></span>
+<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
+<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
+<blockquote>
+<p>答辩 PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
+</blockquote>
+<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
+<ul>
+<li>Q1： 几类目标？<br>
+6 类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
+<li>Q2：实测框架？<br>
+本次系统使用 pytorch 框架实现</li>
+<li> Q3：不平衡怎么去确定<br>
+根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
+<li> Q4：数据集如何自建？收集？<br>
+本次数据集从大型检测数据集 COCO、自动驾驶数据集 BDD100K 中提取的含有行人车辆图片和网络爬取的图片组成。</li>
+<li>Q5：损失函数的选择理由？<br>
+损失函数由 box loss、obj loss、cls loss 三部分组成。其中 box loss 为边界框定位部分，由 c-iou loss 组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss 采用 BCE Logits 函数，对边界框中含有物体的置信度进行优化。cls loss 采用 BCE 函数，对边界框的分类进行优化。</li>
+<li>Q6：为什么不采用公开数据集？70% 训练，30% 测试，理由？<br>
+由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br>
+本次训练和验证一共使用约 2 万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将 70% 的数据用于训练，20% 数据用于验证。<br>
+(其实因为没钱。免费 colab 嫖到没次数了，租的 GPU 又贵，网盘功能免费只给 5G，只能搞小一点数据集)</li>
+<li>Q7：改进结果突出哪些类？<br>
+所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有 4.1% 的提升效果。</li>
+<li>Q8：为什么 car 类提升效果最高？<br>
+调整特征融合部分主要是针对长宽小于 8 像素的小目标改进，而在这些小目标中 car 类的实例数量约占一半，因此 car 类受到的提升效果最高。<br>
+(因为当时 PPT 打错了，老师原本问的是 motor)</li>
+</ul>
+<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
+<p>因为当时答辩的 PPT 把 motor 类的数值写错了，以至于老师以为我的提升效果有 10%，实际只有 2% 左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+        <tag>毕业设计</tag>
+        <tag>yolo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毕业设计（六）基于深度学习算法 YOLO 的行人车辆检测 —— 论文</title>
     <url>/2021/07/02/YOLO-paper/</url>
     <content><![CDATA[<p>特别特别水的论文，数据集和权重晚点放到仓库里面</p>
@@ -1780,50 +1824,6 @@ ms。可以估算得到改进后模型的速度约为 159 FPS，可以满足实�
 </li>
 </ol>
 </section>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-        <tag>毕业设计</tag>
-        <tag>yolo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>毕业设计（七）基于深度学习算法 YOLO 的行人车辆检测 —— 答辩记录</title>
-    <url>/2021/07/03/YOLO-oral-defense/</url>
-    <content><![CDATA[<p>很不幸的是被抽到了公开答辩，然而幸运的是我是第一个答辩，系里面的老师也没有全来，大概到场的也就 8 到 9 个。</p>
-<span id="more"></span>
-<h1 id="写在前面"><a class="markdownIt-Anchor" href="#写在前面"></a> 写在前面</h1>
-<p>我估计老师在答辩的时候感觉出来我做的比较水，只是因为有督导在前面就给我点面子，最后水了个优秀毕业论文。校优秀就不申请了，嫌麻烦，而且估计更多老师看明白是个水文。</p>
-<blockquote>
-<p>答辩 PPT: <a href="https://pan.baidu.com/s/1V_GZbogIoj9Q_tkY7HfqQw">百度盘</a> 提取码: p7yv</p>
-</blockquote>
-<h1 id="答辩记录"><a class="markdownIt-Anchor" href="#答辩记录"></a> 答辩记录</h1>
-<ul>
-<li>Q1： 几类目标？<br>
-6 类，分别为行人（Person）、自行车（bike）、机动车（car）、摩托车（motor）、公交车（bus）和卡车（truck）</li>
-<li>Q2：实测框架？<br>
-本次系统使用 pytorch 框架实现</li>
-<li> Q3：不平衡怎么去确定<br>
-根据数据集中各个类的数量比对， 行人类和机动车类明显比其他类别要多</li>
-<li> Q4：数据集如何自建？收集？<br>
-本次数据集从大型检测数据集 COCO、自动驾驶数据集 BDD100K 中提取的含有行人车辆图片和网络爬取的图片组成。</li>
-<li>Q5：损失函数的选择理由？<br>
-损失函数由 box loss、obj loss、cls loss 三部分组成。其中 box loss 为边界框定位部分，由 c-iou loss 组成，其反应了预测框和真实框的重叠程度、中心点距离和长宽比，优化边界框的定位问题。对于分类部分采取逻辑回归函数能够更好的反应预测物体性和预测类别与真实值的差别。obj loss 采用 BCE Logits 函数，对边界框中含有物体的置信度进行优化。cls loss 采用 BCE 函数，对边界框的分类进行优化。</li>
-<li>Q6：为什么不采用公开数据集？70% 训练，30% 测试，理由？<br>
-由于未能找到符合我需求的公开数据集，因此从各个公开数据集中提取需要的类别检测。<br>
-本次训练和验证一共使用约 2 万张图片，属于小数据集。因此采用机器学习中传统的划分方法，即将 70% 的数据用于训练，20% 数据用于验证。<br>
-(其实因为没钱。免费 colab 嫖到没次数了，租的 GPU 又贵，网盘功能免费只给 5G，只能搞小一点数据集)</li>
-<li>Q7：改进结果突出哪些类？<br>
-所有类的均值平均精确度都有一定的提升，效果最大的为机动车类，约有 4.1% 的提升效果。</li>
-<li>Q8：为什么 car 类提升效果最高？<br>
-调整特征融合部分主要是针对长宽小于 8 像素的小目标改进，而在这些小目标中 car 类的实例数量约占一半，因此 car 类受到的提升效果最高。<br>
-(因为当时 PPT 打错了，老师原本问的是 motor)</li>
-</ul>
-<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
-<p>因为当时答辩的 PPT 把 motor 类的数值写错了，以至于老师以为我的提升效果有 10%，实际只有 2% 左右吧。搞得我答辩时候很懵逼，总共提升效果一般般，而老师以为很大。</p>
 ]]></content>
       <categories>
         <category>机器学习</category>
@@ -2224,6 +2224,40 @@ _________________________________________________________________
       </tags>
   </entry>
   <entry>
+    <title>powershell 设置代理</title>
+    <url>/2021/08/18/powershell-proxy/</url>
+    <content><![CDATA[<p>本文主要是为 powershell、cmd 等 windows 终端设置代理<br>
+封面《LAMUNATION！》</p>
+<span id="more"></span>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>在 powershell 中使用一些工具下载外网资源的时候经常会碰到一些网络问题。这些时候往往设置一下 VPN 的代理模式为全局代理即可。但往往有些时候设置全局代理也没用，亦或者一时没法切换代理模式（比如 Chrome 下载一些资源的时候），这些时候就需要设置 powershell 的代理了。</p>
+<h1 id="powershell设置代理"><a class="markdownIt-Anchor" href="#powershell设置代理"></a> powershell 设置代理</h1>
+<h2 id="查看代理"><a class="markdownIt-Anchor" href="#查看代理"></a> 查看代理</h2>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">netsh winhttp show proxy</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.1.6/show-proxy.png" alt=""></p>
+<p>可以虽然我设置了 VPN（非全局模式），但是其依然显示直接连接</p>
+<h2 id="设置代理"><a class="markdownIt-Anchor" href="#设置代理"></a> 设置代理</h2>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 需要管理员权限</span></span><br><span class="line"><span class="comment"># 否则 Error writing proxy settings. (5) Access is denied.</span></span><br><span class="line">netsh winhttp <span class="built_in">set</span> proxy <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">41091</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">netsh winhttp import proxy source=ie</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.1.6/set-proxy.png" alt=""></p>
+<p>下面这个不用管理员权限也可，不过无法直接查看。第一次遇见是在 vcpkg 中使用</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="variable">$env:HTTP_PROXY</span>=<span class="string">"http://127.0.0.1:41091"</span></span><br><span class="line"><span class="variable">$env:HTTPS_PROXY</span>=<span class="string">"https://127.0.0.1:41091"</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="取消代理"><a class="markdownIt-Anchor" href="#取消代理"></a> 取消代理</h2>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">netsh winhttp reset proxy</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.1.6/reset-proxy.png" alt=""></p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="http://woshub.com/using-powershell-behind-a-proxy/">Using PowerShell Behind a Proxy Server</a></p>
+<p><a href="https://www.jianshu.com/p/7d08b3c2be95">Windows 为 cmd/powershell 设置代理</a></p>
+]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>powershell</tag>
+        <tag>Terminal</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>美化终端</title>
     <url>/2021/08/17/beautify-terminal/</url>
     <content><![CDATA[<p>不小心将 oh-my-posh 从 V2 升级到了 V3，许多东西有了较大变化。此篇博客记录一下主题的修改记录。<br>
@@ -2274,40 +2308,6 @@ _________________________________________________________________
       <tags>
         <tag>Windows</tag>
         <tag>Terminal</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>powershell 设置代理</title>
-    <url>/2021/08/18/powershell-proxy/</url>
-    <content><![CDATA[<p>本文主要是为 powershell、cmd 等 windows 终端设置代理<br>
-封面《LAMUNATION！》</p>
-<span id="more"></span>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>在 powershell 中使用一些工具下载外网资源的时候经常会碰到一些网络问题。这些时候往往设置一下 VPN 的代理模式为全局代理即可。但往往有些时候设置全局代理也没用，亦或者一时没法切换代理模式（比如 Chrome 下载一些资源的时候），这些时候就需要设置 powershell 的代理了。</p>
-<h1 id="powershell设置代理"><a class="markdownIt-Anchor" href="#powershell设置代理"></a> powershell 设置代理</h1>
-<h2 id="查看代理"><a class="markdownIt-Anchor" href="#查看代理"></a> 查看代理</h2>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">netsh winhttp show proxy</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.1.6/show-proxy.png" alt=""></p>
-<p>可以虽然我设置了 VPN（非全局模式），但是其依然显示直接连接</p>
-<h2 id="设置代理"><a class="markdownIt-Anchor" href="#设置代理"></a> 设置代理</h2>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># 需要管理员权限</span></span><br><span class="line"><span class="comment"># 否则 Error writing proxy settings. (5) Access is denied.</span></span><br><span class="line">netsh winhttp <span class="built_in">set</span> proxy <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">41091</span></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line">netsh winhttp import proxy source=ie</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.1.6/set-proxy.png" alt=""></p>
-<p>下面这个不用管理员权限也可，不过无法直接查看。第一次遇见是在 vcpkg 中使用</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="variable">$env:HTTP_PROXY</span>=<span class="string">"http://127.0.0.1:41091"</span></span><br><span class="line"><span class="variable">$env:HTTPS_PROXY</span>=<span class="string">"https://127.0.0.1:41091"</span></span><br></pre></td></tr></tbody></table></figure>
-<h2 id="取消代理"><a class="markdownIt-Anchor" href="#取消代理"></a> 取消代理</h2>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">netsh winhttp reset proxy</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.1.6/reset-proxy.png" alt=""></p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<p><a href="http://woshub.com/using-powershell-behind-a-proxy/">Using PowerShell Behind a Proxy Server</a></p>
-<p><a href="https://www.jianshu.com/p/7d08b3c2be95">Windows 为 cmd/powershell 设置代理</a></p>
-]]></content>
-      <categories>
-        <category>杂项</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>Terminal</tag>
-        <tag>powershell</tag>
       </tags>
   </entry>
   <entry>
@@ -3146,44 +3146,6 @@ Cypher 中的节点表示如下</p>
       </tags>
   </entry>
   <entry>
-    <title>U-Net 论文笔记</title>
-    <url>/2022/01/27/unet-note/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《湛蓝牢笼 Rail of Möbius》</p>
-</blockquote>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>因为实验室项目使用了 U-Net 网络因此读了一下论文来了解一下。</p>
-<p>卷积神经网络的典型应用是分类任务，而医学影像需要位置信息，即对每一个像素打标签。此外医学影像的数据集很少。<br>
-在 U-Net 之前 Hence,Ciresan 等人训练了一种基于滑动窗口的方法，该方法使用一个像素周围的局部区域（patch）的像素来预测该像素的类别。这种方法有两个优点:</p>
-<ul>
-<li>可以进行类别的定位</li>
-<li>每个 patch 可以视为数据增强增大训练集的数据量。</li>
-</ul>
-<p>但是这种方法也有两个缺点:</p>
-<ul>
-<li>速度很慢，因为网络需要计算每个 patch，同时每个 patch 还有大量重叠冗余</li>
-<li>需要权衡定位准确度和使用的上下文信息，因为大 patch 需要更多的池化层，会减少定位的准确度。而小 patch 只能让网络看到一点内容。</li>
-</ul>
-<p>对此 U-Net 提出了新的网络结构。而对于医学影像数据集少，U-Net 提出了使用弹性形变来进行数据增强增加数据集。</p>
-<h1 id="u-net网络结构"><a class="markdownIt-Anchor" href="#u-net网络结构"></a> U-Net 网络结构</h1>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.4/U-Net.png" alt="U-Net结构"></p>
-<p>U-Net 的其中一个创新点就是其网络结构，其分为左侧的 contrating path 和右侧的 expansive path。左侧为典型的卷积神经网络，使用两个 3×3 卷积层，每一个卷积后有一个非线性的 RELU，然后用 2×2 的最大池化层进行下采样，下采样之后将通道数翻倍。右侧的 expansive path 每一步为使用一个 2×2 的卷积上采样减半通道数，并将左侧的特征图拼接起来（concat），然后使用通过两个 3×3 的卷积层，每一个有 RELU 激活函数。在最后一层使用 1×1 卷积将通道转换为需要的类别。整个网络一共有 23 个卷积层。</p>
-<p>整个网络是一个 encoder-decoder 结构，由于形状像 U 型所以被命名为 U-Net。</p>
-<h1 id="3d-u-net结构"><a class="markdownIt-Anchor" href="#3d-u-net结构"></a> 3D U-Net 结构</h1>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.4/3D_U-Net.png" alt="3D U-Net结构"><br>
-3D U-Net 的结构与 U-Net 基本一致，就是卷积等操作变成三维操作，同时相比 U-Net 还增加了 BatchNorm 层，结构图中还可以看出上采样的时候通道数并没有减半。</p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<p><a href="https://arxiv.org/abs/1505.04597">Ronneberger O, Fischer P, Brox T. U-net: Convolutional networks for biomedical image segmentation[C]//International Conference on Medical image computing and computer-assisted intervention. Springer, Cham, 2015: 234-241.</a></p>
-<p><a href="https://arxiv.org/abs/1606.06650">Çiçek Ö, Abdulkadir A, Lienkamp S S, et al. 3D U-Net: learning dense volumetric segmentation from sparse annotation[C]//International conference on medical image computing and computer-assisted intervention. Springer, Cham, 2016: 424-432.</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>java 全角转半角</title>
     <url>/2022/02/24/sbc2dbc/</url>
     <content><![CDATA[<blockquote>
@@ -3220,6 +3182,44 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       </categories>
       <tags>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>U-Net 论文笔记</title>
+    <url>/2022/01/27/unet-note/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《湛蓝牢笼 Rail of Möbius》</p>
+</blockquote>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>因为实验室项目使用了 U-Net 网络因此读了一下论文来了解一下。</p>
+<p>卷积神经网络的典型应用是分类任务，而医学影像需要位置信息，即对每一个像素打标签。此外医学影像的数据集很少。<br>
+在 U-Net 之前 Hence,Ciresan 等人训练了一种基于滑动窗口的方法，该方法使用一个像素周围的局部区域（patch）的像素来预测该像素的类别。这种方法有两个优点:</p>
+<ul>
+<li>可以进行类别的定位</li>
+<li>每个 patch 可以视为数据增强增大训练集的数据量。</li>
+</ul>
+<p>但是这种方法也有两个缺点:</p>
+<ul>
+<li>速度很慢，因为网络需要计算每个 patch，同时每个 patch 还有大量重叠冗余</li>
+<li>需要权衡定位准确度和使用的上下文信息，因为大 patch 需要更多的池化层，会减少定位的准确度。而小 patch 只能让网络看到一点内容。</li>
+</ul>
+<p>对此 U-Net 提出了新的网络结构。而对于医学影像数据集少，U-Net 提出了使用弹性形变来进行数据增强增加数据集。</p>
+<h1 id="u-net网络结构"><a class="markdownIt-Anchor" href="#u-net网络结构"></a> U-Net 网络结构</h1>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.4/U-Net.png" alt="U-Net结构"></p>
+<p>U-Net 的其中一个创新点就是其网络结构，其分为左侧的 contrating path 和右侧的 expansive path。左侧为典型的卷积神经网络，使用两个 3×3 卷积层，每一个卷积后有一个非线性的 RELU，然后用 2×2 的最大池化层进行下采样，下采样之后将通道数翻倍。右侧的 expansive path 每一步为使用一个 2×2 的卷积上采样减半通道数，并将左侧的特征图拼接起来（concat），然后使用通过两个 3×3 的卷积层，每一个有 RELU 激活函数。在最后一层使用 1×1 卷积将通道转换为需要的类别。整个网络一共有 23 个卷积层。</p>
+<p>整个网络是一个 encoder-decoder 结构，由于形状像 U 型所以被命名为 U-Net。</p>
+<h1 id="3d-u-net结构"><a class="markdownIt-Anchor" href="#3d-u-net结构"></a> 3D U-Net 结构</h1>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.4/3D_U-Net.png" alt="3D U-Net结构"><br>
+3D U-Net 的结构与 U-Net 基本一致，就是卷积等操作变成三维操作，同时相比 U-Net 还增加了 BatchNorm 层，结构图中还可以看出上采样的时候通道数并没有减半。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="https://arxiv.org/abs/1505.04597">Ronneberger O, Fischer P, Brox T. U-net: Convolutional networks for biomedical image segmentation[C]//International Conference on Medical image computing and computer-assisted intervention. Springer, Cham, 2015: 234-241.</a></p>
+<p><a href="https://arxiv.org/abs/1606.06650">Çiçek Ö, Abdulkadir A, Lienkamp S S, et al. 3D U-Net: learning dense volumetric segmentation from sparse annotation[C]//International conference on medical image computing and computer-assisted intervention. Springer, Cham, 2016: 424-432.</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
       </tags>
   </entry>
   <entry>
@@ -3585,6 +3585,107 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
       </tags>
   </entry>
   <entry>
+    <title>死锁</title>
+    <url>/2022/10/19/dead-lock/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《絆きらめく恋いろは》</p>
+</blockquote>
+<h1 id="死锁的概念"><a class="markdownIt-Anchor" href="#死锁的概念"></a> 死锁的概念</h1>
+<blockquote>
+<p>死锁是指多个进程因竞争资源而造成的一种僵局（互相等待），若无外力作用，这些进程都将无法向前推进</p>
+</blockquote>
+<h1 id="死锁产生的原因"><a class="markdownIt-Anchor" href="#死锁产生的原因"></a> 死锁产生的原因</h1>
+<ul>
+<li>系统资源不足</li>
+<li>程序执行的顺序有问题</li>
+<li>资源分配不当等</li>
+</ul>
+<h1 id="死锁产生的必要条件"><a class="markdownIt-Anchor" href="#死锁产生的必要条件"></a> 死锁产生的必要条件</h1>
+<blockquote>
+<p>产生死锁必须满足四个必要条件，任意一个条件不成立，死锁就不会发生。</p>
+</blockquote>
+<h2 id="互斥条件"><a class="markdownIt-Anchor" href="#互斥条件"></a> 互斥条件</h2>
+<p>在某一段时间内，资源仅被一个进程占有。若有其他进程请求该资源，则请求进程只能等待。</p>
+<h2 id="不剥夺条件"><a class="markdownIt-Anchor" href="#不剥夺条件"></a> 不剥夺条件</h2>
+<p>进程所获得的资源在未使用完之前，不能被其他进程强行夺走，只能由获得该资源的进程自己来释放。</p>
+<h2 id="请求并保持条件"><a class="markdownIt-Anchor" href="#请求并保持条件"></a> 请求并保持条件</h2>
+<p>进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经被其他进程占有，此时请求进程被阻塞，但对自己获得的资源保持不放。</p>
+<h2 id="循环等待条件"><a class="markdownIt-Anchor" href="#循环等待条件"></a> 循环等待条件</h2>
+<p>存在一种进程资源的循环等待链，链中每个进程已获得的资源同时被链中下一个进程所请求。</p>
+<h1 id="处理死锁"><a class="markdownIt-Anchor" href="#处理死锁"></a> 处理死锁</h1>
+<h2 id="死锁预防"><a class="markdownIt-Anchor" href="#死锁预防"></a> 死锁预防</h2>
+<blockquote>
+<p>破坏死锁的 4 个必要条件</p>
+</blockquote>
+<h3 id="破坏互斥条件"><a class="markdownIt-Anchor" href="#破坏互斥条件"></a> 破坏互斥条件</h3>
+<p>有些资源必须互斥使用，因此无法破坏互斥条件。</p>
+<h3 id="破坏不剥夺条件"><a class="markdownIt-Anchor" href="#破坏不剥夺条件"></a> 破坏不剥夺条件</h3>
+<p>当进程请求新资源得不到满足时，必须释放已经持有的资源，重新申请。这个策略实现起来比较复杂，反复的申请和释放会导致系统开销增加，降低系统吞吐量。这种方式适用于容易保存和恢复的资源，例如 CPU 的寄存器和内存资源，一般不能用于打印机之类的资源。</p>
+<h3 id="破坏请求与保持条件"><a class="markdownIt-Anchor" href="#破坏请求与保持条件"></a> 破坏请求与保持条件</h3>
+<p>采用预先静态分配方法，进程在运行之前申请完它所需的所有资源，在使用过程中，这些资源一直归它所有。</p>
+<p>容易发生两个问题：1. 导致部分进程饥饿现象，永远申请不满资源。2. 导致资源浪费，有些资源只在运行初期或者结束时候使用。</p>
+<h3 id="破坏循环等待条件"><a class="markdownIt-Anchor" href="#破坏循环等待条件"></a> 破坏循环等待条件</h3>
+<p>为了破坏循环等待条件，可以采用顺序资源分配法。给资源编号，进程按照编号递增的顺序请求资源。</p>
+<p>容易造成资源使用的浪费和用户编程的麻烦。</p>
+<h2 id="死锁避免"><a class="markdownIt-Anchor" href="#死锁避免"></a> 死锁避免</h2>
+<blockquote>
+<p>在使用前进行判断，只允许不会产生死锁的进程申请资源<br>
+死锁避免是利用额外的检验信息，在分配资源时判断是否会出现死锁，只在不会出现死锁的情况下才分配资源<br>
+各种死锁防止方法能够防止发生死锁，但必然会降低系统并发性，导致低效的资源利用率</p>
+</blockquote>
+<h3 id="安全状态"><a class="markdownIt-Anchor" href="#安全状态"></a> 安全状态</h3>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.4.7/safe-state.png" alt="安全状态"></p>
+<p>图 a 的第二列 Has 表示已拥有的资源数，第三列 Max 表示总共需要的资源数，Free 表示还有可以使用的资源数。从图 a 开始出发，先让 B 拥有所需的所有资源（图 b），运行结束后释放 B，此时 Free 变为 5（图 c）；接着以同样的方式运行 C 和 A，使得所有进程都能成功运行，因此可以称图 a 所示的状态时安全的。</p>
+<p>定义：如果没有死锁发生，并且即使所有进程突然请求对资源的最大需求，也仍然存在某种调度次序能够使得每一个进程运行完毕，则称该状态是安全的。</p>
+<h3 id="银行家算法"><a class="markdownIt-Anchor" href="#银行家算法"></a> 银行家算法</h3>
+<p>银行家算法的主要思想是避免死锁进入不安全状态。每次进行资源分配时，它先检查系统是否有足够的资源满足要求，若有则先进行分配，并对分配后的新状态进行安全性检查。若新状态安全，则正是分配上述资源，否则拒绝分配上述资源。然后回收已分配的资源，进行下一轮分配。这样能保证资源始终处于安全状态，从而避免死锁发生。</p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.4.7/bank-unsafe.png" alt=""><br>
+上图 c 为不安全状态，因此算法会拒绝进入图 c 请求</p>
+<h2 id="死锁检测与恢复"><a class="markdownIt-Anchor" href="#死锁检测与恢复"></a> 死锁检测与恢复</h2>
+<h3 id="死锁检测"><a class="markdownIt-Anchor" href="#死锁检测"></a> 死锁检测</h3>
+<h4 id="资源分配图"><a class="markdownIt-Anchor" href="#资源分配图"></a> 资源分配图</h4>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.4.7/rag.jpg" alt="资源分配图"></p>
+<ul>
+<li>圆圈代表进程</li>
+<li>方框代表一类资源</li>
+<li>进程到资源的有向边代表请求资源边</li>
+<li>资源到进程的有向边代表资源分配边<br>
+如图所示，P1 进程分得两个 R1 资源，又请求一个 R2 资源；P2 进程分得一个 R1 资源和 R2 资源，又请求了一个 R1 资源。</li>
+</ul>
+<h4 id="简化资源分配图"><a class="markdownIt-Anchor" href="#简化资源分配图"></a> 简化资源分配图</h4>
+<p>简化资源分配图步骤</p>
+<ol>
+<li>找一个非孤立、且只有分配边的进程节点，去掉分配边，将其变为孤立节点</li>
+<li>再把相应的资源分配给一个等待该资源的进程，即将该进程的申请边变为分配边</li>
+<li>重复 1、2</li>
+</ol>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.4.7/rag2.jpg" alt="化简"></p>
+<ul>
+<li>(1) 到 (2): R2 剩余 1 个资源，分配给 P1，释放 P1</li>
+<li>(2) 到 (3): R1 剩余 2 个资源，分配给 P2，释放 P2</li>
+</ul>
+<p>若能消去所有的边，则该图是可完全简化的，死锁的条件是当且仅当 S 状态的资源分配图是不可完全简化的</p>
+<h3 id="死锁恢复"><a class="markdownIt-Anchor" href="#死锁恢复"></a> 死锁恢复</h3>
+<ul>
+<li>资源剥夺法。挂起某些死锁进程并抢夺它的资源，直到死锁接触。但要防止被挂起的进程长时间得不到资源而饥饿。</li>
+<li>撤销进程法。强制撤销部分、甚至全部死锁进程并剥夺这些资源。</li>
+<li>进程回退法。让一个或多个进程回退到足以回避死锁的地步。要求保持进程的历史信息，设置还原点。</li>
+</ul>
+<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
+<p><a href="https://www.nowcoder.com/questionTerminal/09b51b00891543d6b08ace80c0704b01">什么是死锁 (deadlock)</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/25677118">死锁产生的原因及四个必要条件</a></p>
+<p><a href="https://blog.csdn.net/zhangpower1993/article/details/89518780">死锁的四个必要条件、预防和避免办法</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/61221667">​死锁的产生、防止、避免、检测和解除</a></p>
+]]></content>
+      <categories>
+        <category>OS</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>OS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>进程与线程</title>
     <url>/2022/10/06/process-and-thread/</url>
     <content><![CDATA[<blockquote>
@@ -3746,107 +3847,6 @@ Halfwidth and Fullwidth Forms is also the name of a Unicode block U+FF00–FFEF.
 <p><a href="https://mp.weixin.qq.com/s/jhOSjVyRA6rNKqVT2pKMIQ">进程、线程与协程傻傻分不清？一文带你吃透！</a></p>
 <p><a href="https://freecplus.net/d95f4eaf18eb46d19b82383519126dec.html">C 语言技术网</a></p>
 <p><a href="https://mp.weixin.qq.com/s/iHQGe2J-4C405CYzBIqXNg">三分钟基础：用户级线程和内核级线程有什么区别？</a></p>
-]]></content>
-      <categories>
-        <category>OS</category>
-      </categories>
-      <tags>
-        <tag>面经</tag>
-        <tag>OS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>死锁</title>
-    <url>/2022/10/19/dead-lock/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《絆きらめく恋いろは》</p>
-</blockquote>
-<h1 id="死锁的概念"><a class="markdownIt-Anchor" href="#死锁的概念"></a> 死锁的概念</h1>
-<blockquote>
-<p>死锁是指多个进程因竞争资源而造成的一种僵局（互相等待），若无外力作用，这些进程都将无法向前推进</p>
-</blockquote>
-<h1 id="死锁产生的原因"><a class="markdownIt-Anchor" href="#死锁产生的原因"></a> 死锁产生的原因</h1>
-<ul>
-<li>系统资源不足</li>
-<li>程序执行的顺序有问题</li>
-<li>资源分配不当等</li>
-</ul>
-<h1 id="死锁产生的必要条件"><a class="markdownIt-Anchor" href="#死锁产生的必要条件"></a> 死锁产生的必要条件</h1>
-<blockquote>
-<p>产生死锁必须满足四个必要条件，任意一个条件不成立，死锁就不会发生。</p>
-</blockquote>
-<h2 id="互斥条件"><a class="markdownIt-Anchor" href="#互斥条件"></a> 互斥条件</h2>
-<p>在某一段时间内，资源仅被一个进程占有。若有其他进程请求该资源，则请求进程只能等待。</p>
-<h2 id="不剥夺条件"><a class="markdownIt-Anchor" href="#不剥夺条件"></a> 不剥夺条件</h2>
-<p>进程所获得的资源在未使用完之前，不能被其他进程强行夺走，只能由获得该资源的进程自己来释放。</p>
-<h2 id="请求并保持条件"><a class="markdownIt-Anchor" href="#请求并保持条件"></a> 请求并保持条件</h2>
-<p>进程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经被其他进程占有，此时请求进程被阻塞，但对自己获得的资源保持不放。</p>
-<h2 id="循环等待条件"><a class="markdownIt-Anchor" href="#循环等待条件"></a> 循环等待条件</h2>
-<p>存在一种进程资源的循环等待链，链中每个进程已获得的资源同时被链中下一个进程所请求。</p>
-<h1 id="处理死锁"><a class="markdownIt-Anchor" href="#处理死锁"></a> 处理死锁</h1>
-<h2 id="死锁预防"><a class="markdownIt-Anchor" href="#死锁预防"></a> 死锁预防</h2>
-<blockquote>
-<p>破坏死锁的 4 个必要条件</p>
-</blockquote>
-<h3 id="破坏互斥条件"><a class="markdownIt-Anchor" href="#破坏互斥条件"></a> 破坏互斥条件</h3>
-<p>有些资源必须互斥使用，因此无法破坏互斥条件。</p>
-<h3 id="破坏不剥夺条件"><a class="markdownIt-Anchor" href="#破坏不剥夺条件"></a> 破坏不剥夺条件</h3>
-<p>当进程请求新资源得不到满足时，必须释放已经持有的资源，重新申请。这个策略实现起来比较复杂，反复的申请和释放会导致系统开销增加，降低系统吞吐量。这种方式适用于容易保存和恢复的资源，例如 CPU 的寄存器和内存资源，一般不能用于打印机之类的资源。</p>
-<h3 id="破坏请求与保持条件"><a class="markdownIt-Anchor" href="#破坏请求与保持条件"></a> 破坏请求与保持条件</h3>
-<p>采用预先静态分配方法，进程在运行之前申请完它所需的所有资源，在使用过程中，这些资源一直归它所有。</p>
-<p>容易发生两个问题：1. 导致部分进程饥饿现象，永远申请不满资源。2. 导致资源浪费，有些资源只在运行初期或者结束时候使用。</p>
-<h3 id="破坏循环等待条件"><a class="markdownIt-Anchor" href="#破坏循环等待条件"></a> 破坏循环等待条件</h3>
-<p>为了破坏循环等待条件，可以采用顺序资源分配法。给资源编号，进程按照编号递增的顺序请求资源。</p>
-<p>容易造成资源使用的浪费和用户编程的麻烦。</p>
-<h2 id="死锁避免"><a class="markdownIt-Anchor" href="#死锁避免"></a> 死锁避免</h2>
-<blockquote>
-<p>在使用前进行判断，只允许不会产生死锁的进程申请资源<br>
-死锁避免是利用额外的检验信息，在分配资源时判断是否会出现死锁，只在不会出现死锁的情况下才分配资源<br>
-各种死锁防止方法能够防止发生死锁，但必然会降低系统并发性，导致低效的资源利用率</p>
-</blockquote>
-<h3 id="安全状态"><a class="markdownIt-Anchor" href="#安全状态"></a> 安全状态</h3>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.4.7/safe-state.png" alt="安全状态"></p>
-<p>图 a 的第二列 Has 表示已拥有的资源数，第三列 Max 表示总共需要的资源数，Free 表示还有可以使用的资源数。从图 a 开始出发，先让 B 拥有所需的所有资源（图 b），运行结束后释放 B，此时 Free 变为 5（图 c）；接着以同样的方式运行 C 和 A，使得所有进程都能成功运行，因此可以称图 a 所示的状态时安全的。</p>
-<p>定义：如果没有死锁发生，并且即使所有进程突然请求对资源的最大需求，也仍然存在某种调度次序能够使得每一个进程运行完毕，则称该状态是安全的。</p>
-<h3 id="银行家算法"><a class="markdownIt-Anchor" href="#银行家算法"></a> 银行家算法</h3>
-<p>银行家算法的主要思想是避免死锁进入不安全状态。每次进行资源分配时，它先检查系统是否有足够的资源满足要求，若有则先进行分配，并对分配后的新状态进行安全性检查。若新状态安全，则正是分配上述资源，否则拒绝分配上述资源。然后回收已分配的资源，进行下一轮分配。这样能保证资源始终处于安全状态，从而避免死锁发生。</p>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.4.7/bank-unsafe.png" alt=""><br>
-上图 c 为不安全状态，因此算法会拒绝进入图 c 请求</p>
-<h2 id="死锁检测与恢复"><a class="markdownIt-Anchor" href="#死锁检测与恢复"></a> 死锁检测与恢复</h2>
-<h3 id="死锁检测"><a class="markdownIt-Anchor" href="#死锁检测"></a> 死锁检测</h3>
-<h4 id="资源分配图"><a class="markdownIt-Anchor" href="#资源分配图"></a> 资源分配图</h4>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.4.7/rag.jpg" alt="资源分配图"></p>
-<ul>
-<li>圆圈代表进程</li>
-<li>方框代表一类资源</li>
-<li>进程到资源的有向边代表请求资源边</li>
-<li>资源到进程的有向边代表资源分配边<br>
-如图所示，P1 进程分得两个 R1 资源，又请求一个 R2 资源；P2 进程分得一个 R1 资源和 R2 资源，又请求了一个 R1 资源。</li>
-</ul>
-<h4 id="简化资源分配图"><a class="markdownIt-Anchor" href="#简化资源分配图"></a> 简化资源分配图</h4>
-<p>简化资源分配图步骤</p>
-<ol>
-<li>找一个非孤立、且只有分配边的进程节点，去掉分配边，将其变为孤立节点</li>
-<li>再把相应的资源分配给一个等待该资源的进程，即将该进程的申请边变为分配边</li>
-<li>重复 1、2</li>
-</ol>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.4.7/rag2.jpg" alt="化简"></p>
-<ul>
-<li>(1) 到 (2): R2 剩余 1 个资源，分配给 P1，释放 P1</li>
-<li>(2) 到 (3): R1 剩余 2 个资源，分配给 P2，释放 P2</li>
-</ul>
-<p>若能消去所有的边，则该图是可完全简化的，死锁的条件是当且仅当 S 状态的资源分配图是不可完全简化的</p>
-<h3 id="死锁恢复"><a class="markdownIt-Anchor" href="#死锁恢复"></a> 死锁恢复</h3>
-<ul>
-<li>资源剥夺法。挂起某些死锁进程并抢夺它的资源，直到死锁接触。但要防止被挂起的进程长时间得不到资源而饥饿。</li>
-<li>撤销进程法。强制撤销部分、甚至全部死锁进程并剥夺这些资源。</li>
-<li>进程回退法。让一个或多个进程回退到足以回避死锁的地步。要求保持进程的历史信息，设置还原点。</li>
-</ul>
-<h1 id="参考"><a class="markdownIt-Anchor" href="#参考"></a> 参考</h1>
-<p><a href="https://www.nowcoder.com/questionTerminal/09b51b00891543d6b08ace80c0704b01">什么是死锁 (deadlock)</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/25677118">死锁产生的原因及四个必要条件</a></p>
-<p><a href="https://blog.csdn.net/zhangpower1993/article/details/89518780">死锁的四个必要条件、预防和避免办法</a></p>
-<p><a href="https://zhuanlan.zhihu.com/p/61221667">​死锁的产生、防止、避免、检测和解除</a></p>
 ]]></content>
       <categories>
         <category>OS</category>
@@ -4880,6 +4880,45 @@ Z(F(x+Z(c;\theta_{z_1});\theta_c);\theta_{z_2}) = Z(F(x;\theta_c);\theta_{z_2}) 
       </tags>
   </entry>
   <entry>
+    <title>UNETR 论文笔记</title>
+    <url>/2023/10/05/unetr-note/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《殻ノ少女》</p>
+</blockquote>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>最近读了 UNETR 的论文，需要了解这个模型，因此就记录一下学习笔记。UNETR 是一种将 UNet 和 Transformer 结合的网络结构，可以用于图像分割任务。</p>
+<h1 id="结构"><a class="markdownIt-Anchor" href="#结构"></a> 结构</h1>
+<p>传统 CNN 网络在分割领域有了很大的成功，但是 CNN 因其结构原因在全局特征信息和长范围空间依赖性上表现较差，这对分割结果有很大的影响。</p>
+<p>Transformer 因其 attention 机制，在全局特征方面有很好的表现，因此 UNETR 提出了一种新的网络结构，将 UNet 和 Transformer 结合，如下图所示。<br>
+其相对其他以往的分割网络有一下特征</p>
+<ul>
+<li>直接为 3D 分割量身定制，直接使用体积数据</li>
+<li>直接将 transformer 作为网络的编码器，而非使用其作为网络中的 attention 层。所有 ViT 中间层的输出大小都是一样的</li>
+<li>不依赖 CNN backbone 生成输入序列，而是直接使用 tokenized patch</li>
+</ul>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.7/UNETR.png" alt="UNETR"></p>
+<p>在 backbone 方面完全采用了 ViT 的结构，其结构与 Transformer 一样，patch embedding 采用了卷积网络结构，patch size 和 stride size 都为 16，并将大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false"> (</mo><mi>N</mi><mo separator="true">,</mo><mi>C</mi><mo separator="true">,</mo><mi>H</mi><mo separator="true">,</mo><mi>W</mi><mo separator="true">,</mo><mi>D</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(N,C,H,W,D)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mclose">)</span></span></span></span> 的图像转换为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false"> (</mo><mi>N</mi><mo separator="true">,</mo><mi>L</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(N,L,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi> L</mi><mo>=</mo><mfrac><mi>H</mi><mn>4</mn></mfrac><mo>×</mo><mfrac><mi>W</mi><mn>4</mn></mfrac><mo>×</mo><mfrac><mi>D</mi><mn>4</mn></mfrac></mrow><annotation encoding="application/x-tex">L=\frac{H}{4} × \frac{W}{4} × \frac{D}{4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.08125em;">H</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<p>在特征金字塔的路径上先将 ViT 中 3、6、9、12 层的输出从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false"> (</mo><mi>N</mi><mo separator="true">,</mo><mi>L</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(N,L,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span> reshape 成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false"> (</mo><mi>N</mi><mo separator="true">,</mo><mi>C</mi><mo separator="true">,</mo><mfrac><mi>H</mi><mn>16</mn></mfrac><mo separator="true">,</mo><mfrac><mi>W</mi><mn>16</mn></mfrac><mo separator="true">,</mo><mfrac><mi>D</mi><mn>16</mn></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(N,C,\frac{H}{16},\frac{W}{16},\frac{D}{16})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.08125em;">H</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span></span> 再进行反卷积上采样，对于下方的特征则是直接反卷积上采样，两者特征直接拼接再卷积提取特征。</p>
+<h1 id="损失函数"><a class="markdownIt-Anchor" href="#损失函数"></a> 损失函数</h1>
+<p>损失函数方面采用 soff dice loss + CE loss，其定义如下</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>G</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mn>2</mn><mi>J</mi></mfrac><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>J</mi></msubsup><mfrac><mrow><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>I</mi></msubsup><msub><mi>G</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><msub><mi>Y</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><mrow><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>I</mi></msubsup><msub><mi>G</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>+</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>I</mi></msubsup><msub><mi>Y</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow></mfrac><mo>−</mo><mfrac><mn>1</mn><mi>I</mi></mfrac><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>I</mi></msubsup><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>J</mi></msubsup><msub><mi>G</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mi>l</mi><mi>o</mi><mi>g</mi><mo stretchy="false">(</mo><msub><mi>Y</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex"> L(G,Y) = 1 - \frac{2}{J} \Sigma_{j=1}^J \frac{\Sigma_{i=1}^I G_{i,j}Y_{i,j} }{\Sigma_{i=1}^I G_{i,j} + \Sigma_{i=1}^I Y_{i,j}} 
+ - \frac{1}{I} \Sigma_{i=1}^I \Sigma_{j=1}^J G_{i,j}log(Y_{i,j})
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">(</span><span class="mord mathdefault">G</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.51757em;vertical-align:-0.999239em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.09618em;">J</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.891331em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.09618em;">J</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.383108em;"><span></span></span></span></span></span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5183309999999999em;"><span style="top:-2.286869em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8231310000000001em;"><span style="top:-2.4231360000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.0448000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.27686399999999994em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8231310000000001em;"><span style="top:-2.4231360000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.0448000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.27686399999999994em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.999239em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.891331em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.09618em;">J</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.383108em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
+<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi> I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span> 是体素数量，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi></mrow><annotation encoding="application/x-tex">J</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span></span></span></span> 是类别数量，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span> 是 ground truth，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span> 是预测值。</p>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>笔者在 <a href="http://www.isles-challenge.org/">ISLES2022</a> 数据集上以输入大小 (2,96,96,96)，优化器为 adamw，损失函数为 dice loss 的情况下训练了 UNETR，是目前各个网络这效果最好的，其 dice 系数在 79.9%。但是由于使用了 transformer 其计算量和显存开销依然不可忽视。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="https://arxiv.org/abs/2103.10504">UNETR</a></p>
+<p><a href="http://www.isles-challenge.org/">ISLES</a></p>
+]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SegResNet 论文笔记</title>
     <url>/2023/02/25/segresnet-note/</url>
     <content><![CDATA[<blockquote>
@@ -4919,45 +4958,6 @@ SegResNet 的网络结构如上图所示，采用 CNN 的 encoder-decoder 结构
 <p><a href="https://docs.monai.io/en/stable/index.html">monai</a></p>
 <p><a href="https://docs.monai.io/en/stable/networks.html#segresnet">SegResNet</a></p>
 <p><a href="https://github.com/IAmSuyogJadhav/3d-mri-brain-tumor-segmentation-using-autoencoder-regularization">3D MRI Brain Tumor Segmentation Using Autoencoder Regularization (Github)</a></p>
-]]></content>
-      <categories>
-        <category>机器学习</category>
-      </categories>
-      <tags>
-        <tag>机器学习</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>UNETR 论文笔记</title>
-    <url>/2023/10/05/unetr-note/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《殻ノ少女》</p>
-</blockquote>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>最近读了 UNETR 的论文，需要了解这个模型，因此就记录一下学习笔记。UNETR 是一种将 UNet 和 Transformer 结合的网络结构，可以用于图像分割任务。</p>
-<h1 id="结构"><a class="markdownIt-Anchor" href="#结构"></a> 结构</h1>
-<p>传统 CNN 网络在分割领域有了很大的成功，但是 CNN 因其结构原因在全局特征信息和长范围空间依赖性上表现较差，这对分割结果有很大的影响。</p>
-<p>Transformer 因其 attention 机制，在全局特征方面有很好的表现，因此 UNETR 提出了一种新的网络结构，将 UNet 和 Transformer 结合，如下图所示。<br>
-其相对其他以往的分割网络有一下特征</p>
-<ul>
-<li>直接为 3D 分割量身定制，直接使用体积数据</li>
-<li>直接将 transformer 作为网络的编码器，而非使用其作为网络中的 attention 层。所有 ViT 中间层的输出大小都是一样的</li>
-<li>不依赖 CNN backbone 生成输入序列，而是直接使用 tokenized patch</li>
-</ul>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.7/UNETR.png" alt="UNETR"></p>
-<p>在 backbone 方面完全采用了 ViT 的结构，其结构与 Transformer 一样，patch embedding 采用了卷积网络结构，patch size 和 stride size 都为 16，并将大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false"> (</mo><mi>N</mi><mo separator="true">,</mo><mi>C</mi><mo separator="true">,</mo><mi>H</mi><mo separator="true">,</mo><mi>W</mi><mo separator="true">,</mo><mi>D</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(N,C,H,W,D)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">W</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mclose">)</span></span></span></span> 的图像转换为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false"> (</mo><mi>N</mi><mo separator="true">,</mo><mi>L</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(N,L,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span>，其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi> L</mi><mo>=</mo><mfrac><mi>H</mi><mn>4</mn></mfrac><mo>×</mo><mfrac><mi>W</mi><mn>4</mn></mfrac><mo>×</mo><mfrac><mi>D</mi><mn>4</mn></mfrac></mrow><annotation encoding="application/x-tex">L=\frac{H}{4} × \frac{W}{4} × \frac{D}{4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">L</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.08125em;">H</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">4</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
-<p>在特征金字塔的路径上先将 ViT 中 3、6、9、12 层的输出从<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false"> (</mo><mi>N</mi><mo separator="true">,</mo><mi>L</mi><mo separator="true">,</mo><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(N,L,C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span> reshape 成<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false"> (</mo><mi>N</mi><mo separator="true">,</mo><mi>C</mi><mo separator="true">,</mo><mfrac><mi>H</mi><mn>16</mn></mfrac><mo separator="true">,</mo><mfrac><mi>W</mi><mn>16</mn></mfrac><mo separator="true">,</mo><mfrac><mi>D</mi><mn>16</mn></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(N,C,\frac{H}{16},\frac{W}{16},\frac{D}{16})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.217331em;vertical-align:-0.345em;"></span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.08125em;">H</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.13889em;">W</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.872331em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">6</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.02778em;">D</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">)</span></span></span></span> 再进行反卷积上采样，对于下方的特征则是直接反卷积上采样，两者特征直接拼接再卷积提取特征。</p>
-<h1 id="损失函数"><a class="markdownIt-Anchor" href="#损失函数"></a> 损失函数</h1>
-<p>损失函数方面采用 soff dice loss + CE loss，其定义如下</p>
-<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>G</mi><mo separator="true">,</mo><mi>Y</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>−</mo><mfrac><mn>2</mn><mi>J</mi></mfrac><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>J</mi></msubsup><mfrac><mrow><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>I</mi></msubsup><msub><mi>G</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><msub><mi>Y</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><mrow><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>I</mi></msubsup><msub><mi>G</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo>+</mo><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>I</mi></msubsup><msub><mi>Y</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow></mfrac><mo>−</mo><mfrac><mn>1</mn><mi>I</mi></mfrac><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>I</mi></msubsup><msubsup><mi mathvariant="normal">Σ</mi><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>J</mi></msubsup><msub><mi>G</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mi>l</mi><mi>o</mi><mi>g</mi><mo stretchy="false">(</mo><msub><mi>Y</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex"> L(G,Y) = 1 - \frac{2}{J} \Sigma_{j=1}^J \frac{\Sigma_{i=1}^I G_{i,j}Y_{i,j} }{\Sigma_{i=1}^I G_{i,j} + \Sigma_{i=1}^I Y_{i,j}} 
- - \frac{1}{I} \Sigma_{i=1}^I \Sigma_{j=1}^J G_{i,j}log(Y_{i,j})
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">(</span><span class="mord mathdefault">G</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.51757em;vertical-align:-0.999239em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.09618em;">J</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.891331em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.09618em;">J</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.383108em;"><span></span></span></span></span></span></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.5183309999999999em;"><span style="top:-2.286869em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8231310000000001em;"><span style="top:-2.4231360000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.0448000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.27686399999999994em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8231310000000001em;"><span style="top:-2.4231360000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.0448000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.27686399999999994em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8413309999999999em;"><span style="top:-2.441336em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.258664em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.999239em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:2.00744em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord">Σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.891331em;"><span style="top:-2.4530000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.09618em;">J</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.383108em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">o</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.22222em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></p>
-<p>其中<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi> I</mi></mrow><annotation encoding="application/x-tex">I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07847em;">I</span></span></span></span> 是体素数量，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>J</mi></mrow><annotation encoding="application/x-tex">J</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.09618em;">J</span></span></span></span> 是类别数量，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>G</mi></mrow><annotation encoding="application/x-tex">G</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">G</span></span></span></span> 是 ground truth，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span> 是预测值。</p>
-<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>笔者在 <a href="http://www.isles-challenge.org/">ISLES2022</a> 数据集上以输入大小 (2,96,96,96)，优化器为 adamw，损失函数为 dice loss 的情况下训练了 UNETR，是目前各个网络这效果最好的，其 dice 系数在 79.9%。但是由于使用了 transformer 其计算量和显存开销依然不可忽视。</p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<p><a href="https://arxiv.org/abs/2103.10504">UNETR</a></p>
-<p><a href="http://www.isles-challenge.org/">ISLES</a></p>
 ]]></content>
       <categories>
         <category>机器学习</category>
