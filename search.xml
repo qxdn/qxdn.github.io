@@ -370,6 +370,53 @@ export saved model.
       </tags>
   </entry>
   <entry>
+    <title>win10 家庭版下安装 docker</title>
+    <url>/2021/03/18/installDocker/</url>
+    <content><![CDATA[<p>因为装软件、装环境老是折腾，就开始思考各个生产环境之间隔离或者直接使用他人配好的环境。因而想到了人们常说的 docker。因此打算安装来体验一下</p>
+<span id="more"></span>
+<h1 id="系统要求"><a class="markdownIt-Anchor" href="#系统要求"></a> 系统要求</h1>
+<p>根据官方文档，<code>Docker Desktop on Windows</code> 需要 win10 专业版、企业版或者教育版 (Build 17134 or later)。而我的电脑为 win10 家庭版，因此选择另一套方案。</p>
+<p>win10 家庭版的系统要求如下</p>
+<ul>
+<li>win10 v1903 版本或者更高</li>
+<li>开启 WSL2
+<ul>
+<li>64 位处理器且有 SLAT 指令</li>
+<li> 4G 内存</li>
+<li> BIOS 开启虚拟化</li>
+</ul>
+</li>
+<li>下载并升级 <a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">linux 内核包</a></li>
+</ul>
+<h1 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h1>
+<ol>
+<li>下载 <a href="https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe">Docker Desktop Installer</a> 并双击运行</li>
+<li>确保 WSL2 那个特性打开<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.3.5/dockerInstallerConfig.png" alt="enable WSL2"></li>
+<li>跟着安装帮助即可</li>
+</ol>
+<h2 id="错误"><a class="markdownIt-Anchor" href="#错误"></a> 错误</h2>
+<p>我就知道安装没有这么容易，果然碰到了问题。<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.3.5/error.png" alt="error"><br>
+通过 <code>everything</code> 我找到了 <code>install-log.txt</code>。然而里面的关键信息就这么点。明明已经用管理员运行了，但是还是未授权。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Exception type: System.Exception, Exception message: Component CommunityInstaller.AutoStartAction failed: 尝试执行未经授权的操作。, StackTrace:</span><br><span class="line">   在 CommunityInstaller.InstallWorkflow.&lt;DoHandleD4WPackageAsync&gt;d__29.MoveNext()</span><br><span class="line">--- 引发异常的上一位置中堆栈跟踪的末尾 ---</span><br><span class="line">   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</span><br><span class="line">   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</span><br><span class="line">   在 CommunityInstaller.InstallWorkflow.&lt;DoProcessAsync&gt;d__23.MoveNext()</span><br></pre></td></tr></tbody></table></figure>
+<p>就在我一筹莫展的时候，我看到了一个服务器部署 win10 服务未授权解决的文章，说是 360 阻断了。于是我尝试将我的联想电脑管家关闭，果然安装成功了。<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.3.5/docker.png" alt="docker"></p>
+<h1 id="参考档案"><a class="markdownIt-Anchor" href="#参考档案"></a> 参考档案</h1>
+<p><a href="https://docs.docker.com/docker-for-windows/install/">docker for win10 pro</a></p>
+<p><a href="https://docs.docker.com/docker-for-windows/install-windows-home/">docker for win10 home</a></p>
+<p><a href="https://qianxu.run/2020/10/24/upgradeWSL2/">WSL2 安装</a></p>
+<p><a href="https://blog.csdn.net/qq736150416/article/details/80137675">灵感</a></p>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>Windows</tag>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>毕业设计（二）darknet 编译</title>
     <url>/2021/03/05/builddarknet/</url>
     <content><![CDATA[<h2 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h2>
@@ -425,53 +472,6 @@ export saved model.
         <tag>毕业设计</tag>
         <tag>yolo</tag>
         <tag>darknet</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>win10 家庭版下安装 docker</title>
-    <url>/2021/03/18/installDocker/</url>
-    <content><![CDATA[<p>因为装软件、装环境老是折腾，就开始思考各个生产环境之间隔离或者直接使用他人配好的环境。因而想到了人们常说的 docker。因此打算安装来体验一下</p>
-<span id="more"></span>
-<h1 id="系统要求"><a class="markdownIt-Anchor" href="#系统要求"></a> 系统要求</h1>
-<p>根据官方文档，<code>Docker Desktop on Windows</code> 需要 win10 专业版、企业版或者教育版 (Build 17134 or later)。而我的电脑为 win10 家庭版，因此选择另一套方案。</p>
-<p>win10 家庭版的系统要求如下</p>
-<ul>
-<li>win10 v1903 版本或者更高</li>
-<li>开启 WSL2
-<ul>
-<li>64 位处理器且有 SLAT 指令</li>
-<li> 4G 内存</li>
-<li> BIOS 开启虚拟化</li>
-</ul>
-</li>
-<li>下载并升级 <a href="https://docs.microsoft.com/zh-cn/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package">linux 内核包</a></li>
-</ul>
-<h1 id="安装"><a class="markdownIt-Anchor" href="#安装"></a> 安装</h1>
-<ol>
-<li>下载 <a href="https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe">Docker Desktop Installer</a> 并双击运行</li>
-<li>确保 WSL2 那个特性打开<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.3.5/dockerInstallerConfig.png" alt="enable WSL2"></li>
-<li>跟着安装帮助即可</li>
-</ol>
-<h2 id="错误"><a class="markdownIt-Anchor" href="#错误"></a> 错误</h2>
-<p>我就知道安装没有这么容易，果然碰到了问题。<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.3.5/error.png" alt="error"><br>
-通过 <code>everything</code> 我找到了 <code>install-log.txt</code>。然而里面的关键信息就这么点。明明已经用管理员运行了，但是还是未授权。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">Exception type: System.Exception, Exception message: Component CommunityInstaller.AutoStartAction failed: 尝试执行未经授权的操作。, StackTrace:</span><br><span class="line">   在 CommunityInstaller.InstallWorkflow.&lt;DoHandleD4WPackageAsync&gt;d__29.MoveNext()</span><br><span class="line">--- 引发异常的上一位置中堆栈跟踪的末尾 ---</span><br><span class="line">   在 System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()</span><br><span class="line">   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)</span><br><span class="line">   在 CommunityInstaller.InstallWorkflow.&lt;DoProcessAsync&gt;d__23.MoveNext()</span><br></pre></td></tr></tbody></table></figure>
-<p>就在我一筹莫展的时候，我看到了一个服务器部署 win10 服务未授权解决的文章，说是 360 阻断了。于是我尝试将我的联想电脑管家关闭，果然安装成功了。<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.3.5/docker.png" alt="docker"></p>
-<h1 id="参考档案"><a class="markdownIt-Anchor" href="#参考档案"></a> 参考档案</h1>
-<p><a href="https://docs.docker.com/docker-for-windows/install/">docker for win10 pro</a></p>
-<p><a href="https://docs.docker.com/docker-for-windows/install-windows-home/">docker for win10 home</a></p>
-<p><a href="https://qianxu.run/2020/10/24/upgradeWSL2/">WSL2 安装</a></p>
-<p><a href="https://blog.csdn.net/qq736150416/article/details/80137675">灵感</a></p>
-]]></content>
-      <categories>
-        <category>docker</category>
-      </categories>
-      <tags>
-        <tag>Windows</tag>
-        <tag>docker</tag>
       </tags>
   </entry>
   <entry>
@@ -2117,6 +2117,42 @@ _________________________________________________________________
       </tags>
   </entry>
   <entry>
+    <title>文件哈希值</title>
+    <url>/2021/08/13/file-hash/</url>
+    <content><![CDATA[<p>最近上传百度云的时候发现有极速秒传，从而了解到了文件哈希值。特此记录。<br>
+封面《金色ラブリッチェ》</p>
+<span id="more"></span>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>最近上传百度云的时候发现有个文件直接极速秒传了，像我这种一般不给百度云送钱的人是不太可能享用 VIP 功能的，因此查了查极速秒传的原理。</p>
+<h1 id="文件哈希"><a class="markdownIt-Anchor" href="#文件哈希"></a> 文件哈希</h1>
+<p>其实原理很简单，极速秒传只是因为你上传的文件在百度云里面有别人上传的一模一样的文件，因此只需要将别人上传给你的转存一份即可。那么如何判断文件是否一样呢，这就主要靠文件哈希值来判断。</p>
+<p>哈希是一种从文件计算固定大小的位串值的算法。文件基本上包含数据块。哈希将此数据转换为更短的固定长度值或表示原始字符串的键值。哈希值可以被认为是该文件中所有内容的提炼摘要。</p>
+<p>一个好的哈希算法会表现出一种称为雪崩效应的特性，即文件中的单个位或一个字节的数据发生变化，所产生的哈希输出也会显著改变。没有这样效果的哈希函数被认为具有较差的随机性，很容易被黑客破解。</p>
+<p>这里我们来靠 <code>powershell</code> 里面的 <code>Get-FileHash</code> 函数来做个实验吧，<code>Get-FileHash</code> 的文档在<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-7.1">此</a></p>
+<p>先新建两个 txt 文件，并写入内容，其中只有一个 <code>h</code> 区分大小写</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="string">"hash"</span> &gt; test.txt</span><br><span class="line"><span class="comment"># h 变 H</span></span><br><span class="line"><span class="string">"Hash"</span> &gt; test1.txt</span><br></pre></td></tr></tbody></table></figure>
+<p>然后我们使用 <code>Get-FileHash</code> 来计算两个文件的 <code>SHA256</code> 值</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># Get-FileHash 默认使用 SHA256</span></span><br><span class="line"><span class="built_in">Get-FileHash</span> test.txt | <span class="built_in">Format-List</span></span><br><span class="line"><span class="built_in">Get-FileHash</span> test1.txt | <span class="built_in">Format-List</span></span><br></pre></td></tr></tbody></table></figure>
+<p>结果如下，可以看到即使两个文件只有一个字母不一样，<code>SHA256</code> 的值差的却非常的多。<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.1.8/sha256.png" alt=""><br>
+除了 <code>SHA256</code> 以外，<code>Get-FileHash</code> 还支持 <code>MD5</code>、<code>SHA1</code>、<code>SHA384</code>、<code>SHA512</code>。使用方法如下</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Get-FileHash</span> test1.txt <span class="literal">-Algorithm</span> MD5 | <span class="built_in">Format-List</span></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>由于文件哈希的特性，比较两个文件是否一样往往不需要完全比较文件内的所有内容，只需要比较哈希值即可。比如在 <a href="https://msdn.itellyou.cn/">MSDN</a> 中下载文件，同时在详细信息页面里还会附上改文件的 <code>SHA1</code> 值，只需要对比就可以知道你下载的是否为同一文件，而不是被别人暗中修改的文件。</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="https://www.jianshu.com/p/938c5dd2caa5">计算文件哈希值</a></p>
+<p><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-7.1">Get-FileHash</a></p>
+<p><a href="https://www.2brightsparks.com/resources/articles/introduction-to-hashing-and-its-uses.html">Introduction to Hashing and its uses</a></p>
+]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>hash</tag>
+        <tag>百度云</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常用软件镜像源</title>
     <url>/2021/08/11/source-mirror/</url>
     <content><![CDATA[<p>为了制作魔镜，重装了树莓派系统。因为要将各种软件源设置镜像源，因此写这样一条博客方便自己查询。<br>
@@ -2185,42 +2221,6 @@ _________________________________________________________________
         <tag>Linux</tag>
         <tag>javascript</tag>
         <tag>树莓派</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>文件哈希值</title>
-    <url>/2021/08/13/file-hash/</url>
-    <content><![CDATA[<p>最近上传百度云的时候发现有极速秒传，从而了解到了文件哈希值。特此记录。<br>
-封面《金色ラブリッチェ》</p>
-<span id="more"></span>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>最近上传百度云的时候发现有个文件直接极速秒传了，像我这种一般不给百度云送钱的人是不太可能享用 VIP 功能的，因此查了查极速秒传的原理。</p>
-<h1 id="文件哈希"><a class="markdownIt-Anchor" href="#文件哈希"></a> 文件哈希</h1>
-<p>其实原理很简单，极速秒传只是因为你上传的文件在百度云里面有别人上传的一模一样的文件，因此只需要将别人上传给你的转存一份即可。那么如何判断文件是否一样呢，这就主要靠文件哈希值来判断。</p>
-<p>哈希是一种从文件计算固定大小的位串值的算法。文件基本上包含数据块。哈希将此数据转换为更短的固定长度值或表示原始字符串的键值。哈希值可以被认为是该文件中所有内容的提炼摘要。</p>
-<p>一个好的哈希算法会表现出一种称为雪崩效应的特性，即文件中的单个位或一个字节的数据发生变化，所产生的哈希输出也会显著改变。没有这样效果的哈希函数被认为具有较差的随机性，很容易被黑客破解。</p>
-<p>这里我们来靠 <code>powershell</code> 里面的 <code>Get-FileHash</code> 函数来做个实验吧，<code>Get-FileHash</code> 的文档在<a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-7.1">此</a></p>
-<p>先新建两个 txt 文件，并写入内容，其中只有一个 <code>h</code> 区分大小写</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="string">"hash"</span> &gt; test.txt</span><br><span class="line"><span class="comment"># h 变 H</span></span><br><span class="line"><span class="string">"Hash"</span> &gt; test1.txt</span><br></pre></td></tr></tbody></table></figure>
-<p>然后我们使用 <code>Get-FileHash</code> 来计算两个文件的 <code>SHA256</code> 值</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># Get-FileHash 默认使用 SHA256</span></span><br><span class="line"><span class="built_in">Get-FileHash</span> test.txt | <span class="built_in">Format-List</span></span><br><span class="line"><span class="built_in">Get-FileHash</span> test1.txt | <span class="built_in">Format-List</span></span><br></pre></td></tr></tbody></table></figure>
-<p>结果如下，可以看到即使两个文件只有一个字母不一样，<code>SHA256</code> 的值差的却非常的多。<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.1.8/sha256.png" alt=""><br>
-除了 <code>SHA256</code> 以外，<code>Get-FileHash</code> 还支持 <code>MD5</code>、<code>SHA1</code>、<code>SHA384</code>、<code>SHA512</code>。使用方法如下</p>
-<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line"><span class="built_in">Get-FileHash</span> test1.txt <span class="literal">-Algorithm</span> MD5 | <span class="built_in">Format-List</span></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
-<p>由于文件哈希的特性，比较两个文件是否一样往往不需要完全比较文件内的所有内容，只需要比较哈希值即可。比如在 <a href="https://msdn.itellyou.cn/">MSDN</a> 中下载文件，同时在详细信息页面里还会附上改文件的 <code>SHA1</code> 值，只需要对比就可以知道你下载的是否为同一文件，而不是被别人暗中修改的文件。</p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<p><a href="https://www.jianshu.com/p/938c5dd2caa5">计算文件哈希值</a></p>
-<p><a href="https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-7.1">Get-FileHash</a></p>
-<p><a href="https://www.2brightsparks.com/resources/articles/introduction-to-hashing-and-its-uses.html">Introduction to Hashing and its uses</a></p>
-]]></content>
-      <categories>
-        <category>杂项</category>
-      </categories>
-      <tags>
-        <tag>hash</tag>
-        <tag>百度云</tag>
       </tags>
   </entry>
   <entry>
@@ -2768,102 +2768,6 @@ _________________________________________________________________
       </tags>
   </entry>
   <entry>
-    <title>neo4j 简单入门和前端可视化</title>
-    <url>/2021/11/10/neo4j-simple-tutorial/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《D.C.4 Plus Harmony》</p>
-</blockquote>
-<h1 id="neo4j和知识图谱简介"><a class="markdownIt-Anchor" href="#neo4j和知识图谱简介"></a> neo4j 和知识图谱简介</h1>
-<blockquote>
-<p>Neo4j 是由 Neo4j,Inc 开发的一个图数据库管理系统。其开发人员将其描述为一个具有本地图存储和处理的符合 ACID 事务的数据库，Neo4j 在 GPL3 协议下开源社区版，还具有在商业闭源协议下的在线备份和高可用拓展。Neo 还允许 Neo4j 在闭源商业中使用这些插件。<br>
-Neo4j 是由 Java 实现，同时可以被其他语言写的软件使用事务性 HTTP 端点或者二进制 “Bolt” 协议通过 Cypher 查询语言来进行访问。</p>
-</blockquote>
-<p>以上翻译自 Wikipedia。简单来说 Neo4j 是一个以图形式存储的一个 NOSQL。</p>
-<blockquote>
-<p>知识图谱（Knowledge Graph），在图书情报界称为知识域可视化或知识领域映射地图，是显示知识发展进程与结构关系的一系列各种不同的图形，用可视化技术描述知识资源及其载体，挖掘、分析、构建、绘制和显示知识及它们之间的相互联系。<br>
-知识图谱，是通过将应用数学、图形学、信息可视化技术、信息科学等学科的理论与方法与计量学引文分析、共现分析等方法结合，并利用可视化的图谱形象地展示学科的核心结构、发展历史、前沿领域以及整体知识架构达到多学科融合目的的现代理论。</p>
-</blockquote>
-<p>对于这种知识图谱，最好是用 neo4j 这种图数据库存储。效果如下<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/introduce.png" alt=""></p>
-<h1 id="neo4j安装"><a class="markdownIt-Anchor" href="#neo4j安装"></a> neo4j 安装</h1>
-<p>可以直接到<a href="https://neo4j.com/">官网</a>进行不同版本的选择安装。我这里选择 <a href="https://neo4j.com/download/?ref=get-started-dropdown-cta">desktop</a> 安装。</p>
-<h1 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h1>
-<p>启动比较简单，开箱即用。可以点击下图的 start 启动数据库是，然后进行 open 打开内置浏览器。也可以浏览器中打开 <code>http://localhost:7474/browser/</code> 进行访问。<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/start.png" alt=""></p>
-<h1 id="cypher-query"><a class="markdownIt-Anchor" href="#cypher-query"></a> Cypher query</h1>
-<p>新建一个 project 和 database 来开始我们的学习。</p>
-<h2 id="增"><a class="markdownIt-Anchor" href="#增"></a> 增</h2>
-<p>Cypher query 增加节点非常简单<br>
-首先来增加一个人物节点</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">CREATE (p:Person{name:"qxdn",age:21}) return p</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/create-node.png" alt=""><br>
-蓝色的就是创建的节点，其中 <code>CREATE</code> 就是创建一个节点或者关系。其中 <code>p</code> 表示的是变量名，后续引用这个节点的时候可以使用这个变量名。其中 <code>{}</code> 为该节点的属性，类似于 json。<code>return</code> 为返回输出（可选）。<br>
-Cypher 中的节点表示如下</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">()                  //匿名节点，无标签</span><br><span class="line">(p:Person)          //使用变量p和标签Person</span><br><span class="line">(:Technology)       //无变量，标签为Technology</span><br><span class="line">(work:Company)      //使用变量work和标签Company</span><br></pre></td></tr></tbody></table></figure>
-<p>接下来创建更多的节点</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">CREATE (p:Person{name:"a",age:21}) return p</span><br><span class="line">CREATE (p:Person{name:"b",age:21}) return p</span><br><span class="line">CREATE (p:Person{name:"c",age:21}) return p</span><br></pre></td></tr></tbody></table></figure>
-<p>创建关系</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (p1:Person {name: 'qxdn'})</span><br><span class="line">MATCH (p2:Person {name: 'a'})</span><br><span class="line">CREATE (p1)-[rel:IS_FRIENDS_WITH{from:2021}]-&gt;(p2)</span><br><span class="line">// OR 使用MERGE可以避免重复定义</span><br><span class="line">MATCH (p1:Person {name:'b'}), (p2:Person {name:"qxdn"}) </span><br><span class="line">MERGE (p1)&lt;-[:IS_FRIENDS_WITH{from:2021}]-(p2)</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/rel1.png" alt=""><br>
-添加关系的方法还是非常简单的。使用 <code>[]</code> 即可表示关系，<code>:</code> 区分变量名和标签，同样可以使用 <code>{}</code> 描述关系的属性。需要注意的是这里的关系是有方向的，需要用 <code>--&gt;</code> 或 <code>&lt;--</code> 表示。上图可以很明显的看出来。如果不知道方向可以使用 <code>--</code> 表示，这对与查询来说会更简单。<br>
-此外在创建节点的时候就可以指明关系</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">CREATE (:Person{name:"d"}) -[:IS_FRIENDS_WITH{from:2020}]-&gt;(:Person{name:"e"})</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="删"><a class="markdownIt-Anchor" href="#删"></a> 删</h2>
-<p>删除命令也比较简单，但是需要注意的是，NEO4j 中删除节点需要改节点没有关联的关系。<br>
-为了有更好的展示效果，先增条数据</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (p:Person{name:"qxdn"})</span><br><span class="line">CREATE (p)-[:BORIN]-&gt;(:Country{name:"China"})</span><br><span class="line">//</span><br><span class="line">CREATE (:Person{name:"f"}) -[:IS_FRIENDS_WITH{from:2020}]-&gt;(:Person{name:"g"})</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/before-delete.png" alt=""></p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">// 删除关系</span><br><span class="line">MATCH (:Person {name: 'f'})-[r:IS_FRIENDS_WITH]-&gt;(:Person {name: 'g'})</span><br><span class="line">DELETE r</span><br><span class="line">// 删除节点</span><br><span class="line">MATCH (p:Person {name: 'c'})</span><br><span class="line">DELETE p</span><br><span class="line">// 删除节点和关系</span><br><span class="line">MATCH (p1:Person {name: 'd'})-[r:IS_FRIENDS_WITH]-&gt;(p2:Person {name: 'e'})</span><br><span class="line">DELETE p1,p2,r</span><br><span class="line">// 断开一个节点的关系和其自身</span><br><span class="line">MATCH (c:Country{name:"China"})</span><br><span class="line">DETACH DELETE c</span><br><span class="line">// 删除一个节点的属性</span><br><span class="line">MATCH (n:Person {name: 'qxdn'})</span><br><span class="line">REMOVE n.age</span><br><span class="line">// OR</span><br><span class="line">MATCH (n:Person {name: 'a'})</span><br><span class="line">SET n.age = null</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/after-delete.png" alt="删除之后"></p>
-<h2 id="查"><a class="markdownIt-Anchor" href="#查"></a> 查</h2>
-<p>先执行一下语句增加节点</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">//</span><br><span class="line">CREATE (:Country{name:"China"})</span><br><span class="line">// </span><br><span class="line">CREATE (:Country{name:"USA"})</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"qxdn"}),(c:Country{name:"China"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"a"}),(c:Country{name:"China"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"b"}),(c:Country{name:"USA"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"g"}),(c:Country{name:"USA"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"f"}),(c:Country{name:"China"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match1.png" alt=""></p>
-<p>查询语句主要靠 <code>MATCH</code> 关键词，其功能类似于 sql 中的 <code>SELECT</code></p>
-<p>查询所有节点，只输出 25 个避免过多节点。</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (n) </span><br><span class="line">RETURN n </span><br><span class="line">LIMIT 25</span><br></pre></td></tr></tbody></table></figure>
-<p>结果与上图一样<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match1.png" alt=""></p>
-<p>查询 qxdn 出生的国家</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (:Person {name: 'qxdn'})-[:BORN_IN]-&gt;(c:Country)</span><br><span class="line">RETURN c</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match2.png" alt=""></p>
-<p>查询 qxdn 和 a 做朋友的起始年</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (:Person {name: 'qxdn'})-[r:IS_FRIENDS_WITH]-&gt;(:Person {name: 'a'})</span><br><span class="line">RETURN r.from</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match3.png" alt=""></p>
-<p>查询所有中国出生的人</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (p:Person)-[:BORN_IN]-&gt;(c:Country{name:"China"})</span><br><span class="line">RETURN p,c</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match4.png" alt=""></p>
-<h2 id="改"><a class="markdownIt-Anchor" href="#改"></a> 改</h2>
-<p>改主要是使用 <code>SET</code> 关键词<br>
-修改 a 的出生国</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (p:Person{name:"a"})-[:BORN_IN]-(c:Country{name:"China"})</span><br><span class="line">SET c.name = "USA"</span><br><span class="line">RETURN p,c</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/set.png" alt=""></p>
-<h1 id="前端可视化"><a class="markdownIt-Anchor" href="#前端可视化"></a> 前端可视化</h1>
-<p>前端可视化可以使用 <code>neovis.js</code>。这是使用 vis.js 对 neo4j 进行定制，可以在前端直接操作 neo4j。由于实验室项目不需要管啥安全，因此也不管明文密码了。</p>
-<p>这里我们先 clone 一下官网的 repo。并修改其中的 <code>simple-example.html</code>。修改其中的 <code>config</code> 变量</p>
-<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> config = {</span><br><span class="line">				<span class="attr">container_id</span>: <span class="string">"viz"</span>, <span class="comment">//jquery的容器id</span></span><br><span class="line">				<span class="attr">server_url</span>: <span class="string">"bolt://localhost:7687"</span>, <span class="comment">//服务器url</span></span><br><span class="line">				<span class="attr">server_user</span>: <span class="string">"qxdn"</span>,</span><br><span class="line">				<span class="attr">server_password</span>: <span class="string">"123456"</span>,</span><br><span class="line"></span><br><span class="line">				<span class="attr">labels</span>: {</span><br><span class="line">					<span class="comment">//"Character": "name",</span></span><br><span class="line">					<span class="string">"Person"</span>: {</span><br><span class="line">						<span class="string">"caption"</span>: <span class="string">"name"</span>, <span class="comment">//节点显示的内容 </span></span><br><span class="line">						<span class="string">"title_properties"</span>: [ <span class="comment">//鼠标移到节点上显示的内容</span></span><br><span class="line">							<span class="string">"name"</span>,</span><br><span class="line">							<span class="string">"age"</span></span><br><span class="line">						]</span><br><span class="line">					},</span><br><span class="line">					<span class="string">"Country"</span>: {</span><br><span class="line">						<span class="string">"caption"</span>: <span class="string">"name"</span></span><br><span class="line">					}</span><br><span class="line">				},</span><br><span class="line">				<span class="attr">relationships</span>: {</span><br><span class="line">				},</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				<span class="attr">initial_cypher</span>: <span class="string">"MATCH p=()--&gt;() RETURN p"</span>    <span class="comment">// 初始化的cypher语句</span></span><br><span class="line">			};</span><br></pre></td></tr></tbody></table></figure>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/front.png" alt=""></p>
-<h2 id="完整代码"><a class="markdownIt-Anchor" href="#完整代码"></a> 完整代码</h2>
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Neovis.js Simple Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">		<span class="selector-tag">html</span>,</span></span><br><span class="line"><span class="language-css">		<span class="selector-tag">body</span> {</span></span><br><span class="line"><span class="language-css">			<span class="attribute">font</span>: <span class="number">16pt</span> arial;</span></span><br><span class="line"><span class="language-css">		}</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">		<span class="selector-id">#viz</span> {</span></span><br><span class="line"><span class="language-css">			<span class="attribute">width</span>: <span class="number">900px</span>;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">height</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">border</span>: <span class="number">1px</span> solid lightgray;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">font</span>: <span class="number">22pt</span> arial;</span></span><br><span class="line"><span class="language-css">		}</span></span><br><span class="line"><span class="language-css">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- <span class="doctag">FIXME:</span> load from dist --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../dist/neovis.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://code.jquery.com/jquery-3.2.1.min.js"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">integrity</span>=<span class="string">"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="</span> <span class="attr">crossorigin</span>=<span class="string">"anonymous"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// define config car</span></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// instantiate nodevis object</span></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// draw</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">var</span> viz;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">function</span> <span class="title function_">draw</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">			<span class="keyword">var</span> config = {</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">container_id</span>: <span class="string">"viz"</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_url</span>: <span class="string">"bolt://localhost:7687"</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_user</span>: <span class="string">"qxdn"</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_password</span>: <span class="string">"123456"</span>,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">				<span class="attr">labels</span>: {</span></span><br><span class="line"><span class="language-javascript">					<span class="comment">//"Character": "name",</span></span></span><br><span class="line"><span class="language-javascript">					<span class="string">"Person"</span>: {</span></span><br><span class="line"><span class="language-javascript">						<span class="string">"caption"</span>: <span class="string">"name"</span>,</span></span><br><span class="line"><span class="language-javascript">						<span class="string">"title_properties"</span>: [</span></span><br><span class="line"><span class="language-javascript">							<span class="string">"name"</span>,</span></span><br><span class="line"><span class="language-javascript">							<span class="string">"age"</span></span></span><br><span class="line"><span class="language-javascript">						]</span></span><br><span class="line"><span class="language-javascript">					},</span></span><br><span class="line"><span class="language-javascript">					<span class="string">"Country"</span>: {</span></span><br><span class="line"><span class="language-javascript">						<span class="string">"caption"</span>: <span class="string">"name"</span></span></span><br><span class="line"><span class="language-javascript">					}</span></span><br><span class="line"><span class="language-javascript">				},</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">relationships</span>: {</span></span><br><span class="line"><span class="language-javascript">				},</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">				<span class="attr">initial_cypher</span>: <span class="string">"MATCH p=()--&gt;() RETURN p"</span></span></span><br><span class="line"><span class="language-javascript">			};</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">			viz = <span class="keyword">new</span> <span class="title class_">NeoVis</span>.<span class="title function_">default</span>(config);</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">render</span>();</span></span><br><span class="line"><span class="language-javascript">			<span class="variable language_">console</span>.<span class="title function_">log</span>(viz);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		}</span></span><br><span class="line"><span class="language-javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"draw()"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"viz"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	Cypher query: <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">"4"</span> <span class="attr">cols</span>=<span class="string">50</span> <span class="attr">id</span>=<span class="string">"cypher"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span> <span class="attr">id</span>=<span class="string">"reload"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Stabilize"</span> <span class="attr">id</span>=<span class="string">"stabilize"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	$(<span class="string">"#reload"</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">var</span> cypher = $(<span class="string">"#cypher"</span>).<span class="title function_">val</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">if</span> (cypher.<span class="property">length</span> &gt; <span class="number">3</span>) {</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">renderWithCypher</span>(cypher);</span></span><br><span class="line"><span class="language-javascript">		} <span class="keyword">else</span> {</span></span><br><span class="line"><span class="language-javascript">			<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"reload"</span>);</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">reload</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		}</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	});</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	$(<span class="string">"#stabilize"</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">		viz.<span class="title function_">stabilize</span>();</span></span><br><span class="line"><span class="language-javascript">	})</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
-<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
-<p>本文简单的介绍了一下 neo4j 以及其的 Cypher Query 语句，还有前端可视化的方案。关于 Cypher 更详细的用法和前端更多参数化的定制可以看官方的教程，链接放在了下方的参考资料里面。</p>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p><a href="https://en.wikipedia.org/wiki/Neo4j">Neo4j wikipedia</a></p>
-<p><a href="https://baike.baidu.com/item/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/8120012">知识图谱</a></p>
-<p><a href="https://neo4j.com/developer/cypher/querying/">Querying with Cypher</a></p>
-<p><a href="https://neo4j.com/developer/cypher/guide-cypher-basics/">guide-cypher-basics</a></p>
-<p><a href="https://github.com/neo4j-contrib/neovis.js">neovis.js</a></p>
-]]></content>
-      <categories>
-        <category>javascript</category>
-      </categories>
-      <tags>
-        <tag>javascript</tag>
-        <tag>nosql</tag>
-        <tag>neo4j</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>米游社爬虫</title>
     <url>/2021/11/12/mihoyo-bbs-crawler/</url>
     <content><![CDATA[<blockquote>
@@ -3014,6 +2918,102 @@ Cypher 中的节点表示如下</p>
       <tags>
         <tag>python</tag>
         <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>neo4j 简单入门和前端可视化</title>
+    <url>/2021/11/10/neo4j-simple-tutorial/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《D.C.4 Plus Harmony》</p>
+</blockquote>
+<h1 id="neo4j和知识图谱简介"><a class="markdownIt-Anchor" href="#neo4j和知识图谱简介"></a> neo4j 和知识图谱简介</h1>
+<blockquote>
+<p>Neo4j 是由 Neo4j,Inc 开发的一个图数据库管理系统。其开发人员将其描述为一个具有本地图存储和处理的符合 ACID 事务的数据库，Neo4j 在 GPL3 协议下开源社区版，还具有在商业闭源协议下的在线备份和高可用拓展。Neo 还允许 Neo4j 在闭源商业中使用这些插件。<br>
+Neo4j 是由 Java 实现，同时可以被其他语言写的软件使用事务性 HTTP 端点或者二进制 “Bolt” 协议通过 Cypher 查询语言来进行访问。</p>
+</blockquote>
+<p>以上翻译自 Wikipedia。简单来说 Neo4j 是一个以图形式存储的一个 NOSQL。</p>
+<blockquote>
+<p>知识图谱（Knowledge Graph），在图书情报界称为知识域可视化或知识领域映射地图，是显示知识发展进程与结构关系的一系列各种不同的图形，用可视化技术描述知识资源及其载体，挖掘、分析、构建、绘制和显示知识及它们之间的相互联系。<br>
+知识图谱，是通过将应用数学、图形学、信息可视化技术、信息科学等学科的理论与方法与计量学引文分析、共现分析等方法结合，并利用可视化的图谱形象地展示学科的核心结构、发展历史、前沿领域以及整体知识架构达到多学科融合目的的现代理论。</p>
+</blockquote>
+<p>对于这种知识图谱，最好是用 neo4j 这种图数据库存储。效果如下<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/introduce.png" alt=""></p>
+<h1 id="neo4j安装"><a class="markdownIt-Anchor" href="#neo4j安装"></a> neo4j 安装</h1>
+<p>可以直接到<a href="https://neo4j.com/">官网</a>进行不同版本的选择安装。我这里选择 <a href="https://neo4j.com/download/?ref=get-started-dropdown-cta">desktop</a> 安装。</p>
+<h1 id="启动"><a class="markdownIt-Anchor" href="#启动"></a> 启动</h1>
+<p>启动比较简单，开箱即用。可以点击下图的 start 启动数据库是，然后进行 open 打开内置浏览器。也可以浏览器中打开 <code>http://localhost:7474/browser/</code> 进行访问。<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/start.png" alt=""></p>
+<h1 id="cypher-query"><a class="markdownIt-Anchor" href="#cypher-query"></a> Cypher query</h1>
+<p>新建一个 project 和 database 来开始我们的学习。</p>
+<h2 id="增"><a class="markdownIt-Anchor" href="#增"></a> 增</h2>
+<p>Cypher query 增加节点非常简单<br>
+首先来增加一个人物节点</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">CREATE (p:Person{name:"qxdn",age:21}) return p</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/create-node.png" alt=""><br>
+蓝色的就是创建的节点，其中 <code>CREATE</code> 就是创建一个节点或者关系。其中 <code>p</code> 表示的是变量名，后续引用这个节点的时候可以使用这个变量名。其中 <code>{}</code> 为该节点的属性，类似于 json。<code>return</code> 为返回输出（可选）。<br>
+Cypher 中的节点表示如下</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">()                  //匿名节点，无标签</span><br><span class="line">(p:Person)          //使用变量p和标签Person</span><br><span class="line">(:Technology)       //无变量，标签为Technology</span><br><span class="line">(work:Company)      //使用变量work和标签Company</span><br></pre></td></tr></tbody></table></figure>
+<p>接下来创建更多的节点</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">CREATE (p:Person{name:"a",age:21}) return p</span><br><span class="line">CREATE (p:Person{name:"b",age:21}) return p</span><br><span class="line">CREATE (p:Person{name:"c",age:21}) return p</span><br></pre></td></tr></tbody></table></figure>
+<p>创建关系</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (p1:Person {name: 'qxdn'})</span><br><span class="line">MATCH (p2:Person {name: 'a'})</span><br><span class="line">CREATE (p1)-[rel:IS_FRIENDS_WITH{from:2021}]-&gt;(p2)</span><br><span class="line">// OR 使用MERGE可以避免重复定义</span><br><span class="line">MATCH (p1:Person {name:'b'}), (p2:Person {name:"qxdn"}) </span><br><span class="line">MERGE (p1)&lt;-[:IS_FRIENDS_WITH{from:2021}]-(p2)</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/rel1.png" alt=""><br>
+添加关系的方法还是非常简单的。使用 <code>[]</code> 即可表示关系，<code>:</code> 区分变量名和标签，同样可以使用 <code>{}</code> 描述关系的属性。需要注意的是这里的关系是有方向的，需要用 <code>--&gt;</code> 或 <code>&lt;--</code> 表示。上图可以很明显的看出来。如果不知道方向可以使用 <code>--</code> 表示，这对与查询来说会更简单。<br>
+此外在创建节点的时候就可以指明关系</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">CREATE (:Person{name:"d"}) -[:IS_FRIENDS_WITH{from:2020}]-&gt;(:Person{name:"e"})</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="删"><a class="markdownIt-Anchor" href="#删"></a> 删</h2>
+<p>删除命令也比较简单，但是需要注意的是，NEO4j 中删除节点需要改节点没有关联的关系。<br>
+为了有更好的展示效果，先增条数据</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (p:Person{name:"qxdn"})</span><br><span class="line">CREATE (p)-[:BORIN]-&gt;(:Country{name:"China"})</span><br><span class="line">//</span><br><span class="line">CREATE (:Person{name:"f"}) -[:IS_FRIENDS_WITH{from:2020}]-&gt;(:Person{name:"g"})</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/before-delete.png" alt=""></p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">// 删除关系</span><br><span class="line">MATCH (:Person {name: 'f'})-[r:IS_FRIENDS_WITH]-&gt;(:Person {name: 'g'})</span><br><span class="line">DELETE r</span><br><span class="line">// 删除节点</span><br><span class="line">MATCH (p:Person {name: 'c'})</span><br><span class="line">DELETE p</span><br><span class="line">// 删除节点和关系</span><br><span class="line">MATCH (p1:Person {name: 'd'})-[r:IS_FRIENDS_WITH]-&gt;(p2:Person {name: 'e'})</span><br><span class="line">DELETE p1,p2,r</span><br><span class="line">// 断开一个节点的关系和其自身</span><br><span class="line">MATCH (c:Country{name:"China"})</span><br><span class="line">DETACH DELETE c</span><br><span class="line">// 删除一个节点的属性</span><br><span class="line">MATCH (n:Person {name: 'qxdn'})</span><br><span class="line">REMOVE n.age</span><br><span class="line">// OR</span><br><span class="line">MATCH (n:Person {name: 'a'})</span><br><span class="line">SET n.age = null</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/after-delete.png" alt="删除之后"></p>
+<h2 id="查"><a class="markdownIt-Anchor" href="#查"></a> 查</h2>
+<p>先执行一下语句增加节点</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">//</span><br><span class="line">CREATE (:Country{name:"China"})</span><br><span class="line">// </span><br><span class="line">CREATE (:Country{name:"USA"})</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"qxdn"}),(c:Country{name:"China"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"a"}),(c:Country{name:"China"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"b"}),(c:Country{name:"USA"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"g"}),(c:Country{name:"USA"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br><span class="line">//</span><br><span class="line">MATCH (p:Person{name:"f"}),(c:Country{name:"China"})</span><br><span class="line">MERGE (p)-[:BORN_IN]-&gt;(c)</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match1.png" alt=""></p>
+<p>查询语句主要靠 <code>MATCH</code> 关键词，其功能类似于 sql 中的 <code>SELECT</code></p>
+<p>查询所有节点，只输出 25 个避免过多节点。</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (n) </span><br><span class="line">RETURN n </span><br><span class="line">LIMIT 25</span><br></pre></td></tr></tbody></table></figure>
+<p>结果与上图一样<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match1.png" alt=""></p>
+<p>查询 qxdn 出生的国家</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (:Person {name: 'qxdn'})-[:BORN_IN]-&gt;(c:Country)</span><br><span class="line">RETURN c</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match2.png" alt=""></p>
+<p>查询 qxdn 和 a 做朋友的起始年</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (:Person {name: 'qxdn'})-[r:IS_FRIENDS_WITH]-&gt;(:Person {name: 'a'})</span><br><span class="line">RETURN r.from</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match3.png" alt=""></p>
+<p>查询所有中国出生的人</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (p:Person)-[:BORN_IN]-&gt;(c:Country{name:"China"})</span><br><span class="line">RETURN p,c</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/match4.png" alt=""></p>
+<h2 id="改"><a class="markdownIt-Anchor" href="#改"></a> 改</h2>
+<p>改主要是使用 <code>SET</code> 关键词<br>
+修改 a 的出生国</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">MATCH (p:Person{name:"a"})-[:BORN_IN]-(c:Country{name:"China"})</span><br><span class="line">SET c.name = "USA"</span><br><span class="line">RETURN p,c</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/set.png" alt=""></p>
+<h1 id="前端可视化"><a class="markdownIt-Anchor" href="#前端可视化"></a> 前端可视化</h1>
+<p>前端可视化可以使用 <code>neovis.js</code>。这是使用 vis.js 对 neo4j 进行定制，可以在前端直接操作 neo4j。由于实验室项目不需要管啥安全，因此也不管明文密码了。</p>
+<p>这里我们先 clone 一下官网的 repo。并修改其中的 <code>simple-example.html</code>。修改其中的 <code>config</code> 变量</p>
+<figure class="highlight javascript"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> config = {</span><br><span class="line">				<span class="attr">container_id</span>: <span class="string">"viz"</span>, <span class="comment">//jquery的容器id</span></span><br><span class="line">				<span class="attr">server_url</span>: <span class="string">"bolt://localhost:7687"</span>, <span class="comment">//服务器url</span></span><br><span class="line">				<span class="attr">server_user</span>: <span class="string">"qxdn"</span>,</span><br><span class="line">				<span class="attr">server_password</span>: <span class="string">"123456"</span>,</span><br><span class="line"></span><br><span class="line">				<span class="attr">labels</span>: {</span><br><span class="line">					<span class="comment">//"Character": "name",</span></span><br><span class="line">					<span class="string">"Person"</span>: {</span><br><span class="line">						<span class="string">"caption"</span>: <span class="string">"name"</span>, <span class="comment">//节点显示的内容 </span></span><br><span class="line">						<span class="string">"title_properties"</span>: [ <span class="comment">//鼠标移到节点上显示的内容</span></span><br><span class="line">							<span class="string">"name"</span>,</span><br><span class="line">							<span class="string">"age"</span></span><br><span class="line">						]</span><br><span class="line">					},</span><br><span class="line">					<span class="string">"Country"</span>: {</span><br><span class="line">						<span class="string">"caption"</span>: <span class="string">"name"</span></span><br><span class="line">					}</span><br><span class="line">				},</span><br><span class="line">				<span class="attr">relationships</span>: {</span><br><span class="line">				},</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">				<span class="attr">initial_cypher</span>: <span class="string">"MATCH p=()--&gt;() RETURN p"</span>    <span class="comment">// 初始化的cypher语句</span></span><br><span class="line">			};</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.0.8/front.png" alt=""></p>
+<h2 id="完整代码"><a class="markdownIt-Anchor" href="#完整代码"></a> 完整代码</h2>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!doctype <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Neovis.js Simple Example<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">		<span class="selector-tag">html</span>,</span></span><br><span class="line"><span class="language-css">		<span class="selector-tag">body</span> {</span></span><br><span class="line"><span class="language-css">			<span class="attribute">font</span>: <span class="number">16pt</span> arial;</span></span><br><span class="line"><span class="language-css">		}</span></span><br><span class="line"><span class="language-css"></span></span><br><span class="line"><span class="language-css">		<span class="selector-id">#viz</span> {</span></span><br><span class="line"><span class="language-css">			<span class="attribute">width</span>: <span class="number">900px</span>;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">height</span>: <span class="number">700px</span>;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">border</span>: <span class="number">1px</span> solid lightgray;</span></span><br><span class="line"><span class="language-css">			<span class="attribute">font</span>: <span class="number">22pt</span> arial;</span></span><br><span class="line"><span class="language-css">		}</span></span><br><span class="line"><span class="language-css">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- <span class="doctag">FIXME:</span> load from dist --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../dist/neovis.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://code.jquery.com/jquery-3.2.1.min.js"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">integrity</span>=<span class="string">"sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="</span> <span class="attr">crossorigin</span>=<span class="string">"anonymous"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// define config car</span></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// instantiate nodevis object</span></span></span><br><span class="line"><span class="language-javascript">		<span class="comment">// draw</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">var</span> viz;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">function</span> <span class="title function_">draw</span>(<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">			<span class="keyword">var</span> config = {</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">container_id</span>: <span class="string">"viz"</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_url</span>: <span class="string">"bolt://localhost:7687"</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_user</span>: <span class="string">"qxdn"</span>,</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">server_password</span>: <span class="string">"123456"</span>,</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">				<span class="attr">labels</span>: {</span></span><br><span class="line"><span class="language-javascript">					<span class="comment">//"Character": "name",</span></span></span><br><span class="line"><span class="language-javascript">					<span class="string">"Person"</span>: {</span></span><br><span class="line"><span class="language-javascript">						<span class="string">"caption"</span>: <span class="string">"name"</span>,</span></span><br><span class="line"><span class="language-javascript">						<span class="string">"title_properties"</span>: [</span></span><br><span class="line"><span class="language-javascript">							<span class="string">"name"</span>,</span></span><br><span class="line"><span class="language-javascript">							<span class="string">"age"</span></span></span><br><span class="line"><span class="language-javascript">						]</span></span><br><span class="line"><span class="language-javascript">					},</span></span><br><span class="line"><span class="language-javascript">					<span class="string">"Country"</span>: {</span></span><br><span class="line"><span class="language-javascript">						<span class="string">"caption"</span>: <span class="string">"name"</span></span></span><br><span class="line"><span class="language-javascript">					}</span></span><br><span class="line"><span class="language-javascript">				},</span></span><br><span class="line"><span class="language-javascript">				<span class="attr">relationships</span>: {</span></span><br><span class="line"><span class="language-javascript">				},</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">				<span class="attr">initial_cypher</span>: <span class="string">"MATCH p=()--&gt;() RETURN p"</span></span></span><br><span class="line"><span class="language-javascript">			};</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">			viz = <span class="keyword">new</span> <span class="title class_">NeoVis</span>.<span class="title function_">default</span>(config);</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">render</span>();</span></span><br><span class="line"><span class="language-javascript">			<span class="variable language_">console</span>.<span class="title function_">log</span>(viz);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		}</span></span><br><span class="line"><span class="language-javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"draw()"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"viz"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	Cypher query: <span class="tag">&lt;<span class="name">textarea</span> <span class="attr">rows</span>=<span class="string">"4"</span> <span class="attr">cols</span>=<span class="string">50</span> <span class="attr">id</span>=<span class="string">"cypher"</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Submit"</span> <span class="attr">id</span>=<span class="string">"reload"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Stabilize"</span> <span class="attr">id</span>=<span class="string">"stabilize"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	$(<span class="string">"#reload"</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">var</span> cypher = $(<span class="string">"#cypher"</span>).<span class="title function_">val</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		<span class="keyword">if</span> (cypher.<span class="property">length</span> &gt; <span class="number">3</span>) {</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">renderWithCypher</span>(cypher);</span></span><br><span class="line"><span class="language-javascript">		} <span class="keyword">else</span> {</span></span><br><span class="line"><span class="language-javascript">			<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">"reload"</span>);</span></span><br><span class="line"><span class="language-javascript">			viz.<span class="title function_">reload</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">		}</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	});</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">	$(<span class="string">"#stabilize"</span>).<span class="title function_">click</span>(<span class="keyword">function</span> (<span class="params"></span>) {</span></span><br><span class="line"><span class="language-javascript">		viz.<span class="title function_">stabilize</span>();</span></span><br><span class="line"><span class="language-javascript">	})</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<h1 id="后记"><a class="markdownIt-Anchor" href="#后记"></a> 后记</h1>
+<p>本文简单的介绍了一下 neo4j 以及其的 Cypher Query 语句，还有前端可视化的方案。关于 Cypher 更详细的用法和前端更多参数化的定制可以看官方的教程，链接放在了下方的参考资料里面。</p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p><a href="https://en.wikipedia.org/wiki/Neo4j">Neo4j wikipedia</a></p>
+<p><a href="https://baike.baidu.com/item/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/8120012">知识图谱</a></p>
+<p><a href="https://neo4j.com/developer/cypher/querying/">Querying with Cypher</a></p>
+<p><a href="https://neo4j.com/developer/cypher/guide-cypher-basics/">guide-cypher-basics</a></p>
+<p><a href="https://github.com/neo4j-contrib/neovis.js">neovis.js</a></p>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>nosql</tag>
+        <tag>neo4j</tag>
       </tags>
   </entry>
   <entry>
@@ -4315,81 +4315,6 @@ G1 并没有将内存进行物理划分，它只是将堆内存划分为一个�
       </tags>
   </entry>
   <entry>
-    <title>java-volatile</title>
-    <url>/2022/12/05/java-volatile/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《千の刃濤、桃花染の皇姫》</p>
-</blockquote>
-<blockquote>
-<p>在同步执行不重要的时候，编译器、运行时刻和处理器会进行一些优化，虽然这些优化通常是有益的，但是有时候会有一些微妙的问题<br>
-缓存和指令重排是并发中容易出问题的优化，在 Java 和 JVM 中提供了许多方法来控制内存顺序，volatile 关键字便是其中之一</p>
-</blockquote>
-<h1 id="多处理器结构"><a class="markdownIt-Anchor" href="#多处理器结构"></a> 多处理器结构</h1>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.0/cpu.png" alt=""></p>
-<p>计算机执行程序的时候每条指令都是在 CPU 中执行的，而执行指令过程中，势必涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于 CPU 执行速度很快，而从内存读取数据和向内存写入数据的过程跟 CPU 执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。因此在 CPU 里面就有了高速缓存。</p>
-<p>当程序在运行过程中，会将运算需要的数据从主存复制一份到 CPU 的高速缓存当中，那么 CPU 进行计算时就可以直接从它的高速缓存读取数据和向其中写入数据，当运算结束之后，再将高速缓存中的数据刷新到主存当中。</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SharedObj</span></span><br><span class="line">{</span><br><span class="line">   <span class="comment">// Changes made to sharedVar in one thread</span></span><br><span class="line">   <span class="comment">// may not immediately reflect in other thread</span></span><br><span class="line">   <span class="keyword">static</span> <span class="type">int</span> <span class="variable">sharedVar</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>举个例子，假设有两个线程使用 <code>SharedObj</code>，如果两个线程运行在两个不同的处理器上（如下图所示），那么每个线程有一份本地的 <code>sharedVariable</code> 缓存。如果其中一个线程改变其变量，可能不会马上反映到主线程中，另一个线程不会注意到数据改变了，导致了数据的不一致。关于缓存一致性可以读<a href="https://en.wikipedia.org/wiki/Cache_coherence">这篇</a></p>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.0/shared-memory.png" alt=""></p>
-<h1 id="volatile作用"><a class="markdownIt-Anchor" href="#volatile作用"></a> volatile 作用</h1>
-<h2 id="内存可见性"><a class="markdownIt-Anchor" href="#内存可见性"></a> 内存可见性</h2>
-<p>可见性问题主要指一个线程修改了共享变量值，而另一个线程却看不到。引起可见性问题的主要原因是每个线程拥有自己的一个高速缓存区 —— 线程工作内存。volatile 关键字能有效的解决这个问题。</p>
-<p>让我们来看下面这个例子</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">readerThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; {</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) {</span><br><span class="line">                <span class="keyword">if</span> (temp != num) {</span><br><span class="line">                    temp = num;</span><br><span class="line">                    System.out.println(<span class="string">"reader: value of num = "</span> + num);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        });</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">writerThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; {</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">                num++;</span><br><span class="line">                System.out.println(<span class="string">"writer: changed value to = "</span> + num);</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 退出程序，否则readerThread会一直等</span></span><br><span class="line">            System.exit(<span class="number">0</span>);</span><br><span class="line">        });</span><br><span class="line"></span><br><span class="line">        readerThread.start();</span><br><span class="line">        writerThread.start();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>输出如下</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">reader: value of num = 1</span><br><span class="line">writer: changed value to = 1</span><br><span class="line">writer: changed value to = 2</span><br><span class="line">writer: changed value to = 3</span><br><span class="line">writer: changed value to = 4</span><br><span class="line">writer: changed value to = 5</span><br></pre></td></tr></tbody></table></figure>
-<p>没加 volatile 的时候 reader 只读到 0-1 的变化。</p>
-<p>接下来修改代码</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> num;</span><br></pre></td></tr></tbody></table></figure>
-<p>输出如下</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">writer: changed value to = 1</span><br><span class="line">reader: value of num = 1</span><br><span class="line">writer: changed value to = 2</span><br><span class="line">reader: value of num = 2</span><br><span class="line">writer: changed value to = 3</span><br><span class="line">reader: value of num = 3</span><br><span class="line">writer: changed value to = 4</span><br><span class="line">reader: value of num = 4</span><br><span class="line">writer: changed value to = 5</span><br><span class="line">reader: value of num = 5</span><br></pre></td></tr></tbody></table></figure>
-<p>可以看到输出 reader 可以读到 num 的变化，volatile 指示编译器，这个变量是共享的且不稳定，每次要到主程序中读取。</p>
-<h2 id="禁止指令重排"><a class="markdownIt-Anchor" href="#禁止指令重排"></a> 禁止指令重排</h2>
-<p>一般来说，处理器为了提高程序运行效率，可能会对输入代码进行优化，它不保证程序中各个语句的执行先后顺序同代码中的顺序一致，但是它会保证程序最终执行结果和代码顺序执行的结果是一致的</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;    <span class="comment">//语句1</span></span><br><span class="line"><span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">2</span>;    <span class="comment">//语句2</span></span><br><span class="line">a = a + <span class="number">3</span>;    <span class="comment">//语句3</span></span><br><span class="line">r = a*a;     <span class="comment">//语句4</span></span><br></pre></td></tr></tbody></table></figure>
-<p>这段代码有 4 个语句，那么可能的一个执行顺序是：<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.0/reorder.jpg" alt=""><br>
-但是执行顺序不可能是：语句 2 - 语句 1 - 语句 4 - 语句 3。因为处理器在进行重排序时是会考虑指令之间的数据依赖性，如果一个指令 Instruction 2 必须用到 Instruction 1 的结果，那么处理器会保证 Instruction 1 会在 Instruction 2 之前执行。</p>
-<p>虽然重排不影响单线程内程序执行结果，但是多线程中会有影响</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//线程1:</span></span><br><span class="line">context = loadContext();   <span class="comment">//语句1</span></span><br><span class="line">inited = <span class="literal">true</span>;             <span class="comment">//语句2</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//线程2:</span></span><br><span class="line"><span class="keyword">while</span>(!inited ){</span><br><span class="line">  sleep()</span><br><span class="line">}</span><br><span class="line">doSomethingwithconfig(context);</span><br></pre></td></tr></tbody></table></figure>
-<p>上面代码中，由于语句 1 和语句 2 没有数据依赖性，因此可能会被重排序。假如发生了重排序，在线程 1 执行过程中先执行语句 2，而此是线程 2 会以为初始化工作已经完成，那么就会跳出 while 循环，去执行 doSomethingwithconfig (context) 方法，而此时 context 并没有被初始化，就会导致程序出错。</p>
-<blockquote>
-<p>在 Java 中，volatile 关键字除了可以保证变量的可见性，还有一个重要的作用就是防止 JVM 的指令重排序。如果我们将变量声明为 volatile，在对这个变量进行读写操作的时候，会通过插入特定的内存屏障的方式来禁止指令重排序。</p>
-</blockquote>
-<h1 id="volatile不保证原子性"><a class="markdownIt-Anchor" href="#volatile不保证原子性"></a> volatile 不保证原子性</h1>
-<p>volatile 关键字保证变量的可见性，但是不保证对变量操作是原子性。</p>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException {</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++){</span><br><span class="line">            threadPool.execute(()-&gt;{</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++){</span><br><span class="line">                    num++;</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<p>以上代码按照预期应该是输出 2500，然而实际的输出结果不一定是 2500，比如 2136。<br>
-这是因为 <code>num++</code> 不是原子性的，其包含三步</p>
-<ul>
-<li>读取 num 的值。</li>
-<li>对 num 加 1。</li>
-<li>将 num 的值写回内存。</li>
-</ul>
-<p>改进也很简单，使用 <code>synchronized</code>、<code>Lock</code> 或者 <code>JUC</code> 即可。</p>
-<h2 id="synchronized"><a class="markdownIt-Anchor" href="#synchronized"></a> synchronized</h2>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>{</span><br><span class="line">        num++;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException {</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++){</span><br><span class="line">            threadPool.execute(()-&gt;{</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++){</span><br><span class="line">                    demo.increase();</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="juc"><a class="markdownIt-Anchor" href="#juc"></a> JUC</h2>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">AtomicInteger</span> <span class="variable">num</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>{</span><br><span class="line">        num.getAndIncrement();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException {</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++){</span><br><span class="line">            threadPool.execute(()-&gt;{</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++){</span><br><span class="line">                    demo.increase();</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="lock"><a class="markdownIt-Anchor" href="#lock"></a> Lock</h2>
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">Lock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>{</span><br><span class="line">        lock.lock();</span><br><span class="line">        num++;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException {</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++){</span><br><span class="line">            threadPool.execute(()-&gt;{</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++){</span><br><span class="line">                    demo.increase();</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-<h1 id="java和cc中volatile的区别"><a class="markdownIt-Anchor" href="#java和cc中volatile的区别"></a> Java 和 C/C++ 中 volatile 的区别</h1>
-<p>Java 和 C/C++ 中的 volatile 关键字不一样，在 java 中 volatile 告诉编译器变量不能缓存该值，需要到主存中去读取</p>
-<p>C/C++ 中，开发嵌入式设备需要 volatile，需要读取和写入内存映射的硬件设备，其值可能随时变化，所以用 volatile 告诉编译器不要将其优化。</p>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p><a href="https://www.baeldung.com/java-volatile">Guide to the Volatile Keyword in Java</a></p>
-<p><a href="https://www.cnblogs.com/dolphin0520/p/3920373.html">Java 并发编程：volatile 关键字解析</a></p>
-<p><a href="https://www.geeksforgeeks.org/volatile-keyword-in-java/">volatile Keyword in Java</a></p>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>并发</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python 实现依赖注入</title>
     <url>/2022/12/15/python-dependency-injection/</url>
     <content><![CDATA[<blockquote>
@@ -4639,6 +4564,81 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path></svg></span></span></span><span 
       </tags>
   </entry>
   <entry>
+    <title>java-volatile</title>
+    <url>/2022/12/05/java-volatile/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《千の刃濤、桃花染の皇姫》</p>
+</blockquote>
+<blockquote>
+<p>在同步执行不重要的时候，编译器、运行时刻和处理器会进行一些优化，虽然这些优化通常是有益的，但是有时候会有一些微妙的问题<br>
+缓存和指令重排是并发中容易出问题的优化，在 Java 和 JVM 中提供了许多方法来控制内存顺序，volatile 关键字便是其中之一</p>
+</blockquote>
+<h1 id="多处理器结构"><a class="markdownIt-Anchor" href="#多处理器结构"></a> 多处理器结构</h1>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.0/cpu.png" alt=""></p>
+<p>计算机执行程序的时候每条指令都是在 CPU 中执行的，而执行指令过程中，势必涉及到数据的读取和写入。由于程序运行过程中的临时数据是存放在主存（物理内存）当中的，这时就存在一个问题，由于 CPU 执行速度很快，而从内存读取数据和向内存写入数据的过程跟 CPU 执行指令的速度比起来要慢的多，因此如果任何时候对数据的操作都要通过和内存的交互来进行，会大大降低指令执行的速度。因此在 CPU 里面就有了高速缓存。</p>
+<p>当程序在运行过程中，会将运算需要的数据从主存复制一份到 CPU 的高速缓存当中，那么 CPU 进行计算时就可以直接从它的高速缓存读取数据和向其中写入数据，当运算结束之后，再将高速缓存中的数据刷新到主存当中。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">SharedObj</span></span><br><span class="line">{</span><br><span class="line">   <span class="comment">// Changes made to sharedVar in one thread</span></span><br><span class="line">   <span class="comment">// may not immediately reflect in other thread</span></span><br><span class="line">   <span class="keyword">static</span> <span class="type">int</span> <span class="variable">sharedVar</span> <span class="operator">=</span> <span class="number">6</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>举个例子，假设有两个线程使用 <code>SharedObj</code>，如果两个线程运行在两个不同的处理器上（如下图所示），那么每个线程有一份本地的 <code>sharedVariable</code> 缓存。如果其中一个线程改变其变量，可能不会马上反映到主线程中，另一个线程不会注意到数据改变了，导致了数据的不一致。关于缓存一致性可以读<a href="https://en.wikipedia.org/wiki/Cache_coherence">这篇</a></p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.0/shared-memory.png" alt=""></p>
+<h1 id="volatile作用"><a class="markdownIt-Anchor" href="#volatile作用"></a> volatile 作用</h1>
+<h2 id="内存可见性"><a class="markdownIt-Anchor" href="#内存可见性"></a> 内存可见性</h2>
+<p>可见性问题主要指一个线程修改了共享变量值，而另一个线程却看不到。引起可见性问题的主要原因是每个线程拥有自己的一个高速缓存区 —— 线程工作内存。volatile 关键字能有效的解决这个问题。</p>
+<p>让我们来看下面这个例子</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> num;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> {</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">readerThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; {</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (<span class="literal">true</span>) {</span><br><span class="line">                <span class="keyword">if</span> (temp != num) {</span><br><span class="line">                    temp = num;</span><br><span class="line">                    System.out.println(<span class="string">"reader: value of num = "</span> + num);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        });</span><br><span class="line"></span><br><span class="line">        <span class="type">Thread</span> <span class="variable">writerThread</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; {</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) {</span><br><span class="line">                num++;</span><br><span class="line">                System.out.println(<span class="string">"writer: changed value to = "</span> + num);</span><br><span class="line">                <span class="keyword">try</span> {</span><br><span class="line">                    Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">                } <span class="keyword">catch</span> (InterruptedException e) {</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 退出程序，否则readerThread会一直等</span></span><br><span class="line">            System.exit(<span class="number">0</span>);</span><br><span class="line">        });</span><br><span class="line"></span><br><span class="line">        readerThread.start();</span><br><span class="line">        writerThread.start();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>输出如下</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">reader: value of num = 1</span><br><span class="line">writer: changed value to = 1</span><br><span class="line">writer: changed value to = 2</span><br><span class="line">writer: changed value to = 3</span><br><span class="line">writer: changed value to = 4</span><br><span class="line">writer: changed value to = 5</span><br></pre></td></tr></tbody></table></figure>
+<p>没加 volatile 的时候 reader 只读到 0-1 的变化。</p>
+<p>接下来修改代码</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> num;</span><br></pre></td></tr></tbody></table></figure>
+<p>输出如下</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">writer: changed value to = 1</span><br><span class="line">reader: value of num = 1</span><br><span class="line">writer: changed value to = 2</span><br><span class="line">reader: value of num = 2</span><br><span class="line">writer: changed value to = 3</span><br><span class="line">reader: value of num = 3</span><br><span class="line">writer: changed value to = 4</span><br><span class="line">reader: value of num = 4</span><br><span class="line">writer: changed value to = 5</span><br><span class="line">reader: value of num = 5</span><br></pre></td></tr></tbody></table></figure>
+<p>可以看到输出 reader 可以读到 num 的变化，volatile 指示编译器，这个变量是共享的且不稳定，每次要到主程序中读取。</p>
+<h2 id="禁止指令重排"><a class="markdownIt-Anchor" href="#禁止指令重排"></a> 禁止指令重排</h2>
+<p>一般来说，处理器为了提高程序运行效率，可能会对输入代码进行优化，它不保证程序中各个语句的执行先后顺序同代码中的顺序一致，但是它会保证程序最终执行结果和代码顺序执行的结果是一致的</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">a</span> <span class="operator">=</span> <span class="number">10</span>;    <span class="comment">//语句1</span></span><br><span class="line"><span class="type">int</span> <span class="variable">r</span> <span class="operator">=</span> <span class="number">2</span>;    <span class="comment">//语句2</span></span><br><span class="line">a = a + <span class="number">3</span>;    <span class="comment">//语句3</span></span><br><span class="line">r = a*a;     <span class="comment">//语句4</span></span><br></pre></td></tr></tbody></table></figure>
+<p>这段代码有 4 个语句，那么可能的一个执行顺序是：<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.0/reorder.jpg" alt=""><br>
+但是执行顺序不可能是：语句 2 - 语句 1 - 语句 4 - 语句 3。因为处理器在进行重排序时是会考虑指令之间的数据依赖性，如果一个指令 Instruction 2 必须用到 Instruction 1 的结果，那么处理器会保证 Instruction 1 会在 Instruction 2 之前执行。</p>
+<p>虽然重排不影响单线程内程序执行结果，但是多线程中会有影响</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">//线程1:</span></span><br><span class="line">context = loadContext();   <span class="comment">//语句1</span></span><br><span class="line">inited = <span class="literal">true</span>;             <span class="comment">//语句2</span></span><br><span class="line"> </span><br><span class="line"><span class="comment">//线程2:</span></span><br><span class="line"><span class="keyword">while</span>(!inited ){</span><br><span class="line">  sleep()</span><br><span class="line">}</span><br><span class="line">doSomethingwithconfig(context);</span><br></pre></td></tr></tbody></table></figure>
+<p>上面代码中，由于语句 1 和语句 2 没有数据依赖性，因此可能会被重排序。假如发生了重排序，在线程 1 执行过程中先执行语句 2，而此是线程 2 会以为初始化工作已经完成，那么就会跳出 while 循环，去执行 doSomethingwithconfig (context) 方法，而此时 context 并没有被初始化，就会导致程序出错。</p>
+<blockquote>
+<p>在 Java 中，volatile 关键字除了可以保证变量的可见性，还有一个重要的作用就是防止 JVM 的指令重排序。如果我们将变量声明为 volatile，在对这个变量进行读写操作的时候，会通过插入特定的内存屏障的方式来禁止指令重排序。</p>
+</blockquote>
+<h1 id="volatile不保证原子性"><a class="markdownIt-Anchor" href="#volatile不保证原子性"></a> volatile 不保证原子性</h1>
+<p>volatile 关键字保证变量的可见性，但是不保证对变量操作是原子性。</p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException {</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++){</span><br><span class="line">            threadPool.execute(()-&gt;{</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++){</span><br><span class="line">                    num++;</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>以上代码按照预期应该是输出 2500，然而实际的输出结果不一定是 2500，比如 2136。<br>
+这是因为 <code>num++</code> 不是原子性的，其包含三步</p>
+<ul>
+<li>读取 num 的值。</li>
+<li>对 num 加 1。</li>
+<li>将 num 的值写回内存。</li>
+</ul>
+<p>改进也很简单，使用 <code>synchronized</code>、<code>Lock</code> 或者 <code>JUC</code> 即可。</p>
+<h2 id="synchronized"><a class="markdownIt-Anchor" href="#synchronized"></a> synchronized</h2>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">volatile</span> <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>{</span><br><span class="line">        num++;</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException {</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++){</span><br><span class="line">            threadPool.execute(()-&gt;{</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++){</span><br><span class="line">                    demo.increase();</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="juc"><a class="markdownIt-Anchor" href="#juc"></a> JUC</h2>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">AtomicInteger</span> <span class="variable">num</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>{</span><br><span class="line">        num.getAndIncrement();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException {</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++){</span><br><span class="line">            threadPool.execute(()-&gt;{</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++){</span><br><span class="line">                    demo.increase();</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="lock"><a class="markdownIt-Anchor" href="#lock"></a> Lock</h2>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Demo</span> {</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="type">Lock</span> <span class="variable">lock</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ReentrantLock</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">increase</span><span class="params">()</span>{</span><br><span class="line">        lock.lock();</span><br><span class="line">        num++;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException {</span><br><span class="line">        <span class="type">ExecutorService</span> <span class="variable">threadPool</span> <span class="operator">=</span> Executors.newFixedThreadPool(<span class="number">5</span>);</span><br><span class="line">        <span class="type">Demo</span> <span class="variable">demo</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Demo</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++){</span><br><span class="line">            threadPool.execute(()-&gt;{</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">500</span>;j++){</span><br><span class="line">                    demo.increase();</span><br><span class="line">                }</span><br><span class="line">            });</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 等5秒保证执行完上面代码</span></span><br><span class="line">        Thread.sleep(<span class="number">5000</span>);</span><br><span class="line">        System.out.println(num);</span><br><span class="line">        threadPool.shutdown();</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="java和cc中volatile的区别"><a class="markdownIt-Anchor" href="#java和cc中volatile的区别"></a> Java 和 C/C++ 中 volatile 的区别</h1>
+<p>Java 和 C/C++ 中的 volatile 关键字不一样，在 java 中 volatile 告诉编译器变量不能缓存该值，需要到主存中去读取</p>
+<p>C/C++ 中，开发嵌入式设备需要 volatile，需要读取和写入内存映射的硬件设备，其值可能随时变化，所以用 volatile 告诉编译器不要将其优化。</p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p><a href="https://www.baeldung.com/java-volatile">Guide to the Volatile Keyword in Java</a></p>
+<p><a href="https://www.cnblogs.com/dolphin0520/p/3920373.html">Java 并发编程：volatile 关键字解析</a></p>
+<p><a href="https://www.geeksforgeeks.org/volatile-keyword-in-java/">volatile Keyword in Java</a></p>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>并发</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js 检测开发者工具是否打开</title>
     <url>/2023/01/26/js-check-devtool/</url>
     <content><![CDATA[<blockquote>
@@ -4692,50 +4692,6 @@ s-65,47,-65,47z M834 80H400000v40H845z"></path></svg></span></span></span><span 
         <tag>爬虫</tag>
         <tag>javascript</tag>
         <tag>web</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>崩坏 3rd 2023 新年礼盒开箱</title>
-    <url>/2023/02/08/honkai-gift-box-2023/</url>
-    <content><![CDATA[<blockquote>
-<p>mihoyo 旗舰店买的崩坏 3rd 2023 年新年礼盒，包含活页本、虚三家亚克力立牌、春联、贺卡、红包套装和微信红包封面兑换卡。</p>
-</blockquote>
-<blockquote>
-<p>封面来自淘宝商品界面</p>
-</blockquote>
-<h1 id="礼盒主题"><a class="markdownIt-Anchor" href="#礼盒主题"></a> 礼盒主题</h1>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/front.jpg" alt="正面"><br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/back.jpg" alt="反面"></p>
-<h1 id="第一层"><a class="markdownIt-Anchor" href="#第一层"></a> 第一层</h1>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/first.jpg" alt="第一层"></p>
-<h2 id="红包包装"><a class="markdownIt-Anchor" href="#红包包装"></a> 红包包装</h2>
-<p>御三家的红包封面都挺好看的。<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_153527.jpg" alt="红包"><br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_163940.jpg" alt="微信红包兑换卡"></p>
-<h2 id="春联"><a class="markdownIt-Anchor" href="#春联"></a> 春联</h2>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/couplets.jpg" alt="春联"></p>
-<h2 id="活页本"><a class="markdownIt-Anchor" href="#活页本"></a> 活页本</h2>
-<p>里面也是封面御三家<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154046.jpg" alt="活页本"><br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/kiana.jpg" alt="琪亚娜"><br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/mei.jpg" alt="芽衣"><br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/bronya.jpg" alt="板鸭"></p>
-<h1 id="第二层"><a class="markdownIt-Anchor" href="#第二层"></a> 第二层</h1>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/second.jpg" alt="第二层"></p>
-<h2 id="贺卡"><a class="markdownIt-Anchor" href="#贺卡"></a> 贺卡</h2>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154254.jpg" alt=""><br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154305.jpg" alt=""></p>
-<h2 id="亚克力立牌"><a class="markdownIt-Anchor" href="#亚克力立牌"></a> 亚克力立牌</h2>
-<p>这个亚克力立牌应该是礼盒里我最喜欢的，底座可以合并也可以分开<br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_163940.jpg" alt=""><br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154615.jpg" alt=""><br>
-<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154634.jpg" alt=""></p>
-]]></content>
-      <categories>
-        <category>生活</category>
-      </categories>
-      <tags>
-        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -4925,6 +4881,50 @@ SegResNet 的网络结构如上图所示，采用 CNN 的 encoder-decoder 结构
       </categories>
       <tags>
         <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>崩坏 3rd 2023 新年礼盒开箱</title>
+    <url>/2023/02/08/honkai-gift-box-2023/</url>
+    <content><![CDATA[<blockquote>
+<p>mihoyo 旗舰店买的崩坏 3rd 2023 年新年礼盒，包含活页本、虚三家亚克力立牌、春联、贺卡、红包套装和微信红包封面兑换卡。</p>
+</blockquote>
+<blockquote>
+<p>封面来自淘宝商品界面</p>
+</blockquote>
+<h1 id="礼盒主题"><a class="markdownIt-Anchor" href="#礼盒主题"></a> 礼盒主题</h1>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/front.jpg" alt="正面"><br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/back.jpg" alt="反面"></p>
+<h1 id="第一层"><a class="markdownIt-Anchor" href="#第一层"></a> 第一层</h1>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/first.jpg" alt="第一层"></p>
+<h2 id="红包包装"><a class="markdownIt-Anchor" href="#红包包装"></a> 红包包装</h2>
+<p>御三家的红包封面都挺好看的。<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_153527.jpg" alt="红包"><br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_163940.jpg" alt="微信红包兑换卡"></p>
+<h2 id="春联"><a class="markdownIt-Anchor" href="#春联"></a> 春联</h2>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/couplets.jpg" alt="春联"></p>
+<h2 id="活页本"><a class="markdownIt-Anchor" href="#活页本"></a> 活页本</h2>
+<p>里面也是封面御三家<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154046.jpg" alt="活页本"><br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/kiana.jpg" alt="琪亚娜"><br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/mei.jpg" alt="芽衣"><br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/bronya.jpg" alt="板鸭"></p>
+<h1 id="第二层"><a class="markdownIt-Anchor" href="#第二层"></a> 第二层</h1>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/second.jpg" alt="第二层"></p>
+<h2 id="贺卡"><a class="markdownIt-Anchor" href="#贺卡"></a> 贺卡</h2>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154254.jpg" alt=""><br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154305.jpg" alt=""></p>
+<h2 id="亚克力立牌"><a class="markdownIt-Anchor" href="#亚克力立牌"></a> 亚克力立牌</h2>
+<p>这个亚克力立牌应该是礼盒里我最喜欢的，底座可以合并也可以分开<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_163940.jpg" alt=""><br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154615.jpg" alt=""><br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.5.3/IMG_20230206_154634.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
       </tags>
   </entry>
   <entry>
@@ -5811,6 +5811,48 @@ demo: <a href="https://huggingface.co/spaces/qxdn/tts-9nine">demo</a><br>
       </tags>
   </entry>
   <entry>
+    <title>escu:de 的一点破解记录回顾</title>
+    <url>/escude-hack/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《イノセントガール》</p>
+</blockquote>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>因为前年的时候想要机翻《彼女は高天に祈らない》这部作品，就试着进行拆包。但是发现常用拆包软件如 Garbro、KrkrExtract 等一些常见拆包封包工具都只能拆第一层包，没法继续拆其中的文本，其他音声什么倒是可以。考虑到当时资料比较少，同时为了防止自己再次忘记，因此记录一下之前的拆包流程。</p>
+<h1 id="前期工作"><a class="markdownIt-Anchor" href="#前期工作"></a> 前期工作</h1>
+<p>以《彼女は高天に祈らない》为例，打开游戏目录，可以看到如下文件：</p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/dirs.png" alt="游戏目录"></p>
+<p>其中 <code>bg.bin</code> 为一些背景图，<code>gfx.bin</code> 里面主要为立绘、差分表情、CG 等，<code>se.bin</code> 为音效，<code>kanosora.bin</code> 主要为游戏内的一些战斗系统程序，<code>kanosora.cfg</code> 为游戏的启动配置，<code>kanosora.exe</code> 为启动游戏，<code>opening.mpg</code> 和 <code>opening_hd.mpg</code> 为 op 动画。<code>script.bin</code> 为游戏文本。<code>snd.bin</code> 为一些游戏背景音，<code>voice.bin</code> 为游戏角色语音。</p>
+<p>其中除了 <code>scripts.bin</code> 其他都只有一层压缩，可以直接用 Garbro 等软件拆包。而 <code>scripts.bin</code> 为拆开如下图所示，内部还有一层压缩，需要进一步处理。且 Grabro 没有对 escu:de 老游戏有封包，因此了解如何进行拆包封包还是有必要的。</p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/script_bin.png" alt="scripts.bin"></p>
+<h1 id="拆包"><a class="markdownIt-Anchor" href="#拆包"></a> 拆包</h1>
+<h2 id="文本第一层拆包"><a class="markdownIt-Anchor" href="#文本第一层拆包"></a> 文本第一层拆包</h2>
+<p>用 hex 编辑器打开 <code>scripts.bin</code>，这里推荐能看日文的，我用的是 010 editor，像 vscode 的 hex editor 这种插件不支持其他语言不容易破解，可以看到如下图所示：</p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/hex_script_bin.png" alt="hex"></p>
+<p>查询文件开头的 magic number ESC-ARC2，可以通过 google 或者 github 搜索。可以找到 asmodean 大佬的破解文档，<a href="http://asmodean.reverse.net/pages/exescarc.html">asmodean’s reverse engineering page</a>。这里有详细的解释，可以看一下。也可以看到 Crass-source 提供的格式说明。</p>
+<figure class="highlight txt"><table><tbody><tr><td class="code"><pre><span class="line">ESC-ARC2格式：</span><br><span class="line">    首部：</span><br><span class="line">		s8 magic[8];		// "ESC-ARC2"</span><br><span class="line">		u32 key;		// 解密entries和索引段用的key</span><br><span class="line">		u32 entries;		// 资源文件数</span><br><span class="line">		u32 name_table_length;	// 资源文件名称表的长度</span><br><span class="line"> 	索引段：</span><br><span class="line">		u32 name_offset;	// 资源文件名在资源文件名称表内的偏移值</span><br><span class="line">		u32 offset;		// 资源文件数据偏移（从首部算起）</span><br><span class="line">		u32 length;		// 资源文件数据长度</span><br><span class="line">	资源文件名称表：</span><br><span class="line">		每个名称以NULL作分隔。</span><br><span class="line">	数据：</span><br><span class="line">		紧接在索引段之后：</span><br><span class="line"></span><br><span class="line">	    	首部：</span><br><span class="line">			s8 magic[4];	// "acp"</span><br><span class="line">			u32 uncomprlen;	// lzw解压缩后的数据长度</span><br><span class="line">		数据：</span><br><span class="line">			紧接在首部之后；lzw code stream压缩码字流（位数据流）。	</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="文本第二层拆包"><a class="markdownIt-Anchor" href="#文本第二层拆包"></a> 文本第二层拆包</h2>
+<p>解压缩后我们可以得到各个章节的文本，此处我们打开解码得到的 <code>a_prol01_1.bin</code>，可以看到如下图所示。这个时候换成日文编码就可以看到相对应的文本了。</p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/a_prol01_1_bin1.png" alt="a_prol01_1.bin"></p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/a_prol01_1_bin2.png" alt="a_prol01_1.bin"></p>
+<p>这部分的拆包封包可以参考 <a href="https://github.com/marcussacana/EscudeEditor">EscudeEditor</a> 的实现。大佬的博客原本有对其进行说明，现在没了，但其实看代码也能了解如何解码的。</p>
+<h2 id="战斗"><a class="markdownIt-Anchor" href="#战斗"></a> 战斗</h2>
+<p>最后的战斗系统文本主要在 <code>kanosora.bin</code> 中的 <code>game_data.bin</code> 中，这部分我不太会拆也没找到有人拆包。只能先放弃。</p>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<p>这篇文章主要是为我记录一下之前的拆包流程，方便我后续重启项目的时候快速回顾</p>
+<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
+<p><a href="http://asmodean.reverse.net/pages/exescarc.html">asmodean’s reverse engineering page</a></p>
+<p><a href="https://github.com/shangjiaxuan/Crass-source/blob/4aff113b98fc39fb85f64501ab47c580df779a3d/crass-0.4.14.1/documentation/cn/ESCARC.txt#L12">Crass-source ESCARX.txt</a></p>
+<p><a href="https://github.com/marcussacana/EscudeEditor">EscudeEditor</a></p>
+]]></content>
+      <categories>
+        <category>破解</category>
+      </categories>
+      <tags>
+        <tag>破解</tag>
+        <tag>escu:de</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ssh 添加登录 banner</title>
     <url>/ssh-banner/</url>
     <content><![CDATA[<blockquote>
@@ -5860,48 +5902,6 @@ demo: <a href="https://huggingface.co/spaces/qxdn/tts-9nine">demo</a><br>
       </categories>
       <tags>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>escu:de 的一点破解记录回顾</title>
-    <url>/escude-hack/</url>
-    <content><![CDATA[<blockquote>
-<p>封面《イノセントガール》</p>
-</blockquote>
-<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p>因为前年的时候想要机翻《彼女は高天に祈らない》这部作品，就试着进行拆包。但是发现常用拆包软件如 Garbro、KrkrExtract 等一些常见拆包封包工具都只能拆第一层包，没法继续拆其中的文本，其他音声什么倒是可以。考虑到当时资料比较少，同时为了防止自己再次忘记，因此记录一下之前的拆包流程。</p>
-<h1 id="前期工作"><a class="markdownIt-Anchor" href="#前期工作"></a> 前期工作</h1>
-<p>以《彼女は高天に祈らない》为例，打开游戏目录，可以看到如下文件：</p>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/dirs.png" alt="游戏目录"></p>
-<p>其中 <code>bg.bin</code> 为一些背景图，<code>gfx.bin</code> 里面主要为立绘、差分表情、CG 等，<code>se.bin</code> 为音效，<code>kanosora.bin</code> 主要为游戏内的一些战斗系统程序，<code>kanosora.cfg</code> 为游戏的启动配置，<code>kanosora.exe</code> 为启动游戏，<code>opening.mpg</code> 和 <code>opening_hd.mpg</code> 为 op 动画。<code>script.bin</code> 为游戏文本。<code>snd.bin</code> 为一些游戏背景音，<code>voice.bin</code> 为游戏角色语音。</p>
-<p>其中除了 <code>scripts.bin</code> 其他都只有一层压缩，可以直接用 Garbro 等软件拆包。而 <code>scripts.bin</code> 为拆开如下图所示，内部还有一层压缩，需要进一步处理。且 Grabro 没有对 escu:de 老游戏有封包，因此了解如何进行拆包封包还是有必要的。</p>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/script_bin.png" alt="scripts.bin"></p>
-<h1 id="拆包"><a class="markdownIt-Anchor" href="#拆包"></a> 拆包</h1>
-<h2 id="文本第一层拆包"><a class="markdownIt-Anchor" href="#文本第一层拆包"></a> 文本第一层拆包</h2>
-<p>用 hex 编辑器打开 <code>scripts.bin</code>，这里推荐能看日文的，我用的是 010 editor，像 vscode 的 hex editor 这种插件不支持其他语言不容易破解，可以看到如下图所示：</p>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/hex_script_bin.png" alt="hex"></p>
-<p>查询文件开头的 magic number ESC-ARC2，可以通过 google 或者 github 搜索。可以找到 asmodean 大佬的破解文档，<a href="http://asmodean.reverse.net/pages/exescarc.html">asmodean’s reverse engineering page</a>。这里有详细的解释，可以看一下。也可以看到 Crass-source 提供的格式说明。</p>
-<figure class="highlight txt"><table><tbody><tr><td class="code"><pre><span class="line">ESC-ARC2格式：</span><br><span class="line">    首部：</span><br><span class="line">		s8 magic[8];		// "ESC-ARC2"</span><br><span class="line">		u32 key;		// 解密entries和索引段用的key</span><br><span class="line">		u32 entries;		// 资源文件数</span><br><span class="line">		u32 name_table_length;	// 资源文件名称表的长度</span><br><span class="line"> 	索引段：</span><br><span class="line">		u32 name_offset;	// 资源文件名在资源文件名称表内的偏移值</span><br><span class="line">		u32 offset;		// 资源文件数据偏移（从首部算起）</span><br><span class="line">		u32 length;		// 资源文件数据长度</span><br><span class="line">	资源文件名称表：</span><br><span class="line">		每个名称以NULL作分隔。</span><br><span class="line">	数据：</span><br><span class="line">		紧接在索引段之后：</span><br><span class="line"></span><br><span class="line">	    	首部：</span><br><span class="line">			s8 magic[4];	// "acp"</span><br><span class="line">			u32 uncomprlen;	// lzw解压缩后的数据长度</span><br><span class="line">		数据：</span><br><span class="line">			紧接在首部之后；lzw code stream压缩码字流（位数据流）。	</span><br></pre></td></tr></tbody></table></figure>
-<h2 id="文本第二层拆包"><a class="markdownIt-Anchor" href="#文本第二层拆包"></a> 文本第二层拆包</h2>
-<p>解压缩后我们可以得到各个章节的文本，此处我们打开解码得到的 <code>a_prol01_1.bin</code>，可以看到如下图所示。这个时候换成日文编码就可以看到相对应的文本了。</p>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/a_prol01_1_bin1.png" alt="a_prol01_1.bin"></p>
-<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.0/a_prol01_1_bin2.png" alt="a_prol01_1.bin"></p>
-<p>这部分的拆包封包可以参考 <a href="https://github.com/marcussacana/EscudeEditor">EscudeEditor</a> 的实现。大佬的博客原本有对其进行说明，现在没了，但其实看代码也能了解如何解码的。</p>
-<h2 id="战斗"><a class="markdownIt-Anchor" href="#战斗"></a> 战斗</h2>
-<p>最后的战斗系统文本主要在 <code>kanosora.bin</code> 中的 <code>game_data.bin</code> 中，这部分我不太会拆也没找到有人拆包。只能先放弃。</p>
-<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
-<p>这篇文章主要是为我记录一下之前的拆包流程，方便我后续重启项目的时候快速回顾</p>
-<h1 id="参考文献"><a class="markdownIt-Anchor" href="#参考文献"></a> 参考文献</h1>
-<p><a href="http://asmodean.reverse.net/pages/exescarc.html">asmodean’s reverse engineering page</a></p>
-<p><a href="https://github.com/shangjiaxuan/Crass-source/blob/4aff113b98fc39fb85f64501ab47c580df779a3d/crass-0.4.14.1/documentation/cn/ESCARC.txt#L12">Crass-source ESCARX.txt</a></p>
-<p><a href="https://github.com/marcussacana/EscudeEditor">EscudeEditor</a></p>
-]]></content>
-      <categories>
-        <category>破解</category>
-      </categories>
-      <tags>
-        <tag>破解</tag>
-        <tag>escu:de</tag>
       </tags>
   </entry>
   <entry>
@@ -7285,6 +7285,113 @@ AT 与 XA 的区别在于，XA 是基于数据库二阶段协议实现的，而 
       <tags>
         <tag>计息</tag>
         <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>B + 树和 LSM 树</title>
+    <url>/bplustree-and-lsm/</url>
+    <content><![CDATA[<blockquote>
+<p>封面《魔法少女ノ魔女裁判》</p>
+</blockquote>
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>因为公司里使用的是 <code>OceanBase</code> 数据库，其 DB 结构是 LSM 树，因此来记录一下 B + 树和 LSM 树的相关知识</p>
+<h1 id="b树"><a class="markdownIt-Anchor" href="#b树"></a> B + 树</h1>
+<p>在 MySQL 这种数据库以及文件系统中，大多使用 B + 树做为索引结构，B + 树是 B 树的变种，B 树是一种平衡多路查找树，B + 树在 B 树的基础上做了改进。因在介绍 B + 树之前先简单的介绍一下 B 树</p>
+<h2 id="b树-2"><a class="markdownIt-Anchor" href="#b树-2"></a> B 树</h2>
+<p>B - 树是一种多路平衡查找树，属于自平衡树结构。它与二叉搜索树（BST）类似，但每个节点可以拥有多个子节点和多个键值，从而降低树的高度，提升查找效率。因为在文件和数据库中，每次从磁盘读取数据的开销较大，而 B 树通过减少树的高度，降低了磁盘 I/O 操作的次数，从而提高了数据访问速度。</p>
+<p>一颗 B 树需要满足以下性质：</p>
+<ul>
+<li>每个节点最多有 N 个子节点（N 为阶数）</li>
+<li>每个节点最多包含 N - 1 个键</li>
+<li>每个节点（除根节点）至少包含 ⌈N/2⌉ - 1 个键</li>
+<li>所有叶子节点位于同一层</li>
+<li>根节点至少有两个子节点（除非它是叶子节点）</li>
+</ul>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.8/BTree.png" alt="B-Tree"></p>
+<p>一个 B 树的查询如下所示，图来自<a href="https://www.cnblogs.com/ljbguanli/p/19035471">深入解析：B - 树与 B + 树</a></p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.8/BTreeSearch.png" alt="B-Tree Search"></p>
+<p>在读取磁盘内容时，通常会以块（block）为单位进行读取，而 B 树的设计使得每个节点可以存储多个键和子节点，从而减少了树的高度。这意味着在查找过程中，所需的磁盘 I/O 操作次数减少，从而提高了数据访问速度。在查询 28 的时候会有以下三次 I/O 查询</p>
+<ul>
+<li>第一次 IO，首先加载磁盘块 1， 28&gt;16 ，28&lt;34 ，找到磁盘块 1 → p2</li>
+<li> 第二次 IO，加载磁盘块 3，28&gt;25 ，28&lt;31 ，找到磁盘块 2 → p2</li>
+<li> 第三次 IO，加载磁盘块 8， 28=28</li>
+</ul>
+<h2 id="b树-3"><a class="markdownIt-Anchor" href="#b树-3"></a> B + 树</h2>
+<p>B 树虽然已经很适合做为数据库索引结构，但还是有着以下缺点</p>
+<ul>
+<li>非叶子节点存储数据：非叶子节点存储数据，每个磁盘页能存储的数据量减少，导致树的高度增加，查询效率降低</li>
+<li>范围查询效率低：由于叶子节点之间没有指针连接，范围查询需要多次从根节点重新查询</li>
+<li>查询不稳定： 由于数据分布不均匀，部分数据可能在根节点只需要查询一次，部分数据在叶子节点需要最长查询链路。查询路径长度不一致，查询耗时差异大</li>
+</ul>
+<p>因此 B + 树对 B 树做了以下改进，以提升磁盘 I/O 效率</p>
+<ul>
+<li>非叶子节点只存索引数据，所有数据都存储在叶子节点： 这样操作可以使得非叶子节点可以存储更多索引，起到降低树高度的作用，提高磁盘利用率。同时由于数据都在叶子节点，查询路径长度一致，查询效率更稳定</li>
+<li>叶子节点组成双向链表： 这样可以提高范围查询的效率，避免多次从根节点重新查询</li>
+</ul>
+<p>一个 B + 树的结构如下所示<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.8/BPlusTree.png" alt="B+ Tree"></p>
+<h1 id="lsm树"><a class="markdownIt-Anchor" href="#lsm树"></a> LSM 树</h1>
+<p>在大量写入的场景下，B + 树的性能会受到影响，因为每次写入都需要进行随机 I/O 操作以保持树的平衡性，导致写入性能下降。为了解决这个问题，LSM 树 (Log-Structured Merge Tree) 被提出，用于优化写入密集型工作负载。</p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.8/ob-lsm.png" alt="OceanBase的LSM树结构"></p>
+<p>LSM 树由两个主要组件组成：内存中的动态增量数据 (MemTable) 和磁盘上的静态基线数据 (Sorted String Table,SSTable)。写入操作首先在内存中进行，数据写入到 MemTable 中，当内存中的数据达到一定阈值时，会将数据批量写入磁盘，形成新的 SSTable 文件。为了保持查询效率，LSM 树会定期将多个 SSTable 文件合并（称为压缩），以减少文件数量并优化查询性能。</p>
+<h2 id="memtable"><a class="markdownIt-Anchor" href="#memtable"></a> MemTable</h2>
+<p>MemTable 是 LSM 树中的内存组件，通常实现为跳表或红黑树。它负责接收和存储写入操作的数据，对其的写入和更新都在内存中进行。当 MemTable 达到预设的大小限制时，整个 MemTable 会被刷新到磁盘，形成一个新的 SSTable</p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.8/memtable.png" alt="OB的MemTable结构 B+树和HashTable实现"></p>
+<h2 id="sstable"><a class="markdownIt-Anchor" href="#sstable"></a> SSTable</h2>
+<p>当 MemTable 达到预设的大小限制时，MemTable 的数据会转储为 SSTable 写入到磁盘当中。写入 SSTable 的数据变不会再变更。</p>
+<h2 id="转储和合并"><a class="markdownIt-Anchor" href="#转储和合并"></a> 转储和合并</h2>
+<p>随着时间的推移，磁盘上会积累多个 SSTable 文件。为了优化查询性能，LSM 树会定期将多个 SSTable 文件合并为一个更大的 SSTable 文件，这个过程称为压缩（Compaction）。压缩过程中，会删除重复的数据和过期的数据，从而减少存储空间的使用，并提高查询效率。以 OceanBase 为例，其采用了 Tiered &amp; Leveled 的 Compaction 策略</p>
+<p><img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.8/tired.png" alt=""></p>
+<h3 id="minicompaction"><a class="markdownIt-Anchor" href="#minicompaction"></a> MiniCompaction</h3>
+<p>当 MemTable 大小超过限制后，会触发 MiniCompaction。MiniCompaction 会将 MemTable 转入 Mini SSTable，并释放内存</p>
+<h3 id="minorcompaction"><a class="markdownIt-Anchor" href="#minorcompaction"></a> MinorCompaction</h3>
+<p>随着数据的写入，Mini SSTable 的数量会逐渐增多，在查询时需要访问的 Mini SSTable 数量就会增多，会影响查询的性能。Minor Compaction 就是将多个 Mini SSTable 合成一个 SSTable，其主要目的是减少 SSTable 的数量</p>
+<ul>
+<li>L0 -&gt; L0 Tiered 类型的 Compaction，系统将若干个 Mini SSTable 合成一个 Mini SSTable，放置于 L0 层<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.8/l0-l0.png" alt=""></li>
+<li>L0 -&gt; L1: Leveld 类型的 Compaction，系统将若干个 Mini SSTable 与 Minor SSTable 合成一个新的 Minor SSTable，放置于 L1 层。<br>
+<img src="https://cdn-js.moeworld.top/gh/qxdn/qxdn-assert@0.7.8/l0-l1.png" alt=""></li>
+</ul>
+<h3 id="majorcompaction"><a class="markdownIt-Anchor" href="#majorcompaction"></a> MajorCompaction</h3>
+<p>当增量数据累积到一定程度的时候，就会将多个转储的数据进行合并，与前面的 Minor Compaction 不同，Major Compaction 会将多个层级的数据进行合并产生全量数据，通常是将较高层级的数据与较低层级的数据进行合并，从而减少数据的冗余，提高查询效率。</p>
+<h3 id="查询"><a class="markdownIt-Anchor" href="#查询"></a> 查询</h3>
+<p>LSM 树的查询过程相对复杂，因为数据分布在内存中的 MemTable 和多个磁盘上的 SSTable 文件中。查询操作首先会在 MemTable 中查找数据，如果未找到，则依次在 SSTable 文件中进行查找，最后将查询结果合并返回。为了提高查询效率，LSM 树通常会维护一个布隆过滤器 (Bloom Filter) 来快速判断某个键是否存在于某个 SSTable 中，从而减少不必要的磁盘操作</p>
+<h1 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h1>
+<ul>
+<li>LSM 树：
+<ul>
+<li>内存中数据读写极快</li>
+<li>追加写入特性使得写入性能优异，适合写入密集型场景。如日志、流水型数据</li>
+<li>追加写入数据使得顺序读写能力优秀，但是随机读写性能较差</li>
+<li>转储合并的过程看可能会影响数据操作，需要合理配置合并触发时间</li>
+<li>写放大问题，因为转储合并机制原因。写入的数据量可能远大于实际写入的数据量</li>
+</ul>
+</li>
+<li> B + 树：
+<ul>
+<li>适合读多写少的场景，读性能优异</li>
+<li>单次写入开销稳定可预测</li>
+<li>随机 I/O，写入性能受限于磁盘寻道时间</li>
+</ul>
+</li>
+</ul>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/B%E6%A0%91">B 树</a></li>
+<li><a href="https://www.baeldung-cn.com/cs/b-tree-data-structure">B - 树数据结构详解</a></li>
+<li><a href="https://www.cnblogs.com/ljbguanli/p/19035471">深入解析：B - 树与 B + 树</a></li>
+<li><a href="https://caffcen.github.io/archive/10_b+tree/">深入理解 B+ Tree</a></li>
+<li><a href="https://www.ryanchan.top/archives/efficient-writes-lsm-trees-data-storage">写入密集场景的利器：LSM 树的数据存储技术解析</a></li>
+<li><a href="https://www.oceanbase.com/docs/common-oceanbase-database-cn-1000000003977231">OceanBase 存储架构概述</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/181498475">LSM 树详解</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>数据库</tag>
       </tags>
   </entry>
 </search>
